@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'Barlow ExtraBold';
+  src: url('~/assets/fonts/Barlow-ExtraBold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 800; /* extra bold */
+}
+
+@font-face {
+  font-family: 'Noto Serif';
+  src: url('~/assets/fonts/NotoSerif-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400; /* normal/regular */
+}
+
+@font-face {
+  font-family: 'Vibur';
+  src: url('~/assets/fonts/Vibur-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400; /* normal/regular */
+}
+
+@font-face {
+  font-family: 'PT Sans';
+  src: url('~/assets/fonts/PTSans-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400; /* normal/regular */
+}
+@font-face {
+  font-family: 'PT Sans';
+  src: url('~/assets/fonts/PTSans-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700; /* bold */
+}
+@font-face {
+  font-family: 'PT Sans';
+  src: url('~/assets/fonts/PTSans-Italic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 400; /* normal/regular */
+}
+@font-face {
+  font-family: 'PT Sans';
+  src: url('~/assets/fonts/PTSans-BoldItalic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 700; /* bold */
+}

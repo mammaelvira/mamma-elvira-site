@@ -1,0 +1,11 @@
+a,
+button {
+  touch-action: manipulation;
+  background-color: transparent;
+}
+
+body {
+  background-color: #eae3d8;
+  color: #372c43;
+  font-family: 'PT Sans';
+}
