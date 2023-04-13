@@ -4,7 +4,7 @@ const menuModalOpen = useMenuModalOpen()
 
 <template>
   <div id="app-layout">
-    <dialog id="full-page-modal" :open="menuModalOpen"></dialog>
+    <dialog id="full-page-modal" class="z-50" :open="menuModalOpen"></dialog>
     <BodyTheHeader />
 
     <main class="p-8 pt-24">
@@ -13,4 +13,9 @@ const menuModalOpen = useMenuModalOpen()
 
     <BodyTheFooter />
   </div>
+
+  <div
+    id="colors-loader"
+    class="bg-me-red bg-me-basil bg-me-peach border-me-red border-me-basil border-me-mint border-me-lapis border-me-peach hidden"
+  ></div>
 </template>

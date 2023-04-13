@@ -1,0 +1,15 @@
+.place-section {
+  @apply text-lg;
+}
+
+.place-section span {
+  @apply;
+  font-family: 'Barlow ExtraBold';
+}
+
+.place-section p {
+  @apply mb-4;
+}
+.place-section p:last-of-type {
+  @apply mb-0;
+}

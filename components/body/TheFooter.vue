@@ -1,11 +1,6 @@
 <template>
   <footer class="p-8">
-    <div class="footer-border">
-      <div class="bg-me-lapis"></div>
-      <div class="bg-me-mint mr-4"></div>
-      <div class="bg-me-orange mr-8"></div>
-      <div class="bg-me-pink mr-12"></div>
-    </div>
+    <BodyStripesHorizonal />
 
     <nav class="link-container font-title">
       <div>
@@ -13,7 +8,7 @@
         <NuxtLink to="/enoteca">Enoteca</NuxtLink>
       </div>
       <div>
-        <div class="i-game-icons-fork-knife-spoon text-me-green"></div>
+        <div class="i-game-icons-fork-knife-spoon text-me-basil"></div>
         <NuxtLink to="/la-cucina">La Cucina</NuxtLink>
       </div>
       <div>
@@ -38,9 +33,16 @@
 
     <section class="mt-4">
       <div class="flex justify-between items-end">
-        <div class="text-xs">
-          <p>MammaElvira.com</p>
-          <p>Copyright © 2011-{{ new Date().getFullYear() }}</p>
+        <div class="flex gap-2 items-center">
+          <img
+            src="~/assets/graphics/logo/mammaelvira-logo_head-glyph.svg"
+            alt="Glifo Mamma Elvira"
+            class="h-7"
+          />
+          <div class="text-xs">
+            <p>MammaElvira.com</p>
+            <p>Copyright © 2011-{{ new Date().getFullYear() }}</p>
+          </div>
         </div>
         <div class="social-container">
           <a href=""><div class="i-ph-instagram-logo"></div></a>
@@ -52,14 +54,6 @@
 </template>
 
 <style scoped>
-.footer-border {
-  @apply flex flex-col
-    -ml-8 mb-4;
-}
-.footer-border div {
-  @apply h-2 mb-1;
-}
-
 .link-container > div {
   @apply flex items-center gap-2
     mb-2;

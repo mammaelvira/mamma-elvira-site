@@ -5,24 +5,26 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
 </script>
 
 <template>
-  <button type="button" @click="modalToggle">
-    <div class="menu-icon">
-      <div class="bg-me-lapis"></div>
-      <div class="bg-me-mint"></div>
-      <div class="bg-me-peach"></div>
-      <span class="text-xs">menu</span>
-    </div>
-  </button>
+  <div>
+    <button type="button" @click="modalToggle">
+      <div class="menu-icon">
+        <div class="bg-me-lapis"></div>
+        <div class="bg-me-mint"></div>
+        <div class="bg-me-orange"></div>
+        <span class="text-xs">menu</span>
+      </div>
+    </button>
 
-  <Teleport to="#full-page-modal">
-    <Transition name="slide-fade">
-      <aside v-if="menuModalOpen">
-        modal open
+    <Teleport to="#full-page-modal">
+      <Transition name="slide-fade">
+        <aside v-if="menuModalOpen">
+          modal open
 
-        <button type="button" @click="modalToggle">close</button>
-      </aside>
-    </Transition>
-  </Teleport>
+          <button type="button" @click="modalToggle">close</button>
+        </aside>
+      </Transition>
+    </Teleport>
+  </div>
 </template>
 
 <style scoped>

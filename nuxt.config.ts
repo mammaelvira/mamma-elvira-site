@@ -28,6 +28,7 @@ export default defineNuxtConfig({
     '@/assets/css/fonts.css',
     '@/assets/css/main.css',
     '@/assets/css/style.css',
+    '@/assets/css/places.css',
   ],
 
   // https://github.com/unocss/unocss/tree/main/packages/nuxt
@@ -46,7 +47,7 @@ export default defineNuxtConfig({
           ink: '#372c43',
           lapis: '#3f689d',
           cyan: '#668e98',
-          green: '#107652',
+          basil: '#107652',
           mint: '#4FB692',
         },
       },
@@ -85,6 +86,60 @@ export default defineNuxtConfig({
       siteDescription: '',
       language: '',
       titleSeparator: ' • ',
+    },
+  },
+
+  app: {
+    head: {
+      link: [
+        // https://realfavicongenerator.net/
+        {
+          rel: 'apple-touch-icon',
+          sizes: '180x180',
+          href: '/apple-touch-icon.png',
+          media: '(prefers-color-scheme: light)',
+        },
+        {
+          rel: 'apple-touch-icon',
+          sizes: '180x180',
+          href: '/apple-touch-icon_dark.png',
+          media: '(prefers-color-scheme: dark)',
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '32x32',
+          href: '/favicon-32x32.png',
+          media: '(prefers-color-scheme: light)',
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '16x16',
+          href: '/favicon-16x16.png',
+          media: '(prefers-color-scheme: light)',
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '32x32',
+          href: '/favicon-32x32_dark.png',
+          media: '(prefers-color-scheme: dark)',
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '16x16',
+          href: '/favicon-16x16_dark.png',
+          media: '(prefers-color-scheme: dark)',
+        },
+        { rel: 'manifest', href: '/site.webmanifest' },
+        { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#382d43' },
+      ],
+      meta: [
+        { name: 'msapplication-TileColor', content: '#ec7850' },
+        { name: 'theme-color', content: '#eae3d8' },
+      ],
     },
   },
 })

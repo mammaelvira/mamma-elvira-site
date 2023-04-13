@@ -21,13 +21,19 @@
         Esperienze del Territorio
       </h2>
       <h5 class="flex gap-2 mt-2 font-bold uppercase text-xs">
-        <span class="text-me-red">enoteca</span>
+        <NuxtLink to="/enoteca">
+          <span class="text-me-red">enoteca</span></NuxtLink
+        >
         <span class="opacity-40">+</span>
-        <span class="text-me-green">cucina</span>
+        <NuxtLink to="/la-cucina"
+          ><span class="text-me-basil">cucina</span></NuxtLink
+        >
         <span class="opacity-40">+</span>
-        <span class="text-me-peach">corte</span>
+        <NuxtLink to="/corte-dei-pandolfi">
+          <span class="text-me-peach">corte</span></NuxtLink
+        >
         <span class="opacity-40">+</span>
-        <span class="text-me-lapis">casa</span>
+        <NuxtLink to="/casa"><span class="text-me-lapis">casa</span></NuxtLink>
       </h5>
     </div>
     <div class="color-band">
