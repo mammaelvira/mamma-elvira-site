@@ -77,7 +77,7 @@ export default (): PageDetails[] => [
     email: 'decoste@mammaelvira.com',
     address: {
       street: 'Via Ludovico Maremonti',
-      streetNumber: '45',
+      streetNumber: '41',
       cap: '73100',
       city: 'Lecce',
     },
