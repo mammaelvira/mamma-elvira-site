@@ -83,7 +83,7 @@ export default defineNuxtConfig({
       // https://github.com/harlan-zw/nuxt-seo-kit
       siteUrl: 'https://mammaelvira.com',
       siteName: 'Mamma Elvira',
-      siteDescription: '',
+      siteDescription: 'Esperienze del Territorio, a Lecce dal 2011',
       language: '',
       titleSeparator: ' • ',
     },
