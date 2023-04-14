@@ -11,7 +11,7 @@
       <div class="grid grid-cols-3 gap-3 items-center text-center font-logo">
         <h3 class="pt-6">a Lecce</h3>
         <img
-          src="~/assets/graphics/logo/mammaelvira-logo_head-glyph.svg"
+          src="~/assets/graphics/logo/mammaelvira-logo_head-glyph_lapis.svg"
           alt="Glifo Mamma Elvira"
           class="w-16 mt-4"
         />
@@ -21,11 +21,14 @@
         Esperienze del Territorio
       </h2>
       <h5 class="flex gap-2 mt-2 font-bold uppercase text-xs">
-        <NuxtLink to="/enoteca">
+        <span class="text-me-mint">ristorazione</span>
+        <!-- <NuxtLink to="/enoteca">
           <span class="text-me-red">enoteca</span></NuxtLink
-        >
+        > -->
         <span class="opacity-40">+</span>
-        <NuxtLink to="/la-cucina"
+
+        <span class="text-me-lapis">accoglienza</span>
+        <!-- <NuxtLink to="/la-cucina"
           ><span class="text-me-basil">cucina</span></NuxtLink
         >
         <span class="opacity-40">+</span>
@@ -33,7 +36,7 @@
           <span class="text-me-peach">corte</span></NuxtLink
         >
         <span class="opacity-40">+</span>
-        <NuxtLink to="/casa"><span class="text-me-lapis">casa</span></NuxtLink>
+        <NuxtLink to="/casa"><span class="text-me-lapis">casa</span></NuxtLink> -->
       </h5>
     </div>
     <div class="color-band">

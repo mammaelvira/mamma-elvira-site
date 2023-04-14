@@ -5,16 +5,16 @@
     <nav class="link-container font-title">
       <div>
         <div class="i-game-icons-wine-bottle text-me-red"></div>
-        <NuxtLink to="/enoteca">Enoteca</NuxtLink>
+        <NuxtLink to="/enoteca">Mamma Elvira Enoteca</NuxtLink>
       </div>
       <div>
         <div class="i-game-icons-fork-knife-spoon text-me-basil"></div>
-        <NuxtLink to="/la-cucina">La Cucina</NuxtLink>
+        <NuxtLink to="/la-cucina">La Cucina di Mamma Elvira</NuxtLink>
       </div>
       <div>
         <div class="i-game-icons-knife-fork text-me-mint"></div>
         <NuxtLink to="/la-cucina-de-coste" class="relative"
-          >La Cucina de Coste
+          >La Cucina De Coste
           <span
             class="absolute -right-5 -top-2 bg-me-mint text-me-stone text-xs px-1 rotate-12"
             >new</span
@@ -27,7 +27,7 @@
       </div>
       <div>
         <div class="i-game-icons-bed text-me-lapis"></div>
-        <NuxtLink to="/casa">Casa</NuxtLink>
+        <NuxtLink to="/casa">Casa Mamma Elvira</NuxtLink>
       </div>
     </nav>
 

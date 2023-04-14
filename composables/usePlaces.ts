@@ -46,7 +46,7 @@ export default (): PageDetails[] => [
     menuUrl: 'https://disv.it/MammaElviraEnoteca',
   },
   {
-    name: 'la Cucina',
+    name: 'La Cucina di Mamma Elvira',
     path: '/la-cucina',
     payoff: 'Osterie Contemporanee',
     place: 'Il Castello',
@@ -67,7 +67,7 @@ export default (): PageDetails[] => [
     menuUrl: 'https://disv.it/Cucina',
   },
   {
-    name: 'la Cucina de coste',
+    name: 'La Cucina De Coste',
     path: '/la-cucina-de-coste',
     payoff: 'Osterie Contemporanee',
     place: 'Il Castello',
@@ -105,7 +105,7 @@ export default (): PageDetails[] => [
     menuUrl: 'https://disv.it/CortePandolfi',
   },
   {
-    name: 'Casa',
+    name: 'Casa Mamma Elvira',
     path: '/casa',
     payoff: 'A Casa, lontano da Casa',
     place: 'Il Castello',
