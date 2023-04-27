@@ -12,7 +12,7 @@
         <NuxtLink to="/la-cucina">La Cucina di Mamma Elvira</NuxtLink>
       </div>
       <div>
-        <div class="i-game-icons-knife-fork text-me-mint"></div>
+        <div class="i-game-icons-fork-knife-spoon text-me-mint"></div>
         <NuxtLink to="/la-cucina-de-coste" class="relative"
           >La Cucina De Coste
           <span

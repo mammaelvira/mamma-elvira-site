@@ -71,7 +71,7 @@ export default (): PageDetails[] => [
     path: '/la-cucina-de-coste',
     payoff: 'Osteria Contemporanea',
     place: 'Il Castello',
-    iconClass: 'i-game-icons-knife-fork',
+    iconClass: 'i-game-icons-fork-knife-spoon',
     color: 'me-mint',
     telephone: '+393315795127',
     email: 'decoste@mammaelvira.com',
