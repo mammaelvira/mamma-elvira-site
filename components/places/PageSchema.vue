@@ -18,11 +18,17 @@ const place = places.find((place) => place.path === route.fullPath)
             <h3 v-if="place?.menuUrl" class="font-title">Prenota un tavolo:</h3>
 
             <div class="flex gap-6">
-              <a :href="`tel:${place?.telephone}`" class="call-to-action"
+              <a
+                :href="`tel:${place?.telephone}`"
+                class="call-to-action"
+                :class="`bg-${place?.color}`"
                 >Chiama</a
               >
 
-              <a :href="`mailto:${place?.email}`" class="call-to-action"
+              <a
+                :href="`mailto:${place?.email}`"
+                class="call-to-action-outline"
+                :class="`border-${place?.color}`"
                 >Scrivi una mail</a
               >
             </div>
@@ -30,7 +36,10 @@ const place = places.find((place) => place.path === route.fullPath)
 
           <li v-if="place?.menuUrl" class="mt-4">
             <h3 class="font-title">Scopri la nostra offerta:</h3>
-            <a :href="place?.menuUrl" class="call-to-action"
+            <a
+              :href="place?.menuUrl"
+              class="call-to-action"
+              :class="`bg-${place.color}`"
               >Consulta il menù</a
             >
           </li>

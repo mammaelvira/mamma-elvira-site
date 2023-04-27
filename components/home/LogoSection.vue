@@ -21,14 +21,11 @@
         Esperienze del Territorio
       </h2>
       <h5 class="flex gap-2 mt-2 font-bold uppercase text-xs">
-        <span class="text-me-mint">ristorazione</span>
-        <!-- <NuxtLink to="/enoteca">
+        <NuxtLink to="/enoteca">
           <span class="text-me-red">enoteca</span></NuxtLink
-        > -->
+        >
         <span class="opacity-40">+</span>
-
-        <span class="text-me-lapis">accoglienza</span>
-        <!-- <NuxtLink to="/la-cucina"
+        <NuxtLink to="/la-cucina"
           ><span class="text-me-basil">cucina</span></NuxtLink
         >
         <span class="opacity-40">+</span>
@@ -36,7 +33,7 @@
           <span class="text-me-peach">corte</span></NuxtLink
         >
         <span class="opacity-40">+</span>
-        <NuxtLink to="/casa"><span class="text-me-lapis">casa</span></NuxtLink> -->
+        <NuxtLink to="/casa"><span class="text-me-lapis">casa</span></NuxtLink>
       </h5>
     </div>
     <div class="color-band">

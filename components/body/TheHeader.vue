@@ -11,9 +11,9 @@
           /></NuxtLink>
         </li>
 
-        <!-- <li class="flex items-start gap-6">
+        <li class="flex items-start gap-6">
           <BodyLanguageSwitcher /><BodyMenuModal />
-        </li> -->
+        </li>
       </ul>
     </nav>
   </header>

@@ -19,18 +19,14 @@ const place = places.find((place) => place.path === route.fullPath)
       </div>
     </header>
     <div class="border-4 border-t-0" :class="`border-${place?.color}`">
-      <h3 :class="`text-${place?.color}`" class="px-3 font-logo text-xl">
+      <!-- <h3 :class="`text-${place?.color}`" class="px-3 font-logo text-xl">
         {{ place?.place }}
-      </h3>
+      </h3> -->
     </div>
 
     <!-- <BodyStripesHorizonal class="mt-1" /> -->
 
-    <div
-      v-show="false"
-      class="border-4 border-t-0"
-      :class="`border-${place?.color}`"
-    >
+    <div class="border-4 border-t-0" :class="`border-${place?.color}`">
       <video
         v-if="place?.videoUrl"
         muted

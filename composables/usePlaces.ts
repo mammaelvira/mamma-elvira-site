@@ -48,7 +48,7 @@ export default (): PageDetails[] => [
   {
     name: 'La Cucina di Mamma Elvira',
     path: '/la-cucina',
-    payoff: 'Osterie Contemporanee',
+    payoff: 'Osteria Contemporanea',
     place: 'Il Castello',
     iconClass: 'i-game-icons-fork-knife-spoon',
     color: 'me-basil',
@@ -69,7 +69,7 @@ export default (): PageDetails[] => [
   {
     name: 'La Cucina De Coste',
     path: '/la-cucina-de-coste',
-    payoff: 'Osterie Contemporanee',
+    payoff: 'Osteria Contemporanea',
     place: 'Il Castello',
     iconClass: 'i-game-icons-knife-fork',
     color: 'me-mint',
@@ -88,7 +88,7 @@ export default (): PageDetails[] => [
   {
     name: 'Corte dei Pandolfi',
     path: '/corte-dei-pandolfi',
-    payoff: 'Mare crudo e Bollicine',
+    payoff: 'Mare crudo - Oyster House',
     place: 'Il Duomo',
     iconClass: 'i-game-icons-oyster-pearl',
     color: 'me-peach',
