@@ -78,7 +78,7 @@ const places = usePlaces()
     </section>
 
     <section class="mt-12">
-      <figure><img src="~/assets/images/prova mappa.jpg" alt="" /></figure>
+      <figure><img src="~/assets/images/me-map_draft.jpg" alt="" /></figure>
     </section>
     <div class="hidden">
       <section class="flex justify-center">
