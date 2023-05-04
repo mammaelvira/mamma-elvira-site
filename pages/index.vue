@@ -6,6 +6,30 @@ const places = usePlaces()
   <article>
     <HomeLogoSection />
 
+    <section class="flex mb-4">
+      <figure>
+        <img src="~/assets/images/me_la-cucina_ext-01.jpg" alt="" srcset="" />
+
+        <figcaption class="py-2 text-center text-me-basil">
+          La Cucina di Mamma Elvira ~ Ristorazione
+        </figcaption>
+      </figure>
+
+      <div class="color-band">
+        <div class="bg-me-lapis"></div>
+        <div class="bg-me-mint"></div>
+        <div class="bg-me-orange"></div>
+        <div class="bg-me-pink"></div>
+      </div>
+
+      <figure>
+        <img src="~/assets/images/me_casa_ext-01.jpg" alt="" srcset="" />
+        <figcaption class="py-2 text-center text-me-lapis">
+          Casa Mamma Elvira ~ Soggiorni
+        </figcaption>
+      </figure>
+    </section>
+
     <section class="intro-section">
       <p>
         <span class="font-logo text-me-lapis">Lecce</span> è una città unica nel
@@ -53,6 +77,9 @@ const places = usePlaces()
       </div>
     </section>
 
+    <section class="mt-12">
+      <figure><img src="~/assets/images/prova mappa.jpg" alt="" /></figure>
+    </section>
     <div class="hidden">
       <section class="flex justify-center">
         <a class="call-to-action" href="#me-experience"
@@ -69,5 +96,14 @@ const places = usePlaces()
 <style scoped>
 .intro-section p {
   @apply mb-4 text-xl;
+}
+
+.color-band {
+  @apply flex justify-center
+  gap-1 min-h-max;
+}
+
+.color-band > div {
+  @apply h-full w-2;
 }
 </style>
