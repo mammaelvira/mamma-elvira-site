@@ -1,7 +1,7 @@
 <template>
   <PlacesPageSchema>
     <p>
-      <span>La Cucina di Mamma Elvira - Osteria Contemporanea</span> è il luogo
+      <span>La Cucina di Mamma Elvira</span> - Osteria Contemporanea è il luogo
       ideale per vivere l'esperienza culinaria leccese.
     </p>
     <p>
