@@ -9,3 +9,8 @@ body {
   color: #372c43;
   font-family: 'PT Sans';
 }
+
+/* BEST PRACTICES: optimal length for a paragraph */
+p {
+  max-width: clamp(52ch, 64%, 75ch);
+}
