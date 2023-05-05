@@ -12,5 +12,5 @@ body {
 
 /* BEST PRACTICES: optimal length for a paragraph */
 p {
-  max-width: clamp(52ch, 64%, 75ch);
+  max-width: clamp(52ch, 64ch, 75ch);
 }
