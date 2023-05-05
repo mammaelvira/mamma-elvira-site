@@ -14,5 +14,10 @@
       Alla <span>Corte dei Pandolfi</span> è possibile assaporare Ostriche
       freschissime accompagnate dai gustosi Cocktail proposti dal nostro Barman.
     </p>
+
+    <template v-slot:place-image
+      ><figure>
+        <img src="~/assets/images/me_corte_ext-01.jpg" alt="" /></figure
+    ></template>
   </PlacesPageSchema>
 </template>

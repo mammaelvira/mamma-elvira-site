@@ -12,6 +12,7 @@ interface PageDetails {
   showInNav?: boolean
   iconClass?: string
   videoUrl?: string
+  imageUrl?: string
 
   menuUrl?: string
   googleMapsUrl?: string
@@ -42,6 +43,7 @@ export default (): PageDetails[] => [
       city: 'Lecce',
     },
     googleMapsUrl: '',
+    imageUrl: '~/assets/images/me-enoteca_ext-01.jpg',
 
     menuUrl: 'https://disv.it/MammaElviraEnoteca',
   },

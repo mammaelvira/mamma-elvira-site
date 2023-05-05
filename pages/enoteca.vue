@@ -13,5 +13,10 @@
       di piatti freddi e caldi, vi guideremos in un viaggio immersivo negli
       autentici sapori pugliesi.
     </p>
+
+    <template v-slot:place-image
+      ><figure>
+        <img src="~/assets/images/me-enoteca_ext-01.jpg" alt="" /></figure
+    ></template>
   </PlacesPageSchema>
 </template>

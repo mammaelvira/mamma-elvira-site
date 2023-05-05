@@ -7,7 +7,34 @@ const place = places.find((place) => place.path === route.fullPath)
 
 <template>
   <article class="md:grid grid-cols-2 gap-6">
-    <PlacesHeroTitle />
+    <section>
+      <header :class="`bg-${place?.color}`" class="p-4 text-me-stone">
+        <div></div>
+        <div class="flex items-center font-title text-3xl">
+          <span :class="place?.iconClass" class="mr-3"></span>
+          <h1>{{ place?.name }}</h1>
+        </div>
+        <div class="mt-6 -ml-4">
+          <h2 class="inline border-t-4 border-me-stone pl-4 pt-3 italic">
+            {{ place?.payoff }}
+          </h2>
+        </div>
+      </header>
+      <div class="border-4 border-t-0" :class="`border-${place?.color}`"></div>
+
+      <div class="border-4 border-t-0" :class="`border-${place?.color}`">
+        <video
+          v-if="place?.videoUrl"
+          muted
+          autoplay
+          loop
+          playsinline
+          poster=""
+          :src="place?.videoUrl"
+        ></video>
+        <slot name="place-image" />
+      </div>
+    </section>
 
     <section class="mt-4 md:mt-0 place-section">
       <slot />
