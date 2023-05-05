@@ -31,7 +31,9 @@
     </p>
 
     <p>
-      <a class="call-to-action inline-block" href="https://casamammaelvira.com"
+      <a
+        class="call-to-action inline-block bg-me-lapis"
+        href="https://casamammaelvira.com"
         >Visita il Sito dedicato</a
       >
     </p>
