@@ -22,7 +22,7 @@
         >
       </div>
       <div>
-        <div class="i-game-icons-oyster-pearl text-me-peach"></div>
+        <GraphicsLogoPandolfi class="text-me-peach h-4" />
         <NuxtLink to="/corte-dei-pandolfi">Corte dei Pandolfi</NuxtLink>
       </div>
       <div>

@@ -1,9 +1,10 @@
 <template>
   <PlacesPageSchema>
     <p>
-      <span>La Cucina de Coste</span> è la nuova esperienza della
-      <span>Cucina di Mamma Elvira</span>, che amplia a pochi passi di distanza
-      le possibilità di sperimentare i sapori autentici della nostra cucina.
+      <span>La Cucina De Coste</span> è la nuova esperienza de
+      <NuxtLink to="/la-cucina"><span>La Cucina di Mamma Elvira</span></NuxtLink
+      >, che amplia a pochi passi di distanza le possibilità di sperimentare i
+      sapori autentici della nostra cucina.
     </p>
 
     <template v-slot:place-image

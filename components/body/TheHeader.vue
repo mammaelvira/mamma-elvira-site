@@ -10,7 +10,7 @@ const places = usePlaces()
       <li>
         <NuxtLink to="/" id="home-link" class="font-logo"
           ><img
-            src="~/assets/graphics/logo/mammaelvira-logo_text_rect_alt.svg"
+            src="~/assets/graphics/logo/mammaelvira-logo_text_rect_alt_01.svg"
             alt="Logo Mamma Elvira"
             class="h-12"
         /></NuxtLink>

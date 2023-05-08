@@ -10,7 +10,7 @@
     </p>
     <p>
       Grazie alla capacità sviluppata di abbinare alle etichette una selezione
-      di piatti freddi e caldi, vi guideremos in un viaggio immersivo negli
+      di piatti freddi e caldi, vi guideremo in un viaggio immersivo negli
       autentici sapori pugliesi.
     </p>
 

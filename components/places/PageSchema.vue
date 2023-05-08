@@ -11,7 +11,9 @@ const place = places.find((place) => place.path === route.fullPath)
       <header :class="`bg-${place?.color}`" class="p-4 text-me-stone">
         <div></div>
         <div class="flex items-center font-title text-3xl">
-          <span :class="place?.iconClass" class="mr-3"></span>
+          <slot name="custom-icon">
+            <span :class="place?.iconClass" class="mr-3"></span>
+          </slot>
           <h1>{{ place?.name }}</h1>
         </div>
         <div class="mt-6 -ml-4">
@@ -67,6 +69,7 @@ const place = places.find((place) => place.path === route.fullPath)
               :href="place?.menuUrl"
               class="call-to-action"
               :class="`bg-${place.color}`"
+              target="_blank"
               >Consulta il menù</a
             >
           </li>
@@ -88,11 +91,20 @@ const place = places.find((place) => place.path === route.fullPath)
               </a>
             </address>
           </li>
+
+          <li class="mt-8 flex gap-12 text-4xl" :class="`text-${place?.color}`">
+            <a :href="place?.instagramUrl" target="_blank"
+              ><div class="i-ph-instagram-logo"></div
+            ></a>
+            <a :href="place?.facebookUrl" target="_blank"
+              ><div class="i-ph-facebook-logo"></div
+            ></a>
+          </li>
         </ul>
       </nav>
 
       <div
-        class="hidden text-me-ink text-me-peach text-me-orange text-me-basil text-me-lapis text-me-mint text-me-red text-me-rose"
+        class="hidden text-me-ink text-me-peach text-me-orange text-me-basil text-me-lapis text-me-mint text-me-red text-me-pink"
       >
         Mamma Elvira
       </div>

@@ -1,5 +1,9 @@
 <template>
   <PlacesPageSchema>
+    <template v-slot:custom-icon>
+      <GraphicsLogoPandolfi class="h-7.5 mr-3" />
+    </template>
+
     <p>
       La Oyster House di Mamma Elvira, nei pressi del Duomo, dedicata al Pesce e
       ai Frutti di Mare.
@@ -17,7 +21,10 @@
 
     <template v-slot:place-image
       ><figure>
-        <img src="~/assets/images/me_corte_ext-01.jpg" alt="" /></figure
+        <img
+          src="~/assets/images/me_corte_ext-01.jpg"
+          alt="Corte dei Pandolfi - foto esterno"
+        /></figure
     ></template>
   </PlacesPageSchema>
 </template>

@@ -13,9 +13,9 @@
       in modo autentico e genuino.
     </p>
     <p>
-      Il menù della Cucina propone sempre piatti studiati in base ai prodotti
-      stagionali con abbinamenti sorprendenti e innovativi che puntano ad
-      esaltare i sapori.
+      Il menù de <span>La Cucina di Mamma Elvira</span> propone sempre piatti
+      studiati in base ai prodotti stagionali con abbinamenti sorprendenti e
+      innovativi che puntano ad esaltare i sapori.
     </p>
     <p>
       La caratteristica della cucina salentina è quella di avere un'ampia

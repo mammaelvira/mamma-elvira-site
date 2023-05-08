@@ -16,6 +16,9 @@ interface PageDetails {
 
   menuUrl?: string
   googleMapsUrl?: string
+
+  instagramUrl?: string
+  facebookUrl?: string
 }
 
 interface Address {
@@ -46,6 +49,8 @@ export default (): PageDetails[] => [
     imageUrl: '~/assets/images/me-enoteca_ext-01.jpg',
 
     menuUrl: 'https://disv.it/MammaElviraEnoteca',
+    instagramUrl: 'https://www.instagram.com/mamma_elvira_enoteca',
+    facebookUrl: 'https://www.facebook.com/MammaElvira',
   },
   {
     name: 'La Cucina di Mamma Elvira',
@@ -67,6 +72,8 @@ export default (): PageDetails[] => [
     googleMapsUrl: '',
 
     menuUrl: 'https://disv.it/Cucina',
+    instagramUrl: 'https://www.instagram.com/la_cucina_di_mamma_elvira',
+    facebookUrl: 'https://www.facebook.com/LaCucinaDiMammaElvira',
   },
   {
     name: 'La Cucina De Coste',
@@ -86,11 +93,13 @@ export default (): PageDetails[] => [
     googleMapsUrl: '',
 
     menuUrl: 'https://disv.it/Cucina',
+    instagramUrl: 'https://www.instagram.com/lacucinadecoste',
+    facebookUrl: 'https://www.facebook.com/lacucinadecoste',
   },
   {
     name: 'Corte dei Pandolfi',
     path: '/corte-dei-pandolfi',
-    payoff: 'Mare crudo - Oyster House',
+    payoff: 'Oyster House',
     place: 'Il Duomo',
     iconClass: 'i-game-icons-oyster-pearl',
     color: 'me-peach',
@@ -105,6 +114,8 @@ export default (): PageDetails[] => [
     googleMapsUrl: '',
 
     menuUrl: 'https://disv.it/CortePandolfi',
+    instagramUrl: 'https://www.instagram.com/corte_dei_pandolfi',
+    facebookUrl: 'https://www.facebook.com/cortedeipandolfilecce',
   },
   {
     name: 'Casa Mamma Elvira',
@@ -124,5 +135,8 @@ export default (): PageDetails[] => [
       city: 'Lecce',
     },
     googleMapsUrl: '',
+
+    instagramUrl: 'https://www.instagram.com/casa_mamma_elvira',
+    facebookUrl: 'https://www.facebook.com/CasaMammaElvira',
   },
 ]
