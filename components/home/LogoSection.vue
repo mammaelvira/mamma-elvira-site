@@ -24,17 +24,19 @@
         <NuxtLink to="/enoteca">
           <span class="text-me-red">enoteca</span></NuxtLink
         >
-        <span class="opacity-40">+</span>
+        <span class="opacity-40"> + </span>
         <NuxtLink to="/la-cucina"
           ><span class="text-me-basil">cucina</span></NuxtLink
         >
-        <span class="opacity-40">+</span>
+        <span class="opacity-40"> + </span>
         <NuxtLink to="/corte-dei-pandolfi">
           <span class="text-me-peach">corte</span></NuxtLink
         >
-        <span class="opacity-40">+</span>
+        <span class="opacity-40"> + </span>
         <NuxtLink to="/casa"><span class="text-me-lapis">casa</span></NuxtLink>
       </h5>
+
+      <h6 class="my-8 font-bold">Sito in costruzione</h6>
     </div>
     <div class="color-band">
       <div class="bg-me-lapis"></div>
