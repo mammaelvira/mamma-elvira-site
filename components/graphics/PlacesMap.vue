@@ -466,7 +466,7 @@
 }
 .cls-4,
 .cls-9 {
-  font-family: NotoSerif, Noto Serif;
+  font-family: NotoSerif, 'Noto Serif';
 }
 .cls-9 {
   font-size: 32px;
@@ -487,7 +487,7 @@
 }
 .cls-12 {
   fill: #eae3d8;
-  font-family: Barlow-ExtraBold, Barlow;
+  font-family: 'Barlow ExtraBold', 'Barlow';
   font-weight: 800;
 }
 .cls-17 {
