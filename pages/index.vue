@@ -7,12 +7,9 @@ const places = usePlaces()
     <HomeLogoSection />
 
     <section>
-      <h3 class="text-center text-2xl bg-me-lapis -mx-8 p-6 text-me-stone">
+      <!-- <h3 class="text-center text-2xl bg-me-lapis -mx-8 p-6 text-me-stone">
         Benvenuti nel mondo di <span class="font-serif">Mamma Elvira</span>
-      </h3>
-
-      <BodyStripesHorizonal class="mt-1" />
-
+      </h3> -->
       <div class="my-8 flex flex-col gap-6 items-center">
         <p>
           Siamo felici di condividere con voi la passione per l'<span
@@ -43,7 +40,7 @@ const places = usePlaces()
           <NuxtLink to="/casa" class="underline text-me-lapis"> Casa</NuxtLink>
           fino alla nostra
           <NuxtLink to="/corte-dei-pandolfi" class="underline text-me-peach">
-            Oyster House</NuxtLink
+            Corte</NuxtLink
           >, non è solo un luogo dove si prepara il
           <span class="font-bold">cibo</span>, ma è un grande
           <span class="font-bold">tavolo</span> di
@@ -59,15 +56,18 @@ const places = usePlaces()
           <span class="font-bold">ricordi</span>.
         </p>
       </div>
+      <!-- <BodyStripesHorizonal class="mt-1" /> -->
     </section>
 
-    <section>
-      <!-- <div class="flex flex-col">
+    <section class="p-2 md:p-8 lg:p-12 xl:p-16"><GraphicsPlacesMap /></section>
+
+    <!-- <section>
+   <div class="flex flex-col">
         <div class="bg-me-lapis h-2 mb-1"></div>
         <div class="bg-me-mint mx-4 h-2 mb-1"></div>
         <div class="bg-me-orange mx-8 h-2 mb-1"></div>
         <div class="bg-me-pink mx-12 h-2"></div>
-      </div> -->
+      </div> 
 
       <div class="flex mb-4">
         <figure class="pt-10 relative">
@@ -102,7 +102,7 @@ const places = usePlaces()
           </h4>
         </figure>
       </div>
-    </section>
+    </section> -->
 
     <section>
       <div class="mt-8 flex flex-col gap-6 items-center">
@@ -156,7 +156,7 @@ const places = usePlaces()
         <NuxtLink :to="place.path" v-for="place in places">
           <div
             :class="`bg-${place.color}`"
-            class="mt-4 h-full px-3 py-2 flex flex-col justify-between text-me-stone"
+            class="relative mt-4 h-full px-3 py-2 flex flex-col justify-between text-me-stone"
           >
             <h4 class="text-xl font-title">
               {{ place.name }}
@@ -165,28 +165,13 @@ const places = usePlaces()
               <div :class="place.iconClass" class="text-2xl"></div>
               <h5>{{ place.payoff }}</h5>
             </div>
+            <div :id="place.path.substring(1)" class="absolute -top-32"></div>
           </div>
         </NuxtLink>
       </div>
     </section>
 
-    <section class="mt-16">
-      <div class="mt-8 flex flex-col gap-6 items-center">
-        <p>
-          <span class="font-serif">Lecce</span> è una città conosciuta nel mondo
-          per la ricchezza architettonica del
-          <span class="font-bold">Barocco</span> e per una cucina raffinata che
-          valorizza al meglio il <span class="font-bold">territorio</span>, con
-          un'ampia varietà di legumi, ortaggi, cereali.
-        </p>
-        <p class="text-right">
-          <span class="font-serif">Lecce</span> è una città unica nel suo
-          genere.
-        </p>
-      </div>
-    </section>
-
-    <section class="mt-12">
+    <!-- <section class="mt-12">
       <h3 class="text-center text-2xl bg-me-mint -mx-8 p-6 text-me-stone">
         <span class="font-serif">Mamma Elvira</span> nel cuore di
         <span class="font-serif">Lecce</span>
@@ -194,82 +179,8 @@ const places = usePlaces()
       <BodyStripesHorizonal class="mt-1" />
 
       <figure><img src="~/assets/images/me-map_draft.jpg" alt="" /></figure>
-    </section>
+    </section> -->
 
-    <section>
-      <div class="mt-8 flex flex-col gap-6 items-center">
-        <p>
-          Il calore della sua <span class="font-bold">pietra</span> ti avvolge,
-          la sua <span class="font-bold">luce</span> e i suoi
-          <span class="font-bold">colori</span> ti accompagnano lungo i vicoli
-          del Centro Storico, come i <span class="font-bold">profumi</span> di
-          crema pasticcera o di sugo al pomodoro cotto per ore.
-        </p>
-
-        <p class="text-right">
-          Alcune specialità e piatti tipici della città di Lecce che vale la
-          pena provare per continuare a sorprendersi:
-        </p>
-
-        <ol id="lecce-dish-list">
-          <li>
-            <h5>Rustico Leccese</h5>
-            <p>
-              un tipico calzone di pasta sfoglia ripieno di mozzarella, pomodoro
-              e besciamella
-            </p>
-          </li>
-
-          <li>
-            <a
-              href="https://www.ilcuoreinpentola.it/ricette/dolci/pasticciotti-leccesi/"
-              ><h5>Pasticciotto Leccese</h5></a
-            >
-
-            <p>
-              un dolce tipico della città di Lecce, spesso servito a colazione a
-              base di pasta frolla ripiena di crema pasticcera
-            </p>
-          </li>
-
-          <li>
-            <h5>Frisella</h5>
-            <p>
-              un tipo di pane croccante e secco condito con con pomodori
-              freschi, olio d'oliva e basilico, spesso servito come antipasto
-            </p>
-          </li>
-          <li>
-            <h5>Orecchiette alla leccese</h5>
-            <p>
-              pasta di forma concava servita con sugo di pomodoro a cui si
-              possono aggiungere verdure o carne
-            </p>
-          </li>
-          <li>
-            <h5>Zuppa di Pesce</h5>
-            <p>
-              un primo piatto tradizionale preparato con una varietà di frutti
-              di mare come cozze, vongole, gamberi e calamari
-            </p>
-          </li>
-          <li>
-            <h5>Purè di Fave</h5>
-            <p>
-              zuppa densa e cremosa di fave, spesso servita con cicoria e
-              salsiccia
-            </p>
-          </li>
-          <li>
-            <h5>Pittule</h5>
-            <p>
-              un tipo di frittella salata fatta con farina di ceci, patate,
-              cipolle e prezzemolo, spesso servite come antipasto o come snack
-            </p>
-          </li>
-        </ol>
-      </div>
-    </section>
     <!-- <section class="intro-section">
       <p>
         <span class="font-logo text-me-lapis">Lecce</span> è una città unica nel
@@ -295,17 +206,6 @@ const places = usePlaces()
         degli Artisti locali ha creato scorci architettonici indimenticabili.
       </p>
     </section> -->
-
-    <div class="hidden">
-      <section class="flex justify-center">
-        <a class="call-to-action" href="#me-experience"
-          >Scopri le Esperienze Mamma Elvira</a
-        >
-      </section>
-      <section>cosa: cards</section>
-      <section>perchè: valori</section>
-      <section>dove: contatti</section>
-    </div>
   </article>
 </template>
 
@@ -321,25 +221,5 @@ const places = usePlaces()
 
 .color-band > div {
   @apply h-full w-2;
-}
-
-#lecce-dish-list {
-  @apply flex flex-col gap-6;
-}
-
-#lecce-dish-list li {
-  @apply pl-2 border-l-8 border-me-mint;
-}
-
-#lecce-dish-list li:nth-child(odd) {
-  @apply;
-}
-
-#lecce-dish-list h5 {
-  @apply font-bold underline text-me-lapis;
-}
-
-#lecce-dish-list p {
-  @apply pl-2;
 }
 </style>

@@ -4,6 +4,10 @@ button {
   background-color: transparent;
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #eae3d8;
   color: #372c43;

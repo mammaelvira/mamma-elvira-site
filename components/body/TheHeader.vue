@@ -1,5 +1,13 @@
 <script setup lang="ts">
 const places = usePlaces()
+
+const showActivityLinks = ref(false)
+
+const toggleActivityLinks = () =>
+  (showActivityLinks.value = !showActivityLinks.value)
+const openLinks = () => setTimeout(() => (showActivityLinks.value = true), 600)
+const closeLinks = () =>
+  setTimeout(() => (showActivityLinks.value = false), 2400)
 </script>
 
 <template>
@@ -16,25 +24,58 @@ const places = usePlaces()
         /></NuxtLink>
       </li>
 
-      <li>
-        <div class="flex items-start gap-6">
-          <nav
-            class="-mt-0.75 hidden md:flex items-center gap-4 lg:gap-8 text-xs lg:text-sm font-title"
-          >
-            <NuxtLink
-              v-for="place in places"
-              :to="place.path"
-              :key="place.path"
-              :class="`text-${place.color}`"
-              >{{ place.name }}</NuxtLink
-            >
-          </nav>
+      <li class="flex gap-6">
+        <nav id="header-main-nav">
+          <ul class="hidden md:flex items-start gap-12 -mt-2 font-title">
+            <li class="relative">
+              <span @click="toggleActivityLinks">Le nostre attività</span>
 
-          <BodyLanguageSwitcher />
+              <div
+                class="absolute min-w-max flex-col gap-2 text-sm bg-me-stone p-2 -left-2"
+                :class="showActivityLinks ? 'flex' : 'hidden'"
+              >
+                <NuxtLink
+                  @click="showActivityLinks = false"
+                  v-for="place in places"
+                  :to="place.path"
+                  :key="place.path"
+                  :class="`text-${place.color}`"
+                >
+                  <span class="mr-2">•</span>
+                  <span class="hover:underline"> {{ place.name }}</span>
+                </NuxtLink>
+              </div>
+            </li>
 
-          <BodyMenuModal class="md:hidden" />
-        </div>
+            <li>
+              <NuxtLink to="/about-us" class="hover:underline"
+                >Chi siamo</NuxtLink
+              >
+            </li>
+            <li>
+              <NuxtLink to="/recipes" class="hover:underline"
+                >Le nostre ricette</NuxtLink
+              >
+            </li>
+
+            <li>
+              <NuxtLink to="/contacts" class="hover:underline"
+                >Contatti</NuxtLink
+              >
+            </li>
+          </ul>
+        </nav>
+      </li>
+
+      <li class="flex gap-6 items-start">
+        <BodyLanguageSwitcher /><BodyMenuModal class="md:hidden -mt-3" />
       </li>
     </ul>
   </header>
 </template>
+
+<style scoped>
+#header-main-nav > ul > li > span {
+  @apply hover:underline;
+}
+</style>
