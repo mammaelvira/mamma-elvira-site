@@ -50,6 +50,20 @@
         </div>
       </div>
     </section>
+    <section class="mt-8 text-xs">
+      <p>
+        Obblighi informativi per le erogazioni pubbliche: gli aiuti di Stato e
+        gli aiuti de minimis ricevuti dalla nostra impresa sono contenuti nel
+        Registro Nazionale degli aiuti di Stato di cui all'art.52 della
+        L.234/2012 a cui si rinvia e consultabili al seguente link:
+        <a
+          href="https://www.rna.gov.it/RegistroNazionaleTrasparenza/faces/pages/TrasparenzaAiuto.jspx"
+          target="_blank"
+          class="underline text-me-mint"
+          >Registro Nazionale Trasparenza</a
+        >
+      </p>
+    </section>
   </footer>
 </template>
 
