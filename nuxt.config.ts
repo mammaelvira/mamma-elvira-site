@@ -18,6 +18,9 @@ export default defineNuxtConfig({
     'nuxt-typed-router',
 
     '@nuxtjs/i18n',
+
+    // https://sanity.nuxtjs.org/
+    '@nuxtjs/sanity',
   ],
 
   css: [
@@ -30,6 +33,22 @@ export default defineNuxtConfig({
     '@/assets/css/style.css',
     '@/assets/css/places.css',
   ],
+
+  runtimeConfig: {
+    public: {
+      // SEO
+      // https://github.com/harlan-zw/nuxt-seo-kit
+      siteUrl: 'https://mammaelvira.com',
+      siteName: 'Mamma Elvira',
+      siteDescription: 'Esperienze del Territorio, a Lecce dal 2011',
+      language: '',
+      titleSeparator: ' • ',
+
+      sanity: {
+        projectId: 'yke6f6fh',
+      },
+    },
+  },
 
   // https://github.com/unocss/unocss/tree/main/packages/nuxt
   unocss: {
@@ -74,18 +93,6 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: 'i18n_redirected',
       redirectOn: 'root', // recommended
-    },
-  },
-
-  runtimeConfig: {
-    public: {
-      // SEO
-      // https://github.com/harlan-zw/nuxt-seo-kit
-      siteUrl: 'https://mammaelvira.com',
-      siteName: 'Mamma Elvira',
-      siteDescription: 'Esperienze del Territorio, a Lecce dal 2011',
-      language: '',
-      titleSeparator: ' • ',
     },
   },
 

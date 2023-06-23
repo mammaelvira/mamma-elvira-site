@@ -19,12 +19,7 @@ const { data: staff, refresh } = useSanityQuery(query)
 
 <template>
   <div class="flex flex-col gap-12">
-    <h1>La mamma è sempre la mamma</h1>
-    <h2>Racconto di come nasce un progetto di ristorazione di qualità</h2>
-
-    <h2>About Us (staff)</h2>
-
-    <section v-for="person in staff" :key="person_id">
+    <section v-for="person in staff" :key="person.id">
       <div class="flex gap-4">
         <SanityImage
           :asset-id="person.image.asset._ref"
@@ -32,14 +27,13 @@ const { data: staff, refresh } = useSanityQuery(query)
           class="h-48"
         />
         <header>
-          <h3>{{ person.name }}</h3>
-          <h5>"{{ person.nickname }}"</h5>
-          <h4>{{ person.role }}</h4>
+          <h1>{{ person.name }}</h1>
+          <h3>"{{ person.nickname }}"</h3>
+          <h2>{{ person.role }}</h2>
         </header>
       </div>
-      <div class="mt-2 border-b-2 border-me-lapis pb-2">
-        <SanityContent :blocks="person.description" />
-      </div>
+
+      <SanityContent :blocks="person.description" />
     </section>
   </div>
 </template>
