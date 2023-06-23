@@ -17,11 +17,7 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
 
     <Teleport to="#full-page-modal">
       <Transition name="slide-fade">
-        <aside v-if="menuModalOpen">
-          modal open
-
-          <button type="button" @click="modalToggle">close</button>
-        </aside>
+        <BodyModalDialog />
       </Transition>
     </Teleport>
   </div>
@@ -37,11 +33,11 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
   durations and timing functions.
 */
 .slide-fade-enter-active {
-  transition: all 0.8s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-enter-from,
