@@ -29,13 +29,10 @@ const closeLinks = () =>
           <ul class="hidden md:flex items-start gap-12 -mt-2 font-title">
             <li>
               <NuxtLink to="/about-us" class="hover:underline"
-                >La Mamma</NuxtLink
+                >"La Mamma"</NuxtLink
               >
             </li>
 
-            <li>
-              <NuxtLink to="/casa" class="hover:underline">La Casa</NuxtLink>
-            </li>
             <li class="relative">
               <span @click="toggleActivityLinks">Mangiare e bere</span>
 
@@ -57,8 +54,11 @@ const closeLinks = () =>
             </li>
 
             <li>
-              <NuxtLink to="/" class="hover:underline">Le esperienze</NuxtLink>
+              <NuxtLink to="/casa" class="hover:underline">La Casa</NuxtLink>
             </li>
+            <!-- <li>
+              <NuxtLink to="/" class="hover:underline">Le esperienze</NuxtLink>
+            </li> -->
             <li>
               <NuxtLink to="/recipes" class="hover:underline"
                 >Le ricette</NuxtLink
