@@ -22,7 +22,7 @@ const query = groq`*[_type == "events" && isActive == true]{
   datetimeStart,
   datetimeEnd,
   description
-}`
+} | order(datetimeStart)`
 
 const { data: events, refresh } = useSanityQuery(query)
 
@@ -54,9 +54,9 @@ const otherActivitiesEvents = computed(() =>
       </h3>
     </header>
 
-    <div class="my-8 flex flex-col gap-4">
+    <div class="my-8 flex flex-col gap-12">
       <article v-for="event in activityEvents">
-        <header class="flex justify-between">
+        <!-- <header class="flex justify-between">
           <div
             class="border-4 w-32 md:w-24 shadow rounded-lg"
             :class="`border-${place?.color}`"
@@ -137,9 +137,101 @@ const otherActivitiesEvents = computed(() =>
             v-if="event?.image?.asset"
             :asset-id="event?.image?.asset?._ref"
             auto="format"
-            class="h-36 w-36 object-cover shadow"
+            class="h-32 w-32 md:h-36 md:w-36 object-cover shadow"
+          />
+        </header> -->
+
+        <header
+          class="grow bg-gradient-to-r from-transparent flex justify-between items-center"
+          :class="`to-${place?.color}`"
+        >
+          <div
+            class="-ml-4 border-4 w-28 h-40 shadow rounded-lg"
+            :class="`border-${place?.color}`"
+          >
+            <time
+              :datetime="event?.datetimeStart"
+              class="flex flex-col items-center"
+            >
+              <p
+                class="font-serif capitalize w-full text-center text-me-stone"
+                :class="`bg-${place?.color}`"
+              >
+                {{
+                  new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
+                    weekday: 'long',
+                  })
+                }}
+              </p>
+
+              <p
+                class="font-title text-4xl border-b-2"
+                :class="`border-${place?.color}`"
+              >
+                {{
+                  new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
+                    day: 'numeric',
+                  })
+                }}
+              </p>
+
+              <p
+                class="font-serif capitalize border-b-2"
+                :class="`border-${place?.color}`"
+              >
+                {{
+                  new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
+                    month: 'short',
+                  })
+                }}
+              </p>
+
+              <p class="pt-3 text-sm text-center">
+                dalle
+                <span class="font-title">
+                  {{
+                    new Date(event?.datetimeStart).toLocaleTimeString('it-IT', {
+                      hour: 'numeric',
+                      minute: '2-digit',
+                    })
+                  }}</span
+                >
+                <br />
+
+                alle
+
+                <span class="font-title">
+                  {{
+                    new Date(event?.datetimeEnd).toLocaleTimeString('it-IT', {
+                      hour: 'numeric',
+                      minute: '2-digit',
+                    })
+                  }}</span
+                >
+              </p>
+            </time>
+          </div>
+
+          <h4 class="hidden md:flex text-2xl font-title text-shadow">
+            {{ event?.title }}
+          </h4>
+
+          <SanityImage
+            v-if="event?.image?.asset"
+            :asset-id="event?.image?.asset?._ref"
+            auto="format"
+            class="h-40 w-40 object-cover shadow"
           />
         </header>
+
+        <div
+          class="mt-2 md:hidden rounded-r-lg shadow"
+          :class="`bg-${place?.color}`"
+        >
+          <h4 class="px-2 py-1 text-xl font-title text-me-stone">
+            {{ event?.title }}
+          </h4>
+        </div>
 
         <div class="mt-2 border-l-4 pl-3" :class="`border-${place?.color}`">
           <SanityContent :blocks="event?.description" />
