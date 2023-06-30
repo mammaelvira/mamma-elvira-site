@@ -19,8 +19,9 @@ const query = groq`*[_type == "staff"]{
   roles,
   activity[]->{name, payoff, path, colorValue},
   image,
-  description
-}`
+  description,
+  sortingOrder
+} | order(sortingOrder)`
 
 const { data: staff, refresh } = useSanityQuery<Staff>(query)
 </script>
