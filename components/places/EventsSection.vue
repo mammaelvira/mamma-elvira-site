@@ -123,7 +123,10 @@ const otherActivitiesEvents = computed(() =>
               </p>
             </time>
           </div>
-          <div class="grow bg-gradient-to-r from-transparent to-me-lavender">
+          <div
+            class="grow bg-gradient-to-r from-transparent"
+            :class="`to-${place?.color}`"
+          >
             <h4 class="font-serif text-2xl px-4 pt-4">
               {{ event.title.split('-')[0] }}
               <br />
@@ -143,5 +146,9 @@ const otherActivitiesEvents = computed(() =>
         </div>
       </article>
     </div>
+
+    <div
+      class="hidden to-me-red to-me-peach to-me-orange to-me-pink to-me-lapis to-me-cyan to-me-basil to-me-mint to-me-lavender to-me-stone to-me-ink"
+    ></div>
   </section>
 </template>
