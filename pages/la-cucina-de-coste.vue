@@ -7,9 +7,8 @@
       sapori autentici della nostra cucina.
     </p>
 
-    <template v-slot:place-image
-      ><figure>
-        <img src="~/assets/images/me_la-cucina_ext-02.jpg" alt="" /></figure
-    ></template>
+    <template v-slot:place-image>
+      <img src="~/assets/images/me_la-cucina_ext-02.jpg" alt="" />
+    </template>
   </PlacesPageSchema>
 </template>

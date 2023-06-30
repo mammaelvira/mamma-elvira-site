@@ -19,12 +19,11 @@
       freschissime accompagnate dai gustosi Cocktail proposti dal nostro Barman.
     </p>
 
-    <template v-slot:place-image
-      ><figure>
-        <img
-          src="~/assets/images/me_corte_ext-01.jpg"
-          alt="Corte dei Pandolfi - foto esterno"
-        /></figure
-    ></template>
+    <template v-slot:place-image>
+      <img
+        src="~/assets/images/me_corte_ext-01.jpg"
+        alt="Corte dei Pandolfi - foto esterno"
+      />
+    </template>
   </PlacesPageSchema>
 </template>
