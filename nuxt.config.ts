@@ -1,4 +1,4 @@
-import transformerDirectives from '@unocss/transformer-directives'
+import { transformerDirectives } from 'unocss'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -68,6 +68,7 @@ export default defineNuxtConfig({
           cyan: '#668e98',
           basil: '#107652',
           mint: '#4FB692',
+          lavender: '#B08CB9',
         },
       },
     },
