@@ -1,15 +1,3 @@
-<script setup lang="ts">
-const places = usePlaces()
-
-const showActivityLinks = ref(false)
-
-const toggleActivityLinks = () =>
-  (showActivityLinks.value = !showActivityLinks.value)
-const openLinks = () => setTimeout(() => (showActivityLinks.value = true), 600)
-const closeLinks = () =>
-  setTimeout(() => (showActivityLinks.value = false), 2400)
-</script>
-
 <template>
   <header
     class="fixed w-full p-8 z-100 bg-gradient-to-b from-me-stone via-me-stone"
@@ -26,39 +14,23 @@ const closeLinks = () =>
 
       <li class="flex gap-6">
         <nav id="header-main-nav">
-          <ul class="hidden md:flex items-start gap-12 -mt-2 font-title">
+          <ul class="hidden lg:flex items-start gap-12 -mt-2 font-title">
+            <!-- ABOUT US -->
             <li>
               <NuxtLink to="/about-us" class="hover:underline"
                 >"La Mamma"</NuxtLink
               >
             </li>
 
-            <li class="relative">
-              <span @click="toggleActivityLinks">Mangiare e bere</span>
-
-              <div
-                class="absolute min-w-max flex-col gap-2 text-sm bg-me-stone p-2 -left-2"
-                :class="showActivityLinks ? 'flex' : 'hidden'"
-              >
-                <NuxtLink
-                  @click="showActivityLinks = false"
-                  v-for="place in places"
-                  :to="place.path"
-                  :key="place.path"
-                  :class="`text-${place.color}`"
-                >
-                  <span class="mr-2">•</span>
-                  <span class="hover:underline"> {{ place.name }}</span>
-                </NuxtLink>
-              </div>
-            </li>
+            <!-- ACTIVITIES -->
+            <BodyMenuDropdown />
 
             <li>
               <NuxtLink to="/casa" class="hover:underline">La Casa</NuxtLink>
             </li>
-            <!-- <li>
-              <NuxtLink to="/" class="hover:underline">Le esperienze</NuxtLink>
-            </li> -->
+            <li>
+              <NuxtLink to="/events" class="hover:underline">Eventi</NuxtLink>
+            </li>
             <li>
               <NuxtLink to="/recipes" class="hover:underline"
                 >Le ricette</NuxtLink
@@ -75,7 +47,7 @@ const closeLinks = () =>
       </li>
 
       <li class="flex gap-6 items-start">
-        <BodyLanguageSwitcher /><BodyMenuModal class="md:hidden -mt-3" />
+        <BodyLanguageSwitcher /><BodyMenuModal class="lg:hidden -mt-3" />
       </li>
     </ul>
   </header>

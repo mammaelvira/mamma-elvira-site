@@ -139,4 +139,26 @@ export default (): PageDetails[] => [
     instagramUrl: 'https://www.instagram.com/casa_mamma_elvira',
     facebookUrl: 'https://www.facebook.com/CasaMammaElvira',
   },
+
+  {
+    name: 'Picnic Experience Lecce',
+    path: '/picnic-experience',
+    payoff: "A Regola d'Arte",
+    place: '',
+    iconClass: 'i-game-icons-basket',
+    color: 'me-lavender',
+    videoUrl: '',
+    telephone: '+393491225063',
+    email: 'casa@mammaelvira.com',
+    address: {
+      street: 'Via San Pietro in Lama',
+      streetNumber: 'traversa Via A. Mazzotta',
+      cap: '73100',
+      city: 'Lecce',
+    },
+    googleMapsUrl: 'https://goo.gl/maps/F8TuStsXtyQPNsRM7',
+
+    instagramUrl: '',
+    facebookUrl: '',
+  },
 ]

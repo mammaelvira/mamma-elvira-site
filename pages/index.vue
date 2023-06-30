@@ -7,9 +7,6 @@ const places = usePlaces()
     <HomeLogoSection />
 
     <section>
-      <!-- <h3 class="text-center text-2xl bg-me-lapis -mx-8 p-6 text-me-stone">
-        Benvenuti nel mondo di <span class="font-serif">Mamma Elvira</span>
-      </h3> -->
       <div class="my-8 flex flex-col gap-6 items-center">
         <p>
           Siamo felici di condividere con voi la passione per l'<span
@@ -56,7 +53,6 @@ const places = usePlaces()
           <span class="font-bold">ricordi</span>.
         </p>
       </div>
-      <!-- <BodyStripesHorizonal class="mt-1" /> -->
     </section>
 
     <section class="p-2 md:p-8 lg:p-12 xl:p-16"><GraphicsPlacesMap /></section>
@@ -152,7 +148,9 @@ const places = usePlaces()
     <section>
       <h3 class="font-title text-xl">Scopri le esperienze di Mamma Elvira:</h3>
 
-      <div class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div
+        class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4"
+      >
         <NuxtLink :to="place.path" v-for="place in places">
           <div
             :class="`bg-${place.color}`"
@@ -208,18 +206,3 @@ const places = usePlaces()
     </section> -->
   </article>
 </template>
-
-<style scoped>
-.intro-section p {
-  @apply mb-4 text-xl;
-}
-
-.color-band {
-  @apply flex justify-center
-  gap-1 min-h-max;
-}
-
-.color-band > div {
-  @apply h-full w-2;
-}
-</style>
