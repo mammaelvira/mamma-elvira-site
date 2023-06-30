@@ -7,7 +7,9 @@ const place = computed(() =>
 )
 
 const query = groq`*[_type == "events" && isActive == true]{
+  _id,
   title,
+  isSoldout,
   activity -> {
     name,
     payoff,
@@ -33,6 +35,8 @@ const activityEvents = computed(() =>
 const otherActivitiesEvents = computed(() =>
   events?.value?.filter((event) => event?.activity?.path !== route.fullPath)
 )
+
+const showFullDescription = ref(false)
 </script>
 
 <template>
@@ -53,190 +57,156 @@ const otherActivitiesEvents = computed(() =>
         </div>
       </h3>
     </header>
-
-    <div class="my-8 flex flex-col gap-12">
-      <article v-for="event in activityEvents">
-        <!-- <header class="flex justify-between">
-          <div
-            class="border-4 w-32 md:w-24 shadow rounded-lg"
-            :class="`border-${place?.color}`"
-          >
-            <time
-              :datetime="event?.datetimeStart"
-              class="flex flex-col items-center"
-            >
-              <p
-                class="font-serif capitalize w-full text-center text-me-stone"
-                :class="`bg-${place.color}`"
-              >
-                {{
-                  new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
-                    weekday: 'long',
-                  })
-                }}
-              </p>
-
-              <p
-                class="font-title text-3xl border-b-2"
-                :class="`border-${place?.color}`"
-              >
-                {{
-                  new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
-                    day: 'numeric',
-                  })
-                }}
-              </p>
-
-              <p
-                class="font-serif capitalize border-b-2"
-                :class="`border-${place?.color}`"
-              >
-                {{
-                  new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
-                    month: 'short',
-                  })
-                }}
-              </p>
-
-              <p class="pt-1 text-sm text-center">
-                dalle
-                <span class="font-title">
-                  {{
-                    new Date(event?.datetimeStart).toLocaleTimeString('it-IT', {
-                      hour: 'numeric',
-                      minute: '2-digit',
-                    })
-                  }}</span
-                >
-                <br />
-
-                alle
-
-                <span class="font-title">
-                  {{
-                    new Date(event?.datetimeEnd).toLocaleTimeString('it-IT', {
-                      hour: 'numeric',
-                      minute: '2-digit',
-                    })
-                  }}</span
-                >
-              </p>
-            </time>
-          </div>
-          <div
-            class="grow bg-gradient-to-r from-transparent"
+    <div class="md:flex justify-center">
+      <div class="my-8 flex flex-col gap-12 md:max-w-3/4 md:ml-4">
+        <article
+          v-for="event in activityEvents"
+          :key="event?._id"
+          class="relative"
+          :data-event-id="event?._id"
+        >
+          <header
+            class="bg-gradient-to-r from-transparent flex justify-between items-center"
             :class="`to-${place?.color}`"
           >
-            <h4 class="font-serif text-2xl px-4 pt-4">
-              {{ event.title.split('-')[0] }}
-              <br />
-              {{ event.title.split('-')[1] }}
+            <div
+              class="-ml-4 border-4 w-28 h-40 bg-me-stone shadow rounded-lg grow-0"
+              :class="`border-${place?.color}`"
+            >
+              <time
+                :datetime="event?.datetimeStart"
+                class="flex flex-col items-center"
+              >
+                <p
+                  class="font-serif capitalize w-full text-center text-me-stone"
+                  :class="`bg-${place?.color}`"
+                >
+                  {{
+                    new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
+                      weekday: 'long',
+                    })
+                  }}
+                </p>
+
+                <p
+                  class="font-title text-4xl border-b-2"
+                  :class="`border-${place?.color}`"
+                >
+                  {{
+                    new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
+                      day: 'numeric',
+                    })
+                  }}
+                </p>
+
+                <p
+                  class="font-serif capitalize border-b-2"
+                  :class="`border-${place?.color}`"
+                >
+                  {{
+                    new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
+                      month: 'long',
+                    })
+                  }}
+                </p>
+
+                <p class="pt-3 text-sm text-center">
+                  dalle
+                  <span class="font-title">
+                    {{
+                      new Date(event?.datetimeStart).toLocaleTimeString(
+                        'it-IT',
+                        {
+                          hour: 'numeric',
+                          minute: '2-digit',
+                        }
+                      )
+                    }}</span
+                  >
+                  <br />
+
+                  alle
+
+                  <span class="font-title">
+                    {{
+                      new Date(event?.datetimeEnd).toLocaleTimeString('it-IT', {
+                        hour: 'numeric',
+                        minute: '2-digit',
+                      })
+                    }}</span
+                  >
+                </p>
+              </time>
+            </div>
+
+            <h4
+              class="hidden md:inline-flex text-2xl max-w-1/2 text-center font-title text-shadow"
+            >
+              {{ event?.title }}
+            </h4>
+            <figure class="relative -mr-2 -mt-4">
+              <SanityImage
+                v-if="event?.image?.asset"
+                :asset-id="event?.image?.asset?._ref"
+                auto="format"
+                class="h-40 w-40 object-cover shadow"
+              />
+              <div v-else class="relative h-40 w-40"></div>
+              <p
+                v-if="event?.isSoldout"
+                class="absolute top-1 -left-5 bg-yellow-400 px-2 py-1 font-title -rotate-12 shadow-md"
+              >
+                sold out 😱
+              </p>
+            </figure>
+          </header>
+
+          <div
+            class="mt-2 md:hidden rounded-r-lg shadow"
+            :class="`bg-${place?.color}`"
+          >
+            <h4 class="px-2 py-1 text-xl font-title text-me-stone">
+              {{ event?.title }}
             </h4>
           </div>
-          <SanityImage
-            v-if="event?.image?.asset"
-            :asset-id="event?.image?.asset?._ref"
-            auto="format"
-            class="h-32 w-32 md:h-36 md:w-36 object-cover shadow"
-          />
-        </header> -->
 
-        <header
-          class="grow bg-gradient-to-r from-transparent flex justify-between items-center"
-          :class="`to-${place?.color}`"
-        >
-          <div
-            class="-ml-4 border-4 w-28 h-40 shadow rounded-lg"
-            :class="`border-${place?.color}`"
+          <p
+            v-if="event?.isSoldout"
+            class="bg-yellow-400 px-2 py-1 font-title inline-block -ml-4 md:mt-2 shadow-md"
           >
-            <time
-              :datetime="event?.datetimeStart"
-              class="flex flex-col items-center"
+            Evento Sold Out
+          </p>
+          <div
+            v-if="event?.description?.length > 0"
+            class="mt-2 border-l-4 pl-3 overflow-ellipsis"
+            :class="{
+              [`border-${place?.color}`]: true,
+              // 'md:line-clamp-6': !showFullDescription,
+            }"
+          >
+            <SanityContent :blocks="event?.description" />
+            <!-- <div
+            class="hidden md:block absolute w-full bg-gradient-to-b from-transparent to-me-stone flex items-end"
+            :class="{
+              'bottom-0': !showFullDescription,
+              '-bottom-8': showFullDescription,
+              'mb-8': showFullDescription,
+              'h-24': !showFullDescription,
+            }"
+          >
+            <button
+              class="-ml-4 -mb-8 rounded-full border-2 font-title px-2 bg-me-stone"
+              :class="`border-${place?.color}`"
+              @click="showFullDescription = !showFullDescription"
             >
-              <p
-                class="font-serif capitalize w-full text-center text-me-stone"
-                :class="`bg-${place?.color}`"
-              >
-                {{
-                  new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
-                    weekday: 'long',
-                  })
-                }}
-              </p>
-
-              <p
-                class="font-title text-4xl border-b-2"
-                :class="`border-${place?.color}`"
-              >
-                {{
-                  new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
-                    day: 'numeric',
-                  })
-                }}
-              </p>
-
-              <p
-                class="font-serif capitalize border-b-2"
-                :class="`border-${place?.color}`"
-              >
-                {{
-                  new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
-                    month: 'short',
-                  })
-                }}
-              </p>
-
-              <p class="pt-3 text-sm text-center">
-                dalle
-                <span class="font-title">
-                  {{
-                    new Date(event?.datetimeStart).toLocaleTimeString('it-IT', {
-                      hour: 'numeric',
-                      minute: '2-digit',
-                    })
-                  }}</span
-                >
-                <br />
-
-                alle
-
-                <span class="font-title">
-                  {{
-                    new Date(event?.datetimeEnd).toLocaleTimeString('it-IT', {
-                      hour: 'numeric',
-                      minute: '2-digit',
-                    })
-                  }}</span
-                >
-              </p>
-            </time>
+              {{
+                showFullDescription ? 'Nascondi descrizione' : 'Scopri di più'
+              }}
+            </button>
+          </div> -->
           </div>
-
-          <h4 class="hidden md:flex text-2xl font-title text-shadow">
-            {{ event?.title }}
-          </h4>
-
-          <SanityImage
-            v-if="event?.image?.asset"
-            :asset-id="event?.image?.asset?._ref"
-            auto="format"
-            class="h-40 w-40 object-cover shadow"
-          />
-        </header>
-
-        <div
-          class="mt-2 md:hidden rounded-r-lg shadow"
-          :class="`bg-${place?.color}`"
-        >
-          <h4 class="px-2 py-1 text-xl font-title text-me-stone">
-            {{ event?.title }}
-          </h4>
-        </div>
-
-        <div class="mt-2 border-l-4 pl-3" :class="`border-${place?.color}`">
-          <SanityContent :blocks="event?.description" />
-        </div>
-      </article>
+        </article>
+      </div>
     </div>
 
     <div
