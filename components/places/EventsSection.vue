@@ -178,7 +178,7 @@ const showFullDescription = ref(false)
           </p>
           <div
             v-if="event?.description?.length > 0"
-            class="mt-2 border-l-4 pl-3 overflow-ellipsis"
+            class="mt-2 border-l-4 border-b-4 pl-3 pb-2 rounded-bl-3xl overflow-ellipsis"
             :class="{
               [`border-${place?.color}`]: true,
               // 'md:line-clamp-6': !showFullDescription,
