@@ -2,60 +2,85 @@
 const menuModalOpen = useMenuModalOpen()
 
 const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
-
-const places = usePlaces()
-
-const showActivityLinks = ref(false)
-
-const toggleActivityLinks = () =>
-  (showActivityLinks.value = !showActivityLinks.value)
 </script>
 
 <template>
-  <aside v-if="menuModalOpen">
-    <nav>
-      <ul class="flex flex-col items-start gap-12 -mt-2 font-title">
-        <li>
-          <NuxtLink to="/about-us" class="hover:underline">La Mamma</NuxtLink>
-        </li>
-        <li class="relative">
-          <span @click="toggleActivityLinks">Le nostre attività</span>
+  <aside
+    v-if="menuModalOpen"
+    class="fixed h-screen w-screen bg-me-lapis overflow-hidden z-200 p-8"
+  >
+    <header class="flex justify-between items-start">
+      <NuxtLink to="/" class="flex flex-col items-center" @click="modalToggle">
+        <figure>
+          <img
+            src="~/assets/graphics/logo/mammaelvira-logo_text_arc_stone.svg"
+            alt="Mamma Elvira"
+            class="h-6"
+          />
+        </figure>
+        <figure>
+          <img
+            src="~/assets/graphics/logo/mammaelvira-logo_head-glyph_stone.svg"
+            alt="Mamma Elvira glifo"
+            class="h-10"
+          /></figure
+      ></NuxtLink>
+      <button
+        type="button"
+        @click="modalToggle"
+        class="text-me-stone font-title uppercase"
+      >
+        chiudi
+      </button>
+    </header>
 
-          <div
-            class="absolute min-w-max flex-col gap-2 text-sm bg-me-stone p-2 -left-2"
-            :class="showActivityLinks ? 'flex' : 'hidden'"
-          >
-            <NuxtLink
-              @click="showActivityLinks = false"
-              v-for="place in places"
-              :to="place.path"
-              :key="place.path"
-              :class="`text-${place.color}`"
+    <nav
+      class="mt-6 flex flex-col gap-5 text-me-stone font-title text-3xl text-shadow"
+    >
+      <NuxtLink to="/about-us" @click="modalToggle"
+        >"La Mamma" <span class="text-2xl">- Chi siamo</span>
+      </NuxtLink>
+
+      <div class="flex flex-col">
+        <button class="inline-flex">Mangiare e bere</button>
+        <ul
+          class="mt-2 ml-2 text-2xl pl-4 flex flex-col gap-2 border-l-2 border-me-stone"
+        >
+          <li>
+            <NuxtLink to="/enoteca" @click="modalToggle"
+              >Mamma Elvira Enoteca</NuxtLink
             >
-              <span class="mr-2">•</span>
-              <span class="hover:underline"> {{ place.name }}</span>
-            </NuxtLink>
-          </div>
-        </li>
+          </li>
+          <li>
+            <NuxtLink to="/la-cucina" @click="modalToggle"
+              >La Cucina di Mamma Elvira</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink to="/la-cucina-de-coste" @click="modalToggle"
+              >La Cucina De Coste</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink to="/corte-dei-pandolfi" @click="modalToggle"
+              >Corte dei Pandolfi</NuxtLink
+            >
+          </li>
+          <li>
+            <NuxtLink to="/picnic-experience" @click="modalToggle"
+              >Picnic Experience Lecce</NuxtLink
+            >
+          </li>
+        </ul>
+      </div>
 
-        <li>
-          <NuxtLink to="/recipes" class="hover:underline"
-            >Le nostre ricette</NuxtLink
-          >
-        </li>
+      <NuxtLink to="/casa" @click="modalToggle">La Casa</NuxtLink>
 
-        <li>
-          <NuxtLink to="/contacts" class="hover:underline">Contatti</NuxtLink>
-        </li>
-      </ul>
+      <NuxtLink to="/events" @click="modalToggle">Eventi</NuxtLink>
+
+      <NuxtLink to="/recipes" @click="modalToggle">Le ricette</NuxtLink>
+
+      <NuxtLink to="/contacts" @click="modalToggle">Contatti</NuxtLink>
     </nav>
-
-    <button type="button" @click="modalToggle">close</button>
   </aside>
 </template>
-
-<style scoped>
-aside {
-  @apply bg-green-300 h-screen w-screen;
-}
-</style>
