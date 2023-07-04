@@ -15,7 +15,7 @@ const places = usePlaces()
           >
           e per la città di <span class="font-bold">Lecce</span>.
         </p>
-        <p class="text-right">
+        <!-- <p class="text-right">
           <span class="font-serif">Mamma Elvira</span> è un tesoro prezioso.
           <br />
 
@@ -23,7 +23,7 @@ const places = usePlaces()
           <span class="font-bold">profumi</span> e
           <span class="font-bold">ricordi</span> che rimangono impressi nella
           mente e nel palato per sempre.
-        </p>
+        </p> -->
         <p>
           <span class="font-serif">Mamma Elvira</span> nelle sue varie
           espressioni, dall'<NuxtLink
@@ -56,6 +56,27 @@ const places = usePlaces()
     </section>
 
     <section class="p-2 md:p-8 lg:p-12 xl:p-16"><GraphicsPlacesMap /></section>
+
+    <section>
+      <p class="text-right">
+        <span class="font-serif">Lecce</span> è una città unica nel suo genere.
+      </p>
+      <p>
+        <span class="font-serif">Lecce</span> è una città conosciuta nel mondo
+        per la ricchezza architettonica del
+        <span class="font-bold">Barocco</span> e per una cucina raffinata che
+        valorizza al meglio il <span class="font-bold">territorio</span>, con
+        un'ampia varietà di legumi, ortaggi, cereali.
+      </p>
+
+      <p>
+        Il calore della sua <span class="font-bold">pietra</span> ti avvolge, la
+        sua <span class="font-bold">luce</span> e i suoi
+        <span class="font-bold">colori</span> ti accompagnano lungo i vicoli del
+        Centro Storico, come i <span class="font-bold">profumi</span> di crema
+        pasticcera o di sugo al pomodoro cotto per ore.
+      </p>
+    </section>
 
     <!-- <section>
    <div class="flex flex-col">
@@ -100,7 +121,7 @@ const places = usePlaces()
       </div>
     </section> -->
 
-    <section>
+    <!-- <section>
       <div class="mt-8 flex flex-col gap-6 items-center">
         <p>
           La cucina proposta da <span class="font-serif">Mamma Elvira</span> ci
@@ -143,7 +164,7 @@ const places = usePlaces()
         </p>
         <p></p>
       </div>
-    </section>
+    </section> -->
 
     <section>
       <h3 class="font-title text-xl">Scopri le esperienze di Mamma Elvira:</h3>

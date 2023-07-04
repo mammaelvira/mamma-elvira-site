@@ -54,7 +54,7 @@ const { data: staff, refresh } = useSanityQuery<Staff>(query)
             È un mix perfetto di sapori, profumi e ricordi che rimangono
             impressi nella mente e nel palato per sempre.
           </p>
-          <p class="text-right">
+          <!-- <p class="text-right">
             <span class="font-serif">Lecce</span> è una città unica nel suo
             genere.
           </p>
@@ -73,35 +73,54 @@ const { data: staff, refresh } = useSanityQuery<Staff>(query)
             <span class="font-bold">colori</span> ti accompagnano lungo i vicoli
             del Centro Storico, come i <span class="font-bold">profumi</span> di
             crema pasticcera o di sugo al pomodoro cotto per ore.
-          </p>
+          </p> -->
         </div>
       </section>
 
-      <p></p>
-      <p>
-        <br />
-        Mamma Elvira nelle sue varie espressioni, dall'<NuxtLink to="/enoteca"
-          >Enoteca</NuxtLink
-        >
-        alla <NuxtLink to="/la-cucina">Cucina</NuxtLink> alla
-        <NuxtLink to="/casa">Casa</NuxtLink>fino alla nostra
-        <NuxtLink to="/corte-dei-pandolfi">Oyster House</NuxtLink>, non è un
-        luogo dove si prepara il cibo, ma è un grande tavolo di condivisione, di
-        raccolta di esperienze, di risate e di racconti. È un luogo dove si
-        passa del tempo insieme, si condividono momenti importanti e si creano
-        ricordi. La cucina di Mamma Elvira ci insegna anche l'importanza della
-        tradizione culinaria pugliese e ci fa scoprire la cultura e la storia
-        del nostro Paese attraverso i sapori e le ricette tramandate nel tempo.
-        La cucina di Mamma Elvira è tutto questo: un mondo di emozioni, di
-        sapori e di esperienze uniche e irripetibili. È un luogo dove il cibo
-        viene trasformato in un vero e proprio abbraccio, dove ogni piatto ha
-        una storia da raccontare e dove il tempo sembra fermarsi per farci
-        godere il piacere del cibo fatto con amore. Siamo appassionati di cibo e
-        crediamo che la cucina sia una forma d'arte che ci permette di esplorare
-        il mondo attraverso il palato. Condividiamo la nostra conoscenza e la
-        nostra esperienza per aiutare tutti a migliorare le proprie abilità
-        culinarie e a scoprire nuovi sapori e piaceri.
-      </p>
+      <section>
+        <div class="mt-8 flex flex-col gap-6 items-center">
+          <p>
+            La cucina proposta da
+            <span class="font-serif">Mamma Elvira</span> ci insegna l'importanza
+            della <span class="font-bold">tradizione</span> culinaria pugliese e
+            ci fa scoprire la <span class="font-bold">cultura</span> e la
+            <span class="font-bold">storia</span> dell'Italia attraverso i
+            <span class="font-bold"></span>sapori e le
+            <span class="font-bold">ricette</span> tramandate nel tempo.
+          </p>
+
+          <p class="text-right">
+            <span class="font-serif">Mamma Elvira</span> è tutto questo: un
+            mondo di <span class="font-bold">emozioni</span>, di
+            <span class="font-bold">sapori</span> e di
+            <span class="font-bold">esperienze uniche</span> e irripetibili.
+            <br />
+            Sono <span class="font-bold">luoghi</span> dove il cibo viene
+            trasformato in un vero e proprio abbraccio, dove ogni
+            <span class="font-bold">piatto</span>, ogni
+            <span class="font-bold">calice</span> ha una
+            <span class="font-bold">storia da raccontare</span> e dove il
+            <span class="font-bold">tempo sembra rallentare</span> per farci
+            godere il piacere del cibo fatto con amore.
+          </p>
+
+          <p>
+            Siamo appassionati di <span class="font-bold">gusto</span> e
+            crediamo che il <span class="font-bold">buon cibo</span> e il
+            <span class="font-bold">buon vino</span> siano una forma d'arte che
+            ci permette di
+            <span class="font-bold">esplorare il mondo</span> attraverso il
+            palato.
+          </p>
+
+          <p class="text-right">
+            Condividiamo la nostra conoscenza e la nostra esperienza per aiutare
+            tutti a migliorare le proprie abilità culinarie e a
+            <span class="font-bold">scoprire nuovi sapori e piaceri</span>.
+          </p>
+          <p></p>
+        </div>
+      </section>
     </section>
 
     <!-- STAFF -->
