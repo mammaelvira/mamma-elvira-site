@@ -1,5 +1,16 @@
 <template>
   <PlacesPageSchema>
+    <header class="flex flex-col items-center mb-8">
+      <h1
+        class="inline font-serif text-4xl md:text-5xl text-center border-b-2 border-me-mint pb-2"
+      >
+        La Cucina
+      </h1>
+      <h2 class="text-center text-lg md:text-2xl text-me-lapis">
+        La Mamma è la migliore Cuoca del Mondo
+      </h2>
+    </header>
+
     <p>
       <span>La Cucina di Mamma Elvira</span> - Osteria Contemporanea è il luogo
       ideale per vivere l'esperienza culinaria leccese.

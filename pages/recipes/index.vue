@@ -1,5 +1,44 @@
+<script setup lang="ts">
+const query = useQueryRecipes()
+
+const { data: recipes, refresh } = useSanityQuery(query)
+</script>
+
 <template>
-  <article>
+  <article class="mt-4 mb-12 flex flex-col">
+    <header class="flex flex-col items-center">
+      <h1
+        class="inline font-serif text-4xl md:text-5xl text-center border-b-2 border-me-mint pb-2"
+      >
+        Le ricette
+      </h1>
+      <h2 class="text-center text-lg md:text-2xl text-me-lapis">
+        I segreti della Mamma in cucina
+      </h2>
+    </header>
+    <section class="flex flex-col gap-12">
+      <article v-for="recipe in recipes" :key="recipe._id" class="">
+        <header>
+          <figure class="flex items-center">
+            <SanityImage
+              v-if="recipe?.image?.asset"
+              :asset-id="recipe?.image?.asset?._ref"
+              auto="format"
+              class="h-36 w-36 object-cover"
+            />
+            <figcaption class="ml-8">
+              <h3 class="font-title text-xl">{{ recipe?.title }}</h3>
+            </figcaption>
+          </figure>
+        </header>
+        <section class="mt-4">
+          <SanityContent :blocks="recipe?.description" />
+        </section>
+      </article>
+    </section>
+  </article>
+
+  <!-- <article>
     <header>
       <h1>Le ricette</h1>
       <h2>I segreti della Mamma in cucina</h2>
@@ -94,11 +133,11 @@
         </ol>
       </div>
     </section>
-  </article>
+  </article> -->
 </template>
 
 <style scoped>
-#lecce-dish-list {
+/* #lecce-dish-list {
   @apply flex flex-col gap-6;
 }
 
@@ -116,5 +155,5 @@
 
 #lecce-dish-list p {
   @apply pl-2;
-}
+} */
 </style>

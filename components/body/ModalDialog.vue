@@ -43,30 +43,33 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
 
       <div class="flex flex-col">
         <button class="inline-flex">Mangiare e bere</button>
-        <ul
-          class="mt-2 ml-2 text-2xl pl-4 flex flex-col gap-2 border-l-2 border-me-stone"
-        >
+        <ul class="mt-2 text-2xl flex flex-col gap-2">
           <li>
+            <div class="bg-me-red"></div>
             <NuxtLink to="/enoteca" @click="modalToggle"
               >Mamma Elvira Enoteca</NuxtLink
             >
           </li>
           <li>
+            <div class="bg-me-basil"></div>
             <NuxtLink to="/la-cucina" @click="modalToggle"
               >La Cucina di Mamma Elvira</NuxtLink
             >
           </li>
           <li>
+            <div class="bg-me-mint"></div>
             <NuxtLink to="/la-cucina-de-coste" @click="modalToggle"
               >La Cucina De Coste</NuxtLink
             >
           </li>
           <li>
+            <div class="bg-me-peach"></div>
             <NuxtLink to="/corte-dei-pandolfi" @click="modalToggle"
               >Corte dei Pandolfi</NuxtLink
             >
           </li>
           <li>
+            <div class="bg-me-lavender"></div>
             <NuxtLink to="/picnic-experience" @click="modalToggle"
               >Picnic Experience Lecce</NuxtLink
             >
@@ -84,3 +87,13 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
     </nav>
   </aside>
 </template>
+
+<style scoped>
+li {
+  @apply flex items-center gap-2 -ml-8;
+}
+li > div {
+  @apply h-3 w-12 shadow-md
+  rounded-r-full;
+}
+</style>

@@ -1,3 +1,16 @@
 <template>
-  <div>contacts</div>
+  <article class="mt-6">
+    <section class="mt-4 mb-12 flex flex-col">
+      <header class="flex flex-col items-center">
+        <h1
+          class="inline font-serif text-4xl md:text-5xl text-center border-b-2 border-me-mint pb-2"
+        >
+          Contattaci
+        </h1>
+        <h2 class="text-center text-lg md:text-2xl text-me-lapis">
+          Scopri tutte le attività di Mamma Elvira
+        </h2>
+      </header>
+    </section>
+  </article>
 </template>

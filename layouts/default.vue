@@ -1,3 +1,16 @@
+<script setup lang="ts">
+const menuModalOpen = useMenuModalOpen()
+
+useHead({
+  meta: [
+    {
+      name: 'theme-color',
+      content: menuModalOpen.value === false ? '#eae3d8' : '#3f689d',
+    },
+  ],
+})
+</script>
+
 <template>
   <div id="app-layout">
     <div id="full-page-modal"></div>

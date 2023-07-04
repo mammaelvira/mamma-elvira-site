@@ -23,7 +23,7 @@
             </li>
 
             <!-- ACTIVITIES -->
-            <BodyMenuDropdown />
+            <BodyMenuDropdown class="cursor-pointer" />
 
             <li>
               <NuxtLink to="/casa" class="hover:underline">La Casa</NuxtLink>
@@ -55,6 +55,7 @@
 
 <style scoped>
 #header-main-nav > ul > li > span {
-  @apply hover:underline;
+  @apply hover:underline
+  cursor-pointer;
 }
 </style>
