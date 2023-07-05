@@ -15,5 +15,13 @@ export default () => groq`*[_type == "events" && isActive == true]{
   image,
   datetimeStart,
   datetimeEnd,
-  description
+  
+  referenceEmail,
+  referenceName,
+  referencePhone,
+
+  description,
+  
+  performerName,
+  performerLink
 } | order(datetimeStart)`

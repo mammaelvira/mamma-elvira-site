@@ -17,8 +17,6 @@ const activityEvents = computed(() =>
 const otherActivitiesEvents = computed(() =>
   events?.value?.filter((event) => event?.activity?.path !== route.fullPath)
 )
-
-const showFullDescription = ref(false)
 </script>
 
 <template>
@@ -39,16 +37,15 @@ const showFullDescription = ref(false)
         </div>
       </h3>
     </header>
-    <div class="md:flex justify-center">
-      <div class="my-8 flex flex-col gap-12 md:max-w-3/4 md:ml-4">
-        <PlacesEventCard
-          v-for="event in activityEvents"
-          :event="event"
-          :place="place"
-        />
-      </div>
-    </div>
 
+    <div class="mt-8 flex flex-col gap-16 items-center">
+      <PlacesEventCard
+        v-for="event in activityEvents"
+        :event="event"
+        :place="place"
+        :show-activity-label="false"
+      />
+    </div>
     <div
       class="hidden to-me-red to-me-peach to-me-orange to-me-pink to-me-lapis to-me-cyan to-me-basil to-me-mint to-me-lavender to-me-stone to-me-ink"
     ></div>
