@@ -57,25 +57,28 @@ const places = usePlaces()
 
     <section class="p-2 md:p-8 lg:p-12 xl:p-16"><GraphicsPlacesMap /></section>
 
-    <section>
-      <p class="text-right">
-        <span class="font-serif">Lecce</span> è una città unica nel suo genere.
-      </p>
-      <p>
-        <span class="font-serif">Lecce</span> è una città conosciuta nel mondo
-        per la ricchezza architettonica del
-        <span class="font-bold">Barocco</span> e per una cucina raffinata che
-        valorizza al meglio il <span class="font-bold">territorio</span>, con
-        un'ampia varietà di legumi, ortaggi, cereali.
-      </p>
+    <section class="mb-8">
+      <div class="mt-8 flex flex-col gap-6 items-center">
+        <p class="text-right">
+          <span class="font-serif">Lecce</span> è una città unica nel suo
+          genere.
+        </p>
+        <p>
+          <span class="font-serif">Lecce</span> è una città conosciuta nel mondo
+          per la ricchezza architettonica del
+          <span class="font-bold">Barocco</span> e per una cucina raffinata che
+          valorizza al meglio il <span class="font-bold">territorio</span>, con
+          un'ampia varietà di legumi, ortaggi, cereali.
+        </p>
 
-      <p>
-        Il calore della sua <span class="font-bold">pietra</span> ti avvolge, la
-        sua <span class="font-bold">luce</span> e i suoi
-        <span class="font-bold">colori</span> ti accompagnano lungo i vicoli del
-        Centro Storico, come i <span class="font-bold">profumi</span> di crema
-        pasticcera o di sugo al pomodoro cotto per ore.
-      </p>
+        <p>
+          Il calore della sua <span class="font-bold">pietra</span> ti avvolge,
+          la sua <span class="font-bold">luce</span> e i suoi
+          <span class="font-bold">colori</span> ti accompagnano lungo i vicoli
+          del Centro Storico, come i <span class="font-bold">profumi</span> di
+          crema pasticcera o di sugo al pomodoro cotto per ore.
+        </p>
+      </div>
     </section>
 
     <!-- <section>
