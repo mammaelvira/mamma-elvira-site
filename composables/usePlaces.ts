@@ -148,8 +148,8 @@ export default (): PageDetails[] => [
     iconClass: 'i-game-icons-basket',
     color: 'me-lavender',
     videoUrl: '',
-    telephone: '+393491225063',
-    email: 'casa@mammaelvira.com',
+    telephone: '+393761798201',
+    email: 'picnic@delicatessenlecce.com',
     address: {
       street: 'Via San Pietro in Lama',
       streetNumber: 'traversa Via A. Mazzotta',

@@ -9,22 +9,35 @@
         Picnic
       </h1>
       <h2 class="text-center text-lg md:text-2xl text-me-lapis">
-        Scoprire Lecce, <br />
-        un cestino per volta
+        Scoprire Lecce, <br class="md:hidden" />
+        un Cestino per volta
       </h2>
     </header>
 
     <p>
-      Scoprire alcuni dei luoghi e paesaggi più belli di Lecce attraverso un
-      nuovo format che unisce il buon cibo alle espressioni della cultura
-      salentina.
+      Picnic Experience è un'iniziativa nata nel 2021 con la volontà di
+      promuovere il territorio leccese, il suo patrimonio umano, storico ed
+      artistico. <br />
+      La location è il <span>Parco Archeologico di Rudiae</span> con il
+      suggestivo Anfiteatro Romano che fa da cornice alle serate dal 2021.
+    </p>
+    <p>
+      Per il 2023, le serate Picnic Experience si terranno
+      <span class="">tutti i martedì</span>, a partire dal 18 luglio e fino al
+      12 settembre. <br />
+      Alle visite guidate seguono eventi di musica, Dj Set, Performance, Poesia,
+      Improvvisazione e Cinema, con un immancabile
+      <span>Cestino Picnic</span> preparato da Mamma Elvira e il Vino delle
+      migliori Cantine locali.
     </p>
 
+    <div class="border-b-2 border-me-lavender my-6"></div>
+
     <p>
-      Scegli il tuo cestino di degustazione con i migliori prodotti
-      enogastronomici di Delicatessen e goditi lo spettacolo del Parco
-      Archeologico di Rudiae al ritmo della musica di artisti salentini e
-      internazionali.
+      Il Parco Archeologico di Rudiae è fruibile grazie a un accordo di
+      promozione e valorizzazione stipulato tra la Soprintendenza archeologia
+      belle arti e paesaggio Brindisi e Lecce, il Comune di Lecce e la società
+      Archeologia Ricerca e Valorizzazione SRL - A.R.Va - spin off Unisalento.
     </p>
     <template v-slot:place-image>
       <img src="~/assets/images/me_picnic-experience_ext-01.jpg" alt="" />
