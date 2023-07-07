@@ -29,13 +29,11 @@ const { data: recipes, refresh } = useSanityQuery(query)
           <div
             class="bg-gradient-to-r from-transparent flex justify-between items-center to-me-mint h-40"
           >
-            <div>
-              <h3
-                class="text-3xl font-title text-shadow bg-me-mint px-4 py-2 -ml-4 rounded-r-lg shadow"
-              >
-                {{ recipe?.title }}
-              </h3>
-            </div>
+            <h3
+              class="text-xl md:text-3xl max-w-1/2 font-title text-me-stone text-shadow bg-me-mint px-4 py-2 -ml-4 rounded-r-lg shadow"
+            >
+              {{ recipe?.title }}
+            </h3>
 
             <figure class="-mr-3 -mt-6">
               <SanityImage

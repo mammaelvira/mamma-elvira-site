@@ -47,7 +47,8 @@
       </li>
 
       <li class="flex gap-6 items-start">
-        <BodyLanguageSwitcher /><BodyMenuModal class="lg:hidden -mt-3" />
+        <!-- <BodyLanguageSwitcher /> -->
+        <BodyMenuModal class="lg:hidden -mt-3" />
       </li>
     </ul>
   </header>
