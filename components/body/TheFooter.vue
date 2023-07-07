@@ -61,7 +61,6 @@
         </div>
       </div>
     </section>
-
     <section class="mt-8 text-xs">
       <p>
         Obblighi informativi per le erogazioni pubbliche: gli aiuti di Stato e
