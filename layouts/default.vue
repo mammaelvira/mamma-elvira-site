@@ -1,5 +1,6 @@
 <template>
   <div id="app-layout">
+    <SeoKit />
     <div id="full-page-modal"></div>
 
     <BodyTheHeader />

@@ -44,6 +44,7 @@ export default defineNuxtConfig({
       language: '',
       titleSeparator: ' • ',
 
+      // Sanity
       sanity: {
         projectId: 'yke6f6fh',
       },

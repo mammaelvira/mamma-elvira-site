@@ -4,6 +4,11 @@ const route = useRoute()
 const query = groq`*[_type == "events" && path == $eventpath]{
   _id,
   title,
+
+  "ogImage": ogImage.asset -> url,
+  ogTitle,
+  ogDescription,
+
   isSoldout,
   activity -> {
     name,
@@ -36,6 +41,14 @@ const places = usePlaces()
 const place = places.find(
   (place) => place.path === event.value?.[0]?.activity?.path
 )
+
+useSeoMeta({
+  title: event?.value?.[0]?.ogTitle || 'Mamma Elvira',
+  description: event?.value?.[0]?.ogDescription || 'mammaelvira.com',
+  ogImage: event?.value?.[0]?.ogImage || '', // #TODO: add default falloff image,
+})
+
+useSchemaOrg([defineEvent({ name: event?.value?.[0].ogTitle })])
 </script>
 
 <template>

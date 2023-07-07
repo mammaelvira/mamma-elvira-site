@@ -8,7 +8,7 @@ const place = computed(() =>
 
 const query = useQueryEvents()
 
-const { data: events, refresh } = useSanityQuery(query)
+const { data: events, refresh } = await useSanityQuery(query)
 
 const activityEvents = computed(() =>
   events?.value?.filter((event) => event?.activity?.path === route.fullPath)
@@ -45,6 +45,7 @@ const otherActivitiesEvents = computed(() =>
         :event="event"
         :place="place"
         :show-activity-label="false"
+        :is-collapsable="true"
       />
     </div>
     <div

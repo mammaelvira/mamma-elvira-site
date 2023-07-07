@@ -1,6 +1,10 @@
 export default () => groq`*[_type == "events" && isActive == true]{
   _id,
   path,
+
+  ogTitle,
+  ogDescription,
+  ogImage,
   
   title,
   isSoldout,
