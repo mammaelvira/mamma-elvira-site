@@ -22,12 +22,23 @@
         >
       </div>
       <div>
-        <div class="i-game-icons-oyster-pearl text-me-peach"></div>
+        <GraphicsLogoPandolfi class="text-me-peach h-4" />
         <NuxtLink to="/corte-dei-pandolfi">Corte dei Pandolfi</NuxtLink>
       </div>
       <div>
         <div class="i-game-icons-bed text-me-lapis"></div>
         <NuxtLink to="/casa">Casa Mamma Elvira</NuxtLink>
+      </div>
+
+      <div>
+        <div class="i-game-icons-basket text-me-lavender"></div>
+        <NuxtLink to="/picnic-experience" class="relative"
+          >Picnic Experience Lecce
+          <span
+            class="absolute -right-8 -top-2 bg-me-lavender text-me-stone text-xs px-1 rotate-12"
+            >all'aperto</span
+          ></NuxtLink
+        >
       </div>
     </nav>
 

@@ -4,8 +4,17 @@ button {
   background-color: transparent;
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #eae3d8;
   color: #372c43;
   font-family: 'PT Sans';
+}
+
+/* BEST PRACTICES: optimal length for a paragraph */
+p {
+  max-width: clamp(52ch, 64ch, 75ch);
 }

@@ -1,73 +1,90 @@
 <script setup lang="ts">
-const places = usePlaces()
+useSeoMeta({
+  ogImage: 'https://mammaelvira.com/mammaelvira_website-cover.png',
+  ogTitle: 'Benvenuti', // #TODO: add other languages?
+  ogDescription: 'Esperienze del Territorio, a Lecce dal 2011',
+  twitterCard: 'summary_large_image',
+})
 </script>
 
 <template>
-  <article>
+  <article class="flex flex-col items-center">
     <HomeLogoSection />
 
-    <section class="intro-section">
-      <p>
-        <span class="font-logo text-me-lapis">Lecce</span> è una città unica nel
-        suo genere.
-        <br />
-        Il calore della sua Pietra ti avvolge, la sua Luce ti accompagna lungo i
-        vicoli del centro storico, come i Profumi di
-        <span class="underline">crema pasticcera</span> o di
-        <span class="underline">sugo al pomodoro</span>
-        cotto per ore.
-      </p>
-
-      <p>
-        <span class="font-logo text-me-mint">Mamma Elvira</span> nasce da queste
-        emozioni per far scoprise sapori, aromi e prodotti del Salento e non
-        solo.
-      </p>
-
-      <p>
-        <span class="font-logo text-me-orange">Mamma Elvira</span> è un insieme
-        di Esperienze diffuse nel Centro Storico di Lecce, nei punti più
-        caratteristici della città, dove la Pietra trasformata dalle abili mani
-        degli Artisti locali ha creato scorci architettonici indimenticabili.
-      </p>
-    </section>
-
     <section>
-      <h3 class="font-title text-xl">Scopri le esperienze di Mamma Elvira:</h3>
+      <div class="my-8 flex flex-col gap-6 items-center">
+        <p>
+          Siamo felici di condividere con voi la passione per l'<span
+            class="font-bold"
+            >enogastronomia</span
+          >, per le bellezze della città di
+          <span class="font-bold">Lecce</span> e le
+          <span class="font-bold">esperienze uniche</span> che offre.
+        </p>
 
-      <div class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        <NuxtLink :to="place.path" v-for="place in places">
-          <div
-            :class="`bg-${place.color}`"
-            class="mt-4 h-full px-3 py-2 flex flex-col justify-between text-me-stone"
+        <p>
+          <span class="font-serif">Mamma Elvira</span> nelle sue varie
+          espressioni, dall'<NuxtLink
+            to="/enoteca"
+            class="underline text-me-red"
+            >Enoteca</NuxtLink
+          >, alla
+          <NuxtLink to="/la-cucina" class="underline text-me-basil">
+            Cucina</NuxtLink
+          >, alla
+          <NuxtLink to="/corte-dei-pandolfi" class="underline text-me-peach">
+            Corte</NuxtLink
           >
-            <h4 class="text-xl font-title">
-              {{ place.name }}
-            </h4>
-            <div>
-              <div :class="place.iconClass" class="text-2xl"></div>
-              <h5>{{ place.payoff }}</h5>
-            </div>
-          </div>
-        </NuxtLink>
+          passando dalla
+          <NuxtLink to="/casa" class="underline text-me-lapis"> Casa</NuxtLink>
+          fino ai nostri speciali eventi
+          <NuxtLink to="/picnic-experience" class="underline text-me-lavender"
+            >Picnic</NuxtLink
+          >, non è solo un luogo dove si prepara il
+          <span class="font-bold">cibo</span>, ma è un grande
+          <span class="font-bold">tavolo</span> di
+          <span class="font-bold">condivisione</span>, di raccolta di
+          <span class="font-bold">esperienze</span>, di risate, di
+          <span class="font-bold">racconti</span>.
+        </p>
+
+        <p class="text-right">
+          È un luogo dove si passa del
+          <span class="font-bold">tempo</span> insieme, si condividono
+          <span class="font-bold">momenti</span> importanti e si creano
+          <span class="font-bold">ricordi</span>.
+        </p>
       </div>
     </section>
 
-    <div class="hidden">
-      <section class="flex justify-center">
-        <a class="call-to-action" href="#me-experience"
-          >Scopri le Esperienze Mamma Elvira</a
-        >
-      </section>
-      <section>cosa: cards</section>
-      <section>perchè: valori</section>
-      <section>dove: contatti</section>
-    </div>
+    <section class="p-2 md:p-8 lg:p-12 xl:p-16 flex items-center w-full">
+      <GraphicsPlacesMap class="w-full max-h-screen lg:p-8" />
+    </section>
+
+    <section class="mb-8">
+      <div class="mt-8 flex flex-col gap-6 items-center">
+        <p class="text-right">
+          <span class="font-serif">Lecce</span> è una città unica nel suo
+          genere.
+        </p>
+        <p>
+          <span class="font-serif">Lecce</span> è una città conosciuta nel mondo
+          per la ricchezza architettonica del
+          <span class="font-bold">Barocco</span> e per una cucina raffinata che
+          valorizza al meglio il <span class="font-bold">territorio</span>, con
+          un'ampia varietà di legumi, ortaggi, cereali.
+        </p>
+
+        <p>
+          Il calore della sua <span class="font-bold">pietra</span> ti avvolge,
+          la sua <span class="font-bold">luce</span> e i suoi
+          <span class="font-bold">colori</span> ti accompagnano lungo i vicoli
+          del Centro Storico, come i <span class="font-bold">profumi</span> di
+          crema pasticcera o di sugo al pomodoro cotto per ore.
+        </p>
+      </div>
+    </section>
+
+    <BodyActivitySection />
   </article>
 </template>
-
-<style scoped>
-.intro-section p {
-  @apply mb-4 text-xl;
-}
-</style>

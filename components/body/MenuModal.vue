@@ -7,36 +7,25 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
 <template>
   <div>
     <button type="button" @click="modalToggle">
-      <div class="menu-icon">
-        <div class="bg-me-lapis"></div>
-        <div class="bg-me-mint"></div>
-        <div class="bg-me-orange"></div>
+      <div class="menu-icon flex flex-col max-h-min">
+        <div class="bg-me-ink"></div>
+        <div class="bg-me-ink"></div>
+        <div class="bg-me-ink"></div>
         <span class="text-xs">menu</span>
       </div>
     </button>
 
     <Teleport to="#full-page-modal">
       <Transition name="slide-fade">
-        <aside v-if="menuModalOpen">
-          modal open
-
-          <button type="button" @click="modalToggle">close</button>
-        </aside>
+        <BodyModalDialog />
       </Transition>
     </Teleport>
   </div>
 </template>
 
 <style scoped>
-.menu-icon {
-  @apply flex flex-col items-center;
-}
 .menu-icon div {
-  @apply h-1.25 w-8
-    mb-1;
-}
-.menu-icon div:last-of-type {
-  @apply mb-0;
+  @apply h-1.25 w-8 mb-1;
 }
 
 /*
@@ -44,11 +33,11 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
   durations and timing functions.
 */
 .slide-fade-enter-active {
-  transition: all 0.8s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-enter-from,

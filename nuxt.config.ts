@@ -1,4 +1,4 @@
-import transformerDirectives from '@unocss/transformer-directives'
+import { transformerDirectives } from 'unocss'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -18,6 +18,9 @@ export default defineNuxtConfig({
     'nuxt-typed-router',
 
     '@nuxtjs/i18n',
+
+    // https://sanity.nuxtjs.org/
+    '@nuxtjs/sanity',
   ],
 
   css: [
@@ -31,6 +34,23 @@ export default defineNuxtConfig({
     '@/assets/css/places.css',
   ],
 
+  runtimeConfig: {
+    public: {
+      // SEO
+      // https://github.com/harlan-zw/nuxt-seo-kit
+      siteUrl: 'https://mammaelvira.com',
+      siteName: 'Mamma Elvira',
+      siteDescription: 'Esperienze del Territorio, a Lecce dal 2011',
+      language: '',
+      titleSeparator: ' • ',
+
+      // Sanity
+      sanity: {
+        projectId: 'yke6f6fh',
+      },
+    },
+  },
+
   // https://github.com/unocss/unocss/tree/main/packages/nuxt
   unocss: {
     transformers: [transformerDirectives()],
@@ -40,6 +60,8 @@ export default defineNuxtConfig({
         // mamma-elvira colors
         me: {
           stone: '#eae3d8',
+          'stone-dark': '#D1CBC0',
+          grey: '#ABA69D',
           peach: '#ec7850',
           orange: '#ea5436',
           red: '#C02D18',
@@ -49,6 +71,7 @@ export default defineNuxtConfig({
           cyan: '#668e98',
           basil: '#107652',
           mint: '#4FB692',
+          lavender: '#B08CB9',
         },
       },
     },
@@ -74,18 +97,6 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: 'i18n_redirected',
       redirectOn: 'root', // recommended
-    },
-  },
-
-  runtimeConfig: {
-    public: {
-      // SEO
-      // https://github.com/harlan-zw/nuxt-seo-kit
-      siteUrl: 'https://mammaelvira.com',
-      siteName: 'Mamma Elvira',
-      siteDescription: 'Esperienze del Territorio, a Lecce dal 2011',
-      language: '',
-      titleSeparator: ' • ',
     },
   },
 
@@ -141,9 +152,5 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#eae3d8' },
       ],
     },
-  },
-
-  devtools: {
-    enabled: true,
   },
 })
