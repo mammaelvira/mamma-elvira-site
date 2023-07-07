@@ -45,7 +45,9 @@ const place = places.find(
 useSeoMeta({
   title: event?.value?.[0]?.ogTitle || 'Mamma Elvira',
   description: event?.value?.[0]?.ogDescription || 'mammaelvira.com',
-  ogImage: event?.value?.[0]?.ogImage || '', // #TODO: add default falloff image,
+  ogImage:
+    event?.value?.[0]?.ogImage ||
+    'https://mammaelvira.com/mammaelvira_website-cover.png',
   ogTitle: event?.value?.[0]?.ogTitle || 'Mamma Elvira',
   ogDescription: event?.value?.[0]?.ogDescription || 'mammaelvira.com',
   twitterCard: 'summary_large_image',
