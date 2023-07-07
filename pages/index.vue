@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useSeoMeta({
   ogImage: 'https://mammaelvira.com/mammaelvira_website-cover.png',
-  ogTitle: 'Benvenuti', // #TODO: add other languages?
+  ogTitle: 'Benvenuti da Mamma Elvira', // #TODO: add other languages?
   ogDescription: 'Esperienze del Territorio, a Lecce dal 2011',
   twitterCard: 'summary_large_image',
 })
