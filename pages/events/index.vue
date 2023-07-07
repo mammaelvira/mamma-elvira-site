@@ -1,7 +1,7 @@
 <script setup>
 const query = useQueryEvents()
 
-const { data: events, refresh } = useSanityQuery(query)
+const { data: events, refresh } = await useSanityQuery(query)
 
 const places = usePlaces()
 

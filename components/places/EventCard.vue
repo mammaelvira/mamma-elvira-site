@@ -45,11 +45,12 @@ const performerWithLink = computed(() => {
   )
   return links
 })
-const performerWithoutLink = computed(() =>
-  props.event?.performerName?.filter(
-    (_name: string, index: number) =>
-      props.event?.performerLink?.[index].toLowerCase() === 'x' || ''
-  )
+const performerWithoutLink = computed(
+  () =>
+    props.event?.performerName?.filter(
+      (_name: string, index: number) =>
+        props.event?.performerLink?.[index].toLowerCase() === 'x' || ''
+    ) || []
 )
 </script>
 

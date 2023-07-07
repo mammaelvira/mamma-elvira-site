@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const query = useQueryRecipes()
 
-const { data: recipes, refresh } = useSanityQuery(query)
+const { data: recipes, refresh } = await useSanityQuery(query)
 </script>
 
 <template>
