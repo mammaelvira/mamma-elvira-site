@@ -1,5 +1,7 @@
 export default () => groq`*[_type == "events" && isActive == true]{
   _id,
+  path,
+  
   title,
   isSoldout,
   activity -> {

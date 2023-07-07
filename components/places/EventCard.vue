@@ -3,9 +3,11 @@ interface Props {
   event: any
   place: { color: string }
   showActivityLabel: boolean
+  isCollapsable: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
   showActivityLabel: false,
+  isCollapsable: true,
 })
 
 const descriptionSection = ref(null)
@@ -57,121 +59,122 @@ const performerWithoutLink = computed(() =>
     :data-event-id="event?._id"
     class="relative md:w-3/4 lg:w-2/3 xl:w-1/2"
   >
-    <header>
-      <div
-        v-if="showActivityLabel"
-        class="mb-2 rounded-tr-[3rem] pl-2"
-        :class="`bg-${place?.color}`"
-      >
-        <NuxtLink :to="event?.activity?.path" class="text-shadow">
-          <h5 class="pt-2 flex items-center gap-2 -ml-5">
-            <span class="text-2xl text-shadow-md">@</span>
-            <span class="font-title text-2xl md:text-3xl text-me-stone">
-              {{ event?.activity?.name }}</span
-            >
-          </h5>
-        </NuxtLink>
-
-        <address class="text-sm pb-2">
-          {{ event?.activity?.street }}, {{ event?.activity?.streetNumber }} -
-          {{ event?.activity?.cap }} {{ event?.activity?.city }}
-        </address>
-      </div>
-
-      <div
-        class="bg-gradient-to-r from-transparent flex justify-between items-center"
-        :class="`to-${place?.color}`"
-      >
+    <NuxtLink :to="`/events${event?.path || ''}`">
+      <header>
         <div
-          class="-ml-4 border-4 w-28 h-40 bg-me-stone shadow rounded-lg grow-0"
-          :class="`border-${place?.color}`"
+          v-if="showActivityLabel"
+          class="mb-2 rounded-tr-[3rem] pl-2"
+          :class="`bg-${place?.color}`"
         >
-          <time
-            :datetime="event?.datetimeStart"
-            class="flex flex-col items-center"
-          >
-            <p
-              class="font-serif capitalize w-full text-center text-me-stone"
-              :class="`bg-${place?.color}`"
-            >
-              {{
-                new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
-                  weekday: 'long',
-                })
-              }}
-            </p>
-
-            <p
-              class="font-title text-4xl border-b-2"
-              :class="`border-${place?.color}`"
-            >
-              {{
-                new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
-                  day: 'numeric',
-                })
-              }}
-            </p>
-
-            <p
-              class="font-serif capitalize border-b-2"
-              :class="`border-${place?.color}`"
-            >
-              {{
-                new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
-                  month: 'long',
-                })
-              }}
-            </p>
-
-            <p class="pt-3 text-sm text-center">
-              dalle
-              <span class="font-title">
-                {{
-                  new Date(event?.datetimeStart).toLocaleTimeString('it-IT', {
-                    hour: 'numeric',
-                    minute: '2-digit',
-                  })
-                }}</span
+          <NuxtLink :to="event?.activity?.path" class="text-shadow">
+            <h5 class="pt-2 flex items-center gap-2 -ml-5">
+              <span class="text-2xl text-shadow-md">@</span>
+              <span class="font-title text-2xl md:text-3xl text-me-stone">
+                {{ event?.activity?.name }}</span
               >
-              <br />
+            </h5>
+          </NuxtLink>
 
-              alle
-
-              <span class="font-title">
-                {{
-                  new Date(event?.datetimeEnd).toLocaleTimeString('it-IT', {
-                    hour: 'numeric',
-                    minute: '2-digit',
-                  })
-                }}</span
-              >
-            </p>
-          </time>
+          <address class="text-sm pb-2">
+            {{ event?.activity?.street }}, {{ event?.activity?.streetNumber }} -
+            {{ event?.activity?.cap }} {{ event?.activity?.city }}
+          </address>
         </div>
 
-        <h4
-          class="hidden md:inline-flex text-3xl max-w-1/2 text-center font-title text-shadow"
+        <div
+          class="bg-gradient-to-r from-transparent flex justify-between items-center"
+          :class="`to-${place?.color}`"
         >
-          {{ event?.title }}
-        </h4>
-        <figure class="relative -mr-3 -mt-6">
-          <SanityImage
-            v-if="event?.image?.asset"
-            :asset-id="event?.image?.asset?._ref"
-            auto="format"
-            class="h-40 w-40 object-cover shadow-md"
-          />
-          <div v-else class="relative h-40 w-40"></div>
-          <p
-            v-if="event?.isSoldout"
-            class="absolute top-1 -left-5 bg-yellow-400 px-2 py-1 font-title -rotate-12 shadow-md"
+          <div
+            class="-ml-4 border-4 w-28 h-40 bg-me-stone shadow rounded-lg grow-0"
+            :class="`border-${place?.color}`"
           >
-            sold out 😱
-          </p>
-        </figure>
-      </div>
-    </header>
+            <time
+              :datetime="event?.datetimeStart"
+              class="flex flex-col items-center"
+            >
+              <p
+                class="font-serif capitalize w-full text-center text-me-stone"
+                :class="`bg-${place?.color}`"
+              >
+                {{
+                  new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
+                    weekday: 'long',
+                  })
+                }}
+              </p>
 
+              <p
+                class="font-title text-4xl border-b-2"
+                :class="`border-${place?.color}`"
+              >
+                {{
+                  new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
+                    day: 'numeric',
+                  })
+                }}
+              </p>
+
+              <p
+                class="font-serif capitalize border-b-2"
+                :class="`border-${place?.color}`"
+              >
+                {{
+                  new Date(event?.datetimeStart).toLocaleDateString('it-IT', {
+                    month: 'long',
+                  })
+                }}
+              </p>
+
+              <p class="pt-3 text-sm text-center">
+                dalle
+                <span class="font-title">
+                  {{
+                    new Date(event?.datetimeStart).toLocaleTimeString('it-IT', {
+                      hour: 'numeric',
+                      minute: '2-digit',
+                    })
+                  }}</span
+                >
+                <br />
+
+                alle
+
+                <span class="font-title">
+                  {{
+                    new Date(event?.datetimeEnd).toLocaleTimeString('it-IT', {
+                      hour: 'numeric',
+                      minute: '2-digit',
+                    })
+                  }}</span
+                >
+              </p>
+            </time>
+          </div>
+
+          <h4
+            class="hidden md:inline-flex text-3xl max-w-1/2 text-center font-title text-shadow"
+          >
+            {{ event?.title }}
+          </h4>
+          <figure class="relative -mr-3 -mt-6">
+            <SanityImage
+              v-if="event?.image?.asset"
+              :asset-id="event?.image?.asset?._ref"
+              auto="format"
+              class="h-40 w-40 object-cover shadow-md"
+            />
+            <div v-else class="relative h-40 w-40"></div>
+            <p
+              v-if="event?.isSoldout"
+              class="absolute top-1 -left-5 bg-yellow-400 px-2 py-1 font-title -rotate-12 shadow-md"
+            >
+              sold out 😱
+            </p>
+          </figure>
+        </div>
+      </header>
+    </NuxtLink>
     <div
       class="mt-2 md:hidden rounded-r-lg shadow"
       :class="`bg-${place?.color}`"
@@ -195,21 +198,19 @@ const performerWithoutLink = computed(() =>
       <section
         v-if="event?.description?.length > 0"
         ref="descriptionSection"
-        :class="
-          isDescriptionExpanded ? 'expanded-description' : 'hidden-description'
-        "
+        :class="{
+          'max-h-48 overflow-hidden': !isDescriptionExpanded && isCollapsable,
+        }"
         class="relative"
       >
         <SanityContent :blocks="event?.description" />
 
         <div
-          v-if="height > 180"
-          class=""
-          :class="
-            isDescriptionExpanded
-              ? ''
-              : 'absolute w-full bottom-0 to-me-stone bg-gradient-to-b from-transparent'
-          "
+          v-if="height > 180 && isCollapsable === true"
+          :class="{
+            'absolute w-full bottom-0 to-me-stone bg-gradient-to-b from-transparent':
+              !isDescriptionExpanded,
+          }"
         >
           <div
             class="flex justify-center items-end"
@@ -230,6 +231,7 @@ const performerWithoutLink = computed(() =>
         </div>
       </section>
 
+      <!-- PERFORMERS -->
       <section
         v-show="event?.performerName?.length > 0"
         class="border-l-2 pl-4"
@@ -262,9 +264,10 @@ const performerWithoutLink = computed(() =>
         </nav>
       </section>
 
+      <!-- CALLS TO ACTION -->
       <nav
         class="mt-4 ml-4"
-        v-if="event?.referencePhone || event.referenceEmail"
+        v-if="event?.referencePhone || event?.referenceEmail"
       >
         <ul>
           <li>
@@ -301,12 +304,3 @@ const performerWithoutLink = computed(() =>
     ></div>
   </article>
 </template>
-
-<style scoped>
-.hidden-description {
-  @apply max-h-48 overflow-hidden;
-}
-.expanded-description {
-  @apply;
-}
-</style>
