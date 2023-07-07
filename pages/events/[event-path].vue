@@ -46,6 +46,9 @@ useSeoMeta({
   title: event?.value?.[0]?.ogTitle || 'Mamma Elvira',
   description: event?.value?.[0]?.ogDescription || 'mammaelvira.com',
   ogImage: event?.value?.[0]?.ogImage || '', // #TODO: add default falloff image,
+  ogTitle: event?.value?.[0]?.ogTitle || 'Mamma Elvira',
+  ogDescription: event?.value?.[0]?.ogDescription || 'mammaelvira.com',
+  twitterCard: 'summary_large_image',
 })
 
 useSchemaOrg([defineEvent({ name: event?.value?.[0].ogTitle })])
