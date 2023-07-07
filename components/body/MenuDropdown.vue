@@ -27,7 +27,7 @@ onClickOutside(target, () => (showActivityLinks.value = false))
         @click="showActivityLinks = false"
         v-for="place in places"
         :to="place.path"
-        :key="place.path"
+        :key="`modal-link-${place.path.replace('/', '')}`"
         :class="`text-${place.color}`"
       >
         <span class="mr-2">•</span>

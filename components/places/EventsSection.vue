@@ -41,6 +41,7 @@ const otherActivitiesEvents = computed(() =>
     <div class="mt-8 flex flex-col gap-16 items-center">
       <PlacesEventCard
         v-for="event in activityEvents"
+        :key="`event-${event?.path?.replace('/', '')}`"
         :event="event"
         :place="place"
         :show-activity-label="false"

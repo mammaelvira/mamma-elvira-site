@@ -27,6 +27,7 @@ const places = usePlaces()
     <section class="my-8 flex flex-col gap-12 md:max-w-3/4 md:ml-4">
       <PlacesEventCard
         v-for="event in events"
+        :key="event?.path?.replace('/', '')"
         :event="event"
         :place="places.find((place) => place.path === event?.activity?.path)"
       />
