@@ -23,6 +23,7 @@ const iconResolver = (link: string) => {
     spotify: 'i-ph-spotify-logo-fill',
     instagram: 'i-ph-instagram-logo-fill',
     youtube: 'i-ph-youtube-logo-fill',
+    facebook: 'i-ph-facebook-logo-fill',
     web: 'i-ph-app-window-fill',
   }
 
