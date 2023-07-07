@@ -9,7 +9,10 @@ const place = places.find((place) => place.path === route.fullPath)
   <article class="flex flex-col justify-center">
     <div class="flex flex-col justify-center md:flex-row gap-8">
       <section class="w-full max-w-max md:w-1/2 lg:w-1/3">
-        <header :class="`bg-${place?.color}`" class="p-4 text-me-stone">
+        <header
+          :class="`bg-${place?.color}`"
+          class="p-4 text-me-stone rounded-tr-[3rem]"
+        >
           <div class="flex items-center font-title text-3xl">
             <slot name="custom-icon">
               <span :class="place?.iconClass" class="mr-3"></span>
@@ -23,7 +26,10 @@ const place = places.find((place) => place.path === route.fullPath)
           </div>
         </header>
 
-        <div class="border-4 border-t-0" :class="`border-${place?.color}`">
+        <div
+          class="border-4 border-t-0 rounded-bl-[3rem] overflow-hidden"
+          :class="`border-${place?.color}`"
+        >
           <video
             v-if="place?.videoUrl"
             muted
@@ -34,7 +40,9 @@ const place = places.find((place) => place.path === route.fullPath)
             :src="place?.videoUrl"
             class="w-full max-h-160"
           ></video>
-          <figure class="activity-page-image-container w-full max-h-160">
+          <figure
+            class="activity-page-image-container w-full max-h-160 rounded-bl-[3rem]"
+          >
             <slot name="place-image" />
           </figure>
         </div>
