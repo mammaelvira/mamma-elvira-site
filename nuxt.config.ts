@@ -59,6 +59,8 @@ export default defineNuxtConfig({
         // mamma-elvira colors
         me: {
           stone: '#eae3d8',
+          'stone-dark': '#D1CBC0',
+          grey: '#ABA69D',
           peach: '#ec7850',
           orange: '#ea5436',
           red: '#C02D18',
@@ -146,7 +148,7 @@ export default defineNuxtConfig({
       ],
       meta: [
         { name: 'msapplication-TileColor', content: '#ec7850' },
-        // { name: 'theme-color', content: '#eae3d8' },
+        { name: 'theme-color', content: '#eae3d8' },
       ],
     },
   },

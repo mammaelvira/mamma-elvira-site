@@ -18,7 +18,7 @@
             <!-- ABOUT US -->
             <li>
               <NuxtLink to="/about-us" class="hover:underline"
-                >"La Mamma"</NuxtLink
+                >Chi siamo</NuxtLink
               >
             </li>
 

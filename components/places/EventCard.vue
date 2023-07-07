@@ -54,11 +54,7 @@ const performerWithoutLink = computed(() =>
 </script>
 
 <template>
-  <article
-    :key="event?._id"
-    :data-event-id="event?._id"
-    class="relative md:w-3/4 lg:w-2/3 xl:w-1/2"
-  >
+  <article :key="event?._id" class="relative md:w-3/4 lg:w-2/3 xl:w-1/2">
     <NuxtLink :to="`/events${event?.path || ''}`">
       <header>
         <div
@@ -238,11 +234,11 @@ const performerWithoutLink = computed(() =>
         :class="`border-${place?.color}`"
       >
         <h5 class="font-title text-sm mt-1">Performer:</h5>
-        <nav class="mt-2 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
+        <nav class="mt-2 flex flex-wrap gap-6 md:gap-8">
           <div
             v-for="performer in performerWithLink"
             :key="performer?.name?.toLowerCase().replace(' ', '-')"
-            class="flex items-center gap-2"
+            class="shrink-0 flex items-center gap-2"
           >
             <span :class="iconResolver(performer?.link)"> </span>
             <a

@@ -7,7 +7,7 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
 <template>
   <aside
     v-if="menuModalOpen"
-    class="fixed h-screen w-screen bg-me-lapis overflow-hidden z-200 p-8"
+    class="fixed h-screen w-screen bg-me-grey z-200 p-8 rounded-tr-[3rem]"
   >
     <header class="flex justify-between items-start">
       <NuxtLink to="/" class="flex flex-col items-center" @click="modalToggle">
@@ -15,14 +15,14 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
           <img
             src="~/assets/graphics/logo/mammaelvira-logo_text_arc_stone.svg"
             alt="Mamma Elvira"
-            class="h-6"
+            class="h-5"
           />
         </figure>
         <figure>
           <img
             src="~/assets/graphics/logo/mammaelvira-logo_head-glyph_stone.svg"
             alt="Mamma Elvira glifo"
-            class="h-10"
+            class="h-8"
           /></figure
       ></NuxtLink>
       <button
@@ -35,15 +35,13 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
     </header>
 
     <nav
-      class="mt-6 flex flex-col gap-5 text-me-stone font-title text-3xl text-shadow"
+      class="mt-6 h-11/12 flex flex-col justify-between text-me-stone font-title text-3xl text-shadow"
     >
-      <NuxtLink to="/about-us" @click="modalToggle"
-        >"La Mamma" <span class="text-2xl">- Chi siamo</span>
-      </NuxtLink>
+      <NuxtLink to="/about-us" @click="modalToggle">Chi siamo </NuxtLink>
 
       <div class="flex flex-col">
         <button class="inline-flex">Mangiare e bere</button>
-        <ul class="mt-2 text-2xl flex flex-col gap-2">
+        <ul class="mt-4 text-xl flex flex-col gap-6">
           <li>
             <div class="bg-me-red"></div>
             <NuxtLink to="/enoteca" @click="modalToggle"
@@ -93,7 +91,7 @@ li {
   @apply flex items-center gap-2 -ml-8;
 }
 li > div {
-  @apply h-3 w-12 shadow-md
+  @apply h-3 w-16 shadow-md
   rounded-r-full;
 }
 </style>
