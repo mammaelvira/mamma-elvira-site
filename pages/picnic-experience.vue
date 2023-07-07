@@ -14,8 +14,18 @@
       </h2>
     </header>
 
-    <p>Testo descrittivo da inserire</p>
+    <p>
+      Scoprire alcuni dei luoghi e paesaggi più belli di Lecce attraverso un
+      nuovo format che unisce il buon cibo alle espressioni della cultura
+      salentina.
+    </p>
 
+    <p>
+      Scegli il tuo cestino di degustazione con i migliori prodotti
+      enogastronomici di Delicatessen e goditi lo spettacolo del Parco
+      Archeologico di Rudiae al ritmo della musica di artisti salentini e
+      internazionali.
+    </p>
     <template v-slot:place-image>
       <img src="~/assets/images/me_picnic-experience_ext-01.jpg" alt="" />
     </template>
