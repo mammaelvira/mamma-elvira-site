@@ -12,5 +12,7 @@
         </h2>
       </header>
     </section>
+
+    <BodyActivitySection />
   </article>
 </template>

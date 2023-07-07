@@ -130,6 +130,8 @@ const place = places.find((place) => place.path === route.fullPath)
       </section>
     </div>
     <PlacesEventsSection class="mt-8" />
+
+    <BodyActivitySection class="mt-16" />
   </article>
 </template>
 
