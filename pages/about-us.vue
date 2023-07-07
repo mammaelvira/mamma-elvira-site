@@ -1,29 +1,29 @@
 <script setup lang="ts">
-interface SanityImage {
-  asset: { _ref: string }
-}
+// interface SanityImage {
+//   asset: { _ref: string }
+// }
 
-interface Staff {
-  _id: string
+// interface Staff {
+//   _id: string
 
-  name: string
-  roles: string
-  nickname: string
-  image: SanityImage
-  description: {}
-}
+//   name: string
+//   roles: string
+//   nickname: string
+//   image: SanityImage
+//   description: {}
+// }
 
-const query = groq`*[_type == "staff"]{
-  name,
-  nickname,
-  roles,
-  activity[]->{name, payoff, path, colorValue},
-  image,
-  description,
-  sortingOrder
-} | order(sortingOrder)`
+// const query = groq`*[_type == "staff"]{
+//   name,
+//   nickname,
+//   roles,
+//   activity[]->{name, payoff, path, colorValue},
+//   image,
+//   description,
+//   sortingOrder
+// } | order(sortingOrder)`
 
-const { data: staff, refresh } = useSanityQuery<Staff>(query)
+// const { data: staff, refresh } = useSanityQuery<Staff>(query)
 </script>
 
 <template>
@@ -45,8 +45,8 @@ const { data: staff, refresh } = useSanityQuery<Staff>(query)
       <section class="">
         <div class="mt-8 flex flex-col gap-6 items-center">
           <p class="text-right">
-            <span class="font-serif">La cucina di Mamma Elvira</span> è un
-            tesoro prezioso,
+            <span class="font-serif">Il mondo di Mamma Elvira</span> è un tesoro
+            prezioso,
             <br />
             nato nel 2011 dalla mente creativa di Andrea Favale.
           </p>
@@ -54,26 +54,6 @@ const { data: staff, refresh } = useSanityQuery<Staff>(query)
             È un mix perfetto di sapori, profumi e ricordi che rimangono
             impressi nella mente e nel palato per sempre.
           </p>
-          <!-- <p class="text-right">
-            <span class="font-serif">Lecce</span> è una città unica nel suo
-            genere.
-          </p>
-          <p>
-            <span class="font-serif">Lecce</span> è una città conosciuta nel
-            mondo per la ricchezza architettonica del
-            <span class="font-bold">Barocco</span> e per una cucina raffinata
-            che valorizza al meglio il
-            <span class="font-bold">territorio</span>, con un'ampia varietà di
-            legumi, ortaggi, cereali.
-          </p>
-
-          <p>
-            Il calore della sua <span class="font-bold">pietra</span> ti
-            avvolge, la sua <span class="font-bold">luce</span> e i suoi
-            <span class="font-bold">colori</span> ti accompagnano lungo i vicoli
-            del Centro Storico, come i <span class="font-bold">profumi</span> di
-            crema pasticcera o di sugo al pomodoro cotto per ore.
-          </p> -->
         </div>
       </section>
 
@@ -118,13 +98,22 @@ const { data: staff, refresh } = useSanityQuery<Staff>(query)
             tutti a migliorare le proprie abilità culinarie e a
             <span class="font-bold">scoprire nuovi sapori e piaceri</span>.
           </p>
-          <p></p>
+          <p>
+            <span class="font-serif">Mamma Elvira</span> non è però solo
+            ristorazione, ma anche
+            <NuxtLink to="/casa" class="underline text-me-lapis"
+              >case di villeggiatura</NuxtLink
+            >, <NuxtLink to="/casa" class="underline">eventi</NuxtLink> ed
+            <NuxtLink to="/picnic-experience" class="underline text-me-lavender"
+              >esperienze uniche</NuxtLink
+            >.
+          </p>
         </div>
       </section>
     </section>
 
     <!-- STAFF -->
-    <section>
+    <!-- <section>
       <header class="flex flex-col">
         <h3 class="font-serif text-3xl">Lo Staff di Mamma Elvira</h3>
 
@@ -158,6 +147,8 @@ const { data: staff, refresh } = useSanityQuery<Staff>(query)
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
+
+    <BodyActivitySection />
   </article>
 </template>
