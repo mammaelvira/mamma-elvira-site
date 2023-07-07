@@ -34,6 +34,10 @@
         >
         <span class="opacity-40">+</span>
         <NuxtLink to="/casa"><span class="text-me-lapis">casa</span></NuxtLink>
+        <span class="opacity-40">+</span>
+        <NuxtLink to="/picnic-experience"
+          ><span class="text-me-lavender">picnic</span></NuxtLink
+        >
       </h5>
     </div>
     <GraphicsColorBand />

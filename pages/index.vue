@@ -1,7 +1,3 @@
-<script setup lang="ts">
-const places = usePlaces()
-</script>
-
 <template>
   <article>
     <HomeLogoSection />
@@ -12,8 +8,9 @@ const places = usePlaces()
           Siamo felici di condividere con voi la passione per l'<span
             class="font-bold"
             >enogastronomia</span
-          >
-          e per la città di <span class="font-bold">Lecce</span>.
+          >, per le bellezze della città di
+          <span class="font-bold">Lecce</span> e le
+          <span class="font-bold">esperienze uniche</span> che offre.
         </p>
         <!-- <p class="text-right">
           <span class="font-serif">Mamma Elvira</span> è un tesoro prezioso.
@@ -34,10 +31,14 @@ const places = usePlaces()
           <NuxtLink to="/la-cucina" class="underline text-me-basil">
             Cucina</NuxtLink
           >, alla
-          <NuxtLink to="/casa" class="underline text-me-lapis"> Casa</NuxtLink>
-          fino alla nostra
           <NuxtLink to="/corte-dei-pandolfi" class="underline text-me-peach">
             Corte</NuxtLink
+          >
+          passando dalla
+          <NuxtLink to="/casa" class="underline text-me-lapis"> Casa</NuxtLink>
+          fino ai nostri speciali eventi
+          <NuxtLink to="/picnic-experience" class="underline text-me-lavender"
+            >Picnic</NuxtLink
           >, non è solo un luogo dove si prepara il
           <span class="font-bold">cibo</span>, ma è un grande
           <span class="font-bold">tavolo</span> di
@@ -169,29 +170,7 @@ const places = usePlaces()
       </div>
     </section> -->
 
-    <section>
-      <h3 class="font-title text-xl">Scopri le esperienze di Mamma Elvira:</h3>
-
-      <div
-        class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4"
-      >
-        <NuxtLink :to="place.path" v-for="place in places">
-          <div
-            :class="`bg-${place.color}`"
-            class="relative mt-4 h-full px-3 py-2 flex flex-col justify-between text-me-stone"
-          >
-            <h4 class="text-xl font-title">
-              {{ place.name }}
-            </h4>
-            <div>
-              <div :class="place.iconClass" class="text-2xl"></div>
-              <h5>{{ place.payoff }}</h5>
-            </div>
-            <div :id="place.path.substring(1)" class="absolute -top-32"></div>
-          </div>
-        </NuxtLink>
-      </div>
-    </section>
+    <BodyActivitySection />
 
     <!-- <section class="mt-12">
       <h3 class="text-center text-2xl bg-me-mint -mx-8 p-6 text-me-stone">
