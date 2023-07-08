@@ -40,7 +40,10 @@
       Archeologia Ricerca e Valorizzazione SRL - A.R.Va - spin off Unisalento.
     </p>
     <template v-slot:place-image>
-      <img src="~/assets/images/me_picnic-experience_ext-01.jpg" alt="" />
+      <img
+        src="~/assets/images/me_picnic-experience_ext-01.jpg"
+        alt="Picnic Experience Lecce"
+      />
     </template>
   </PlacesPageSchema>
 </template>
