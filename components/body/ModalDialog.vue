@@ -7,7 +7,7 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
 <template>
   <aside
     v-if="menuModalOpen"
-    class="fixed h-screen w-screen bg-me-grey z-200 p-8 rounded-tr-[3rem]"
+    class="fixed w-screen bg-me-grey z-200 p-8 rounded-tr-[3rem]"
   >
     <header class="flex justify-between items-start">
       <NuxtLink to="/" class="flex flex-col items-center" @click="modalToggle">
@@ -37,7 +37,7 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
     <nav
       class="mt-6 h-11/12 flex flex-col justify-between text-me-stone font-title text-3xl text-shadow"
     >
-      <NuxtLink to="/about-us" @click="modalToggle">Chi siamo </NuxtLink>
+      <NuxtLink to="/about-us" @click="modalToggle">Chi siamo</NuxtLink>
 
       <div class="flex flex-col">
         <button class="inline-flex">Mangiare e bere</button>
@@ -87,6 +87,11 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
 </template>
 
 <style scoped>
+aside {
+  height: 100vh;
+  height: 100dvh;
+}
+
 li {
   @apply flex items-center gap-2 -ml-8;
 }
