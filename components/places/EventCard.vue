@@ -54,6 +54,17 @@ const performerWithoutLink = computed(
         props.event?.performerLink?.[index].toLowerCase() === 'x' || ''
     ) || []
 )
+
+const shareOptions = ref({
+  title: props.event?.ogTitle,
+  text: props.event?.ogDescription,
+  url: `https://mammaelvira.com/events${props.event?.path}`,
+})
+
+const { share, isSupported: isShareSupported } = useShare()
+const startShare = () => {
+  share(shareOptions)
+}
 </script>
 
 <template>
@@ -194,6 +205,7 @@ const performerWithoutLink = computed(
       class="mt-2 border-l-4 border-b-4 pl-3 pb-2 rounded-bl-[3rem] relative overflow-hidden"
       :class="`border-${place?.color}`"
     >
+      <!-- DESCRIPTION -->
       <section
         v-if="event?.description?.length > 0"
         :key="`event-description-${event?._id}`"
@@ -278,7 +290,7 @@ const performerWithoutLink = computed(
               }}</span>
             </h4>
 
-            <div class="flex gap-6">
+            <div class="flex-wrap flex gap-6">
               <a
                 v-show="event?.referencePhone"
                 :href="`tel:${event?.referencePhone}`"
@@ -294,6 +306,15 @@ const performerWithoutLink = computed(
                 :class="`border-${place?.color}`"
                 >Scrivi una mail</a
               >
+
+              <button
+                v-if="isShareSupported"
+                @click="share()"
+                class="call-to-action-outline"
+                :class="`border-${place?.color}`"
+              >
+                Condividi
+              </button>
             </div>
           </li>
         </ul>
