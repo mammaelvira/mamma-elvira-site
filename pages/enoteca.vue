@@ -26,7 +26,10 @@
     </p>
 
     <template v-slot:place-image>
-      <img src="~/assets/images/me-enoteca_ext-01.jpg" alt="" />
+      <img
+        src="~/assets/images/me-enoteca_ext-01.jpg"
+        alt="Mamma Elvira Enoteca - foto esterno"
+      />
     </template>
   </PlacesPageSchema>
 </template>

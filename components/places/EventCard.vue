@@ -22,8 +22,9 @@ const iconResolver = (link: string) => {
   const icons: { [key: string]: string } = {
     spotify: 'i-ph-spotify-logo-fill',
     instagram: 'i-ph-instagram-logo-fill',
-    youtube: 'i-ph-youtube-logo-fill',
+    youtu: 'i-ph-youtube-logo-fill', // ex. short links 'youtu.be'
     facebook: 'i-ph-facebook-logo-fill',
+    soundcloud: 'i-ph-soundcloud-logo-fill',
     web: 'i-ph-app-window-fill',
   }
 
@@ -41,7 +42,7 @@ const performerWithLink = computed(() => {
   const links: { name: string; link: string }[] = []
   props.event?.performerLink?.forEach(
     (link: string, index: number) =>
-      link.toLowerCase() !== 'x' &&
+      (link.toLowerCase() !== 'x' || '') &&
       links.push({ name: props.event?.performerName?.[index], link })
   )
   return links
@@ -181,7 +182,7 @@ const performerWithoutLink = computed(
         {{ event?.title }}
       </h4>
     </div>
-
+    <!-- SOLD OUT -->
     <p
       v-if="event?.isSoldout"
       class="bg-yellow-400 px-2 py-1 font-title inline-block -ml-4 md:mt-2 shadow-md"
@@ -195,6 +196,7 @@ const performerWithoutLink = computed(
     >
       <section
         v-if="event?.description?.length > 0"
+        :key="`event-description-${event?._id}`"
         ref="descriptionSection"
         :class="{
           'max-h-48 overflow-hidden': !isDescriptionExpanded && isCollapsable,

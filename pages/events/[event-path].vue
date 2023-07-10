@@ -3,6 +3,7 @@ const route = useRoute()
 
 const query = groq`*[_type == "events" && path == $eventpath]{
   _id,
+  _updatedAt, // for social card cache
   title,
 
   "ogImage": ogImage.asset -> url,
@@ -43,13 +44,16 @@ const place = places.find(
 )
 
 useSeoMeta({
-  title: event?.value?.[0]?.ogTitle || 'Mamma Elvira',
-  description: event?.value?.[0]?.ogDescription || 'mammaelvira.com',
-  ogImage:
-    event?.value?.[0]?.ogImage ||
+  // function that returns for reactivity
+  title: () => event?.value?.[0]?.ogTitle || 'Mamma Elvira',
+  description: () => event?.value?.[0]?.ogDescription || 'mammaelvira.com',
+  ogImage: () =>
+    `${
+      event?.value?.[0]?.ogImage
+    }?update=${event?.value?.[0]?._updatedAt?.replaceAll(':', '-')}` ||
     'https://mammaelvira.com/mammaelvira_website-cover.png',
-  ogTitle: event?.value?.[0]?.ogTitle || 'Mamma Elvira',
-  ogDescription: event?.value?.[0]?.ogDescription || 'mammaelvira.com',
+  ogTitle: () => event?.value?.[0]?.ogTitle || 'Mamma Elvira',
+  ogDescription: () => event?.value?.[0]?.ogDescription || 'mammaelvira.com',
   twitterCard: 'summary_large_image',
 })
 

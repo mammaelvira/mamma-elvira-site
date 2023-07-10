@@ -19,7 +19,10 @@
     </p>
 
     <template v-slot:place-image>
-      <img src="~/assets/images/me_la-cucina_ext-02.jpg" alt="" />
+      <img
+        src="~/assets/images/me_la-cucina_ext-02.jpg"
+        alt="La Cucina De Coste"
+      />
     </template>
   </PlacesPageSchema>
 </template>

@@ -17,9 +17,6 @@
         />
         <h4 class="pt-6">{{ $t('logoSince') }} 2011</h4>
       </div>
-      <!-- <h2 class="text-xl mt-4" style="font-family: 'PT Sans'">
-        Esperienze del Territorio
-      </h2> -->
       <h5 class="flex gap-2 mt-6 font-bold uppercase text-xs">
         <NuxtLink to="/enoteca">
           <span class="text-me-red">enoteca</span></NuxtLink
