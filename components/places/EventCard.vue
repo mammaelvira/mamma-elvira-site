@@ -309,7 +309,7 @@ const startShare = () => {
 
               <button
                 v-if="isShareSupported"
-                @click="share()"
+                @click="startShare"
                 class="call-to-action-outline"
                 :class="`border-${place?.color}`"
               >
