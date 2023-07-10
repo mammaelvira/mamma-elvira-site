@@ -50,7 +50,7 @@ useSeoMeta({
   ogImage: () =>
     `${
       event?.value?.[0]?.ogImage
-    }?update=${event?.value?.[0]?._updatedAt?.replaceAll(':', '-')}` ||
+    }?w=1200&update=${event?.value?.[0]?._updatedAt?.replaceAll(':', '-')}` ||
     'https://mammaelvira.com/mammaelvira_website-cover.png',
   ogTitle: () => event?.value?.[0]?.ogTitle || 'Mamma Elvira',
   ogDescription: () => event?.value?.[0]?.ogDescription || 'mammaelvira.com',
