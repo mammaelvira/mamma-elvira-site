@@ -1,10 +1,11 @@
 export default () => groq`*[_type == "events" && isActive == true]{
   _id,
+  _updatedAt,
   path,
 
+  "ogImage": ogImage.asset -> url,
   ogTitle,
   ogDescription,
-  ogImage,
   
   title,
   isSoldout,
