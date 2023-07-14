@@ -10,7 +10,7 @@ const toggleActivityLinks = () =>
 const target = ref(null)
 onClickOutside(target, () => (showActivityLinks.value = false))
 // vueUse useScroll
-const el = ref(window)
+const el = ref(process.client ? window : null)
 const { isScrolling } = useScroll(el)
 watch(isScrolling, () => {
   if (isScrolling) showActivityLinks.value = false
