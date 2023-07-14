@@ -26,7 +26,7 @@
             <BodyMenuDropdown class="cursor-pointer" />
 
             <li>
-              <NuxtLink to="/casa" class="hover:underline">La Casa</NuxtLink>
+              <NuxtLink to="/casa" class="hover:underline">Casa</NuxtLink>
             </li>
             <li>
               <NuxtLink to="/events" class="hover:underline">Eventi</NuxtLink>

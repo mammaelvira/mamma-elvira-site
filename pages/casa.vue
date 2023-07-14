@@ -4,7 +4,7 @@
       <h1
         class="inline font-serif text-4xl md:text-5xl text-center border-b-2 border-me-mint pb-2"
       >
-        La Casa
+        Casa
       </h1>
       <h2 class="text-center text-lg md:text-2xl text-me-lapis">
         Questa Casa non è un albergo
