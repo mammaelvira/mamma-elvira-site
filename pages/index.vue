@@ -1,9 +1,21 @@
 <script setup lang="ts">
+const i18nHead = useLocaleHead({ addSeoAttributes: true })
+
+useHead({
+  title: 'Homepage',
+  htmlAttrs: {
+    lang: () => i18nHead.value.htmlAttrs!.lang,
+  },
+  link: [...(i18nHead.value.link || [])],
+  meta: [...(i18nHead.value.meta || [])],
+})
+
 useSeoMeta({
   ogImage: 'https://mammaelvira.com/mammaelvira_website-cover.png',
   ogTitle: 'Benvenuti da Mamma Elvira', // #TODO: add other languages?
   ogDescription: 'Esperienze del Territorio, a Lecce dal 2011',
   twitterCard: 'summary_large_image',
+  ogLocale: 'it-IT',
 })
 </script>
 

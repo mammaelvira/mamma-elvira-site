@@ -1,14 +1,26 @@
+<script setup lang="ts">
+const i18nHead = useLocaleHead({ addSeoAttributes: true })
+
+useHead({
+  htmlAttrs: {
+    lang: () => i18nHead.value.htmlAttrs!.lang,
+  },
+  link: [...(i18nHead.value.link || [])],
+  meta: [...(i18nHead.value.meta || [])],
+})
+</script>
+
 <template>
   <PlacesPageSchema>
     <header class="flex flex-col items-center mb-8">
-      <h1
+      <h2
         class="inline font-serif text-4xl md:text-5xl text-center border-b-2 border-me-mint pb-2"
       >
         De Coste
-      </h1>
-      <h2 class="text-center text-lg md:text-2xl text-me-lapis">
-        A pochi passi dal gusto
       </h2>
+      <h3 class="text-center text-lg md:text-2xl text-me-lapis">
+        A pochi passi dal gusto
+      </h3>
     </header>
 
     <p>

@@ -1,15 +1,21 @@
+<script setup lang="ts">
+const body = ref()
+const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
+</script>
+
 <template>
   <header
     class="fixed w-full p-8 z-100 bg-gradient-to-b from-me-stone via-me-stone"
   >
     <ul class="flex justify-between items-start gap-8">
       <li>
-        <NuxtLink to="/" id="home-link" class="font-logo"
-          ><img
+        <NuxtLink to="/" id="home-link" class="font-logo">
+          <img
             src="~/assets/graphics/logo/mammaelvira-logo_text_rect_alt_01.svg"
             alt="Logo Mamma Elvira"
             class="h-12"
-        /></NuxtLink>
+          />
+        </NuxtLink>
       </li>
 
       <li class="flex gap-6">
@@ -17,37 +23,59 @@
           <ul class="hidden lg:flex items-start gap-12 -mt-2 font-title">
             <!-- ABOUT US -->
             <li>
-              <NuxtLink to="/about-us" class="hover:underline"
-                >Chi siamo</NuxtLink
-              >
+              <NuxtLink to="/about-us" class="hover:underline">{{
+                $t('aboutUs')
+              }}</NuxtLink>
             </li>
 
             <!-- ACTIVITIES -->
-            <BodyMenuDropdown class="cursor-pointer" />
+            <BodyMenuDropdown class="cursor-pointer" :title="$t('ourPlaces')" />
 
             <li>
-              <NuxtLink to="/casa" class="hover:underline">Casa</NuxtLink>
+              <NuxtLink to="/casa" class="hover:underline">{{
+                $t('home')
+              }}</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/events" class="hover:underline">Eventi</NuxtLink>
+              <NuxtLink to="/events" class="hover:underline">{{
+                $t('events')
+              }}</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/recipes" class="hover:underline"
-                >Le ricette</NuxtLink
-              >
+              <NuxtLink to="/recipes" class="hover:underline">{{
+                $t('recipes')
+              }}</NuxtLink>
             </li>
 
             <li>
-              <NuxtLink to="/contacts" class="hover:underline"
-                >Contatti</NuxtLink
-              >
+              <NuxtLink to="/contacts" class="hove(r:underline">{{
+                $t('contacts')
+              }}</NuxtLink>
             </li>
           </ul>
         </nav>
       </li>
 
       <li class="flex gap-6 items-start">
-        <!-- <BodyLanguageSwitcher /> -->
+        <!-- <BodyLanguageSwitcher  /> -->
+        <button
+          type="button"
+          :aria-label="
+            isFullscreen ? 'exit fullscreen mode' : 'enter fullscreen mode'
+          "
+          :title="
+            isFullscreen ? 'exit fullscreen mode' : 'enter fullscreen mode'
+          "
+          @click="toggleFullScreen"
+          :class="
+            isFullscreen
+              ? 'i-radix-icons-exit-full-screen'
+              : 'i-radix-icons-enter-full-screen'
+          "
+          class="hidden lg:flex"
+        >
+          {{ isFullscreen ? 'exit fullscreen' : 'enter fullscreen' }}
+        </button>
         <BodyMenuModal class="lg:hidden -mt-3" />
       </li>
     </ul>
