@@ -101,7 +101,7 @@ export default (): PageDetails[] => [
     path: '/corte-dei-pandolfi',
     payoff: 'Oyster House',
     place: 'Il Duomo',
-    iconClass: 'i-game-icons-oyster-pearl',
+    iconClass: 'i-custom:corte-dei-pandolfi',
     color: 'me-peach',
     telephone: '+393661412692',
     email: 'cortedeipandolfi@mammaelvira.com',

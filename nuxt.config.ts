@@ -1,5 +1,3 @@
-import { transformerDirectives } from 'unocss'
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   extends: [
@@ -33,10 +31,6 @@ export default defineNuxtConfig({
   ],
 
   css: [
-    // RESET file
-    // https://github.com/unocss/unocss/tree/main/packages/reset
-    '@/assets/css/reset-tailwind-compat.css',
-
     '@/assets/css/fonts.css',
     '@/assets/css/main.css',
     '@/assets/css/style.css',
@@ -50,7 +44,6 @@ export default defineNuxtConfig({
       siteUrl: 'https://mammaelvira.com',
       siteName: 'Mamma Elvira',
       siteDescription: 'Esperienze del Territorio, a Lecce dal 2011',
-      language: '',
       titleSeparator: ' • ',
 
       // Sanity
@@ -60,46 +53,24 @@ export default defineNuxtConfig({
     },
   },
 
-  // https://github.com/unocss/unocss/tree/main/packages/nuxt
-  unocss: {
-    transformers: [transformerDirectives()],
-
-    theme: {
-      colors: {
-        // mamma-elvira colors
-        me: {
-          stone: '#eae3d8',
-          'stone-dark': '#D1CBC0',
-          grey: '#ABA69D',
-          peach: '#ec7850',
-          orange: '#ea5436',
-          red: '#C02D18',
-          pink: '#ee8da8',
-          ink: '#372c43',
-          lapis: '#3f689d',
-          cyan: '#668e98',
-          basil: '#107652',
-          mint: '#4FB692',
-          lavender: '#B08CB9',
-        },
-      },
-    },
-
-    shortcuts: [],
-    rules: [],
-
-    icons: true,
-  },
-
   // https://i18n.nuxtjs.org/options-reference
   i18n: {
     /* module options */
+
+    baseUrl: 'https://mammaelvira.com',
+
     lazy: true,
     langDir: 'locales',
     defaultLocale: 'it',
     locales: [
-      { code: 'it', name: 'italiano', file: 'it-IT.json' },
-      { code: 'en', name: 'english', file: 'en-US.json' },
+      {
+        code: 'it',
+        iso: 'it-IT',
+        name: 'italiano',
+        file: 'it-IT.json',
+        isCatchallLocale: true, // This one will be used as catchall locale
+      },
+      { code: 'en', iso: 'en-US', name: 'english', file: 'en-US.json' },
     ],
     // https://v8.i18n.nuxtjs.org/guide/browser-language-detection
     detectBrowserLanguage: {
@@ -165,6 +136,11 @@ export default defineNuxtConfig({
 
   site: {
     url: 'https://mammaelvira.com', // for sitemap generation and robot.txt
+  },
+
+  htmlValidator: {
+    usePrettier: false,
+    options: { rules: { 'no-autoplay': 'off', 'long-title': 'warn' } },
   },
 
   devtools: {
