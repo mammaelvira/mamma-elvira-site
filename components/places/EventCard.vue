@@ -68,29 +68,28 @@ const startShare = () => {
 </script>
 
 <template>
-  <article :key="event?._id" class="relative md:w-3/4 lg:w-2/3 xl:w-1/2">
-    <NuxtLink :to="`/events${event?.path || ''}`">
+  <article class="relative md:w-3/4 lg:w-2/3 xl:w-1/2">
+    <div
+      v-if="showActivityLabel"
+      class="mb-2 rounded-tr-[3rem] pl-2"
+      :class="`bg-${place?.color}`"
+    >
+      <NuxtLink :to="event?.activity?.path" class="text-shadow">
+        <h5 class="pt-2 flex items-center gap-2 -ml-5">
+          <span class="text-2xl text-shadow-md">@</span>
+          <span class="font-title text-2xl md:text-3xl text-me-stone">
+            {{ event?.activity?.name }}</span
+          >
+        </h5>
+      </NuxtLink>
+
+      <address class="text-sm pb-2">
+        {{ event?.activity?.street }}, {{ event?.activity?.streetNumber }} -
+        {{ event?.activity?.cap }} {{ event?.activity?.city }}
+      </address>
+    </div>
+    <NuxtLink :to="event?.path ? `/events${event?.path}` : '' as string">
       <header>
-        <div
-          v-if="showActivityLabel"
-          class="mb-2 rounded-tr-[3rem] pl-2"
-          :class="`bg-${place?.color}`"
-        >
-          <NuxtLink :to="event?.activity?.path" class="text-shadow">
-            <h5 class="pt-2 flex items-center gap-2 -ml-5">
-              <span class="text-2xl text-shadow-md">@</span>
-              <span class="font-title text-2xl md:text-3xl text-me-stone">
-                {{ event?.activity?.name }}</span
-              >
-            </h5>
-          </NuxtLink>
-
-          <address class="text-sm pb-2">
-            {{ event?.activity?.street }}, {{ event?.activity?.streetNumber }} -
-            {{ event?.activity?.cap }} {{ event?.activity?.city }}
-          </address>
-        </div>
-
         <div
           class="bg-gradient-to-r from-transparent flex justify-between items-center"
           :class="`to-${place?.color}`"
@@ -103,7 +102,7 @@ const startShare = () => {
               :datetime="event?.datetimeStart"
               class="flex flex-col items-center"
             >
-              <p
+              <span
                 class="font-serif capitalize w-full text-center text-me-stone"
                 :class="`bg-${place?.color}`"
               >
@@ -112,9 +111,9 @@ const startShare = () => {
                     weekday: 'long',
                   })
                 }}
-              </p>
+              </span>
 
-              <p
+              <span
                 class="font-title text-4xl border-b-2"
                 :class="`border-${place?.color}`"
               >
@@ -123,9 +122,9 @@ const startShare = () => {
                     day: 'numeric',
                   })
                 }}
-              </p>
+              </span>
 
-              <p
+              <span
                 class="font-serif capitalize border-b-2"
                 :class="`border-${place?.color}`"
               >
@@ -134,31 +133,31 @@ const startShare = () => {
                     month: 'long',
                   })
                 }}
-              </p>
+              </span>
 
-              <p class="pt-3 text-sm text-center">
+              <span class="pt-3 text-sm text-center">
                 dalle
-                <span class="font-title">
+                <i class="font-title not-italic">
                   {{
                     new Date(event?.datetimeStart).toLocaleTimeString('it-IT', {
                       hour: 'numeric',
                       minute: '2-digit',
                     })
-                  }}</span
+                  }}</i
                 >
                 <br />
 
                 alle
 
-                <span class="font-title">
+                <i class="font-title not-italic">
                   {{
                     new Date(event?.datetimeEnd).toLocaleTimeString('it-IT', {
                       hour: 'numeric',
                       minute: '2-digit',
                     })
-                  }}</span
+                  }}</i
                 >
-              </p>
+              </span>
             </time>
           </div>
 
@@ -173,6 +172,7 @@ const startShare = () => {
               :asset-id="event?.image?.asset?._ref"
               auto="format"
               class="h-40 w-40 object-cover shadow-md"
+              :alt="`${event?.title} cover image`"
             />
             <div v-else class="relative h-40 w-40"></div>
             <p
@@ -208,14 +208,18 @@ const startShare = () => {
       <!-- DESCRIPTION -->
       <section
         v-if="event?.description?.length > 0"
-        :key="`event-description-${event?._id}`"
         ref="descriptionSection"
         :class="{
           'max-h-48 overflow-hidden': !isDescriptionExpanded && isCollapsable,
         }"
         class="relative"
       >
-        <SanityContent :blocks="event?.description" />
+        <SanityContent
+          :blocks="event?.description"
+          :key="
+            event?.description?.[0]?._key ?? `event-description-${event?._id}`
+          "
+        />
 
         <div
           v-if="height > 180 && isCollapsable === true"

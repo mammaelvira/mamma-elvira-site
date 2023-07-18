@@ -34,13 +34,13 @@ const query = groq`*[_type == "events" && path == $eventpath]{
   performerName,
   performerLink
 }`
-const { data: event, refresh } = await useSanityQuery(query, {
-  eventpath: `/${route.params.eventpath}`,
+const { data: event } = await useSanityQuery(query, {
+  eventpath: `/${route.params?.eventpath}`,
 })
 
 const places = usePlaces()
-const place = places.find(
-  (place) => place.path === event.value?.[0]?.activity?.path
+const place = computed(() =>
+  places.find((place) => place.path === event.value?.[0]?.activity?.path)
 )
 
 useSeoMeta({
@@ -57,7 +57,20 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 
-useSchemaOrg([defineEvent({ name: event?.value?.[0].ogTitle })])
+useSchemaOrg([
+  defineEvent({
+    name: event?.value?.[0].ogTitle,
+    startDate() {
+      return event?.value?.[0].datetimeStart
+    },
+    endDate() {
+      return event?.value?.[0].datetimeEnd
+    },
+    organizer: {
+      name: 'Mamma Elvira',
+    },
+  }),
+])
 </script>
 
 <template>

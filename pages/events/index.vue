@@ -75,7 +75,7 @@ const places = usePlaces()
         v-for="event in events"
         :key="event?._id"
         :event="event"
-        :place="places?.find((place) => place.path === event?.activity?.path)"
+        :place="places?.find((place) => place?.path === event?.activity?.path)"
         :show-activity-label="true"
         :is-collapsable="true"
       />
