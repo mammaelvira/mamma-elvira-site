@@ -24,13 +24,13 @@ const query = groq`*[_type == "events" && path == $eventpath]{
   image,
   datetimeStart,
   datetimeEnd,
-  
+
   referenceEmail,
   referenceName,
   referencePhone,
 
   description,
-  
+
   performerName,
   performerLink
 }`
@@ -60,15 +60,41 @@ useSeoMeta({
 useSchemaOrg([
   defineEvent({
     name: event?.value?.[0].ogTitle,
-    startDate() {
-      return event?.value?.[0].datetimeStart
-    },
-    endDate() {
-      return event?.value?.[0].datetimeEnd
-    },
+    startDate: event?.value?.[0].datetimeStart,
+    endDate: event?.value?.[0].datetimeEnd,
     organizer: {
       name: 'Mamma Elvira',
     },
+    location: {
+      '@type': 'Place',
+      name: event?.value?.[0].activity?.name,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: `${event?.value?.[0].activity?.street}, ${event?.value?.[0].activity?.streetNumber}`,
+        postalCode: event?.value?.[0].activity?.cap,
+        addressLocality: event?.value?.[0].activity?.city,
+        addressCountry: 'Italy',
+      },
+    },
+    performers() {
+      const performers: { '@type': string; name: string; url?: string }[] = []
+
+      event?.value?.[0]?.performerName?.forEach(
+        (performer: string, index: number) =>
+          performers.push({
+            '@type': 'Person',
+            name: performer,
+            url:
+              event?.value?.[0].performerLink[index] !== ('' || 'x')
+                ? event?.value?.[0].performerLink[index]
+                : null,
+          })
+      )
+
+      return performers
+    },
+    eventAttendanceMode: 'OfflineEventAttendanceMode',
+    eventStatus: 'EventScheduled',
   }),
 ])
 </script>
