@@ -112,11 +112,11 @@ const place = places.find((place) => place.path === route.fullPath)
                 :class="`text-${place?.color}`"
               >
                 <a :href="place?.instagramUrl" target="_blank"
-                  ><div class="i-ph-instagram-logo"></div
-                ></a>
+                  ><div class="i-ph-instagram-logo">Instagram link</div></a
+                >
                 <a :href="place?.facebookUrl" target="_blank"
-                  ><div class="i-ph-facebook-logo"></div
-                ></a>
+                  ><div class="i-ph-facebook-logo">Facebook link</div></a
+                >
               </li>
             </ul>
           </nav>

@@ -75,12 +75,12 @@ const startShare = () => {
       :class="`bg-${place?.color}`"
     >
       <NuxtLink :to="event?.activity?.path" class="text-shadow">
-        <h5 class="pt-2 flex items-center gap-2 -ml-5">
+        <h3 class="pt-2 flex items-center gap-2 -ml-5">
           <span class="text-2xl text-shadow-md">@</span>
           <span class="font-title text-2xl md:text-3xl text-me-stone">
             {{ event?.activity?.name }}</span
           >
-        </h5>
+        </h3>
       </NuxtLink>
 
       <address class="text-sm pb-2">
@@ -253,7 +253,7 @@ const startShare = () => {
         class="border-l-2 pl-4"
         :class="`border-${place?.color}`"
       >
-        <h5 class="font-title text-sm mt-1">Performer:</h5>
+        <h4 class="font-title text-sm mt-1">Performer:</h4>
         <nav class="mt-2 flex flex-wrap gap-6 md:gap-8">
           <div
             v-for="performer in performerWithLink"
