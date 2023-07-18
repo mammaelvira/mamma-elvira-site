@@ -24,6 +24,12 @@ export default defineNuxtConfig({
 
     // https://html-validator.nuxtjs.org/
     '@nuxtjs/html-validator',
+
+    // https://nuxtseo.com/sitemap/getting-started/installation
+    'nuxt-simple-sitemap',
+
+    // https://nuxtseo.com/robots/getting-started/installation
+    'nuxt-simple-robots',
   ],
 
   css: [
@@ -155,6 +161,10 @@ export default defineNuxtConfig({
         { name: 'theme-color', content: '#eae3d8' },
       ],
     },
+  },
+
+  site: {
+    url: 'https://mammaelvira.com', // for sitemap generation and robot.txt
   },
 
   devtools: {
