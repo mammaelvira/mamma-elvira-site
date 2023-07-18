@@ -24,13 +24,13 @@ const query = groq`*[_type == "events" && path == $eventpath]{
   image,
   datetimeStart,
   datetimeEnd,
-  
+
   referenceEmail,
   referenceName,
   referencePhone,
 
   description,
-  
+
   performerName,
   performerLink
 }`
@@ -60,14 +60,29 @@ useSeoMeta({
 useSchemaOrg([
   defineEvent({
     name: event?.value?.[0].ogTitle,
-    startDate() {
-      return event?.value?.[0].datetimeStart
-    },
-    endDate() {
-      return event?.value?.[0].datetimeEnd
-    },
+    startDate: event?.value?.[0].datetimeStart,
+    endDate: event?.value?.[0].datetimeEnd,
     organizer: {
       name: 'Mamma Elvira',
+    },
+    location: {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: `${event?.value?.[0].activity?.street}, ${event?.value?.[0].activity?.streetNumber}`,
+        postalCode: event?.value?.[0].activity?.cap,
+        addressLocality: event?.value?.[0].activity?.city,
+        addressCountry: 'Italy',
+      },
+    },
+    performers() {
+      const performers: { name: string }[] = []
+
+      event?.value?.[0]?.performerName?.map((performer: string) =>
+        performers.push({ name: performer })
+      )
+
+      return performers
     },
   }),
 ])
