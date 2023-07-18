@@ -67,6 +67,7 @@ useSchemaOrg([
     },
     location: {
       '@type': 'Place',
+      name: event?.value?.[0].activity?.name,
       address: {
         '@type': 'PostalAddress',
         streetAddress: `${event?.value?.[0].activity?.street}, ${event?.value?.[0].activity?.streetNumber}`,
@@ -76,14 +77,24 @@ useSchemaOrg([
       },
     },
     performers() {
-      const performers: { name: string }[] = []
+      const performers: { '@type': string; name: string; url?: string }[] = []
 
-      event?.value?.[0]?.performerName?.map((performer: string) =>
-        performers.push({ name: performer })
+      event?.value?.[0]?.performerName?.forEach(
+        (performer: string, index: number) =>
+          performers.push({
+            '@type': 'Person',
+            name: performer,
+            url:
+              event?.value?.[0].performerLink[index] !== ('' || 'x')
+                ? event?.value?.[0].performerLink[index]
+                : null,
+          })
       )
 
       return performers
     },
+    eventAttendanceMode: 'OfflineEventAttendanceMode',
+    eventStatus: 'EventScheduled',
   }),
 ])
 </script>
