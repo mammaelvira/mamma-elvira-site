@@ -12,6 +12,7 @@
     "@iconify-json/game-icons": "^1.1.2",
     "@iconify-json/ph": "^1.1.5",
     "@nuxt/devtools": "^0.6.7",
+    "@nuxtjs/html-validator": "^1.5.1",
     "@nuxtjs/i18n": "8.0.0-beta.11",
     "@unocss/nuxt": "^0.53.5",
     "@vueuse/core": "^10.2.1",

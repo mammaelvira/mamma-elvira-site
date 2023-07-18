@@ -55,10 +55,10 @@
             <p>Copyright © 2011-{{ new Date().getFullYear() }}</p>
           </div>
         </div>
-        <div class="social-container">
+        <!-- <div class="social-container">
           <a href=""><div class="i-ph-instagram-logo"></div></a>
           <a href=""><div class="i-ph-facebook-logo"></div></a>
-        </div>
+        </div> -->
       </div>
     </section>
     <section class="mt-8 text-xs">

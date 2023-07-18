@@ -7,18 +7,18 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
 <template>
   <div>
     <button type="button" @click="modalToggle">
-      <div class="menu-icon flex flex-col max-h-min">
-        <div class="bg-me-ink"></div>
-        <div class="bg-me-ink"></div>
-        <div class="bg-me-ink"></div>
+      <span class="menu-icon flex flex-col max-h-min">
+        <span class="bg-me-ink"></span>
+        <span class="bg-me-ink"></span>
+        <span class="bg-me-ink"></span>
         <span class="text-xs">menu</span>
-      </div>
+      </span>
     </button>
   </div>
 </template>
 
 <style scoped>
-.menu-icon div {
+.menu-icon > span {
   @apply h-1.25 w-8 mb-1;
 }
 </style>

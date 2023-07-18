@@ -21,6 +21,9 @@ export default defineNuxtConfig({
 
     // https://sanity.nuxtjs.org/
     '@nuxtjs/sanity',
+
+    // https://html-validator.nuxtjs.org/
+    '@nuxtjs/html-validator',
   ],
 
   css: [
