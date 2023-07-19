@@ -15,6 +15,7 @@ const query = groq`*[_type == "events" && path == $eventpath]{
   _id,
   _updatedAt, // for social card cache
   title,
+  path,
 
   "ogImage": ogImage.asset -> url,
   ogTitle,
