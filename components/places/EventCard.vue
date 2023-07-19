@@ -65,10 +65,13 @@ const { share, isSupported: isShareSupported } = useShare()
 const startShare = () => {
   share(shareOptions)
 }
+
+const showBookingOptions = ref(false)
 </script>
 
 <template>
   <article class="relative md:w-3/4 lg:w-2/3 xl:w-1/2">
+    <!-- ACTIVITY-LABEL -->
     <div
       v-if="showActivityLabel"
       class="mb-2 rounded-tr-[3rem] pl-2"
@@ -88,6 +91,8 @@ const startShare = () => {
         {{ event?.activity?.cap }} {{ event?.activity?.city }}
       </address>
     </div>
+
+    <!-- HEADER (LINK TO EVENT-PAGE) -->
     <NuxtLink :to="event?.path ? `/events${event?.path}` : '' as string">
       <header>
         <div
@@ -185,6 +190,7 @@ const startShare = () => {
         </div>
       </header>
     </NuxtLink>
+    <!-- MOBILE TITLE -->
     <div
       class="mt-2 md:hidden rounded-r-lg shadow"
       :class="`bg-${place?.color}`"
@@ -201,8 +207,9 @@ const startShare = () => {
       Evento Sold Out
     </p>
 
+    <!-- TEXT-SECTION (+CTA) -->
     <div
-      class="mt-2 border-l-4 border-b-4 pl-3 pb-2 rounded-bl-[3rem] relative overflow-hidden"
+      class="card-border-container mt-2 border-l-4 border-b-4 pl-3 pb-2 rounded-bl-[3rem] relative overflow-hidden -mr-8 md:mr-0 pr-8 md:pr-3"
       :class="`border-${place?.color}`"
     >
       <!-- DESCRIPTION -->
@@ -247,13 +254,49 @@ const startShare = () => {
         </div>
       </section>
 
-      <!-- PERFORMERS -->
+      <!-- PERFORMERS BIO -->
+      <section
+        v-if="event?.performers?.length > 0"
+        class="border-l-2 pl-4 mb-4"
+        :class="`border-${place?.color}`"
+      >
+        <h4 class="font-title text-sm mt-1">
+          Performer{{ event?.performerName?.length > 1 ? 's' : '' }}
+          Info:
+        </h4>
+        <ul class="mt-2 flex flex-wrap gap-6 md:gap-8">
+          <li v-for="performer in event?.performers" :key="performer?._key">
+            <details>
+              <summary>
+                <h5 class="inline font-serif underline text-shadow-md pl-2">
+                  {{ performer?.name }}
+                </h5>
+                <span class="block text-xs overflow-hidden">
+                  {{
+                    performer?.bioText?.[0]?.children?.[0]?.text
+                      ?.match(/.{1,60}/g)?.[0]
+                      .concat('..')
+                  }}
+                </span>
+              </summary>
+              <div class="mt-2 sanity-content">
+                <SanityContent :blocks="performer?.bioText" />
+              </div>
+            </details>
+          </li>
+        </ul>
+      </section>
+
+      <!-- PERFORMERS LINKS -->
       <section
         v-show="event?.performerName?.length > 0"
         class="border-l-2 pl-4"
         :class="`border-${place?.color}`"
       >
-        <h4 class="font-title text-sm mt-1">Performer:</h4>
+        <h4 class="font-title text-sm mt-1">
+          Performer{{ event?.performerName?.length > 1 ? 's' : '' }}
+          Link:
+        </h4>
         <nav class="mt-2 flex flex-wrap gap-6 md:gap-8">
           <div
             v-for="performer in performerWithLink"
@@ -281,51 +324,115 @@ const startShare = () => {
       </section>
 
       <!-- CALLS TO ACTION -->
-      <nav
-        class="mt-4 ml-4"
+      <section
         v-if="event?.referencePhone || event?.referenceEmail"
+        class="mt-4 -ml-4 pl-8 -mb-2 pb-2 border-t-4 bg-gradient-to-r from-transparent -mr-8 md:-mr-4"
+        :class="`border-${place?.color} to-${place?.color}`"
       >
-        <ul>
-          <li>
-            <h4 class="font-title">
-              Per informazioni:
-              <span v-show="event?.referenceName" class="font-serif">{{
-                event?.referenceName
-              }}</span>
-            </h4>
+        <!-- <h4 class="font-title">
+          Per informazioni:
+          <span v-show="event?.referenceName" class="font-serif">{{
+            event?.referenceName
+          }}</span>
+        </h4> -->
+        <div class="flex">
+          <button
+            type="button"
+            @click="showBookingOptions = !showBookingOptions"
+            class="call-to-action mr-4 md:mr-8 flex items-center gap-1"
+            :class="`bg-${place?.color}`"
+          >
+            <span class="i-ph-info-fill"></span>
+            <span> Informazioni</span>
+          </button>
 
-            <div class="flex-wrap flex gap-6">
+          <button
+            type="button"
+            v-if="isShareSupported"
+            @click="startShare"
+            class="call-to-action-outline bg-me-stone flex items-center gap-1"
+            :class="`border-${place?.color}`"
+          >
+            <span class="i-radix-icons-share-2"></span>
+            <span>Condividi</span>
+          </button>
+          <button
+            type="button"
+            v-if="true"
+            @click="startShare"
+            class="call-to-action-outline bg-me-stone flex items-center gap-1"
+            :class="`border-${place?.color}`"
+          >
+            <span class="i-radix-icons-share-2"></span>
+            <span>Condividi</span>
+          </button>
+        </div>
+
+        <div>
+          <Transition name="slide-fade">
+            <nav
+              v-show="showBookingOptions"
+              class="-mt-4 ml-4 flex items-center"
+            >
+              <div
+                class="border-l-2 border-b-2 rounded-lb-3xl inline-block h-11 w-8 -mt-10"
+                :class="`border-${place?.color}`"
+              ></div>
               <a
                 v-show="event?.referencePhone"
                 :href="`tel:${event?.referencePhone}`"
-                class="call-to-action"
+                class="call-to-action flex items-center gap-1"
                 :class="`bg-${place?.color}`"
-                >Chiama</a
               >
-
+                <span class="i-ph-phone-fill"></span> <span>Chiama</span></a
+              >
+              <div
+                class="border-b-2 inline-block w-4 h-1px"
+                :class="`border-${place?.color}`"
+              ></div>
               <a
                 v-show="event?.referenceEmail"
                 :href="`mailto:${event?.referenceEmail}`"
-                class="call-to-action-outline"
-                :class="`border-${place?.color}`"
-                >Scrivi una mail</a
-              >
-
-              <button
-                v-if="isShareSupported"
-                @click="startShare"
-                class="call-to-action-outline"
+                class="call-to-action-outline bg-me-stone flex items-center gap-1"
                 :class="`border-${place?.color}`"
               >
-                Condividi
-              </button>
-            </div>
-          </li>
-        </ul>
-      </nav>
+                <span class="i-ph-envelope-simple-open"></span>
+                <span>Scrivi mail</span></a
+              >
+            </nav>
+          </Transition>
+        </div>
+      </section>
     </div>
+
+    <!-- HIDDEN UTILITIES -->
     <div
-      class="hidden decoration-me-red decoration-me-basil decoration-me-lapis decoration-me-peach decoration-me-mint decoration-me-lavender"
+      class="hidden decoration-me-red decoration-me-basil decoration-me-lapis decoration-me-peach decoration-me-mint decoration-me-lavender outline-me-red outline-me-basil outline-me-lapis outline-me-peach outline-me-mint outline-me-lavender"
     ></div>
   </article>
 </template>
+
+<style scoped>
+details[open] > summary > span {
+  @apply hidden;
+}
+
+/*
+  Enter and leave animations can use different
+  durations and timing functions.
+*/
+.slide-fade-enter-active,
+.card-border-container {
+  transition: all 0.8s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(-15px);
+  opacity: 0;
+}
+</style>

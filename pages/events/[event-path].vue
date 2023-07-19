@@ -43,7 +43,9 @@ const query = groq`*[_type == "events" && path == $eventpath]{
   description,
 
   performerName,
-  performerLink
+  performerLink,
+
+  performers
 }`
 const { data: event } = await useSanityQuery(query, {
   eventpath: `/${route.params?.eventpath}`,
