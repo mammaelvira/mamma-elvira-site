@@ -212,7 +212,7 @@ const startShare = () => {
         :class="{
           'max-h-48 overflow-hidden': !isDescriptionExpanded && isCollapsable,
         }"
-        class="relative"
+        class="relative sanity-content"
       >
         <SanityContent
           :blocks="event?.description"
