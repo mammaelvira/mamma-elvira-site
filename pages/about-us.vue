@@ -152,7 +152,7 @@ useHead({
               </h4>
             </header>
           </div>
-          <div class="mt-2 border-b-2 border-me-lapis pb-2">
+          <div class="mt-2 border-b-2 border-me-lapis pb-2 sanity-content">
             <SanityContent :blocks="person?.description" />
           </div>
         </div>

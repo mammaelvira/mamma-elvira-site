@@ -61,7 +61,7 @@ const { data: recipes } = await useSanityQuery(query)
         <div
           class="mt-2 border-l-4 border-b-4 border-me-mint pl-3 pb-2 rounded-bl-[3rem] relative overflow-hidden"
         >
-          <section class="mb-8">
+          <section class="mb-8 sanity-content">
             <SanityContent :blocks="recipe?.description" />
           </section>
         </div>

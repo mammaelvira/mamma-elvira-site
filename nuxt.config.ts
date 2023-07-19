@@ -35,6 +35,7 @@ export default defineNuxtConfig({
     '@/assets/css/main.css',
     '@/assets/css/style.css',
     '@/assets/css/places.css',
+    '@/assets/css/sanity.css', // sanity portable text "block"
   ],
 
   runtimeConfig: {
