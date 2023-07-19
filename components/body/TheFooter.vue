@@ -22,7 +22,7 @@
         >
       </div>
       <div>
-        <GraphicsLogoPandolfi class="text-me-peach h-4" />
+        <div class="i-custom:corte-dei-pandolfi text-me-peach"></div>
         <NuxtLink to="/corte-dei-pandolfi">Corte dei Pandolfi</NuxtLink>
       </div>
       <div>

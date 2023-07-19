@@ -3,21 +3,25 @@
     class="relative flex justify-center items-center h-screen -mt-32 md:-mt-24"
   >
     <div class="flex flex-col items-center">
-      <img
-        src="~/assets/graphics/logo/mammaelvira-logo_text_arc.svg"
-        alt="Mamma Elvira"
-        class="h-12"
-      />
+      <figure>
+        <figcaption><h1 class="hidden">Mamma Elvira</h1></figcaption>
+        <img
+          src="~/assets/graphics/logo/mammaelvira-logo_text_arc.svg"
+          alt="Mamma Elvira"
+          class="h-12"
+        />
+      </figure>
+
       <div class="grid grid-cols-3 gap-3 items-center text-center font-logo">
-        <h3 class="pt-6">a Lecce</h3>
+        <h2 class="pt-6">a Lecce</h2>
         <img
           src="~/assets/graphics/logo/mammaelvira-logo_head-glyph_lapis.svg"
           alt="Glifo Mamma Elvira"
           class="w-16 mt-4"
         />
-        <h4 class="pt-6">{{ $t('logoSince') }} 2011</h4>
+        <h3 class="pt-6">{{ $t('logoSince') }} 2011</h3>
       </div>
-      <h5 class="flex gap-2 mt-6 font-bold uppercase text-xs">
+      <h4 class="flex gap-2 mt-6 font-bold uppercase text-xs">
         <NuxtLink to="/enoteca">
           <span class="text-me-red">enoteca</span></NuxtLink
         >
@@ -35,7 +39,7 @@
         <NuxtLink to="/picnic-experience"
           ><span class="text-me-lavender">picnic</span></NuxtLink
         >
-      </h5>
+      </h4>
     </div>
     <GraphicsColorBand />
   </section>

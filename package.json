@@ -11,9 +11,10 @@
     "@iconify-json/emojione-v1": "^1.1.6",
     "@iconify-json/game-icons": "^1.1.2",
     "@iconify-json/ph": "^1.1.5",
+    "@iconify-json/radix-icons": "^1.1.10",
     "@nuxt/devtools": "^0.6.7",
     "@nuxtjs/html-validator": "^1.5.1",
-    "@nuxtjs/i18n": "8.0.0-beta.11",
+    "@nuxtjs/i18n": "8.0.0-beta.13",
     "@unocss/nuxt": "^0.53.5",
     "@vueuse/core": "^10.2.1",
     "@vueuse/nuxt": "^10.2.1",
@@ -24,7 +25,6 @@
     "nuxt-typed-router": "^3.2.5"
   },
   "dependencies": {
-    "@nuxtjs/sanity": "^1.8.0",
-    "nuxi": "^3.6.3"
+    "@nuxtjs/sanity": "^1.8.0"
   }
 }

@@ -22,7 +22,14 @@
   ></div>
 </template>
 
+<style>
+/* RESET file
+https://github.com/unocss/unocss/tree/main/packages/reset */
+@import '@unocss/reset/tailwind-compat.css';
+</style>
+
 <style scoped>
+/* // TRANSITIONS */
 /*
   Enter and leave animations can use different
   durations and timing functions.

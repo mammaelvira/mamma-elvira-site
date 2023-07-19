@@ -1,7 +1,17 @@
 <script setup lang="ts">
+const i18nHead = useLocaleHead({ addSeoAttributes: true })
+
+useHead({
+  htmlAttrs: {
+    lang: () => i18nHead.value.htmlAttrs!.lang,
+  },
+  link: [...(i18nHead.value.link || [])],
+  meta: [...(i18nHead.value.meta || [])],
+})
+
 const query = useQueryRecipes()
 
-const { data: recipes, refresh } = await useSanityQuery(query)
+const { data: recipes } = await useSanityQuery(query)
 </script>
 
 <template>
@@ -41,6 +51,7 @@ const { data: recipes, refresh } = await useSanityQuery(query)
                 :asset-id="recipe?.image?.asset?._ref"
                 auto="format"
                 class="h-40 w-40 object-cover shadow-md border-6 border-me-mint"
+                :alt="`${recipe?.title} image`"
               />
               <div v-else class="relative h-40 w-40"></div>
             </figure>

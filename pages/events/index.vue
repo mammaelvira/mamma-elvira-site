@@ -1,4 +1,14 @@
-<script setup>
+<script setup lang="ts">
+const i18nHead = useLocaleHead({ addSeoAttributes: true })
+
+useHead({
+  htmlAttrs: {
+    lang: () => i18nHead.value.htmlAttrs!.lang,
+  },
+  link: [...(i18nHead.value.link || [])],
+  meta: [...(i18nHead.value.meta || [])],
+})
+
 const query = useQueryEvents()
 
 const { data: events, refresh } = await useSanityQuery(query)

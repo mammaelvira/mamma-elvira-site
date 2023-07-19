@@ -24,7 +24,7 @@ const otherActivitiesEvents = computed(() =>
     <header>
       <h3 class="font-serif text-2xl">
         Prossimi eventi di <br />
-        <div class="flex items-center gap-2">
+        <span class="flex items-center gap-2">
           <span
             :class="`${place?.iconClass}`"
             :style="`color: ${activityEvents[0]?.activity?.colorValue?.hex};`"
@@ -34,7 +34,7 @@ const otherActivitiesEvents = computed(() =>
             :style="`color: ${activityEvents[0]?.activity?.colorValue?.hex};`"
             >{{ activityEvents[0]?.activity?.name }}</span
           >
-        </div>
+        </span>
       </h3>
     </header>
 

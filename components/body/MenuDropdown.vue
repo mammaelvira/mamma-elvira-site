@@ -22,7 +22,7 @@ watch(isScrolling, () => {
     <span
       @click="toggleActivityLinks"
       :class="showActivityLinks ? 'underline' : ''"
-      >Mangiare e bere</span
+      >{{ $t('eatAndDrink') }}</span
     >
 
     <div

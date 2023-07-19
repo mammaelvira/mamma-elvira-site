@@ -1,4 +1,14 @@
 <script setup lang="ts">
+const i18nHead = useLocaleHead({ addSeoAttributes: true })
+
+useHead({
+  htmlAttrs: {
+    lang: () => i18nHead.value.htmlAttrs!.lang,
+  },
+  link: [...(i18nHead.value.link || [])],
+  meta: [...(i18nHead.value.meta || [])],
+})
+
 const route = useRoute()
 
 const query = groq`*[_type == "events" && path == $eventpath]{
@@ -101,11 +111,17 @@ useSchemaOrg([
 
 <template>
   <section class="flex flex-col gap-16 items-center">
+    <div class="hidden">
+      <h1>Evento:</h1>
+      <h2>{{ event?.[0].activity?.name }}</h2>
+    </div>
+
     <PlacesEventCard
       :event="event?.[0]"
       :place="place"
       :show-activity-label="true"
       :is-collapsable="false"
+      class="mt-4"
     />
 
     <NuxtLink to="/events" class="call-to-action" :class="`bg-${place?.color}`"
