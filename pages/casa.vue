@@ -54,12 +54,13 @@ useHead({
     </p>
 
     <p>
-      <a
+      <NuxtLink
         class="call-to-action inline-block bg-me-lapis"
-        href="https://casamammaelvira.com"
+        to="https://casamammaelvira.com"
         target="_blank"
-        >Visita il Sito dedicato</a
-      >
+        :external="true"
+        >Visita il Sito dedicato
+      </NuxtLink>
     </p>
   </PlacesPageSchema>
 </template>

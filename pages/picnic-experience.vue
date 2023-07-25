@@ -8,6 +8,16 @@ useHead({
   link: [...(i18nHead.value.link || [])],
   meta: [...(i18nHead.value.meta || [])],
 })
+
+const query = groq`
+  *[ _type == "documents" && file.slug.current == "picnic-experience-lecce-2023" ]
+    {
+      "assetId": file.asset._ref,
+      "slug": file.slug.current
+    }`
+
+const { data } = await useSanityQuery(query)
+const { assetId, slug } = data?.value?.[0]
 </script>
 
 <template>
@@ -43,12 +53,23 @@ useHead({
 
     <div class="border-b-2 border-me-lavender my-6"></div>
 
-    <p>
+    <p class="text-sm">
       Il Parco Archeologico di Rudiae è fruibile grazie a un accordo di
       promozione e valorizzazione stipulato tra la Soprintendenza archeologia
       belle arti e paesaggio Brindisi e Lecce, il Comune di Lecce e la società
       Archeologia Ricerca e Valorizzazione SRL - A.R.Va - spin off Unisalento.
     </p>
+
+    <p>
+      <SanityFile :asset-id="assetId" :download="`${slug}.pdf`">
+        <template #default="{ src }">
+          <a :href="src" class="call-to-action inline-block bg-me-lavender"
+            >Scarica il programma 2023
+          </a>
+        </template>
+      </SanityFile>
+    </p>
+
     <template v-slot:place-image>
       <img
         src="~/assets/images/me_picnic-experience_ext-01.jpg"
