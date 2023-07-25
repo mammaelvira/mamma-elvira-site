@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface Props {
   event: any
-  place: { color: string }
+  place: { color: string; path: string }
   showActivityLabel: boolean
   isCollapsable: boolean
 }
@@ -32,18 +32,22 @@ const iconResolver = (link: string) => {
   let linkIcon: string = icons['web']
 
   Array.from(Object.keys(icons)).forEach(
-    (key: string) => link.includes(key) && (linkIcon = icons[key])
+    (key: string) => link.includes(key) && (linkIcon = icons[key]),
   )
 
   return linkIcon
 }
+
+const performersWithBio = computed(
+  () => props.event?.performers?.filter((perf) => perf?.bioText),
+)
 
 const performerWithLink = computed(() => {
   const links: { name: string; link: string }[] = []
   props.event?.performerLink?.forEach(
     (link: string, index: number) =>
       (link.toLowerCase() !== 'x' || '') &&
-      links.push({ name: props.event?.performerName?.[index], link })
+      links.push({ name: props.event?.performerName?.[index], link }),
   )
   return links
 })
@@ -51,8 +55,8 @@ const performerWithoutLink = computed(
   () =>
     props.event?.performerName?.filter(
       (_name: string, index: number) =>
-        props.event?.performerLink?.[index].toLowerCase() === 'x' || ''
-    ) || []
+        props.event?.performerLink?.[index].toLowerCase() === 'x' || '',
+    ) || [],
 )
 
 const shareOptions = ref({
@@ -93,7 +97,7 @@ const showBookingOptions = ref(false)
     </div>
 
     <!-- HEADER (LINK TO EVENT-PAGE) -->
-    <NuxtLink :to="event?.path ? `/events${event?.path}` : '' as string">
+    <NuxtLink :to="event?.path ? `/events${event?.path}` : ('' as string)">
       <header>
         <div
           class="bg-gradient-to-r from-transparent flex justify-between items-center"
@@ -219,15 +223,145 @@ const showBookingOptions = ref(false)
         :class="{
           'max-h-48 overflow-hidden': !isDescriptionExpanded && isCollapsable,
         }"
-        class="relative sanity-content"
+        class="relative"
       >
-        <SanityContent
-          :blocks="event?.description"
-          :key="
-            event?.description?.[0]?._key ?? `event-description-${event?._id}`
-          "
-        />
+        <!-- DESCRIPTION (INTRO) -->
+        <div class="sanity-content">
+          <SanityContent
+            :blocks="event?.description"
+            :key="
+              event?.description?.[0]?._key ?? `event-description-${event?._id}`
+            "
+          />
+        </div>
 
+        <!-- PROGRAM / LINEUP -->
+        <div
+          class="border-l-2 pl-4 mb-4"
+          :class="`border-${place?.color}`"
+          v-if="event?.program"
+        >
+          <h3 class="font-title mt-1 mb-2">Programma</h3>
+          <ul>
+            <li v-for="timeslot in event?.program" :key="timeslot._key">
+              <h4>
+                <span class="font-title text-sm px-2">{{
+                  new Date(timeslot.timeSlotStart).toLocaleTimeString('it-IT', {
+                    hour: 'numeric',
+                    minute: '2-digit',
+                  })
+                }}</span>
+                <span>{{
+                  timeslot.timeSlotDescription.includes(':')
+                    ? timeslot.timeSlotDescription.split(':')[0] +
+                      ': ' +
+                      timeslot.timeSlotDescription.split(':')[1]
+                    : timeslot.timeSlotDescription
+                }}</span>
+              </h4>
+            </li>
+          </ul>
+        </div>
+
+        <!-- FORMULA / OFFER -->
+        <div
+          v-if="place?.path === '/picnic-experience'"
+          class="border-l-2 pl-4 mb-4"
+          :class="`border-${place?.color}`"
+        >
+          <h3 class="font-title mt-1 mb-4">Formule</h3>
+
+          <ul class="flex flex-wrap gap-8">
+            <PlacesEventFormula
+              key="formula-1-calice"
+              :color="place.color"
+              title="Calice o Cocktail"
+              price="20€"
+            >
+              A scelta tra:
+              <br /><br />
+              <ul>
+                <li>
+                  • <span class="font-title">Calice</span> di Vino Cantina
+                  "Funiati"
+                </li>
+                <li>• <span class="font-title">Cocktail</span></li>
+              </ul>
+            </PlacesEventFormula>
+
+            <PlacesEventFormula
+              key="formula-2-box"
+              :color="place.color"
+              title="Box Degustazione"
+              price="50x2€"
+            >
+              <span class="font-title">Bottiglia</span> di Vino Cantina
+              "Funiati" <br /><span class="font-title">+ Box con:</span><br />
+              <ul>
+                <li>• Bombette</li>
+                <li>• Pitta con Verdure</li>
+                <li>• Parmigiana</li>
+                <li>• Salumi & Formaggi</li>
+                <li>• Insalata di Farro</li>
+                <li>• Crostata Arance, Fichi e Noci</li>
+              </ul>
+              <div
+                class="absolute text-xs -right-8 top-6 px-1 text-me-stone shadow"
+                :class="`bg-${place?.color}`"
+              >
+                minimo due persone
+              </div>
+            </PlacesEventFormula>
+          </ul>
+        </div>
+
+        <!-- PICNIC EXPERIENCE: COLOPHON -->
+        <p v-if="place.path === '/picnic-experience'" class="text-sm mb-4">
+          Il
+          <NuxtLink
+            to="https://www.parcoarcheologicorudiae.it/"
+            :external="true"
+            target="_blank"
+            class="underline"
+            >Parco Archeologico Rudiae</NuxtLink
+          >
+          è fruibile grazie ad un accordo di promozione e valorizzazione
+          stipulato tra la
+          <NuxtLink
+            to="https://www.beniculturali.it/ente/soprintendenza-archeologia-belle-arti-e-paesaggio-per-le-province-di-brindisi-lecce-e-taranto"
+            :external="true"
+            target="_blank"
+            class="underline"
+            >Soprintendenza archeologia belle arti e paesaggio Brindisi e
+            Lecce</NuxtLink
+          >
+          e
+          <NuxtLink
+            to="https://www.arvarcheologia.it/"
+            :external="true"
+            target="_blank"
+            class="underline"
+            >Archeologia Ricerca e Valorizzazione SRL - A.R.Va</NuxtLink
+          >
+          - spin off
+          <NuxtLink
+            to="https://www.unisalento.it/"
+            :external="true"
+            target="_blank"
+            class="underline"
+            >Unisalento</NuxtLink
+          >
+          in collaborazione con il
+          <NuxtLink
+            to="https://www.comune.lecce.it/"
+            :external="true"
+            target="_blank"
+            class="underline"
+            >Comune di Lecce</NuxtLink
+          >.
+        </p>
+
+        <!-- DESCRIPTION TOGGLER -->
         <div
           v-if="height > 180 && isCollapsable === true"
           :class="{
@@ -256,16 +390,16 @@ const showBookingOptions = ref(false)
 
       <!-- PERFORMERS BIO -->
       <section
-        v-if="event?.performers?.length > 0"
+        v-if="performersWithBio?.length > 0"
         class="border-l-2 pl-4 mb-4"
         :class="`border-${place?.color}`"
       >
         <h4 class="font-title text-sm mt-1">
-          Performer{{ event?.performerName?.length > 1 ? 's' : '' }}
+          Performer{{ performersWithBio?.length > 1 ? 's' : '' }}
           Info:
         </h4>
         <ul class="mt-2 flex flex-wrap gap-6 md:gap-8">
-          <li v-for="performer in event?.performers" :key="performer?._key">
+          <li v-for="performer in performersWithBio" :key="performer?._key">
             <details>
               <summary>
                 <h5 class="inline font-serif underline text-shadow-md pl-2">

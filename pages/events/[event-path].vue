@@ -11,49 +11,51 @@ useHead({
 
 const route = useRoute()
 
-const query = groq`*[_type == "events" && path == $eventpath]{
-  _id,
-  _updatedAt, // for social card cache
-  title,
-  path,
+// const query = groq`*[_type == "events" && path == $eventpath]{
+//   _id,
+//   _updatedAt, // for social card cache
+//   title,
+//   path,
 
-  "ogImage": ogImage.asset -> url,
-  ogTitle,
-  ogDescription,
+//   "ogImage": ogImage.asset -> url,
+//   ogTitle,
+//   ogDescription,
 
-  isSoldout,
-  activity -> {
-    name,
-    payoff,
-    path,
+//   isSoldout,
+//   activity -> {
+//     name,
+//     payoff,
+//     path,
 
-    place,
-    street, streetNumber, cap, city,
+//     place,
+//     street, streetNumber, cap, city,
 
-    colorValue { hex }
-  },
-  image,
-  datetimeStart,
-  datetimeEnd,
+//     colorValue { hex }
+//   },
+//   image,
+//   datetimeStart,
+//   datetimeEnd,
 
-  referenceEmail,
-  referenceName,
-  referencePhone,
+//   referenceEmail,
+//   referenceName,
+//   referencePhone,
 
-  description,
+//   description,
 
-  performerName,
-  performerLink,
+//   performerName,
+//   performerLink,
 
-  performers
-}`
+//   performers
+// }`
+const query = useQueryEvents({ singleEvent: true })
+
 const { data: event } = await useSanityQuery(query, {
   eventpath: `/${route.params?.eventpath}`,
 })
 
 const places = usePlaces()
 const place = computed(() =>
-  places.find((place) => place.path === event.value?.[0]?.activity?.path)
+  places.find((place) => place.path === event.value?.[0]?.activity?.path),
 )
 
 useSeoMeta({
@@ -61,10 +63,11 @@ useSeoMeta({
   title: () => event?.value?.[0]?.ogTitle || 'Mamma Elvira',
   description: () => event?.value?.[0]?.ogDescription || 'mammaelvira.com',
   ogImage: () =>
-    `${
-      event?.value?.[0]?.ogImage
-    }?w=1200&update=${event?.value?.[0]?._updatedAt?.replaceAll(':', '-')}` ||
-    'https://mammaelvira.com/mammaelvira_website-cover.png',
+    `${event?.value?.[0]
+      ?.ogImage}?w=1200&update=${event?.value?.[0]?._updatedAt?.replaceAll(
+      ':',
+      '-',
+    )}` || 'https://mammaelvira.com/mammaelvira_website-cover.png',
   ogTitle: () => event?.value?.[0]?.ogTitle || 'Mamma Elvira',
   ogDescription: () => event?.value?.[0]?.ogDescription || 'mammaelvira.com',
   twitterCard: 'summary_large_image',
@@ -101,7 +104,7 @@ useSchemaOrg([
               event?.value?.[0].performerLink[index] !== ('' || 'x')
                 ? event?.value?.[0].performerLink[index]
                 : null,
-          })
+          }),
       )
 
       return performers
