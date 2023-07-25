@@ -278,12 +278,12 @@ const showBookingOptions = ref(false)
               title="Calice o Cocktail"
               price="20€"
             >
-              A scelta tra:
-              <br /><br />
+              <p>A scelta tra:</p>
+              <br />
               <ul>
                 <li>
-                  • <span class="font-title">Calice</span> di Vino Cantina
-                  "Funiati"
+                  • <span class="font-title">Calice</span><br />
+                  di Vino Cantina "Funiati"
                 </li>
                 <li>• <span class="font-title">Cocktail</span></li>
               </ul>
@@ -295,8 +295,11 @@ const showBookingOptions = ref(false)
               title="Box Degustazione"
               price="50x2€"
             >
-              <span class="font-title">Bottiglia</span> di Vino Cantina
-              "Funiati" <br /><span class="font-title">+ Box con:</span><br />
+              <p>
+                <span class="font-title">Bottiglia</span> di Vino Cantina
+                "Funiati" <br /><span class="font-title">+ Box con:</span>
+              </p>
+
               <ul>
                 <li>• Bombette</li>
                 <li>• Pitta con Verdure</li>
@@ -306,10 +309,10 @@ const showBookingOptions = ref(false)
                 <li>• Crostata Arance, Fichi e Noci</li>
               </ul>
               <div
-                class="absolute text-xs -right-8 top-6 px-1 text-me-stone shadow"
+                class="absolute text-xs -right-3 top-6 px-1 text-me-stone shadow text-right"
                 :class="`bg-${place?.color}`"
               >
-                minimo due persone
+                minimo 2 persone<br />100€ a coppia
               </div>
             </PlacesEventFormula>
           </ul>
