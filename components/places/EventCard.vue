@@ -185,14 +185,16 @@ const showBookingOptions = ref(false)
       </header>
     </NuxtLink>
     <!-- MOBILE TITLE -->
-    <div
-      class="mt-2 md:hidden rounded-r-lg shadow"
-      :class="`bg-${place?.color}`"
-    >
-      <h4 class="px-2 py-1 text-2xl font-title text-me-stone">
-        {{ event?.title }}
-      </h4>
-    </div>
+    <NuxtLink :to="event?.path ? `/events${event?.path}` : ('' as string)">
+      <div
+        class="mt-2 md:hidden rounded-r-lg shadow"
+        :class="`bg-${place?.color}`"
+      >
+        <h4 class="px-2 py-1 text-2xl font-title text-me-stone">
+          {{ event?.title }}
+        </h4>
+      </div>
+    </NuxtLink>
     <!-- SOLD OUT -->
     <p
       v-if="event?.isSoldout"
