@@ -29,7 +29,10 @@ const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
             </li>
 
             <!-- ACTIVITIES -->
-            <BodyMenuDropdown class="cursor-pointer" :title="$t('ourPlaces')" />
+            <BodyMenuDropdown
+              class="cursor-pointer hover:underline"
+              :title="$t('ourPlaces')"
+            />
 
             <li>
               <NuxtLink to="/casa" class="hover:underline">{{
@@ -57,7 +60,7 @@ const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
       </li>
 
       <li class="flex gap-6 items-start">
-        <!-- <BodyLanguageSwitcher  /> -->
+        <!-- <BodyLanguageSwitcher /> -->
         <button
           type="button"
           :aria-label="
