@@ -22,7 +22,7 @@ const { assetId, slug } = data?.value?.[0]
 
 <template>
   <PlacesPageSchema>
-    <header class="flex flex-col items-center mb-8">
+    <header class="relative flex flex-col items-center mb-8">
       <h2
         class="inline font-serif text-4xl md:text-5xl text-center border-b-2 border-me-mint pb-2"
       >
@@ -32,6 +32,12 @@ const { assetId, slug } = data?.value?.[0]
         Scoprire Lecce, <br class="md:hidden" />
         un Cestino per volta
       </h3>
+
+      <img
+        class="absolute top-2 -right-6 w-28 rotate-7 filter drop-shadow-md"
+        src="~/assets/graphics/logo/picnic-experience_logo.png"
+        alt="Picnic Experience Lecce Logo"
+      />
     </header>
 
     <p>
@@ -53,11 +59,50 @@ const { assetId, slug } = data?.value?.[0]
 
     <div class="border-b-2 border-me-lavender my-6"></div>
 
-    <p class="text-sm">
-      Il Parco Archeologico di Rudiae è fruibile grazie a un accordo di
-      promozione e valorizzazione stipulato tra la Soprintendenza archeologia
-      belle arti e paesaggio Brindisi e Lecce, il Comune di Lecce e la società
-      Archeologia Ricerca e Valorizzazione SRL - A.R.Va - spin off Unisalento.
+    <!-- COLOPHON -->
+    <p class="text-sm mb-4">
+      Il
+      <NuxtLink
+        to="https://www.parcoarcheologicorudiae.it/"
+        :external="true"
+        target="_blank"
+        class="underline decoration-me-lavender"
+        >Parco Archeologico Rudiae</NuxtLink
+      >
+      è fruibile grazie ad un accordo di promozione e valorizzazione stipulato
+      tra la
+      <NuxtLink
+        to="https://www.beniculturali.it/ente/soprintendenza-archeologia-belle-arti-e-paesaggio-per-le-province-di-brindisi-lecce-e-taranto"
+        :external="true"
+        target="_blank"
+        class="underline decoration-me-lavender"
+        >Soprintendenza archeologia belle arti e paesaggio Brindisi e
+        Lecce</NuxtLink
+      >
+      e
+      <NuxtLink
+        to="https://www.arvarcheologia.it/"
+        :external="true"
+        target="_blank"
+        class="underline decoration-me-lavender"
+        >Archeologia Ricerca e Valorizzazione SRL - A.R.Va</NuxtLink
+      >
+      - spin off
+      <NuxtLink
+        to="https://www.unisalento.it/"
+        :external="true"
+        target="_blank"
+        class="underline decoration-me-lavender"
+        >Unisalento</NuxtLink
+      >
+      in collaborazione con il
+      <NuxtLink
+        to="https://www.comune.lecce.it/"
+        :external="true"
+        target="_blank"
+        class="underline decoration-me-lavender"
+        >Comune di Lecce</NuxtLink
+      >.
     </p>
 
     <p>

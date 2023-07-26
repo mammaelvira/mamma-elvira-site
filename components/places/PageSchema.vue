@@ -2,7 +2,9 @@
 const route = useRoute()
 const places = usePlaces()
 
-const place = places.find((place) => place.path === route.fullPath)
+const place = places.find((place) =>
+  place.path.includes(route.fullPath?.split('/')?.at(-1) as string),
+)
 </script>
 
 <template>
@@ -129,6 +131,25 @@ const place = places.find((place) => place.path === route.fullPath)
         </div>
       </section>
     </div>
+
+    <!-- PICNIC EXPERIENCE FORMULAS -->
+    <section v-if="place?.path?.includes('picnic')" class="mt-8">
+      <header>
+        <h4 class="font-serif text-2xl">
+          Le formule di <br />
+          <span class="flex items-center gap-2">
+            <span :class="`${place?.iconClass} text-${place?.color}`"></span>
+            <span
+              :class="`text-${place?.color}`"
+              class="font-title text-shadow"
+              >{{ place?.name }}</span
+            >
+          </span>
+        </h4>
+      </header>
+      <div class="mt-4 flex justify-center"><PlacesPicnicFormulas /></div>
+    </section>
+
     <PlacesEventsSection class="mt-8" />
 
     <BodyActivitySection class="mt-16" />

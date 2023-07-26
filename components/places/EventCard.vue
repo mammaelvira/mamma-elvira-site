@@ -68,7 +68,7 @@ const showBookingOptions = ref(false)
     <!-- ACTIVITY-LABEL -->
     <div
       v-if="showActivityLabel"
-      class="mb-2 rounded-tr-[3rem] pl-2"
+      class="relative mb-2 rounded-tr-[3rem] pl-2"
       :class="`bg-${place?.color}`"
     >
       <NuxtLink :to="event?.activity?.path" class="text-shadow">
@@ -84,6 +84,13 @@ const showBookingOptions = ref(false)
         {{ event?.activity?.street }}, {{ event?.activity?.streetNumber }} -
         {{ event?.activity?.cap }} {{ event?.activity?.city }}
       </address>
+
+      <img
+        v-if="place.path.includes('picnic')"
+        class="absolute -top-1 -right-2 w-24 rotate-7 filter drop-shadow-md"
+        src="~/assets/graphics/logo/picnic-experience_logo.png"
+        alt="Picnic Experience Lecce Logo"
+      />
     </div>
 
     <!-- HEADER (LINK TO EVENT-PAGE) -->
@@ -256,68 +263,20 @@ const showBookingOptions = ref(false)
         </div>
 
         <!-- FORMULA / OFFER -->
-        <div
-          v-if="place?.path === '/picnic-experience'"
-          class="border-l-2 pl-4 mb-4"
-          :class="`border-${place?.color}`"
-        >
+        <div class="border-l-2 pl-4 mb-4 border-me-lavender">
           <h3 class="font-title mt-1 mb-4">Formule</h3>
 
-          <ul class="flex flex-wrap gap-8">
-            <PlacesEventFormula
-              key="formula-1-calice"
-              :color="place.color"
-              title="Calice o Cocktail"
-              price="20€"
-            >
-              <p>A scelta tra:</p>
-              <br />
-              <ul>
-                <li>
-                  • <span class="font-title">Calice</span><br />
-                  di Vino Cantina "Funiati"
-                </li>
-                <li>• <span class="font-title">Cocktail</span></li>
-              </ul>
-            </PlacesEventFormula>
-
-            <PlacesEventFormula
-              key="formula-2-box"
-              :color="place.color"
-              title="Box Degustazione"
-              price="50x2€"
-            >
-              <p>
-                <span class="font-title">Bottiglia</span> di Vino Cantina
-                "Funiati" <br /><span class="font-title">+ Box con:</span>
-              </p>
-
-              <ul>
-                <li>• Bombette</li>
-                <li>• Pitta con Verdure</li>
-                <li>• Parmigiana</li>
-                <li>• Salumi & Formaggi</li>
-                <li>• Insalata di Farro</li>
-                <li>• Crostata Arance, Fichi e Noci</li>
-              </ul>
-              <div
-                class="absolute text-xs -right-3 top-6 px-1 text-me-stone shadow text-right"
-                :class="`bg-${place?.color}`"
-              >
-                minimo 2 persone<br />100€ a coppia
-              </div>
-            </PlacesEventFormula>
-          </ul>
+          <PlacesPicnicFormulas v-if="place?.path?.includes('picnic')" />
         </div>
 
         <!-- PICNIC EXPERIENCE: COLOPHON -->
-        <p v-if="place.path === '/picnic-experience'" class="text-sm mb-4">
+        <p v-if="place.path.includes('picnic')" class="text-sm mb-4">
           Il
           <NuxtLink
             to="https://www.parcoarcheologicorudiae.it/"
             :external="true"
             target="_blank"
-            class="underline"
+            class="underline decoration-me-lavender"
             >Parco Archeologico Rudiae</NuxtLink
           >
           è fruibile grazie ad un accordo di promozione e valorizzazione
@@ -326,7 +285,7 @@ const showBookingOptions = ref(false)
             to="https://www.beniculturali.it/ente/soprintendenza-archeologia-belle-arti-e-paesaggio-per-le-province-di-brindisi-lecce-e-taranto"
             :external="true"
             target="_blank"
-            class="underline"
+            class="underline decoration-me-lavender"
             >Soprintendenza archeologia belle arti e paesaggio Brindisi e
             Lecce</NuxtLink
           >
@@ -335,7 +294,7 @@ const showBookingOptions = ref(false)
             to="https://www.arvarcheologia.it/"
             :external="true"
             target="_blank"
-            class="underline"
+            class="underline decoration-me-lavender"
             >Archeologia Ricerca e Valorizzazione SRL - A.R.Va</NuxtLink
           >
           - spin off
@@ -343,7 +302,7 @@ const showBookingOptions = ref(false)
             to="https://www.unisalento.it/"
             :external="true"
             target="_blank"
-            class="underline"
+            class="underline decoration-me-lavender"
             >Unisalento</NuxtLink
           >
           in collaborazione con il
@@ -351,7 +310,7 @@ const showBookingOptions = ref(false)
             to="https://www.comune.lecce.it/"
             :external="true"
             target="_blank"
-            class="underline"
+            class="underline decoration-me-lavender"
             >Comune di Lecce</NuxtLink
           >.
         </p>
@@ -397,7 +356,10 @@ const showBookingOptions = ref(false)
           <li v-for="performer in performersWithBio" :key="performer?._key">
             <details>
               <summary>
-                <h5 class="inline font-serif underline text-shadow-md pl-2">
+                <h5
+                  class="inline font-serif underline text-shadow-md pl-2"
+                  :class="`decoration-${place?.color}`"
+                >
                   {{ performer?.name }}
                 </h5>
                 <span class="block text-xs overflow-hidden">
