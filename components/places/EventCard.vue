@@ -447,16 +447,6 @@ const showBookingOptions = ref(false)
             <span class="i-radix-icons-share-2"></span>
             <span>Condividi</span>
           </button>
-          <button
-            type="button"
-            v-if="true"
-            @click="startShare"
-            class="call-to-action-outline bg-me-stone flex items-center gap-1"
-            :class="`border-${place?.color}`"
-          >
-            <span class="i-radix-icons-share-2"></span>
-            <span>Condividi</span>
-          </button>
         </div>
 
         <div>
