@@ -46,9 +46,6 @@ export default (
   description,
 
   program,
-  
-  performerName,
-  performerLink,
 
   performers
 } | order(datetimeStart)`

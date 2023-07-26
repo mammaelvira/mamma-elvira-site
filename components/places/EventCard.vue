@@ -39,24 +39,14 @@ const iconResolver = (link: string) => {
 }
 
 const performersWithBio = computed(
-  () => props.event?.performers?.filter((perf) => perf?.bioText),
+  () => props.event?.performers?.filter((perf: any) => perf?.bioText),
 )
 
-const performerWithLink = computed(() => {
-  const links: { name: string; link: string }[] = []
-  props.event?.performerLink?.forEach(
-    (link: string, index: number) =>
-      (link.toLowerCase() !== 'x' || '') &&
-      links.push({ name: props.event?.performerName?.[index], link }),
-  )
-  return links
-})
-const performerWithoutLink = computed(
-  () =>
-    props.event?.performerName?.filter(
-      (_name: string, index: number) =>
-        props.event?.performerLink?.[index].toLowerCase() === 'x' || '',
-    ) || [],
+const performersWithLink = computed(
+  () => props.event?.performers?.filter((perf: any) => perf?.link),
+)
+const performersWithoutLink = computed(
+  () => props.event?.performers?.filter((perf: any) => !perf?.link),
 )
 
 const shareOptions = ref({
@@ -426,18 +416,18 @@ const showBookingOptions = ref(false)
 
       <!-- PERFORMERS LINKS -->
       <section
-        v-show="event?.performerName?.length > 0"
+        v-if="event?.performers?.length > 0"
         class="border-l-2 pl-4"
         :class="`border-${place?.color}`"
       >
         <h4 class="font-title text-sm mt-1">
-          Performer{{ event?.performerName?.length > 1 ? 's' : '' }}
+          Performer{{ performersWithLink.length > 1 ? 's' : '' }}
           Link:
         </h4>
         <nav class="mt-2 flex flex-wrap gap-6 md:gap-8">
           <div
-            v-for="performer in performerWithLink"
-            :key="performer?.name?.toLowerCase().replace(' ', '-')"
+            v-for="performer in performersWithLink"
+            :key="performer?._key"
             class="shrink-0 flex items-center gap-2"
           >
             <span :class="iconResolver(performer?.link)"> </span>
@@ -450,12 +440,12 @@ const showBookingOptions = ref(false)
             >
           </div>
           <div
-            v-for="performer in performerWithoutLink"
-            :key="performer?.toLowerCase().replace(' ', '-')"
+            v-for="performer in performersWithoutLink"
+            :key="performer?._key"
             class="flex items-center gap-2"
           >
             <span class="i-ph-star"></span>
-            <span class="font-serif text-shadow-md">{{ performer }}</span>
+            <span class="font-serif text-shadow-md">{{ performer.name }}</span>
           </div>
         </nav>
       </section>

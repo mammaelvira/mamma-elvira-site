@@ -21,17 +21,17 @@ const props = withDefaults(defineProps<Props>(), {
       {{ title }}
     </h4>
 
-    <p class="font-title text-3xl border-b-2 pb-1" :class="`border-${color}`">
+    <p class="font-title text-3xl pt-1">
       {{ price }}
     </p>
 
-    <ul class="border-b-2 m-2 pb-2 text-sm" :class="`border-${color}`">
+    <ul class="border-y-2 m-2 py-2 text-sm" :class="`border-${color}`">
       <li>• Biglietto Main Event</li>
       <li>• Biglietto DJ Set</li>
       <li>
         •
         <span
-          class="text-xs rotate-10 -right-4 -top-2.5 px-1 text-me-stone shadow"
+          class="text-xs inline-block px-1 text-me-stone shadow"
           :class="`bg-${color}`"
           >opzionale</span
         >
