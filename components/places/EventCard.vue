@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface Props {
   event: any
-  place: { color: string }
+  place: { color: string; path: string }
   showActivityLabel: boolean
   isCollapsable: boolean
 }
@@ -32,27 +32,21 @@ const iconResolver = (link: string) => {
   let linkIcon: string = icons['web']
 
   Array.from(Object.keys(icons)).forEach(
-    (key: string) => link.includes(key) && (linkIcon = icons[key])
+    (key: string) => link.includes(key) && (linkIcon = icons[key]),
   )
 
   return linkIcon
 }
 
-const performerWithLink = computed(() => {
-  const links: { name: string; link: string }[] = []
-  props.event?.performerLink?.forEach(
-    (link: string, index: number) =>
-      (link.toLowerCase() !== 'x' || '') &&
-      links.push({ name: props.event?.performerName?.[index], link })
-  )
-  return links
-})
-const performerWithoutLink = computed(
-  () =>
-    props.event?.performerName?.filter(
-      (_name: string, index: number) =>
-        props.event?.performerLink?.[index].toLowerCase() === 'x' || ''
-    ) || []
+const performersWithBio = computed(
+  () => props.event?.performers?.filter((perf: any) => perf?.bioText),
+)
+
+const performersWithLink = computed(
+  () => props.event?.performers?.filter((perf: any) => perf?.link),
+)
+const performersWithoutLink = computed(
+  () => props.event?.performers?.filter((perf: any) => !perf?.link),
 )
 
 const shareOptions = ref({
@@ -65,13 +59,16 @@ const { share, isSupported: isShareSupported } = useShare()
 const startShare = () => {
   share(shareOptions)
 }
+
+const showBookingOptions = ref(false)
 </script>
 
 <template>
   <article class="relative md:w-3/4 lg:w-2/3 xl:w-1/2">
+    <!-- ACTIVITY-LABEL -->
     <div
       v-if="showActivityLabel"
-      class="mb-2 rounded-tr-[3rem] pl-2"
+      class="relative mb-2 rounded-tr-[3rem] pl-2"
       :class="`bg-${place?.color}`"
     >
       <NuxtLink :to="event?.activity?.path" class="text-shadow">
@@ -87,8 +84,17 @@ const startShare = () => {
         {{ event?.activity?.street }}, {{ event?.activity?.streetNumber }} -
         {{ event?.activity?.cap }} {{ event?.activity?.city }}
       </address>
+
+      <img
+        v-if="place.path.includes('picnic')"
+        class="absolute -top-6 md:-top-1 -right-2 w-24 rotate-7 filter drop-shadow-md"
+        src="~/assets/graphics/logo/picnic-experience_logo.png"
+        alt="Picnic Experience Lecce Logo"
+      />
     </div>
-    <NuxtLink :to="event?.path ? `/events${event?.path}` : '' as string">
+
+    <!-- HEADER (LINK TO EVENT-PAGE) -->
+    <NuxtLink :to="event?.path ? `/events${event?.path}` : ('' as string)">
       <header>
         <div
           class="bg-gradient-to-r from-transparent flex justify-between items-center"
@@ -185,14 +191,17 @@ const startShare = () => {
         </div>
       </header>
     </NuxtLink>
-    <div
-      class="mt-2 md:hidden rounded-r-lg shadow"
-      :class="`bg-${place?.color}`"
-    >
-      <h4 class="px-2 py-1 text-2xl font-title text-me-stone">
-        {{ event?.title }}
-      </h4>
-    </div>
+    <!-- MOBILE TITLE -->
+    <NuxtLink :to="event?.path ? `/events${event?.path}` : ('' as string)">
+      <div
+        class="mt-2 md:hidden rounded-r-lg shadow"
+        :class="`bg-${place?.color}`"
+      >
+        <h4 class="px-2 py-1 text-2xl font-title text-me-stone">
+          {{ event?.title }}
+        </h4>
+      </div>
+    </NuxtLink>
     <!-- SOLD OUT -->
     <p
       v-if="event?.isSoldout"
@@ -201,8 +210,9 @@ const startShare = () => {
       Evento Sold Out
     </p>
 
+    <!-- TEXT-SECTION (+CTA) -->
     <div
-      class="mt-2 border-l-4 border-b-4 pl-3 pb-2 rounded-bl-[3rem] relative overflow-hidden"
+      class="card-border-container mt-2 border-l-4 border-b-4 pl-3 pb-2 rounded-bl-[3rem] relative overflow-hidden -mr-8 md:mr-0 pr-8 md:pr-3"
       :class="`border-${place?.color}`"
     >
       <!-- DESCRIPTION -->
@@ -212,15 +222,100 @@ const startShare = () => {
         :class="{
           'max-h-48 overflow-hidden': !isDescriptionExpanded && isCollapsable,
         }"
-        class="relative sanity-content"
+        class="relative"
       >
-        <SanityContent
-          :blocks="event?.description"
-          :key="
-            event?.description?.[0]?._key ?? `event-description-${event?._id}`
-          "
-        />
+        <!-- DESCRIPTION (INTRO) -->
+        <div class="sanity-content">
+          <SanityContent
+            :blocks="event?.description"
+            :key="
+              event?.description?.[0]?._key ?? `event-description-${event?._id}`
+            "
+          />
+        </div>
 
+        <!-- PROGRAM / LINEUP -->
+        <div
+          class="border-l-2 pl-4 mb-4"
+          :class="`border-${place?.color}`"
+          v-if="event?.program"
+        >
+          <h3 class="font-title mt-1 mb-2">Programma</h3>
+          <ul>
+            <li v-for="timeslot in event?.program" :key="timeslot._key">
+              <h4>
+                <span class="font-title text-sm px-2">{{
+                  new Date(timeslot.timeSlotStart).toLocaleTimeString('it-IT', {
+                    hour: 'numeric',
+                    minute: '2-digit',
+                  })
+                }}</span>
+                <span>{{
+                  timeslot.timeSlotDescription.includes(':')
+                    ? timeslot.timeSlotDescription.split(':')[0] +
+                      ': ' +
+                      timeslot.timeSlotDescription.split(':')[1]
+                    : timeslot.timeSlotDescription
+                }}</span>
+              </h4>
+            </li>
+          </ul>
+        </div>
+
+        <!-- FORMULA / OFFER -->
+        <div class="border-l-2 pl-4 mb-4 border-me-lavender">
+          <h3 class="font-title mt-1 mb-4">Formule</h3>
+
+          <PlacesPicnicFormulas v-if="place?.path?.includes('picnic')" />
+        </div>
+
+        <!-- PICNIC EXPERIENCE: COLOPHON -->
+        <p v-if="place.path.includes('picnic')" class="text-sm mb-4">
+          Il
+          <NuxtLink
+            to="https://www.parcoarcheologicorudiae.it/"
+            :external="true"
+            target="_blank"
+            class="underline decoration-me-lavender"
+            >Parco Archeologico Rudiae</NuxtLink
+          >
+          è fruibile grazie ad un accordo di promozione e valorizzazione
+          stipulato tra la
+          <NuxtLink
+            to="https://www.beniculturali.it/ente/soprintendenza-archeologia-belle-arti-e-paesaggio-per-le-province-di-brindisi-lecce-e-taranto"
+            :external="true"
+            target="_blank"
+            class="underline decoration-me-lavender"
+            >Soprintendenza archeologia belle arti e paesaggio Brindisi e
+            Lecce</NuxtLink
+          >
+          e
+          <NuxtLink
+            to="https://www.arvarcheologia.it/"
+            :external="true"
+            target="_blank"
+            class="underline decoration-me-lavender"
+            >Archeologia Ricerca e Valorizzazione SRL - A.R.Va</NuxtLink
+          >
+          - spin off
+          <NuxtLink
+            to="https://www.unisalento.it/"
+            :external="true"
+            target="_blank"
+            class="underline decoration-me-lavender"
+            >Unisalento</NuxtLink
+          >
+          in collaborazione con il
+          <NuxtLink
+            to="https://www.comune.lecce.it/"
+            :external="true"
+            target="_blank"
+            class="underline decoration-me-lavender"
+            >Comune di Lecce</NuxtLink
+          >.
+        </p>
+
+        <!-- DESCRIPTION TOGGLER -->
         <div
           v-if="height > 180 && isCollapsable === true"
           :class="{
@@ -247,17 +342,56 @@ const startShare = () => {
         </div>
       </section>
 
-      <!-- PERFORMERS -->
+      <!-- PERFORMERS BIO -->
       <section
-        v-show="event?.performerName?.length > 0"
+        v-if="performersWithBio?.length > 0"
+        class="border-l-2 pl-4 mb-4"
+        :class="`border-${place?.color}`"
+      >
+        <h4 class="font-title text-sm mt-1">
+          Performer{{ performersWithBio?.length > 1 ? 's' : '' }}
+          Info:
+        </h4>
+        <ul class="mt-2 flex flex-wrap gap-6 md:gap-8">
+          <li v-for="performer in performersWithBio" :key="performer?._key">
+            <details>
+              <summary>
+                <h5
+                  class="inline font-serif underline text-shadow-md pl-2"
+                  :class="`decoration-${place?.color}`"
+                >
+                  {{ performer?.name }}
+                </h5>
+                <span class="block text-xs overflow-hidden">
+                  {{
+                    performer?.bioText?.[0]?.children?.[0]?.text
+                      ?.match(/.{1,60}/g)?.[0]
+                      .concat('..')
+                  }}
+                </span>
+              </summary>
+              <div class="mt-2 sanity-content">
+                <SanityContent :blocks="performer?.bioText" />
+              </div>
+            </details>
+          </li>
+        </ul>
+      </section>
+
+      <!-- PERFORMERS LINKS -->
+      <section
+        v-if="event?.performers?.length > 0"
         class="border-l-2 pl-4"
         :class="`border-${place?.color}`"
       >
-        <h4 class="font-title text-sm mt-1">Performer:</h4>
+        <h4 class="font-title text-sm mt-1">
+          Performer{{ performersWithLink.length > 1 ? 's' : '' }}
+          Link:
+        </h4>
         <nav class="mt-2 flex flex-wrap gap-6 md:gap-8">
           <div
-            v-for="performer in performerWithLink"
-            :key="performer?.name?.toLowerCase().replace(' ', '-')"
+            v-for="performer in performersWithLink"
+            :key="performer?._key"
             class="shrink-0 flex items-center gap-2"
           >
             <span :class="iconResolver(performer?.link)"> </span>
@@ -270,62 +404,116 @@ const startShare = () => {
             >
           </div>
           <div
-            v-for="performer in performerWithoutLink"
-            :key="performer?.toLowerCase().replace(' ', '-')"
+            v-for="performer in performersWithoutLink"
+            :key="performer?._key"
             class="flex items-center gap-2"
           >
             <span class="i-ph-star"></span>
-            <span class="font-serif text-shadow-md">{{ performer }}</span>
+            <span class="font-serif text-shadow-md">{{ performer.name }}</span>
           </div>
         </nav>
       </section>
 
       <!-- CALLS TO ACTION -->
-      <nav
-        class="mt-4 ml-4"
+      <section
         v-if="event?.referencePhone || event?.referenceEmail"
+        class="mt-4 -ml-4 pl-8 -mb-2 pb-2 border-t-4 bg-gradient-to-r from-transparent -mr-8 md:-mr-4"
+        :class="`border-${place?.color} to-${place?.color}`"
       >
-        <ul>
-          <li>
-            <h4 class="font-title">
-              Per informazioni:
-              <span v-show="event?.referenceName" class="font-serif">{{
-                event?.referenceName
-              }}</span>
-            </h4>
+        <!-- <h4 class="font-title">
+          Per informazioni:
+          <span v-show="event?.referenceName" class="font-serif">{{
+            event?.referenceName
+          }}</span>
+        </h4> -->
+        <div class="flex">
+          <button
+            type="button"
+            @click="showBookingOptions = !showBookingOptions"
+            class="call-to-action mr-4 md:mr-8 flex items-center gap-1"
+            :class="`bg-${place?.color}`"
+          >
+            <span class="i-ph-info-fill"></span>
+            <span> Informazioni</span>
+          </button>
 
-            <div class="flex-wrap flex gap-6">
+          <button
+            type="button"
+            v-if="isShareSupported"
+            @click="startShare"
+            class="call-to-action-outline bg-me-stone flex items-center gap-1"
+            :class="`border-${place?.color}`"
+          >
+            <span class="i-radix-icons-share-2"></span>
+            <span>Condividi</span>
+          </button>
+        </div>
+
+        <div>
+          <Transition name="slide-fade">
+            <nav
+              v-show="showBookingOptions"
+              class="-mt-4 ml-4 flex items-center"
+            >
+              <div
+                class="border-l-2 border-b-2 rounded-lb-3xl inline-block h-11 w-8 -mt-10"
+                :class="`border-${place?.color}`"
+              ></div>
               <a
                 v-show="event?.referencePhone"
                 :href="`tel:${event?.referencePhone}`"
-                class="call-to-action"
+                class="call-to-action flex items-center gap-1"
                 :class="`bg-${place?.color}`"
-                >Chiama</a
               >
-
+                <span class="i-ph-phone-fill"></span> <span>Chiama</span></a
+              >
+              <div
+                class="border-b-2 inline-block w-4 h-1px"
+                :class="`border-${place?.color}`"
+              ></div>
               <a
                 v-show="event?.referenceEmail"
                 :href="`mailto:${event?.referenceEmail}`"
-                class="call-to-action-outline"
-                :class="`border-${place?.color}`"
-                >Scrivi una mail</a
-              >
-
-              <button
-                v-if="isShareSupported"
-                @click="startShare"
-                class="call-to-action-outline"
+                class="call-to-action-outline bg-me-stone flex items-center gap-1"
                 :class="`border-${place?.color}`"
               >
-                Condividi
-              </button>
-            </div>
-          </li>
-        </ul>
-      </nav>
+                <span class="i-ph-envelope-simple-open"></span>
+                <span>Scrivi mail</span></a
+              >
+            </nav>
+          </Transition>
+        </div>
+      </section>
     </div>
+
+    <!-- HIDDEN UTILITIES -->
     <div
-      class="hidden decoration-me-red decoration-me-basil decoration-me-lapis decoration-me-peach decoration-me-mint decoration-me-lavender"
+      class="hidden decoration-me-red decoration-me-basil decoration-me-lapis decoration-me-peach decoration-me-mint decoration-me-lavender outline-me-red outline-me-basil outline-me-lapis outline-me-peach outline-me-mint outline-me-lavender"
     ></div>
   </article>
 </template>
+
+<style scoped>
+details[open] > summary > span {
+  @apply hidden;
+}
+
+/*
+  Enter and leave animations can use different
+  durations and timing functions.
+*/
+.slide-fade-enter-active,
+.card-border-container {
+  transition: all 0.8s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(-15px);
+  opacity: 0;
+}
+</style>

@@ -22,5 +22,9 @@
 }
 
 .sanity-content p:last-child {
-  @apply mb-4;
+  @apply mb-4 ;
+}
+
+.sanity-content li {
+  max-width: clamp(52ch, 64ch, 75ch);
 }

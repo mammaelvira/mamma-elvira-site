@@ -14,7 +14,10 @@ body {
   font-family: 'PT Sans';
 }
 
-/* BEST PRACTICES: optimal length for a paragraph */
+/*
+  BEST PRACTICES: optimal length for a paragraph
+  (and also <li> for Sanity PortableText import)
+*/
 p {
   max-width: clamp(52ch, 64ch, 75ch);
 }
