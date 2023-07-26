@@ -79,7 +79,7 @@ const places = usePlaces()
 
     <section
       v-if="events?.length > 0"
-      class="flex flex-col gap-16 items-center"
+      class="flex flex-col gap-20 items-center"
     >
       <PlacesEventCard
         v-for="event in events"

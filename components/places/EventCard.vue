@@ -87,7 +87,7 @@ const showBookingOptions = ref(false)
 
       <img
         v-if="place.path.includes('picnic')"
-        class="absolute -top-1 -right-2 w-24 rotate-7 filter drop-shadow-md"
+        class="absolute -top-6 md:-top-1 -right-2 w-24 rotate-7 filter drop-shadow-md"
         src="~/assets/graphics/logo/picnic-experience_logo.png"
         alt="Picnic Experience Lecce Logo"
       />

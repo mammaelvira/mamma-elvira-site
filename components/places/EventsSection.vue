@@ -3,19 +3,21 @@ const route = useRoute()
 const places = usePlaces()
 
 const place = computed(() =>
-  places.find((place) => place.path === route.fullPath)
+  places.find((place) => place.path === route.fullPath),
 )
 
 const query = useQueryEvents()
 
 const { data: events, refresh } = await useSanityQuery(query)
 
-const activityEvents = computed(() =>
-  events?.value?.filter((event) => event?.activity?.path === route.fullPath)
+const activityEvents = computed(
+  () =>
+    events?.value?.filter((event) => event?.activity?.path === route.fullPath),
 )
 
-const otherActivitiesEvents = computed(() =>
-  events?.value?.filter((event) => event?.activity?.path !== route.fullPath)
+const otherActivitiesEvents = computed(
+  () =>
+    events?.value?.filter((event) => event?.activity?.path !== route.fullPath),
 )
 </script>
 
@@ -38,7 +40,7 @@ const otherActivitiesEvents = computed(() =>
       </h3>
     </header>
 
-    <div class="mt-8 flex flex-col gap-16 items-center">
+    <div class="mt-8 flex flex-col gap-20 items-center">
       <PlacesEventCard
         v-for="event in activityEvents"
         :key="`event-${event?.path?.replace('/', '')}`"
