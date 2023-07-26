@@ -58,11 +58,12 @@ export default defineNuxtConfig({
   i18n: {
     /* module options */
 
+    defaultLocale: 'it',
+
     baseUrl: 'https://mammaelvira.com',
 
     lazy: true,
     langDir: 'locales',
-    defaultLocale: 'it',
     locales: [
       {
         code: 'it',
