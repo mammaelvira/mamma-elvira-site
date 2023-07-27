@@ -345,7 +345,7 @@ const showBookingOptions = ref(false)
       <!-- PERFORMERS -->
       <section
         v-if="event?.performers?.length > 0"
-        class="border-l-2 pl-4 mb-4"
+        class="border-l-2 pl-4 my-4"
         :class="`border-${place?.color}`"
       >
         <h3 class="font-title mt-1">
@@ -357,8 +357,12 @@ const showBookingOptions = ref(false)
             :key="performer?._key"
             class="flex gap-4 items-start justify-center"
           >
-            <NuxtLink :to="performer?.link ?? ''" :external="true">
-              <p class="flex flex-col justify center pt-1">
+            <NuxtLink
+              :href="performer?.link ?? ''"
+              :external="true"
+              target="_blank"
+            >
+              <p class="flex flex-col justify-center items-center pt-1">
                 <span
                   class="inline-block text-xl"
                   :class="
@@ -376,7 +380,7 @@ const showBookingOptions = ref(false)
               </p></NuxtLink
             >
 
-            <details>
+            <details v-show="performer?.bioText">
               <summary class="cursor-pointer">
                 <h4
                   class="inline font-serif underline text-shadow-md pl-2"
@@ -402,6 +406,20 @@ const showBookingOptions = ref(false)
                 <SanityContent :blocks="performer?.bioText" />
               </div>
             </details>
+
+            <NuxtLink
+              v-show="!performer?.bioText"
+              :href="performer?.link"
+              :external="true"
+              target="_blank"
+            >
+              <h4
+                class="inline font-serif underline text-shadow-md pl-2"
+                :class="`decoration-${place?.color}`"
+              >
+                {{ performer?.name }}
+              </h4>
+            </NuxtLink>
           </li>
         </ul>
       </section>
