@@ -17,7 +17,7 @@ const isDescriptionExpanded = ref(height.value > 180)
 
 const iconResolver = (link: string) => {
   // GUARD: no link provided
-  if (link.toLowerCase() === 'x') return ''
+  if (link?.toLowerCase() === 'x') return ''
 
   const icons: { [key: string]: string } = {
     spotify: 'i-ph-spotify-logo-fill',
@@ -32,22 +32,22 @@ const iconResolver = (link: string) => {
   let linkIcon: string = icons['web']
 
   Array.from(Object.keys(icons)).forEach(
-    (key: string) => link.includes(key) && (linkIcon = icons[key]),
+    (key: string) => link?.includes(key) && (linkIcon = icons[key]),
   )
 
   return linkIcon
 }
 
-const performersWithBio = computed(
-  () => props.event?.performers?.filter((perf: any) => perf?.bioText),
-)
+// const performersWithBio = computed(
+//   () => props.event?.performers?.filter((perf: any) => perf?.bioText),
+// )
 
-const performersWithLink = computed(
-  () => props.event?.performers?.filter((perf: any) => perf?.link),
-)
-const performersWithoutLink = computed(
-  () => props.event?.performers?.filter((perf: any) => !perf?.link),
-)
+// const performersWithLink = computed(
+//   () => props.event?.performers?.filter((perf: any) => perf?.link),
+// )
+// const performersWithoutLink = computed(
+//   () => props.event?.performers?.filter((perf: any) => !perf?.link),
+// )
 
 const shareOptions = ref({
   title: props.event?.ogTitle,
@@ -86,7 +86,7 @@ const showBookingOptions = ref(false)
       </address>
 
       <img
-        v-if="place.path.includes('picnic')"
+        v-if="place?.path?.includes('picnic')"
         class="absolute -top-6 md:-top-1 -right-2 w-24 rotate-7 filter drop-shadow-md"
         src="~/assets/graphics/logo/picnic-experience_logo.png"
         alt="Picnic Experience Lecce Logo"
@@ -342,32 +342,60 @@ const showBookingOptions = ref(false)
         </div>
       </section>
 
-      <!-- PERFORMERS BIO -->
+      <!-- PERFORMERS -->
       <section
-        v-if="performersWithBio?.length > 0"
+        v-if="event?.performers?.length > 0"
         class="border-l-2 pl-4 mb-4"
         :class="`border-${place?.color}`"
       >
-        <h4 class="font-title text-sm mt-1">
-          Performer{{ performersWithBio?.length > 1 ? 's' : '' }}
-          Info:
-        </h4>
+        <h3 class="font-title mt-1">
+          Performer{{ event?.performers?.length > 1 ? 's' : '' }}
+        </h3>
         <ul class="mt-2 flex flex-wrap gap-6 md:gap-8">
-          <li v-for="performer in performersWithBio" :key="performer?._key">
+          <li
+            v-for="performer in event?.performers"
+            :key="performer?._key"
+            class="flex gap-4 items-start justify-center"
+          >
+            <NuxtLink :to="performer?.link ?? ''" :external="true">
+              <p class="flex flex-col justify center pt-1">
+                <span
+                  class="inline-block text-xl"
+                  :class="
+                    performer?.link
+                      ? iconResolver(performer?.link)
+                      : 'i-ph-star'
+                  "
+                ></span>
+
+                <span
+                  v-show="!!performer?.link"
+                  class="text-0.5rem uppercase inline-block text-title"
+                  >link</span
+                >
+              </p></NuxtLink
+            >
+
             <details>
-              <summary>
-                <h5
+              <summary class="cursor-pointer">
+                <h4
                   class="inline font-serif underline text-shadow-md pl-2"
                   :class="`decoration-${place?.color}`"
                 >
                   {{ performer?.name }}
-                </h5>
+                </h4>
                 <span class="block text-xs overflow-hidden">
                   {{
                     performer?.bioText?.[0]?.children?.[0]?.text
-                      ?.match(/.{1,60}/g)?.[0]
+                      ?.match(/.{1,52}/g)?.[0]
                       .concat('..')
                   }}
+                </span>
+                <span
+                  class="inline-block border rounded-full px-1 py-0 bg-me-stone text-0.6rem font-title"
+                  :class="`border-${place?.color}`"
+                >
+                  scopri di più
                 </span>
               </summary>
               <div class="mt-2 sanity-content">
@@ -379,7 +407,7 @@ const showBookingOptions = ref(false)
       </section>
 
       <!-- PERFORMERS LINKS -->
-      <section
+      <!-- <section
         v-if="event?.performers?.length > 0"
         class="border-l-2 pl-4"
         :class="`border-${place?.color}`"
@@ -412,7 +440,7 @@ const showBookingOptions = ref(false)
             <span class="font-serif text-shadow-md">{{ performer.name }}</span>
           </div>
         </nav>
-      </section>
+      </section> -->
 
       <!-- CALLS TO ACTION -->
       <section
@@ -494,7 +522,8 @@ const showBookingOptions = ref(false)
 </template>
 
 <style scoped>
-details[open] > summary > span {
+details[open] > summary > span,
+details[open] > summary > div {
   @apply hidden;
 }
 
