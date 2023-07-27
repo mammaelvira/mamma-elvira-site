@@ -4,47 +4,44 @@
       key="formula-1-calice"
       color="me-lavender"
       title="Calice o Cocktail"
-      price="20"
+      price="15"
       icon="i-emojione-v1-wine-glass"
     >
-      <p>A scelta tra:</p>
-      <br />
-      <ul>
-        <li>
-          • <span class="font-title">Calice</span><br />
-          <span class="pl-2.5">di Vino "Cantina Funiati"</span>
-        </li>
-        <li class="mt-4">• <span class="font-title">Cocktail</span></li>
-      </ul>
+      <p class="font-title text-2xl pl-4">x 1</p>
+
+      <p class="pl-6 mt-2">
+        <span class="font-title">Calice</span> di Vino Cantina Funiati <br />o
+        <span class="font-title">Cocktail</span>
+      </p>
     </PlacesEventFormula>
 
     <PlacesEventFormula
       key="formula-2-box"
       color="me-lavender"
       title="Box Degustazione"
-      price="50x2"
+      :price="false"
       icon="i-emojione-v1-fork-and-knife-with-plate"
     >
-      <p>
-        <span class="font-title">Bottiglia</span> di Vino Cantina "Funiati"
-        <br /><span class="font-title">+ Box con:</span>
-      </p>
+      <p class="font-title -mt-2">Box</p>
 
-      <ul>
-        <li>
-          • Bombette di Martina Franca<br /><span class="pl-2.5">in umido</span>
-        </li>
-        <li>• Pitta con Verdure</li>
-        <li>• Parmigiana</li>
-        <li>• Salumi & Formaggi</li>
-        <li>• Insalata di Farro</li>
-        <li>• Crostata Arance, Fichi e Noci</li>
+      <ul class="pl-2">
+        <li>Bombette di Martina Franca in umido</li>
+        <li>Pitta con Verdure</li>
+        <li>Parmigiana</li>
+        <li>Salumi & Formaggi</li>
+        <li>Insalata di Farro</li>
+        <li>Crostata Arance, Fichi e Noci</li>
       </ul>
-      <div
-        class="absolute text-xs -right-6 top-20 px-1 py-0.5 text-me-stone shadow text-right bg-me-lavender"
+
+      <p class="my-3">
+        <span class="font-title">Bottiglia</span> di Vino Cantina "Funiati"
+      </p>
+      <a
+        href="tel:+393761798201"
+        class="absolute text-xs -right-6 top-10 px-1 py-0.5 text-me-stone shadow text-right bg-me-lavender"
       >
-        minimo 2 persone<br />100€ a coppia
-      </div>
+        per prenotare un cestino<br />chiamare 376 179 8201
+      </a>
     </PlacesEventFormula>
   </ul>
 </template>
