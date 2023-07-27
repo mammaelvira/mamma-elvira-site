@@ -263,10 +263,13 @@ const showBookingOptions = ref(false)
         </div>
 
         <!-- FORMULA / OFFER -->
-        <div class="border-l-2 pl-4 mb-4 border-me-lavender">
+        <div
+          v-if="place?.path?.includes('picnic')"
+          class="border-l-2 pl-4 mb-4 border-me-lavender"
+        >
           <h3 class="font-title mt-1 mb-4">Formule</h3>
 
-          <PlacesPicnicFormulas v-if="place?.path?.includes('picnic')" />
+          <PlacesPicnicFormulas />
         </div>
 
         <!-- PICNIC EXPERIENCE: COLOPHON -->
