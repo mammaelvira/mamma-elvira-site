@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 <template>
   <li
-    class="border-4 min-h-64 min-w-60 max-w-max bg-me-stone shadow rounded-xl flex flex-col items-center"
+    class="border-4 min-h-64 w-62 bg-me-stone shadow rounded-xl flex flex-col items-center"
     :class="`border-${color}`"
   >
     <div class="relative w-full" :class="`bg-${color}`">
@@ -34,7 +34,7 @@ const props = withDefaults(defineProps<Props>(), {
     </div>
 
     <p class="font-title text-3xl pt-1">
-      {{ price }}
+      <span class="text-2xl">€</span> {{ price }}
     </p>
 
     <ul class="border-y-2 m-2 py-2 text-sm" :class="`border-${color}`">
