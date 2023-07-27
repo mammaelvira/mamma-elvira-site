@@ -2,7 +2,7 @@
 interface Props {
   color: string
   title: string
-  price: string
+  price: string | false
   icon: string
 }
 const props = withDefaults(defineProps<Props>(), {
@@ -33,28 +33,48 @@ const props = withDefaults(defineProps<Props>(), {
       </div>
     </div>
 
-    <p class="font-title text-3xl pt-1">
-      <span class="text-2xl">€</span> {{ price }}
-    </p>
-
-    <ul class="border-y-2 m-2 py-2 text-sm" :class="`border-${color}`">
-      <li>• Biglietto Main Event</li>
-      <li>• Biglietto DJ Set</li>
+    <ul class="border-y-2 py-2 text-sm" :class="`border-${color}`">
       <li>
-        •
-        <span
-          class="text-xs inline-block px-1 text-me-stone shadow"
-          :class="`bg-${color}`"
-          >opzionale</span
-        >
-
-        Visita guidata<br />
-        al Parco Archeologico
+        <time class="font-title" datetime="20:30">20:30</time
+        ><span class="text-base">Ingresso al Parco</span>
+      </li>
+      <li>
+        <time class="font-title" datetime="21:00">21:00</time
+        ><span class="text-base">Main Event</span>
+      </li>
+      <li>
+        <time class="font-title" datetime="22:30">22:30</time
+        ><span class="text-base">DJ Set</span>
+      </li>
+      <li class="mt-3">
+        <p class="text-xs">
+          • Visita guidata<br />
+          al Parco Archeologico
+          <span
+            class="text-xs inline px-1 text-me-stone shadow"
+            :class="`bg-${color}`"
+            >facoltativa</span
+          >
+        </p>
       </li>
     </ul>
 
-    <div class="pb-3 px-4 text-sm relative w-full">
+    <div class="px-4 text-sm relative w-full">
       <slot />
     </div>
+
+    <p class="font-title text-3xl py-4" v-if="price">
+      <span class="text-2xl">€</span> {{ price }}
+    </p>
   </li>
 </template>
+
+<style scoped>
+ul li {
+  @apply flex items-center gap-3 mb-2;
+}
+
+li time {
+  @apply text-lg;
+}
+</style>
