@@ -72,12 +72,19 @@ const showBookingOptions = ref(false)
       :class="`bg-${place?.color}`"
     >
       <NuxtLink :to="event?.activity?.path" class="text-shadow">
-        <h3 class="pt-2 flex items-center gap-2 -ml-5">
-          <span class="text-2xl text-shadow-md">@</span>
-          <span class="font-title text-2xl md:text-3xl text-me-stone">
-            {{ event?.activity?.name }}</span
+        <div class="flex gap-3 -ml-5.5">
+          <div
+            class="mt-2 rounded-full bg-me-stone h-8 w-8 shadow-md border-4 flex items-center justify-center"
+            :class="`border-${place?.color}`"
           >
-        </h3>
+            <span class="text-lg text-shadow-md inline-block pb-1">@</span>
+          </div>
+          <h3 class="pt-2 flex items-center gap-2">
+            <span class="font-title text-2xl md:text-3xl text-me-stone">
+              {{ event?.activity?.name }}</span
+            >
+          </h3>
+        </div>
       </NuxtLink>
 
       <address class="text-sm pb-2">
