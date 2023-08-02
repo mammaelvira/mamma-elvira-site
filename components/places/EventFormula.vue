@@ -27,7 +27,7 @@ const props = withDefaults(defineProps<Props>(), {
         class="absolute top-8 -right-7 bg-gray-500 border-4 border-me-lavender rounded-full w-13 h-13 flex items-center justify-center"
       >
         <span
-          class="filter drop-shadow-md text-3xl inline-block rotate-14"
+          class="filter drop-shadow-md text-3xl inline-block animation-wiggle"
           :class="icon"
         ></span>
       </div>
@@ -63,7 +63,7 @@ const props = withDefaults(defineProps<Props>(), {
       <slot />
     </div>
 
-    <p class="font-title text-3xl py-4" v-if="price">
+    <p class="font-title text-3xl md:pt-4 pb-2 -ml-5" v-if="price">
       <span class="text-2xl">€</span> {{ price }}
     </p>
   </li>
@@ -76,5 +76,19 @@ ul li {
 
 li time {
   @apply text-lg;
+}
+
+.animation-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(27deg);
+  }
+  50% {
+    transform: rotate(14deg);
+  }
 }
 </style>

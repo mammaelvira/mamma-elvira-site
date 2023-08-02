@@ -38,17 +38,6 @@ const iconResolver = (link: string) => {
   return linkIcon
 }
 
-// const performersWithBio = computed(
-//   () => props.event?.performers?.filter((perf: any) => perf?.bioText),
-// )
-
-// const performersWithLink = computed(
-//   () => props.event?.performers?.filter((perf: any) => perf?.link),
-// )
-// const performersWithoutLink = computed(
-//   () => props.event?.performers?.filter((perf: any) => !perf?.link),
-// )
-
 const shareOptions = ref({
   title: props.event?.ogTitle,
   text: props.event?.ogDescription,
@@ -282,46 +271,41 @@ const showBookingOptions = ref(false)
         <!-- PICNIC EXPERIENCE: COLOPHON -->
         <p v-if="place.path.includes('picnic')" class="text-sm mb-4">
           Il
-          <NuxtLink
-            to="https://www.parcoarcheologicorudiae.it/"
-            :external="true"
+          <a
+            href="https://www.parcoarcheologicorudiae.it/"
             target="_blank"
             class="underline decoration-me-lavender"
-            >Parco Archeologico Rudiae</NuxtLink
+            >Parco Archeologico Rudiae</a
           >
           è fruibile grazie ad un accordo di promozione e valorizzazione
           stipulato tra la
-          <NuxtLink
-            to="https://www.beniculturali.it/ente/soprintendenza-archeologia-belle-arti-e-paesaggio-per-le-province-di-brindisi-lecce-e-taranto"
-            :external="true"
+          <a
+            href="https://www.beniculturali.it/ente/soprintendenza-archeologia-belle-arti-e-paesaggio-per-le-province-di-brindisi-lecce-e-taranto"
             target="_blank"
             class="underline decoration-me-lavender"
             >Soprintendenza archeologia belle arti e paesaggio Brindisi e
-            Lecce</NuxtLink
+            Lecce</a
           >
           e
-          <NuxtLink
-            to="https://www.arvarcheologia.it/"
-            :external="true"
+          <a
+            href="https://www.arvarcheologia.it/"
             target="_blank"
             class="underline decoration-me-lavender"
-            >Archeologia Ricerca e Valorizzazione SRL - A.R.Va</NuxtLink
+            >Archeologia Ricerca e Valorizzazione SRL - A.R.Va</a
           >
           - spin off
-          <NuxtLink
-            to="https://www.unisalento.it/"
-            :external="true"
+          <a
+            href="https://www.unisalento.it/"
             target="_blank"
             class="underline decoration-me-lavender"
-            >Unisalento</NuxtLink
+            >Unisalento</a
           >
           in collaborazione con il
-          <NuxtLink
-            to="https://www.comune.lecce.it/"
-            :external="true"
+          <a
+            href="https://www.comune.lecce.it/"
             target="_blank"
             class="underline decoration-me-lavender"
-            >Comune di Lecce</NuxtLink
+            >Comune di Lecce</a
           >.
         </p>
 
@@ -367,10 +351,10 @@ const showBookingOptions = ref(false)
             :key="performer?._key"
             class="flex gap-4 items-start justify-center"
           >
-            <NuxtLink
-              :href="performer?.link ?? ''"
-              :external="true"
-              target="_blank"
+            <a
+              :href="performer?.link ? performer?.link : 'javascript:void(0)'"
+              :target="performer?.link ? '_blank' : '_self'"
+              :class="!performer?.link ? 'pointer-events-none' : ''"
             >
               <p class="flex flex-col justify-center items-center pt-1">
                 <span
@@ -387,7 +371,7 @@ const showBookingOptions = ref(false)
                   class="text-0.5rem uppercase inline-block text-title"
                   >link</span
                 >
-              </p></NuxtLink
+              </p></a
             >
 
             <details v-show="performer?.bioText">
@@ -416,59 +400,9 @@ const showBookingOptions = ref(false)
                 <SanityContent :blocks="performer?.bioText" />
               </div>
             </details>
-
-            <NuxtLink
-              v-show="!performer?.bioText"
-              :href="performer?.link"
-              :external="true"
-              target="_blank"
-            >
-              <h4
-                class="inline font-serif underline text-shadow-md pl-2"
-                :class="`decoration-${place?.color}`"
-              >
-                {{ performer?.name }}
-              </h4>
-            </NuxtLink>
           </li>
         </ul>
       </section>
-
-      <!-- PERFORMERS LINKS -->
-      <!-- <section
-        v-if="event?.performers?.length > 0"
-        class="border-l-2 pl-4"
-        :class="`border-${place?.color}`"
-      >
-        <h4 class="font-title text-sm mt-1">
-          Performer{{ performersWithLink.length > 1 ? 's' : '' }}
-          Link:
-        </h4>
-        <nav class="mt-2 flex flex-wrap gap-6 md:gap-8">
-          <div
-            v-for="performer in performersWithLink"
-            :key="performer?._key"
-            class="shrink-0 flex items-center gap-2"
-          >
-            <span :class="iconResolver(performer?.link)"> </span>
-            <a
-              :href="performer?.link"
-              target="_blank"
-              class="font-serif underline text-shadow-md"
-              :class="`decoration-${place?.color}`"
-              >{{ performer?.name }}</a
-            >
-          </div>
-          <div
-            v-for="performer in performersWithoutLink"
-            :key="performer?._key"
-            class="flex items-center gap-2"
-          >
-            <span class="i-ph-star"></span>
-            <span class="font-serif text-shadow-md">{{ performer.name }}</span>
-          </div>
-        </nav>
-      </section> -->
 
       <!-- CALLS TO ACTION -->
       <section

@@ -143,7 +143,7 @@ export default (): PageDetails[] => [
   {
     name: 'Picnic Experience Lecce',
     path: '/picnic-experience',
-    payoff: "A Regola d'Arte",
+    payoff: 'Parco Archeologico di Rudiae',
     place: '',
     iconClass: 'i-game-icons-basket',
     color: 'me-lavender',
