@@ -25,22 +25,18 @@
       <p class="font-title -mt-2">Box</p>
 
       <ul class="pl-2">
-        <li>Bombette di Martina Franca in umido</li>
+        <li>Bombette di Martina Franca in umido o Farro con Verdurine</li>
         <li>Pitta con Verdure</li>
         <li>Parmigiana</li>
         <li>Salumi & Formaggi</li>
-        <li>Insalata di Farro</li>
         <li>Crostata Arance, Fichi e Noci</li>
       </ul>
 
-      <p class="my-3">
-        <span class="font-title">Bottiglia</span> di Vino Cantina "Funiati"
-      </p>
+      <p class="my-3"><span class="font-title">Vino</span> Cantina "Funiati"</p>
       <a
         href="tel:+393761798201"
-        class="absolute text-xs -right-6 top-10 px-1 py-0.5 text-me-stone shadow text-right bg-me-lavender"
-      >
-        per prenotare un cestino<br />chiamare 376 179 8201
+        class="absolute text-xs -right-7 top-14 px-1 py-0.5 text-me-stone shadow text-right bg-me-lavender"
+        >&nbsp;per&nbsp;prenotare&nbsp;un&nbsp;cestino<br />chiamare&nbsp;376&nbsp;179&nbsp;8201&nbsp;
       </a>
     </PlacesEventFormula>
   </ul>
