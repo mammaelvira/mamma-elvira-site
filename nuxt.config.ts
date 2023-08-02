@@ -142,7 +142,13 @@ export default defineNuxtConfig({
 
   htmlValidator: {
     usePrettier: false,
-    options: { rules: { 'no-autoplay': 'off', 'long-title': 'warn' } },
+    options: {
+      rules: {
+        'no-autoplay': 'off',
+        'long-title': 'warn',
+        'tel-non-breaking': 'warn',
+      },
+    },
   },
 
   devtools: {
