@@ -16,7 +16,7 @@ const places = usePlaces()
       >
         <div
           :class="`bg-${place?.color}`"
-          class="relative mt-4 h-full px-3 py-2 flex flex-col justify-between text-me-stone"
+          class="relative mt-4 h-full min-h-42 md:min-h-26 px-3 py-2 flex flex-col justify-between text-me-stone"
         >
           <h4 class="text-xl font-title">
             {{ place?.name }}
