@@ -14,6 +14,7 @@ interface PageDetails {
   videoUrl?: string
   imageUrl?: string
 
+  bookingUrl?: string
   menuUrl?: string
   googleMapsUrl?: string
 
@@ -29,6 +30,7 @@ interface Address {
 }
 
 export default (): PageDetails[] => [
+  // ENOTECA
   {
     name: 'Mamma Elvira Enoteca',
     nameShort: 'Enoteca',
@@ -52,6 +54,7 @@ export default (): PageDetails[] => [
     instagramUrl: 'https://www.instagram.com/mamma_elvira_enoteca',
     facebookUrl: 'https://www.facebook.com/MammaElvira',
   },
+  // LA CUCINA
   {
     name: 'La Cucina di Mamma Elvira',
     path: '/la-cucina',
@@ -71,10 +74,13 @@ export default (): PageDetails[] => [
     },
     googleMapsUrl: '',
 
+    bookingUrl: 'https://mammaelvira.myrestoo.net/',
     menuUrl: 'https://disv.it/Cucina',
+
     instagramUrl: 'https://www.instagram.com/la_cucina_di_mamma_elvira',
     facebookUrl: 'https://www.facebook.com/LaCucinaDiMammaElvira',
   },
+  // LA CUCINA DE COSTE
   {
     name: 'La Cucina De Coste',
     path: '/la-cucina-de-coste',
@@ -92,10 +98,13 @@ export default (): PageDetails[] => [
     },
     googleMapsUrl: '',
 
+    bookingUrl: 'https://mammaelvira.myrestoo.net/',
     menuUrl: 'https://disv.it/Cucina',
+
     instagramUrl: 'https://www.instagram.com/lacucinadecoste',
     facebookUrl: 'https://www.facebook.com/lacucinadecoste',
   },
+  // CORTE DEI PANDOLFI
   {
     name: 'Corte dei Pandolfi',
     path: '/corte-dei-pandolfi',
@@ -117,6 +126,7 @@ export default (): PageDetails[] => [
     instagramUrl: 'https://www.instagram.com/corte_dei_pandolfi',
     facebookUrl: 'https://www.facebook.com/cortedeipandolfilecce',
   },
+  // CASA MAMMA ELVIRA
   {
     name: 'Casa Mamma Elvira',
     path: '/casa',
@@ -139,7 +149,7 @@ export default (): PageDetails[] => [
     instagramUrl: 'https://www.instagram.com/casa_mamma_elvira',
     facebookUrl: 'https://www.facebook.com/CasaMammaElvira',
   },
-
+  // PICNIC EXPERIENCE
   {
     name: 'Picnic Experience Lecce',
     path: '/picnic-experience',
