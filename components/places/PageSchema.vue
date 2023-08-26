@@ -55,79 +55,97 @@ const place = places.find((place) =>
       >
         <div><slot /></div>
 
-        <div>
-          <nav class="mt-6">
-            <ul>
-              <li>
-                <h3 v-if="place?.menuUrl" class="font-title">
-                  Prenota un tavolo:
-                </h3>
-
-                <div class="flex gap-6">
-                  <a
-                    :href="`tel:${place?.telephone}`"
-                    class="call-to-action"
-                    :class="`bg-${place?.color}`"
-                    >Chiama</a
-                  >
-
-                  <a
-                    :href="`mailto:${place?.email}`"
-                    class="call-to-action-outline"
-                    :class="`border-${place?.color}`"
-                    >Scrivi una mail</a
-                  >
-                </div>
-              </li>
-
-              <li v-if="place?.menuUrl" class="mt-4">
-                <h3 class="font-title">Scopri la nostra offerta:</h3>
+        <nav class="mt-6">
+          <ul>
+            <!-- BOOKING ACTIONS -->
+            <li>
+              <h3 v-if="place?.menuUrl" class="font-title">
+                Prenota un tavolo:
+              </h3>
+              <!-- Online booking ACTIVE -->
+              <div v-if="place?.bookingUrl" class="flex gap-6">
                 <a
-                  :href="place?.menuUrl"
+                  :href="place?.bookingUrl"
                   class="call-to-action"
-                  :class="`bg-${place.color}`"
-                  target="_blank"
-                  >Consulta il menù</a
+                  :class="`bg-${place?.color}`"
+                  >Prenota Online</a
                 >
-              </li>
 
-              <li class="mt-6">
-                <address
-                  class="font-logo not-italic underline flex gap-4 items-center"
+                <a
+                  :href="`tel:${place?.telephone}`"
+                  class="call-to-action-outline"
+                  :class="`border-${place?.color}`"
+                  >Chiama</a
                 >
-                  <div
-                    class="i-game-icons-family-house text-4xl"
-                    :class="`text-${place?.color}`"
-                  ></div>
-                  <a :href="place?.googleMapsUrl"
-                    >{{
-                      `${place?.address.street}, ${place?.address.streetNumber}`
-                    }}
-                    <br />
-                    {{ `${place?.address.cap} - ${place?.address.city}` }}
-                  </a>
-                </address>
-              </li>
+              </div>
+              <!-- Online booking NOT ACTIVE -->
+              <div v-else class="flex gap-6">
+                <a
+                  :href="`tel:${place?.telephone}`"
+                  class="call-to-action"
+                  :class="`bg-${place?.color}`"
+                  >Chiama</a
+                >
 
-              <li
-                class="mt-8 flex gap-12 text-4xl"
-                :class="`text-${place?.color}`"
+                <a
+                  :href="`mailto:${place?.email}`"
+                  class="call-to-action-outline"
+                  :class="`border-${place?.color}`"
+                  >Scrivi una mail</a
+                >
+              </div>
+            </li>
+
+            <!-- MENU ACTION -->
+            <li v-if="place?.menuUrl" class="mt-4">
+              <h3 class="font-title">Scopri la nostra offerta:</h3>
+              <a
+                :href="place?.menuUrl"
+                class="call-to-action"
+                :class="`bg-${place.color}`"
+                target="_blank"
+                >Consulta il menù</a
               >
-                <a :href="place?.instagramUrl" target="_blank"
-                  ><div class="i-ph-instagram-logo">Instagram link</div></a
-                >
-                <a :href="place?.facebookUrl" target="_blank"
-                  ><div class="i-ph-facebook-logo">Facebook link</div></a
-                >
-              </li>
-            </ul>
-          </nav>
+            </li>
 
-          <div
-            class="hidden text-me-ink text-me-peach text-me-orange text-me-basil text-me-lapis text-me-mint text-me-red text-me-pink text-me-lavender"
-          >
-            Mamma Elvira
-          </div>
+            <!-- ADDRESS -->
+            <li class="mt-6">
+              <address
+                class="font-logo not-italic underline flex gap-4 items-center"
+              >
+                <div
+                  class="i-game-icons-family-house text-4xl"
+                  :class="`text-${place?.color}`"
+                ></div>
+                <a :href="place?.googleMapsUrl"
+                  >{{
+                    `${place?.address.street}, ${place?.address.streetNumber}`
+                  }}
+                  <br />
+                  {{ `${place?.address.cap} - ${place?.address.city}` }}
+                </a>
+              </address>
+            </li>
+
+            <!-- SOCIAL LINKS -->
+            <li
+              class="mt-8 flex gap-12 text-4xl"
+              :class="`text-${place?.color}`"
+            >
+              <a :href="place?.instagramUrl" target="_blank"
+                ><div class="i-ph-instagram-logo">Instagram link</div></a
+              >
+              <a :href="place?.facebookUrl" target="_blank"
+                ><div class="i-ph-facebook-logo">Facebook link</div></a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div
+          class="hidden text-me-ink text-me-peach text-me-orange text-me-basil text-me-lapis text-me-mint text-me-red text-me-pink text-me-lavender"
+        >
+          Mamma Elvira
         </div>
       </section>
     </div>
