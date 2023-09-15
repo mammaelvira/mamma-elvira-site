@@ -10,7 +10,7 @@ const place = places.find((place) =>
 <template>
   <article class="flex flex-col justify-center">
     <div class="flex flex-col justify-center md:flex-row gap-8">
-      <section class="w-full max-w-max md:w-1/2 lg:w-1/3">
+      <section class="w-full max-w-max md:w-1/2 lg:w-1/3 xl:w-1/4">
         <header
           :class="`bg-${place?.color}`"
           class="p-4 text-me-stone rounded-tr-[3rem]"
@@ -40,7 +40,7 @@ const place = places.find((place) =>
             playsinline
             poster=""
             :src="place?.videoUrl"
-            class="w-full max-h-160"
+            class="w-full max-h-160 object-cover"
           ></video>
           <figure
             class="activity-page-image-container w-full max-h-160 rounded-bl-[3rem]"
@@ -174,8 +174,9 @@ const place = places.find((place) =>
   </article>
 </template>
 
-<style>
-.activity-page-image-container img {
-  @apply w-full max-h-160;
+<style scoped>
+.activity-page-image-container :deep(img) {
+  @apply w-full max-h-160
+    object-cover;
 }
 </style>

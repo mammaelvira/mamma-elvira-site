@@ -53,7 +53,7 @@ const showBookingOptions = ref(false)
 </script>
 
 <template>
-  <article class="relative md:w-3/4 lg:w-2/3 xl:w-1/2">
+  <article class="relative md:w-3/4 lg:w-2/3 xl:w-2/5">
     <!-- ACTIVITY-LABEL -->
     <div
       v-if="showActivityLabel"
