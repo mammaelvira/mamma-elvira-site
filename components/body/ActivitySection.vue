@@ -16,10 +16,7 @@ const places = usePlaces()
         :aria-label="place?.name"
         class="activity-card"
       >
-        <div
-          :class="`bg-${place?.color}`"
-          class="h-full flex items-center justify-center p-10"
-        >
+        <div class="activity-card-shape" :class="`bg-${place?.color}`">
           <img
             :src="`graphics/${place?.name
               ?.toLowerCase()
@@ -51,9 +48,19 @@ const places = usePlaces()
 .activity-card:hover :deep(div) {
   @apply shadow-inner;
 }
+.activity-card :deep(div) {
+  @apply shadow-md;
+}
 .activity-card:hover :deep(div) img {
   @apply scale-[1.06]
     ease-in-out duration-400
     filter-drop-shadow;
+}
+
+.activity-card-shape {
+  @apply h-full 
+    flex items-center justify-center
+    p-5 sm:p-10 md:p-15 lg:p-10 xl:p-12
+    rounded-bl-3xl rounded-tr-3xl;
 }
 </style>
