@@ -53,7 +53,7 @@ const showBookingOptions = ref(false)
 </script>
 
 <template>
-  <article class="relative md:w-3/4 lg:w-2/3 xl:w-1/2">
+  <article class="relative md:w-3/4 lg:w-2/3 xl:w-2/5">
     <!-- ACTIVITY-LABEL -->
     <div
       v-if="showActivityLabel"
@@ -84,7 +84,7 @@ const showBookingOptions = ref(false)
       <img
         v-if="place?.path?.includes('picnic')"
         class="absolute -top-6 md:-top-1 -right-2 w-24 rotate-7 filter drop-shadow-md"
-        src="~/assets/graphics/logo/picnic-experience_logo.png"
+        src="~/assets/graphics/logo/picnic-experience-lecce.svg"
         alt="Picnic Experience Lecce Logo"
       />
     </div>
