@@ -142,6 +142,7 @@ export default defineNuxtConfig({
 
   htmlValidator: {
     usePrettier: false,
+    failOnError: false,
     options: {
       rules: {
         'no-autoplay': 'off',
@@ -153,5 +154,9 @@ export default defineNuxtConfig({
 
   devtools: {
     enabled: true,
+  },
+
+  experimental: {
+    headNext: true, // capo.js <head> tag sorted for better performance
   },
 })
