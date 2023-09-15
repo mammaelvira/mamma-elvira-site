@@ -13,8 +13,23 @@ const places = usePlaces()
         :to="place.path"
         v-for="place in places"
         :key="place?.path?.replace('/', '')"
+        :aria-label="place?.name"
+        class="activity-card"
       >
         <div
+          :class="`bg-${place?.color}`"
+          class="h-full flex items-center justify-center p-10"
+        >
+          <img
+            :src="`graphics/${place?.name?.toLowerCase().replaceAll(' ', '-')}${
+              place.path.startsWith('/picnic') ? '.png' : '.svg'
+            }`"
+            :alt="`${place?.name} Logo`"
+            class="h-full w-full"
+          />
+        </div>
+
+        <!-- <div
           :class="`bg-${place?.color}`"
           class="relative mt-4 h-full min-h-42 md:min-h-26 px-3 py-2 flex flex-col justify-between text-me-stone"
         >
@@ -26,8 +41,19 @@ const places = usePlaces()
             <h5>{{ place?.payoff }}</h5>
           </div>
           <div :id="place.path?.substring(1)" class="absolute -top-32"></div>
-        </div>
+        </div> -->
       </NuxtLink>
     </nav>
   </section>
 </template>
+
+<style scoped>
+.activity-card:hover :deep(div) {
+  @apply shadow-inner;
+}
+.activity-card:hover :deep(div) img {
+  @apply scale-[1.06]
+    ease-in-out duration-400
+    filter-drop-shadow;
+}
+</style>
