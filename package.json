@@ -14,7 +14,7 @@
     "@iconify-json/radix-icons": "^1.1.11",
     "@nuxt/devtools": "latest",
     "@nuxtjs/html-validator": "^1.5.2",
-    "@nuxtjs/i18n": "8.0.0-beta.13",
+    "@nuxtjs/i18n": "8.0.0-rc.4",
     "@types/node": "^20.6.1",
     "@unocss/nuxt": "^0.55.7",
     "@vueuse/core": "^10.4.1",
