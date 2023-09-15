@@ -21,9 +21,9 @@ const places = usePlaces()
           class="h-full flex items-center justify-center p-10"
         >
           <img
-            :src="`graphics/${place?.name?.toLowerCase().replaceAll(' ', '-')}${
-              place.path.startsWith('/picnic') ? '.png' : '.svg'
-            }`"
+            :src="`graphics/${place?.name
+              ?.toLowerCase()
+              .replaceAll(' ', '-')}.svg`"
             :alt="`${place?.name} Logo`"
             class="h-full w-full"
           />

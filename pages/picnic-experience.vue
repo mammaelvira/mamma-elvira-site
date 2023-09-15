@@ -35,7 +35,7 @@ const { assetId, slug } = data?.value?.[0]
 
       <img
         class="absolute top-2 -right-6 w-28 rotate-7 filter drop-shadow-md"
-        src="~/assets/graphics/logo/picnic-experience_logo.png"
+        src="~/assets/graphics/logo/picnic-experience-lecce.svg"
         alt="Picnic Experience Lecce Logo"
       />
     </header>
