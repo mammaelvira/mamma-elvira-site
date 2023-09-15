@@ -1,4 +1,4 @@
-interface PageDetails {
+export interface PageDetails {
   name: string
   nameShort?: string
   path: string

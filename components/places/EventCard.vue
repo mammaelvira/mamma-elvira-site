@@ -1,11 +1,15 @@
 <script setup lang="ts">
+import type { PageDetails as PlaceDetails } from '~/composables/usePlaces'
+
 interface Props {
   event: any
-  place: { color: string; path: string }
-  showActivityLabel: boolean
-  isCollapsable: boolean
+  place: PlaceDetails
+  showActivityLabel?: boolean
+  isCollapsable?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
+  event: undefined,
+  place: undefined,
   showActivityLabel: false,
   isCollapsable: true,
 })
