@@ -1,3 +1,18 @@
+/* HIDE SCROLLBARS */
+html,
+body {
+  /*FireFo*/
+  scrollbar-width: none;
+  /*IE10+*/
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  /*Chrome, Safari, Edge*/
+  display: none;
+  -webkit-appearance: none;
+}
+
 a,
 button {
   touch-action: manipulation;
