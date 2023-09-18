@@ -4,7 +4,7 @@ const places = usePlaces()
 
 <template>
   <section>
-    <h3 class="font-title text-xl">Scopri le esperienze di Mamma Elvira:</h3>
+    <!-- <h3 class="font-title text-xl">Scopri le esperienze di Mamma Elvira:</h3> -->
 
     <nav
       class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4"
@@ -60,7 +60,6 @@ const places = usePlaces()
 .activity-card-shape {
   @apply h-full 
     flex items-center justify-center
-    p-5 sm:p-10 md:p-15 lg:p-10 xl:p-12
-    rounded-bl-3xl rounded-tr-3xl;
+    p-5 sm:p-10 md:p-15 lg:p-10 xl:p-12;
 }
 </style>
