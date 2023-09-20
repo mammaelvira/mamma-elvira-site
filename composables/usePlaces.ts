@@ -61,7 +61,7 @@ export default (): PageDetails[] => [
     payoff: 'Osteria Contemporanea',
     place: 'Il Castello',
     iconClass: 'i-game-icons-fork-knife-spoon',
-    color: 'me-basil',
+    color: 'me-olive',
     videoUrl:
       'https://dbxquyucxdrdmodeinnw.supabase.co/storage/v1/object/sign/mammaelvira-cdn/videos/me_la-cucina_moka-cantuccini.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJtYW1tYWVsdmlyYS1jZG4vdmlkZW9zL21lX2xhLWN1Y2luYV9tb2thLWNhbnR1Y2NpbmkubXA0IiwiaWF0IjoxNjgxMjI2MDMwLCJleHAiOjE3MTI3NjIwMzB9.tQcOSztegIBjCkwHeqtfIiWtr-Cqe8qzASMQAyJzy08&t=2023-04-11T15%3A13%3A50.390Z',
     telephone: '+393315795127',

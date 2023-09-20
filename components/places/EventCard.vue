@@ -482,7 +482,7 @@ const showBookingOptions = ref(false)
 
     <!-- HIDDEN UTILITIES -->
     <div
-      class="hidden decoration-me-red decoration-me-basil decoration-me-lapis decoration-me-peach decoration-me-mint decoration-me-lavender outline-me-red outline-me-basil outline-me-lapis outline-me-peach outline-me-mint outline-me-lavender"
+      class="hidden decoration-me-red decoration-me-olive decoration-me-lapis decoration-me-peach decoration-me-mint decoration-me-lavender outline-me-red outline-me-olive outline-me-lapis outline-me-peach outline-me-mint outline-me-lavender"
     ></div>
   </article>
 </template>

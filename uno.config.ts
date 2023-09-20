@@ -43,6 +43,7 @@ export default defineConfig({
         cyan: '#668e98',
         basil: '#107652',
         mint: '#4FB692',
+        olive: '#6B7238', // "La Cucina" original color
         lavender: '#B08CB9',
       },
     },

@@ -41,7 +41,7 @@ useSeoMeta({
             class="underline text-me-red"
             >Enoteca</NuxtLink
           >, alla
-          <NuxtLink to="/la-cucina" class="underline text-me-basil">
+          <NuxtLink to="/la-cucina" class="underline text-me-olive">
             Cucina</NuxtLink
           >, alla
           <NuxtLink to="/corte-dei-pandolfi" class="underline text-me-peach">

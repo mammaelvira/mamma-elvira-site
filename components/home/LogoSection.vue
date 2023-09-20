@@ -27,7 +27,7 @@
         >
         <span class="opacity-40">+</span>
         <NuxtLink to="/la-cucina"
-          ><span class="text-me-basil">cucina</span></NuxtLink
+          ><span class="text-me-olive">cucina</span></NuxtLink
         >
         <span class="opacity-40">+</span>
         <NuxtLink to="/corte-dei-pandolfi">

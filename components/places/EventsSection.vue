@@ -51,7 +51,7 @@ const otherActivitiesEvents = computed(
       />
     </div>
     <div
-      class="hidden to-me-red to-me-peach to-me-orange to-me-pink to-me-lapis to-me-cyan to-me-basil to-me-mint to-me-lavender to-me-stone to-me-ink"
+      class="hidden to-me-red to-me-peach to-me-orange to-me-pink to-me-lapis to-me-cyan to-me-olive to-me-mint to-me-lavender to-me-stone to-me-ink"
     ></div>
   </section>
 </template>
