@@ -234,7 +234,7 @@ const percentageOfScreenHeigthScrolled = computed(
 
 @media (max-width: 768px) {
   .hero-figure {
-    border-top-left-radius: calc(35px * var(--rounded-value));
+    border-top-left-radius: calc(13px * var(--rounded-value));
   }
 }
 </style>
