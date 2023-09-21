@@ -69,11 +69,17 @@ useSeoMeta({
       </div>
     </section>
 
+    <section class="w-full pb-8">
+      <div class="-mx-8">
+        <LazyHomeImagesCarousel />
+      </div>
+    </section>
+
     <section class="p-2 md:p-8 lg:p-12 xl:p-16 flex items-center w-full">
       <GraphicsPlacesMap class="w-full max-h-screen lg:p-8" />
     </section>
 
-    <section class="mb-8">
+    <section class="pb-8">
       <div class="mt-8 flex flex-col gap-6 items-center">
         <p class="text-right">
           <span class="font-serif">Lecce</span> è una città unica nel suo
