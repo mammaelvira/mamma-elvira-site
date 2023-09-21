@@ -34,11 +34,22 @@ useHead({
 // } | order(sortingOrder)`
 
 // const { data: staff, refresh } = useSanityQuery<Staff>(query)
+
+const { y } = useWindowScroll()
+const { height } = useWindowSize()
+const isMediumScreen = useMediaQuery('(min-width: 768px)')
+
+const percentageOfScreenHeigthScrolled = computed(
+  () => (y.value / height.value) * 100,
+)
 </script>
 
 <template>
   <article>
-    <section class="mt-4 mb-12 flex flex-col">
+    <!-- <div class="fixed">
+      {{ percentageOfScreenHeigthScrolled }} - {{ { isMediumScreen } }}
+    </div> -->
+    <section class="pt-4 pb-12 flex flex-col items-center">
       <header class="flex flex-col items-center">
         <h1
           class="inline font-serif text-4xl md:text-5xl text-center border-b-2 border-me-mint pb-2"
@@ -52,23 +63,66 @@ useHead({
         </h2>
       </header>
 
-      <section class="">
-        <div class="mt-8 flex flex-col gap-6 items-center">
-          <p class="text-right">
+      <section class="about-us-hero">
+        <figure class="hero-figure md:rounded-tl-full">
+          <img
+            src="~/assets/images/me_casa_color-bottles.jpg"
+            alt="Casa Mamma Elvira, bottiglie colorate negli spazi comuni"
+            class="w-full h-full"
+          />
+          <figcaption class="text-sm text-right pt-2">
+            Interno della sala comune della
+            <NuxtLink to="/casa" class="underline text-me-lapis">Casa</NuxtLink>
+          </figcaption>
+        </figure>
+
+        <div
+          class="md:max-w-128 h-full md:pl-8 md:rounded-tr-full border-me-lapis md:border-t md:border-r flex flex-col md:justify-end gap-6 items-center md:shadow-inner"
+        >
+          <p class="text-right md:text-left md:pr-16">
             <span class="font-serif">Il mondo di Mamma Elvira</span> è un tesoro
             prezioso,
             <br />
             nato nel 2011 dalla mente creativa di Andrea Favale.
           </p>
-          <p>
+          <p class="md:pr-4 lg-:pr-8 lg:pt-16">
             È un mix perfetto di sapori, profumi e ricordi che rimangono
             impressi nella mente e nel palato per sempre.
           </p>
         </div>
+
+        <div class="hidden md:grid w-10 text-me-lapis -mt-0.3">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.97 89.5">
+            <polyline
+              points="0.5 0.5 22.47 0.5 22.47 32.34 0.5 57.5 0.5 89.5"
+              fill="none"
+              stroke="currentColor"
+              stroke-miterlimit="10"
+              stroke-width="0.7"
+            />
+          </svg>
+        </div>
+
+        <div class="w-full flex justify-end">
+          <div
+            class="hidden md:grid w-10 text-me-lapis -mt-0.3"
+            style="transform: scaleX(-1)"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.97 89.5">
+              <polyline
+                points="0.5 0.5 22.47 0.5 22.47 32.34 0.5 57.5 0.5 89.5"
+                fill="none"
+                stroke="currentColor"
+                stroke-miterlimit="10"
+                stroke-width="0.7"
+              />
+            </svg>
+          </div>
+        </div>
       </section>
 
-      <section>
-        <div class="mt-8 flex flex-col gap-6 items-center">
+      <section class="pt-8 md:pt-0 md:-mt-16">
+        <div class="flex flex-col gap-6 items-center">
           <p>
             La cucina proposta da
             <span class="font-serif">Mamma Elvira</span> ci insegna l'importanza
@@ -113,7 +167,7 @@ useHead({
             ristorazione, ma anche
             <NuxtLink to="/casa" class="underline text-me-lapis"
               >case di villeggiatura</NuxtLink
-            >, <NuxtLink to="/casa" class="underline">eventi</NuxtLink> ed
+            >, <NuxtLink to="/events" class="underline">eventi</NuxtLink> ed
             <NuxtLink to="/picnic-experience" class="underline text-me-lavender"
               >esperienze uniche</NuxtLink
             >.
@@ -162,3 +216,31 @@ useHead({
     <BodyActivitySection />
   </article>
 </template>
+
+<style scoped>
+.about-us-hero {
+  @apply relative
+    pt-8 md:pt-16
+    grid grid-cols-1 md:grid-cols-2
+    md:justify-end gap-8 md:gap-0;
+}
+
+.hero-figure {
+  @apply md:max-w-128 -mx-8 md:-mx-[0px]
+    overflow-hidden
+    aspect-square
+    border-me-lapis md:border-t md:border-l;
+}
+
+@media (max-width: 768px) {
+  .hero-figure {
+    border-top-left-radius: calc(35px * var(--rounded-value));
+  }
+}
+</style>
+
+<style>
+.about-us-hero .hero-figure {
+  --rounded-value: v-bind(percentageOfScreenHeigthScrolled);
+}
+</style>
