@@ -500,10 +500,10 @@
   stroke: #c02d18;
 }
 .cls-23 {
-  fill: #107652;
+  fill: #6b7238;
 }
 .cls-24 {
-  stroke: #107652;
+  stroke: #6b7238;
 }
 .cls-25 {
   fill: #4fb692;

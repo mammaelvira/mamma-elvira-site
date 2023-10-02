@@ -49,7 +49,7 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
             >
           </li>
           <li>
-            <div class="bg-me-basil"></div>
+            <div class="bg-me-olive"></div>
             <NuxtLink to="/la-cucina" @click="modalToggle"
               >La Cucina di Mamma Elvira</NuxtLink
             >

@@ -144,7 +144,7 @@ const place = places.find((place) =>
         </nav>
 
         <div
-          class="hidden text-me-ink text-me-peach text-me-orange text-me-basil text-me-lapis text-me-mint text-me-red text-me-pink text-me-lavender"
+          class="hidden text-me-ink text-me-peach text-me-orange text-me-olive text-me-lapis text-me-mint text-me-red text-me-pink text-me-lavender"
         >
           Mamma Elvira
         </div>

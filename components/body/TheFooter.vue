@@ -8,7 +8,7 @@
         <NuxtLink to="/enoteca">Mamma Elvira Enoteca</NuxtLink>
       </div>
       <div>
-        <div class="i-game-icons-fork-knife-spoon text-me-basil"></div>
+        <div class="i-game-icons-fork-knife-spoon text-me-olive"></div>
         <NuxtLink to="/la-cucina">La Cucina di Mamma Elvira</NuxtLink>
       </div>
       <div>

@@ -18,7 +18,7 @@
   <!-- HIDDEN utility -->
   <div
     id="colors-loader"
-    class="bg-me-red bg-me-basil bg-me-peach bg-me-lavender border-me-red border-me-basil border-me-mint border-me-lapis border-me-peach border-me-lavender hidden"
+    class="bg-me-red bg-me-olive bg-me-peach bg-me-lavender border-me-red border-me-olive border-me-mint border-me-lapis border-me-peach border-me-lavender hidden"
   ></div>
 </template>
 
