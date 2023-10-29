@@ -189,7 +189,10 @@ const percentageOfScreenHeigthScrolled = computed(
             <SanityImage
               v-if="person?.image?.asset"
               :asset-id="person?.image?.asset?._ref"
-              auto="format"
+      
+               auto="format"
+          maxW="480px"
+          fit="clip"
               class="h-36 w-36 object-cover"
             />
             <header class="my-4">
