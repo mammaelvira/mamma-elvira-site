@@ -177,6 +177,8 @@ const showBookingOptions = ref(false)
               v-if="event?.image?.asset"
               :asset-id="event?.image?.asset?._ref"
               auto="format"
+              maxW="640px"
+              fit="clip"
               class="h-40 w-40 object-cover shadow-md"
               :alt="`${event?.title} cover image`"
             />

@@ -11,7 +11,13 @@ const { data: images } = useSanityQuery(query)
         :key="`${image?._key}-${slideIndex}`"
         v-for="image in images"
       >
-        <SanityImage :asset-id="image?.asset?._ref" :alt="image?.caption" />
+        <SanityImage
+          :asset-id="image?.asset?._ref"
+          :alt="image?.caption"
+          auto="format"
+          maxW="480px"
+          fit="clip"
+        />
       </li>
     </ul>
   </div>
