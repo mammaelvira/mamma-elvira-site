@@ -191,7 +191,7 @@ const percentageOfScreenHeigthScrolled = computed(
               :asset-id="person?.image?.asset?._ref"
       
                auto="format"
-          maxW="480px"
+          w="480"
           fit="clip"
               class="h-36 w-36 object-cover"
             />

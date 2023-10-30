@@ -15,7 +15,7 @@ const { data: images } = useSanityQuery(query)
           :asset-id="image?.asset?._ref"
           :alt="image?.caption"
           auto="format"
-          maxW="480px"
+          w="480"
           fit="clip"
         />
       </li>
