@@ -56,12 +56,10 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
           </li>
           <li>
             <div class="bg-me-laterizio"></div>
-            <NuxtLink to="/scante" @click="modalToggle"
-              >'Scante</NuxtLink
-            >
+            <NuxtLink to="/scante" @click="modalToggle">'Scante</NuxtLink>
           </li>
           <li>
-            <div class="bg-me-peach"></div>
+            <div class="bg-me-yellow"></div>
             <NuxtLink to="/corte-dei-pandolfi" @click="modalToggle"
               >Corte dei Pandolfi</NuxtLink
             >
@@ -74,7 +72,10 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
           </li>
           <li>
             <div class="bg-me-deepblue"></div>
-            <a href="https://delicatessenlecce.com/" @click="modalToggle" target="_blank"
+            <a
+              href="https://delicatessenlecce.com/"
+              @click="modalToggle"
+              target="_blank"
               >Delicatessen</a
             >
           </li>
