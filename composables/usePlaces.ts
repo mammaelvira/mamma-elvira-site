@@ -62,8 +62,7 @@ export default (): PageDetails[] => [
     place: 'Il Castello',
     iconClass: 'i-game-icons-fork-knife-spoon',
     color: 'me-olive',
-    videoUrl:
-      'https://dbxquyucxdrdmodeinnw.supabase.co/storage/v1/object/sign/mammaelvira-cdn/videos/me_la-cucina_moka-cantuccini.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJtYW1tYWVsdmlyYS1jZG4vdmlkZW9zL21lX2xhLWN1Y2luYV9tb2thLWNhbnR1Y2NpbmkubXA0IiwiaWF0IjoxNjgxMjI2MDMwLCJleHAiOjE3MTI3NjIwMzB9.tQcOSztegIBjCkwHeqtfIiWtr-Cqe8qzASMQAyJzy08&t=2023-04-11T15%3A13%3A50.390Z',
+    imageUrl: '~/assets/images/me_la-cucina_ext-03.jpg',
     telephone: '+393315795127',
     email: 'lacucina@mammaelvira.com',
     address: {
@@ -80,16 +79,16 @@ export default (): PageDetails[] => [
     instagramUrl: 'https://www.instagram.com/la_cucina_di_mamma_elvira',
     facebookUrl: 'https://www.facebook.com/LaCucinaDiMammaElvira',
   },
-  // LA CUCINA DE COSTE
+  // 'SCANTE
   {
-    name: 'La Cucina De Coste',
-    path: '/la-cucina-de-coste',
-    payoff: 'Osteria Contemporanea',
+    name: "'Scante",
+    path: '/scante',
+    payoff: 'Trattoria con Aperitivo',
     place: 'Il Castello',
     iconClass: 'i-game-icons-fork-knife-spoon',
-    color: 'me-mint',
-    telephone: '+393315795127',
-    email: 'decoste@mammaelvira.com',
+    color: 'me-laterizio',
+    telephone: '+393483021637',
+    email: 'scante@mammaelvira.com',
     address: {
       street: 'Via Ludovico Maremonti',
       streetNumber: '41',
@@ -99,10 +98,10 @@ export default (): PageDetails[] => [
     googleMapsUrl: '',
 
     bookingUrl: 'https://mammaelvira.myrestoo.net/',
-    menuUrl: 'https://disv.it/Cucina',
+    menuUrl: 'https://disv.it/scante',
 
-    instagramUrl: 'https://www.instagram.com/lacucinadecoste',
-    facebookUrl: 'https://www.facebook.com/lacucinadecoste',
+    instagramUrl: 'https://www.instagram.com/scante_lecce',
+    facebookUrl: 'https://www.facebook.com/scantelecce',
   },
   // CORTE DEI PANDOLFI
   {
@@ -111,7 +110,7 @@ export default (): PageDetails[] => [
     payoff: 'Oyster House',
     place: 'Il Duomo',
     iconClass: 'i-custom:corte-dei-pandolfi',
-    color: 'me-peach',
+    color: 'me-yellow',
     telephone: '+393661412692',
     email: 'cortedeipandolfi@mammaelvira.com',
     address: {
