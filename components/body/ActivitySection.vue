@@ -9,8 +9,6 @@ const places = usePlaces()
     <nav
       class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4"
     >
-
-  
       <NuxtLink
         :to="place.path"
         v-for="place in places"
@@ -27,13 +25,12 @@ const places = usePlaces()
             class="h-full w-full"
           />
         </div>
-      
       </NuxtLink>
      
 
       <a href="https://delicatessenlecce.com/" target="_blank" class="activity-card">
           <div class="activity-card-shape bg-me-deepblue">
-            <img src="graphics/delicatessen.svg" alt="Delicatessen Logo">
+            <img src="/graphics/delicatessen.svg" alt="Delicatessen Logo">
           </div>
         </a>
 
