@@ -39,6 +39,16 @@ watch(isScrolling, () => {
         <span class="mr-2">•</span>
         <span class="hover:underline"> {{ place.name }}</span>
       </NuxtLink>
+
+      <a
+        @click="showActivityLinks = false"
+       href="https://delicatessenlecce.com/" target="_blank"
+
+        class="text-me-deepblue"
+      >
+        <span class="mr-2">•</span>
+        <span class="hover:underline"> Delicatessen</span>
+      </a>
     </div>
   </li>
 </template>

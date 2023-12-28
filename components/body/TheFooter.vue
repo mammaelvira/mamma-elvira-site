@@ -12,17 +12,17 @@
         <NuxtLink to="/la-cucina">La Cucina di Mamma Elvira</NuxtLink>
       </div>
       <div>
-        <div class="i-game-icons-fork-knife-spoon text-me-mint"></div>
-        <NuxtLink to="/la-cucina-de-coste" class="relative"
-          >La Cucina De Coste
+        <div class="i-game-icons-fork-knife-spoon text-me-laterizio"></div>
+        <NuxtLink to="/scante" class="relative"
+          >'Scante
           <span
-            class="absolute -right-5 -top-2 bg-me-mint text-me-stone text-xs px-1 rotate-12"
+            class="absolute -right-5 -top-2 bg-me-laterizio text-me-stone text-xs px-1 rotate-12"
             >new</span
           ></NuxtLink
         >
       </div>
       <div>
-        <div class="i-custom:corte-dei-pandolfi text-me-peach"></div>
+        <div class="i-custom:corte-dei-pandolfi text-me-yellow"></div>
         <NuxtLink to="/corte-dei-pandolfi">Corte dei Pandolfi</NuxtLink>
       </div>
       <div>
@@ -38,6 +38,17 @@
             class="absolute -right-8 -top-2 bg-me-lavender text-me-stone text-xs px-1 rotate-12"
             >all'aperto</span
           ></NuxtLink
+        >
+      </div>
+
+      <div>
+        <div class="i-custom-delicatessen text-me-deepblue"></div>
+        <a href="https://delicatessenlecce.com/" class="relative" target="_blank"
+          >Delicatessen
+          <span
+            class="absolute -right-5 -top-2 bg-me-deepblue text-me-stone text-xs px-1 rotate-12"
+            >new</span
+          ></a
         >
       </div>
     </nav>

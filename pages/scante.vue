@@ -16,7 +16,7 @@ useHead({
       <h2
         class="inline font-serif text-4xl md:text-5xl text-center border-b-2 border-me-mint pb-2"
       >
-        De Coste
+       'Scante
       </h2>
       <h3 class="text-center text-lg md:text-2xl text-me-lapis">
         A pochi passi dal gusto
@@ -24,7 +24,7 @@ useHead({
     </header>
 
     <p>
-      <span>La Cucina De Coste</span> è la nuova esperienza de
+      <span>'Scante</span> è la nuova esperienza de
       <NuxtLink to="/la-cucina"><span>La Cucina di Mamma Elvira</span></NuxtLink
       >, che amplia a pochi passi di distanza le possibilità di sperimentare i
       sapori autentici della nostra cucina.
@@ -32,8 +32,8 @@ useHead({
 
     <template v-slot:place-image>
       <img
-        src="~/assets/images/me_la-cucina_ext-02.jpg"
-        alt="La Cucina De Coste"
+        src="~/assets/images/me_la-cucina_ext-04.jpg"
+        alt="Scante"
       />
     </template>
   </PlacesPageSchema>

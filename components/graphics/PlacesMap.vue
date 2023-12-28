@@ -396,11 +396,11 @@
       </g>
     </a>
 
-    <a href="#la-cucina-de-coste" class="activity-pin">
-      <g id="la-cucina-de-coste-pin">
+    <a href="#scante" class="activity-pin">
+      <g id="scante-pin">
         <circle
-          id="corte-dei-pandolfi-pin-5"
-          data-name="corte-dei-pandolfi-pin"
+          id="scante-pin-5"
+          data-name="scante-pin"
           class="cls-25"
           cx="661.59"
           cy="717.56"
@@ -408,9 +408,8 @@
         />
         <rect class="cls-25" x="676.59" y="692.56" width="100" height="50" />
         <line class="cls-26" x1="661.59" y1="717.56" x2="676.59" y2="717.56" />
-        <text class="cls-12" transform="translate(693.97 713.45)">
-          La Cucina
-          <tspan x="2.81" y="18">De Coste</tspan>
+        <text class="cls-12" transform="translate(702 722)">
+          'Scante
         </text>
       </g>
     </a>
@@ -473,10 +472,10 @@
   opacity: 25%;
 }
 .cls-10 {
-  fill: #ec7850;
+  fill: #d1a72a;
 }
 .cls-11 {
-  stroke: #ec7850;
+  stroke: #d1a72aA84227;
 }
 .cls-11,
 .cls-19,
@@ -506,10 +505,10 @@
   stroke: #6b7238;
 }
 .cls-25 {
-  fill: #4fb692;
+  fill: #A84227;
 }
 .cls-26 {
-  stroke: #4fb692;
+  stroke: #A84227;
 }
 .cls-27 {
   letter-spacing: 0em;

@@ -7,7 +7,7 @@ const places = usePlaces()
     <!-- <h3 class="font-title text-xl">Scopri le esperienze di Mamma Elvira:</h3> -->
 
     <nav
-      class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4"
+      class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4"
     >
       <NuxtLink
         :to="place.path"
@@ -18,13 +18,21 @@ const places = usePlaces()
       >
         <div class="activity-card-shape" :class="`bg-${place?.color}`">
           <img
-            :src="`graphics/${place?.name
-              ?.toLowerCase()
+            :src="`graphics/${place?.path
+              ?.toLowerCase().replaceAll('/', '')
               .replaceAll(' ', '-')}.svg`"
-            :alt="`${place?.name} Logo`"
+            :alt="`${place?.path} Logo`"
             class="h-full w-full"
           />
         </div>
+      </NuxtLink>
+     
+
+      <a href="https://delicatessenlecce.com/" target="_blank" class="activity-card">
+          <div class="activity-card-shape bg-me-deepblue">
+            <img src="/graphics/delicatessen.svg" alt="Delicatessen Logo">
+          </div>
+        </a>
 
         <!-- <div
           :class="`bg-${place?.color}`"
@@ -39,7 +47,8 @@ const places = usePlaces()
           </div>
           <div :id="place.path?.substring(1)" class="absolute -top-32"></div>
         </div> -->
-      </NuxtLink>
+
+  
     </nav>
   </section>
 </template>

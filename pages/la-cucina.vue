@@ -50,5 +50,12 @@ useHead({
       La carta dei Vini e delle Birre è ampia e rappresenta perfettamente il
       territorio italiano.
     </p>
+
+    <template v-slot:place-image>
+      <img
+        src="~/assets/images/me_la-cucina_ext-03.jpg"
+        alt="La Cucina di Mamma Elvira"
+      />
+    </template>
   </PlacesPageSchema>
 </template>
