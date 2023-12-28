@@ -21,7 +21,7 @@
   "editor.folding": true, // if false removes the folding feature
   "editor.lineNumbers": "off",
   "workbench.sideBar.location": "right",
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": "single",
   "workbench.editor.pinnedTabSizing": "compact",
   "workbench.editor.tabSizing": "shrink",
   "breadcrumbs.enabled": false,
