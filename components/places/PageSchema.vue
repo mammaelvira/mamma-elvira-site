@@ -63,7 +63,7 @@ const place = places.find((place) =>
                 Prenota un tavolo:
               </h3>
               <!-- Online booking ACTIVE -->
-              <!-- <div v-if="place?.bookingUrl" class="flex gap-6">
+              <div v-if="place?.bookingUrl" class="flex gap-6">
                 <a
                   :href="place?.bookingUrl"
                   class="call-to-action"
@@ -77,23 +77,24 @@ const place = places.find((place) =>
                   :class="`border-${place?.color}`"
                   >Chiama</a
                 >
-              </div> -->
+              </div>
               <!-- Online booking NOT ACTIVE -->
-              <!-- <div v-else class="flex gap-6"> -->
-              <div class="flex gap-6">
-                <a
-                  :href="`tel:${place?.telephone}`"
-                  class="call-to-action"
-                  :class="`bg-${place?.color}`"
-                  >Chiama</a
-                >
+              <div v-else class="flex gap-6">
+                <div class="flex gap-6">
+                  <a
+                    :href="`tel:${place?.telephone}`"
+                    class="call-to-action"
+                    :class="`bg-${place?.color}`"
+                    >Chiama</a
+                  >
 
-                <a
-                  :href="`mailto:${place?.email}`"
-                  class="call-to-action-outline"
-                  :class="`border-${place?.color}`"
-                  >Scrivi una mail</a
-                >
+                  <a
+                    :href="`mailto:${place?.email}`"
+                    class="call-to-action-outline"
+                    :class="`border-${place?.color}`"
+                    >Scrivi una mail</a
+                  >
+                </div>
               </div>
             </li>
 

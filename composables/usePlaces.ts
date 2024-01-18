@@ -73,7 +73,7 @@ export default (): PageDetails[] => [
     },
     googleMapsUrl: '',
 
-    bookingUrl: 'https://mammaelvira.myrestoo.net/',
+    bookingUrl: 'https://mammaelvira.myrestoo.net/it/reservar',
     menuUrl: 'https://disv.it/Cucina',
 
     instagramUrl: 'https://www.instagram.com/la_cucina_di_mamma_elvira',
@@ -97,7 +97,6 @@ export default (): PageDetails[] => [
     },
     googleMapsUrl: '',
 
-    bookingUrl: 'https://mammaelvira.myrestoo.net/',
     menuUrl: 'https://disv.it/scante',
 
     instagramUrl: 'https://www.instagram.com/scante_lecce',
