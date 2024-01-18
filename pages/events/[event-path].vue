@@ -24,62 +24,62 @@ const place = computed(() =>
   places.find((place) => place.path === event.value?.[0]?.activity?.path),
 )
 
-useSeoMeta({
-  // function that returns for reactivity
-  title: () => event?.value?.[0]?.ogTitle || 'Mamma Elvira',
-  description: () => event?.value?.[0]?.ogDescription || 'mammaelvira.com',
-  ogImage: () =>
-    `${event?.value?.[0]
-      ?.ogImage}?w=1200&update=${event?.value?.[0]?._updatedAt?.replaceAll(
-      ':',
-      '-',
-    )}` || 'https://mammaelvira.com/mammaelvira_website-cover.png',
-  ogTitle: () => event?.value?.[0]?.ogTitle || 'Mamma Elvira',
-  ogDescription: () => event?.value?.[0]?.ogDescription || 'mammaelvira.com',
-  twitterCard: 'summary_large_image',
-})
+// useSeoMeta({
+//   // function that returns for reactivity
+//   title: () => event?.value?.[0]?.ogTitle || 'Mamma Elvira',
+//   description: () => event?.value?.[0]?.ogDescription || 'mammaelvira.com',
+//   ogImage: () =>
+//     `${event?.value?.[0]
+//       ?.ogImage}?w=1200&update=${event?.value?.[0]?._updatedAt?.replaceAll(
+//       ':',
+//       '-',
+//     )}` || 'https://mammaelvira.com/mammaelvira_website-cover.png',
+//   ogTitle: () => event?.value?.[0]?.ogTitle || 'Mamma Elvira',
+//   ogDescription: () => event?.value?.[0]?.ogDescription || 'mammaelvira.com',
+//   twitterCard: 'summary_large_image',
+// })
 
-useSchemaOrg([
-  defineEvent({
-    name: event?.value?.[0]?.ogTitle,
-    startDate: event?.value?.[0]?.datetimeStart,
-    endDate: event?.value?.[0]?.datetimeEnd,
-    organizer: {
-      name: 'Mamma Elvira',
-    },
-    location: {
-      '@type': 'Place',
-      name: event?.value?.[0]?.activity?.name,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: `${event?.value?.[0]?.activity?.street}, ${event?.value?.[0]?.activity?.streetNumber}`,
-        postalCode: event?.value?.[0]?.activity?.cap,
-        addressLocality: event?.value?.[0]?.activity?.city,
-        addressCountry: 'Italy',
-      },
-    },
-    performers() {
-      const performersLineUp: {
-        '@type': string
-        name: string
-        url?: string
-      }[] = []
+// useSchemaOrg([
+//   defineEvent({
+//     name: event?.value?.[0]?.ogTitle,
+//     startDate: event?.value?.[0]?.datetimeStart,
+//     endDate: event?.value?.[0]?.datetimeEnd,
+//     organizer: {
+//       name: 'Mamma Elvira',
+//     },
+//     location: {
+//       '@type': 'Place',
+//       name: event?.value?.[0]?.activity?.name,
+//       address: {
+//         '@type': 'PostalAddress',
+//         streetAddress: `${event?.value?.[0]?.activity?.street}, ${event?.value?.[0]?.activity?.streetNumber}`,
+//         postalCode: event?.value?.[0]?.activity?.cap,
+//         addressLocality: event?.value?.[0]?.activity?.city,
+//         addressCountry: 'Italy',
+//       },
+//     },
+//     performers() {
+//       const performersLineUp: {
+//         '@type': string
+//         name: string
+//         url?: string
+//       }[] = []
 
-      event?.value?.[0]?.performers.forEach(
-        (performer: { name: string; link: string }, index: number) =>
-          performersLineUp.push({
-            '@type': 'Person',
-            name: performer?.name,
-            url: performer.link ?? null,
-          }),
-      )
+//       event?.value?.[0]?.performers.forEach(
+//         (performer: { name: string; link: string }, index: number) =>
+//           performersLineUp.push({
+//             '@type': 'Person',
+//             name: performer?.name,
+//             url: performer.link ?? null,
+//           }),
+//       )
 
-      return performersLineUp
-    },
-    eventAttendanceMode: 'OfflineEventAttendanceMode',
-    eventStatus: 'EventScheduled',
-  }),
-])
+//       return performersLineUp
+//     },
+//     eventAttendanceMode: 'OfflineEventAttendanceMode',
+//     eventStatus: 'EventScheduled',
+//   }),
+// ])
 </script>
 
 <template>
