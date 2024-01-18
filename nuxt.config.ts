@@ -1,10 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  extends: [
-    // https://github.com/harlan-zw/nuxt-seo-kit
-    'nuxt-seo-kit',
-  ],
-
   modules: [
     // https://uno.antfu.me/?s=guide:Setup+Nuxt
     '@unocss/nuxt',
@@ -23,11 +18,8 @@ export default defineNuxtConfig({
     // https://html-validator.nuxtjs.org/
     '@nuxtjs/html-validator',
 
-    // https://nuxtseo.com/sitemap/getting-started/installation
-    'nuxt-simple-sitemap',
-
-    // https://nuxtseo.com/robots/getting-started/installation
-    'nuxt-simple-robots',
+    // https://nuxtseo.com/nuxt-seo/
+    // '@nuxtjs/seo',
   ],
 
   css: [
@@ -40,13 +32,6 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      // SEO
-      // https://github.com/harlan-zw/nuxt-seo-kit
-      siteUrl: 'https://mammaelvira.com',
-      siteName: 'Mamma Elvira',
-      siteDescription: 'Esperienze del Territorio, a Lecce dal 2011',
-      titleSeparator: ' • ',
-
       // Sanity
       sanity: {
         projectId: 'yke6f6fh',
@@ -133,12 +118,21 @@ export default defineNuxtConfig({
         { name: 'msapplication-TileColor', content: '#ec7850' },
         { name: 'theme-color', content: '#eae3d8' },
       ],
+
+      // NuxtSEO
+      templateParams: {
+        separator: '•',
+      },
     },
   },
 
+  // SEO
   site: {
     url: 'https://mammaelvira.com', // for sitemap generation and robot.txt
+    name: 'Mamma Elvira',
+    description: 'Esperienze del Territorio, a Lecce dal 2011',
   },
+  schemaOrg: { enabled: true },
 
   htmlValidator: {
     usePrettier: false,
@@ -156,7 +150,7 @@ export default defineNuxtConfig({
     enabled: true,
   },
 
-  experimental: {
-    headNext: true, // capo.js <head> tag sorted for better performance
-  },
+  // experimental: {
+  //   headNext: true, // capo.js <head> tag sorted for better performance
+  // },
 })

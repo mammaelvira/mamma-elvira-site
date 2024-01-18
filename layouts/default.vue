@@ -1,7 +1,5 @@
 <template>
   <div id="app-layout">
-    <SeoKit />
-
     <Transition name="slide-fade">
       <BodyModalDialog />
     </Transition>
