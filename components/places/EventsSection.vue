@@ -36,8 +36,11 @@ const otherActivitiesEvents = computed(() =>
 </script>
 
 <template>
-  <div v-if="activityEvents?.length > 0" class="mt-12">
-    <section v-if="futureActivityEvents?.length > 0" class="mt-6">
+  <div v-if="activityEvents && activityEvents?.length > 0" class="mt-12">
+    <section
+      v-if="futureActivityEvents && futureActivityEvents?.length > 0"
+      class="mt-6"
+    >
       <header>
         <h3 class="font-serif text-2xl">
           Prossimi eventi di <br />
@@ -70,7 +73,10 @@ const otherActivitiesEvents = computed(() =>
       ></div>
     </section>
 
-    <section v-if="pastActivityEvents?.length > 0" class="mt-18">
+    <section
+      v-if="pastActivityEvents && pastActivityEvents?.length > 0"
+      class="mt-18"
+    >
       <header>
         <h3 class="font-serif text-2xl">
           Archivio eventi passati di <br />

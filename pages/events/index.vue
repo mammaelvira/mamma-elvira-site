@@ -60,8 +60,8 @@ const pastEvents = computed(() =>
       </header>
     </section>
 
-    <div v-if="events?.length > 0">
-      <section v-if="futureEvents?.length > 0">
+    <div v-if="events && events?.length > 0">
+      <section v-if="futureEvents && futureEvents?.length > 0">
         <h3
           class="inline font-serif text-3xl md:text-4xl text-center border-b-2 border-me-mint pb-2"
         >
@@ -81,14 +81,14 @@ const pastEvents = computed(() =>
         </div>
       </section>
 
-      <section v-if="pastEvents?.length > 0" class="mt-12">
+      <section v-if="pastEvents && pastEvents?.length > 0" class="mt-12">
         <h3
           class="inline font-serif text-3xl md:text-4xl text-center border-b-2 border-me-mint pb-2"
         >
           Archivio eventi passati
         </h3>
         <div
-          v-if="events?.length > 0"
+          v-if="events && events?.length > 0"
           class="flex flex-col gap-20 items-center mt-12"
         >
           <LazyPlacesEventCard
