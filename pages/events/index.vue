@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { MammaElviraSanityEvent } from '~/composables/useQueryEvents'
+
 const i18nHead = useLocaleHead({ addSeoAttributes: true })
 
 useHead({
@@ -11,7 +13,8 @@ useHead({
 
 const query = useQueryEvents()
 
-const { data: events, refresh } = await useSanityQuery(query)
+const { data: events } =
+  await useSanityQuery<Array<MammaElviraSanityEvent>>(query)
 
 const places = usePlaces()
 
@@ -27,6 +30,19 @@ const places = usePlaces()
 //       .map((activity) => activity?.path)
 //   ),
 // ])
+
+const futureEvents = computed(() =>
+  events?.value?.filter(
+    (event) => new Date(event.datetimeEnd).getTime() > new Date().getTime(),
+  ),
+)
+const pastEvents = computed(() =>
+  events?.value
+    ?.filter(
+      (event) => new Date(event.datetimeEnd).getTime() < new Date().getTime(),
+    )
+    .reverse(),
+)
 </script>
 
 <template>
@@ -43,6 +59,51 @@ const places = usePlaces()
         </h2>
       </header>
     </section>
+
+    <div v-if="events && events?.length > 0">
+      <section v-if="futureEvents && futureEvents?.length > 0">
+        <h3
+          class="inline font-serif text-3xl md:text-4xl text-center border-b-2 border-me-mint pb-2"
+        >
+          I prossimi Eventi
+        </h3>
+        <div class="flex flex-col gap-20 items-center mt-12">
+          <PlacesEventCard
+            v-for="event in futureEvents"
+            :key="event?._id"
+            :event="event"
+            :place="
+              places?.find((place) => place?.path === event?.activity?.path)
+            "
+            :show-activity-label="true"
+            :is-collapsable="true"
+          />
+        </div>
+      </section>
+
+      <section v-if="pastEvents && pastEvents?.length > 0" class="mt-12">
+        <h3
+          class="inline font-serif text-3xl md:text-4xl text-center border-b-2 border-me-mint pb-2"
+        >
+          Archivio eventi passati
+        </h3>
+        <div
+          v-if="events && events?.length > 0"
+          class="flex flex-col gap-20 items-center mt-12"
+        >
+          <LazyPlacesEventCard
+            v-for="event in pastEvents"
+            :key="event?._id"
+            :event="event"
+            :place="
+              places?.find((place) => place?.path === event?.activity?.path)
+            "
+            :show-activity-label="true"
+            :is-collapsable="true"
+          />
+        </div>
+      </section>
+    </div>
 
     <!-- <section>
       <p class="mt-8">Seleziona un locale:</p>
@@ -76,19 +137,5 @@ const places = usePlaces()
         class="relative"
       />
     </section> -->
-
-    <section
-      v-if="events?.length > 0"
-      class="flex flex-col gap-20 items-center"
-    >
-      <PlacesEventCard
-        v-for="event in events"
-        :key="event?._id"
-        :event="event"
-        :place="places?.find((place) => place?.path === event?.activity?.path)"
-        :show-activity-label="true"
-        :is-collapsable="true"
-      />
-    </section>
   </article>
 </template>

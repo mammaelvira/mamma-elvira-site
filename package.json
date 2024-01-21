@@ -20,9 +20,9 @@
     "@unocss/nuxt": "0.58.3",
     "@vueuse/core": "^10.7.2",
     "@vueuse/nuxt": "^10.7.2",
-    "nuxt": "3.9.2",
+    "nuxt": "^3.9.3",
     "nuxt-typed-router": "^3.5.1",
-    "vue": "^3.4.14",
+    "vue": "^3.4.15",
     "vue-router": "^4.2.5"
   },
   "dependencies": {

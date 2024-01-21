@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     '@nuxtjs/html-validator',
 
     // https://nuxtseo.com/nuxt-seo/
-    // '@nuxtjs/seo',
+    '@nuxtjs/seo',
   ],
 
   css: [
