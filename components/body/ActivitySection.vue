@@ -1,5 +1,20 @@
 <script setup lang="ts">
 const places = usePlaces()
+
+interface ActivityExternal {
+  _id: string
+  name: string
+  payoff?: string
+  colorValue: { hex: string }
+  logo: { _type: string; asset: { _ref: string; _type: string } }
+  link: string
+}
+
+const query = groq`*[_type == 'activitiesExternal'] | order(sortingOrder asc)
+`
+
+const { data: activitiesExternal } =
+  await useSanityQuery<Array<ActivityExternal>>(query)
 </script>
 
 <template>
@@ -29,6 +44,27 @@ const places = usePlaces()
       </NuxtLink>
 
       <a
+        v-for="activity in activitiesExternal"
+        :href="activity?.link"
+        target="_blank"
+        class="activity-card"
+      >
+        <div
+          class="activity-card-shape"
+          :style="`background-color: ${activity.colorValue.hex};`"
+        >
+          <SanityImage
+            :asset-id="activity?.logo?.asset?._ref"
+            auto="format"
+            maxW="640px"
+            fit="clip"
+            class=""
+            :alt="`${activity?.name} logo`"
+          />
+        </div>
+      </a>
+
+      <!-- <a
         href="https://delicatessenlecce.com/"
         target="_blank"
         class="activity-card"
@@ -36,7 +72,7 @@ const places = usePlaces()
         <div class="activity-card-shape bg-me-deepblue">
           <img src="/graphics/delicatessen.svg" alt="Delicatessen Logo" />
         </div>
-      </a>
+      </a> -->
 
       <!-- <div
           :class="`bg-${place?.color}`"
