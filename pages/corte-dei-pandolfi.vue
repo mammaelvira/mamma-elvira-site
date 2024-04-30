@@ -22,8 +22,11 @@ useHead({
       >
         {{ $t('corteDeiPandolfi.title') }}
       </h2>
-      <h3 class="text-center text-lg md:text-2xl text-me-lapis">
+      <h3 class="relative text-center text-lg md:text-2xl text-me-lapis">
         {{ $t('corteDeiPandolfi.subtitle') }}
+        <div class="absolute -right-30 -top-10 bg-me-red text-me-stone uppercase text-3 py-1 px-4 rotate-12 border-rounded border-2 border-black shadow-xl">
+          {{ $t('corteDeiPandolfi.close') }}
+        </div>
       </h3>
     </header>
 

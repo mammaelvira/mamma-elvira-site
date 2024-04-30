@@ -1,9 +1,10 @@
 <template>
   <div class="stripes">
-    <div class="bg-me-red"></div>
-    <div class="bg-me-basil mr-4"></div>
-    <div class="bg-me-lapis mr-8"></div>
-    <div class="bg-me-pink mr-12"></div>
+    <div class="bg-me-rust"></div>
+    <div class="bg-me-red mr-4"></div>
+    <div class="bg-me-yellow mr-8"></div>
+    <div class="bg-me-lapis mr-12"></div>
+    <div class="bg-me-olive mr-16"></div>
   </div>
 </template>
 

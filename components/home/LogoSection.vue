@@ -27,10 +27,10 @@
         >
         <span class="opacity-50">◆</span>
         <NuxtLink to="/casa"><span class="text-me-lapis">casa</span></NuxtLink>
-        <!-- <span class="opacity-40">◆</span>
+        <span class="opacity-40">◆</span>
         <NuxtLink to="/corte-dei-pandolfi">
           <span class="text-me-yellow">corte dei pandolfi</span></NuxtLink
-          > -->
+          >
           <span class="opacity-40">◆</span>
           <NuxtLink to="/enoteca">
             <span class="text-me-red">enoteca</span></NuxtLink

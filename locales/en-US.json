@@ -104,7 +104,8 @@
         "d3": "200 km of coastline to be enjoyed comfortably seated in one of the city's most exclusive squares.",
         "d4": "At the Corte dei Pandolfi you can enjoy fresh oysters accompanied by the tasty Cocktails proposed by our Barman."
       },
-      "payoff": "Oyster House"
+      "payoff": "Oyster House",
+      "close": "Closed for renovation"
     },
 
     // CASA MAMMA ELVIRA

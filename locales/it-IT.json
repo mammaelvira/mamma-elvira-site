@@ -103,7 +103,8 @@
       "d3": "200 km di costa da gustare comodamente seduti in una delle piazze più esclusive della Città.",
       "d4": "Alla Corte dei Pandolfi è possibile assaporare ostriche freschissime accompagnate dai gustosi Cocktail proposti dal nostro Barman."
     },
-    "payoff": "Oyster House"
+    "payoff": "Oyster House",
+    "close": "Chiuso per ristrutturazione"
   },
 
   // CASA MAMMA ELVIRA
