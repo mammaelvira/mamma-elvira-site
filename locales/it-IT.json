@@ -1,11 +1,202 @@
 {
-  "aboutUs": "Chi siamo",
   "eatAndDrink": "Mangiare e bere",
-  "home": "Casa",
   "ourPlaces": "I nostri Locali",
-  "events": "Eventi",
-  "recipes": "Le ricette",
-  "contacts": "Contatti",
 
-  "logoSince": "dal"
+  // HOME
+
+  "logoSince": "dal",
+  "home": {
+    "nav": "Casa Mamma Elvira",
+    "welcome": {
+      "p0": "Siamo felici di condividere con voi la passione per l'enogastronomia, per le bellezze della città di Lecce e le esperienze uniche che offre.",
+      "p1": "Mamma Elvira nelle sue varie espressioni, dall'",
+      "p2": ", alla",
+      "p3": "passando dalla",
+      "p4": "fino ai nostri speciali eventi",
+      "p5": " , non è solo un luogo dove si prepara il cibo, ma è un grande tavolo di condivisione, di raccolta di esperienze, di risate, di racconti.",
+      "catchphrase": "È un luogo dove si passa del tempo insieme, si condividono momenti importanti e si creano ricordi.",
+      "p6": "Lecce è una città unica nel suo genere.",
+      "p7": "Lecce è una città conosciuta nel mondo per la ricchezza architettonica del Barocco e per una cucina raffinata che valorizza al meglio il territorio, con un'ampia varietà di legumi, ortaggi, cereali.",
+      "p8": "Il calore della sua pietra ti avvolge, la sua luce e i suoi colori ti accompagnano lungo i vicoli del Centro Storico, come i profumi di crema pasticcera o di sugo al pomodoro cotto per ore."
+    }
+  },
+
+  // CHI SIAMO
+
+  "aboutUs": {
+    "nav": "Chi siamo",
+    "title": "Racconto di come nasce un progetto di Ristorazione di qualità",
+    "figcaption": {
+      "fig1": "Interno della sala comune della",
+      "fig2": "Casa"
+    },
+    "hero": {
+      "h1": "Il mondo di Mamma Elvira è un tesoro prezioso,",
+      "h2": "nato nel 2011 dalla mente creativa di Andrea Favale.",
+      "h3": "È un mix perfetto di sapori, profumi e ricordi che rimangono impressi nella mente e nel palato per sempre."
+    },
+    "description": {
+      "d1":"La cucina proposta da Mamma Elvira ci insegna l'importanza della tradizione culinaria pugliese e ci fa scoprire lcultura e la storia dell'Italia attraverso i sapori e le ricette tramandate nel tempo.",
+      "d2": "Mamma Elvira è tutto questo: un mondo demozioni, di sapori e di esperienze uniche e irripetibili.",
+      "d3": "Son luoghi dove il cibo viene trasformato in un vero e proprio abbraccio, dove ogni piatto, ogni calice ha una storia da raccontare e dove il tempo sembra rallentare per farci godere il piacere del cibo fatto con amore.",
+      "d4": "Siamo appassionati di gusto e crediamo che il buon cibo e il buon vino siano una forma d'arte che ci permette di esplorare il mondo attraverso il palato.",
+      "d5": "Condividiamo la nostra conoscenza e la nostra esperienza per aiutare tutti a migliorare le proprie abilità culinarie e a scoprire nuovi sapori e piaceri.",
+      "d6": "Mamma Elvira non è però solo ristorazione, ma anche",
+      "d7": " ed",
+      "links": {
+        "l1": "case di villeggiatura",
+        "l2": "eventi",
+        "l3": "esperienze uniche"
+      }
+    }
+  },
+
+  // ENOTECA
+
+  "enoteca": {
+    "title": "Enoteca",
+    "subtitle": "Il piacere di incontrarsi",
+    "description": {
+      "d1": "Dal 2011 l'Enoteca di Mamma Elvira è un punto di riferimento per tutti gli appassionati di vino.",
+      "d2": "I nostri prodotti rappresentano il meglio di quello che la Puglia può offrire in ambito enogastronomico.",
+      "d3": "Grazie alla capacità sviluppata di abbinare alle etichette una selezione di piatti freddi e caldi, vi guideremo in un viaggio immersivo negli autentici sapori pugliesi."
+    },
+    "payoff": "Assaggi di Puglia"
+  },
+
+  // LA CUCINA
+
+  "laCucina": {
+    "title": "La Cucina",
+    "subtitle": "La Mamma è la migliore Cuoca del Mondo!",
+    "description": {
+      "d1": "La Cucina di Mamma Elvira - Osteria Contemporanea è il luogo ideale per vivere l'esperienza culinaria leccese.",
+      "d2": "La cucina salentina e in particolare quella leccese è rinomata per la sua varietà e la sua semplicità.",
+      "d3": "È una cucina basata su ingredienti freschi, locali e di stagione cucinati in modo autentico e genuino.",
+      "d4": "Il menù de La Cucina di Mamma Elvira propone sempre piatti studiati in base ai prodotti stagionali con abbinamenti sorprendenti e innovativi che puntano ad esaltare i sapori.",
+      "d5": "La caratteristica della cucina salentina è quella di avere un'ampia varietà di piatti vegetariani grazie alla ricchezza della campagna circostante.",
+      "d6": "La carta dei Vini e delle Birre è ampia e rappresenta perfettamente il territorio italiano."
+    },
+    "payoff": "Osteria Contemporanea"
+  },
+
+  // 'SCANTE
+
+  "scante": {
+    "title": "'Scante",
+    "subtitle": "A pochi passi dal gusto",
+    "description": {
+      "d1": "'Scante è la nuova esperienza de La Cucina di Mamma Elvira che amplia a pochi passi di distanza le possibilità di sperimentare i sapori autentici della nostra cucina."
+    },
+    "payoff": "Trattoria con Aperitivo"
+  },
+
+  // CORTE DEI PANDOLFI
+
+  "corteDeiPandolfi": {
+    "title": "Corte",
+    "subtitle": "Profumo di mare crudo",
+    "description": {
+      "d1": "La Oyster House di Mamma Elvira, nei pressi del Duomo, dedicata al Pesce e ai Frutti di Mare.",
+      "d2": "Un'esperienza completa tra i sapori delle famose Marine Salentine.",
+      "d3": "200 km di costa da gustare comodamente seduti in una delle piazze più esclusive della Città.",
+      "d4": "Alla Corte dei Pandolfi è possibile assaporare ostriche freschissime accompagnate dai gustosi Cocktail proposti dal nostro Barman."
+    },
+    "payoff": "Oyster House"
+  },
+
+  // CASA MAMMA ELVIRA
+
+  "casaMammaElvira": {
+    "title": "Casa",
+    "subtitle": "Questa casa non è un albergo",
+    "description": {
+      "d1": "Casa Mamma Elvira è il comfort nel cuore di Lecce, nelle immediate vicinanze del Castello Carlo V.",
+      "d2": "È una struttura con Camere, Suite e Appartamenti in grado di accogliere sia gli ospiti che vogliono scoprire le meraviglie della Città del Barocco, sia di chi si trova in Città per lavoro.",
+      "d3": "Gli Appartamenti sono dotati di cucina attrezzata e ampi spazi.",
+      "d4": "Le Camere hanno un design pulito ed elegante con grandi finestre luminose.",
+      "d5": "Le Suite si sviluppano con spazi esclusivi che rappresentano la soluzione ideale per un soggiorno rilassante."
+    },
+    "payoff": "A Casa, lontano da Casa"
+  },
+
+  // PICNIC EXPERIENCE
+
+  "picnic": {
+    "title": "Picnic",
+    "subtitle": {
+      "s1": "Scoprire Lecce, ",
+      "s2": "un Cestino per volta"
+    },
+    "description": {
+      "d1": "Picnic Experience è un'iniziativa nata nel 2021 con la volontà di promuovere il territorio leccese, il suo patrimonio umano, storico ed artistico.",
+      "d2": "La location è il Parco Archeologico di Rudiae con il suggestivo Anfiteatro Romano che fa da cornice alle serate dal 2021.",
+      "d3": "Per il 2023, le serate Picnic Experience si terranno tutti i martedì, a partire dal 18 luglio e fino al 12 settembre.",
+      "d4": "Alle visite guidate seguono eventi di musica, Dj Set, Performance, Poesia Improvvisazione e Cinema, con un immancabile Cestino Picnic preparato da Mamma Elvira e il Vino delle migliori Cantine locali.",
+      "d5": "è fruibile grazie ad un accordo di promozione e valorizzazione stipulato tra la",
+      "d6": " e ",
+      "d7": "- spin off ",
+      "d8": "in collaborazione con il"
+    },
+    "payoff": "Picnic Experience",
+    "links": {
+      "l1": "il Parco Archeologico Rudiae",
+      "l2": "Soprintendenza archeologia belle arti e paesaggio Brindisi e Lecce",
+      "l3": "Archeologia Ricerca e Valorizzazione SRL - A.R.Va",
+      "l4": "Unisalento",
+      "l5": "Comune di Lecce"
+    }
+  },
+
+  // BOTTONI e CARDS
+
+  "prenotation": {
+      "title": "Prenota un tavolo",
+      "online": "Prenota Online",
+      "phone": "Chiama",
+      "email": "Scrivi una mail"
+  },
+
+  "menu": {
+    "title": "Scopri la nostra offerta:",
+    "button": "Consulta il menù"
+  },
+  "archive": "Archivio eventi passati di",
+  "upcoming": "Prossimi eventi di ",
+  "formulas": "Le formule di ",
+  "info": "Informazioni",
+  "share": "Condividi",
+  "download": "Scarica il programma 2023",
+
+  // EVENTI
+
+  "events": {
+    "nav": "Eventi",
+    "title": "Gli Eventi",
+    "subtitle": "Vivere Lecce, i ritmi, le tradizioni, le sperimentazioni",
+    "upcoming": "I prossimi Eventi",
+    "past": "Archivio eventi passati"
+  },
+
+  // RECEIPS
+
+"recipes": {
+  "title":"Le ricette",
+  "subtitle":"I segreti della Mamma in cucina",
+},
+
+// CONTATTI
+"contacts": {
+  "nav": "Contatti",
+  "title": "Contattaci",
+  "subtitle": "Scopri tutte le attività di Mamma Elvira"
+},
+
+  // PRIVACY
+
+  "privacy": {
+    "description": "Obblighi informativi per le erogazioni pubbliche: gli aiuti di Stato e gli aiuti de minimis ricevuti dalla nostra impresa sono contenuti nel Registro Nazionale degli aiuti di Stato di cui all'art.52 della L.234/2012 a cui si rinvia e consultabili al seguente link:",
+    "link": "Registro Nazionale Trasparenza"
+  }
 }
+

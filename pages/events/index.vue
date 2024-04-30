@@ -52,10 +52,14 @@ const pastEvents = computed(() =>
         <h1
           class="inline font-serif text-4xl md:text-5xl text-center border-b-2 border-me-mint pb-2"
         >
-          Gli Eventi
+          {{
+            $t('events.title')
+          }}
         </h1>
         <h2 class="text-center text-lg md:text-2xl text-me-lapis">
-          Vivere Lecce, i ritmi, le tradizioni, le sperimentazioni
+          {{
+            $t('events.subtitle')
+          }}
         </h2>
       </header>
     </section>
@@ -65,7 +69,9 @@ const pastEvents = computed(() =>
         <h3
           class="inline font-serif text-3xl md:text-4xl text-center border-b-2 border-me-mint pb-2"
         >
-          I prossimi Eventi
+          {{
+            $t('events.upcoming')
+          }}
         </h3>
         <div class="flex flex-col gap-20 items-center mt-12">
           <PlacesEventCard
@@ -85,7 +91,9 @@ const pastEvents = computed(() =>
         <h3
           class="inline font-serif text-3xl md:text-4xl text-center border-b-2 border-me-mint pb-2"
         >
-          Archivio eventi passati
+          {{
+            $t('events.past')
+          }}
         </h3>
         <div
           v-if="events && events?.length > 0"

@@ -24,31 +24,23 @@ useHead({
     </header>
 
     <p>
-      <span>La Cucina di Mamma Elvira</span> - Osteria Contemporanea è il luogo
-      ideale per vivere l'esperienza culinaria leccese.
+      {{ $t('laCucina.description.d1') }}
     </p>
     <p>
-      La cucina salentina e in particolare quella leccese è rinomata per la sua
-      varietà e la sua semplicità.
+      {{ $t('laCucina.description.d2') }}
     </p>
     <p>
-      È una cucina basata su ingredienti freschi, locali e di stagione cucinati
-      in modo autentico e genuino.
+      {{ $t('laCucina.description.d3') }}
     </p>
     <p>
-      Il menù de <span>La Cucina di Mamma Elvira</span> propone sempre piatti
-      studiati in base ai prodotti stagionali con abbinamenti sorprendenti e
-      innovativi che puntano ad esaltare i sapori.
+      {{ $t('laCucina.description.d4') }}
     </p>
     <p>
-      La caratteristica della cucina salentina è quella di avere un'ampia
-      varietà di piatti vegetariani grazie alla ricchezza della campagna
-      circostante.
+      {{ $t('laCucina.description.d5') }}
     </p>
 
     <p>
-      La carta dei Vini e delle Birre è ampia e rappresenta perfettamente il
-      territorio italiano.
+      {{ $t('laCucina.description.d6') }}
     </p>
 
     <template v-slot:place-image>

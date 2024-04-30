@@ -24,7 +24,7 @@ const { data: activitiesExternal } =
     <nav
       class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 auto-rows-fr"
     >
-      <NuxtLink
+      <!-- <NuxtLink
         :to="place.path"
         v-for="place in places"
         :key="place?.path?.replace('/', '')"
@@ -41,7 +41,8 @@ const { data: activitiesExternal } =
             class="h-full w-full"
           />
         </div>
-      </NuxtLink>
+      </NuxtLink> -->
+      <!-- Developed by BeeBest replaced with card injection by Sanity -->
 
       <a
         v-for="activity in activitiesExternal"

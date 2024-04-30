@@ -58,8 +58,7 @@ const percentageOfScreenHeigthScrolled = computed(
           è sempre la Mamma"
         </h1>
         <h2 class="text-center text-lg md:text-2xl text-me-lapis">
-          Racconto di come nasce un progetto<br class="md:hidden" />
-          di Ristorazione di qualità
+          {{ $t('aboutUs.title') }}
         </h2>
       </header>
 
@@ -71,8 +70,10 @@ const percentageOfScreenHeigthScrolled = computed(
             class="w-full h-full"
           />
           <figcaption class="text-sm text-right pt-2">
-            Interno della sala comune della
-            <NuxtLink to="/casa" class="underline text-me-lapis">Casa</NuxtLink>
+            {{ $t('aboutUs.figcaption.fig1') }}
+            <NuxtLink to="/casa" class="underline text-me-lapis">
+              {{ $t('aboutUs.figcaption.fig2') }}
+            </NuxtLink>
           </figcaption>
         </figure>
 
@@ -80,14 +81,12 @@ const percentageOfScreenHeigthScrolled = computed(
           class="md:max-w-128 h-full md:pl-8 md:rounded-tr-full border-me-lapis md:border-t md:border-r flex flex-col md:justify-end gap-6 items-center md:shadow-inner"
         >
           <p class="text-right md:text-left md:pr-16">
-            <span class="font-serif">Il mondo di Mamma Elvira</span> è un tesoro
-            prezioso,
+            {{ $t('aboutUs.hero.h1') }}
             <br />
-            nato nel 2011 dalla mente creativa di Andrea Favale.
+            {{ $t('aboutUs.hero.h2') }}
           </p>
           <p class="md:pr-4 lg-:pr-8 lg:pt-16">
-            È un mix perfetto di sapori, profumi e ricordi che rimangono
-            impressi nella mente e nel palato per sempre.
+            {{ $t('aboutUs.hero.h3') }}
           </p>
         </div>
 
@@ -123,6 +122,39 @@ const percentageOfScreenHeigthScrolled = computed(
 
       <section class="pt-8 md:pt-0 md:-mt-16">
         <div class="flex flex-col gap-6 items-center">
+          <p>
+            {{ $t('aboutUs.description.d1') }}
+          </p>
+
+          <p class="text-right">
+            {{ $t('aboutUs.description.d2') }}
+            <br />
+            {{ $t('aboutUs.description.d3') }}
+          </p>
+
+          <p>
+            {{ $t('aboutUs.description.d4') }}
+          </p>
+
+          <p class="text-right">
+            {{ $t('aboutUs.description.d5') }}
+          </p>
+          <p>
+            {{ $t('aboutUs.description.d6') }}
+            <NuxtLink to="/casa" class="underline text-me-lapis">
+              {{ $t('aboutUs.description.links.l1') }}
+            </NuxtLink>, 
+            <NuxtLink to="/events" class="underline">
+              {{ $t('aboutUs.description.links.l2') }}
+            </NuxtLink>
+            {{ $t('aboutUs.description.d7') }}
+            <NuxtLink to="/picnic-experience" class="underline text-me-lavender">
+              {{ $t('aboutUs.description.links.l3') }}
+            </NuxtLink>.
+          </p>
+        </div>
+
+        <!--<div class="flex flex-col gap-6 items-center">
           <p>
             La cucina proposta da
             <span class="font-serif">Mamma Elvira</span> ci insegna l'importanza
@@ -172,7 +204,8 @@ const percentageOfScreenHeigthScrolled = computed(
               >esperienze uniche</NuxtLink
             >.
           </p>
-        </div>
+        </div> -->
+
       </section>
     </section>
 

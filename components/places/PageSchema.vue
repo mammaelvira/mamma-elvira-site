@@ -23,7 +23,7 @@ const place = places.find((place) =>
           </div>
           <div class="mt-6 -ml-4">
             <h2 class="inline border-t-4 border-me-stone pl-4 pt-3 italic">
-              {{ place?.payoff }}
+              {{ $t(place?.payoff) }}
             </h2>
           </div>
         </header>
@@ -60,23 +60,24 @@ const place = places.find((place) =>
             <!-- BOOKING ACTIONS -->
             <li>
               <h3 v-if="place?.menuUrl" class="font-title">
-                Prenota un tavolo:
+                {{ $t('prenotation.title') }}
+                :
               </h3>
               <!-- Online booking ACTIVE -->
               <div v-if="place?.bookingUrl" class="flex gap-6">
                 <a
                   :href="place?.bookingUrl"
                   class="call-to-action"
-                  :class="`bg-${place?.color}`"
-                  >Prenota Online</a
-                >
+                  :class="`bg-${place?.color}`">
+                  {{ $t('prenotation.online') }}
+                </a>
 
                 <a
                   :href="`tel:${place?.telephone}`"
                   class="call-to-action-outline"
-                  :class="`border-${place?.color}`"
-                  >Chiama</a
-                >
+                  :class="`border-${place?.color}`">
+                  {{ $t('prenotation.phone') }}
+                  </a>
               </div>
               <!-- Online booking NOT ACTIVE -->
               <div v-else class="flex gap-6">
@@ -84,29 +85,33 @@ const place = places.find((place) =>
                   <a
                     :href="`tel:${place?.telephone}`"
                     class="call-to-action"
-                    :class="`bg-${place?.color}`"
-                    >Chiama</a
-                  >
+                    :class="`bg-${place?.color}`">
+                    {{ $t('prenotation.phone') }}
+                  </a>
 
                   <a
                     :href="`mailto:${place?.email}`"
                     class="call-to-action-outline"
-                    :class="`border-${place?.color}`"
-                    >Scrivi una mail</a
-                  >
+                    :class="`border-${place?.color}`">
+                    {{ $t('prenotation.email') }}
+                    </a>
                 </div>
               </div>
             </li>
 
             <!-- MENU ACTION -->
             <li v-if="place?.menuUrl" class="mt-4">
-              <h3 class="font-title">Scopri la nostra offerta:</h3>
+              <h3 class="font-title">
+                {{ $t('menu.title') }}:
+              </h3>
               <a
                 :href="place?.menuUrl"
                 class="call-to-action"
                 :class="`bg-${place.color}`"
                 target="_blank"
-                >Consulta il menù</a
+                >
+                {{ $t('menu.button') }}
+                </a
               >
             </li>
 
@@ -156,7 +161,10 @@ const place = places.find((place) =>
     <section v-if="place?.path?.includes('picnic')" class="mt-8">
       <header>
         <h4 class="font-serif text-2xl">
-          Le formule di <br />
+          {{
+            $t('formulas')
+          }}
+          <br />
           <span class="flex items-center gap-2">
             <span :class="`${place?.iconClass} text-${place?.color}`"></span>
             <span

@@ -24,7 +24,7 @@ const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
             <!-- ABOUT US -->
             <li>
               <NuxtLink to="/about-us" class="hover:underline">{{
-                $t('aboutUs')
+                $t('aboutUs.nav')
               }}</NuxtLink>
             </li>
 
@@ -36,23 +36,23 @@ const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
 
             <li>
               <NuxtLink to="/casa" class="hover:underline">{{
-                $t('home')
+                $t('home.nav')
               }}</NuxtLink>
             </li>
             <li>
               <NuxtLink to="/events" class="hover:underline">{{
-                $t('events')
+                $t('events.nav')
               }}</NuxtLink>
             </li>
             <li>
               <NuxtLink to="/recipes" class="hover:underline">{{
-                $t('recipes')
+                $t('recipes.title')
               }}</NuxtLink>
             </li>
 
             <li>
               <NuxtLink to="/contacts" class="hove(r:underline">{{
-                $t('contacts')
+                $t('contacts.nav')
               }}</NuxtLink>
             </li>
           </ul>
@@ -60,8 +60,8 @@ const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
       </li>
 
       <li class="flex gap-6 items-start">
-        <!-- <BodyLanguageSwitcher /> -->
-        <button
+        <BodyLanguageSwitcher />
+        <!-- <button
           type="button"
           :aria-label="
             isFullscreen ? 'exit fullscreen mode' : 'enter fullscreen mode'
@@ -78,7 +78,7 @@ const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
           class="hidden lg:flex"
         >
           {{ isFullscreen ? 'exit fullscreen' : 'enter fullscreen' }}
-        </button>
+        </button> -->
         <BodyMenuModal class="lg:hidden -mt-3" />
       </li>
     </ul>

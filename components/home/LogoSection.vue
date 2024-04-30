@@ -15,9 +15,9 @@
       <div class="grid grid-cols-3 gap-3 items-center text-center font-logo">
         <h2 class="pt-6">a Lecce</h2>
         <img
-          src="~/assets/graphics/logo/mammaelvira-logo_head-glyph_lapis.svg"
+          src="~/assets/graphics/logo/home_cameo_mammaelvira.svg"
           alt="Glifo Mamma Elvira"
-          class="w-16 mt-4"
+          class="w-25 mt-4"
         />
         <h3 class="pt-6">{{ $t('logoSince') }} 2011</h3>
       </div>

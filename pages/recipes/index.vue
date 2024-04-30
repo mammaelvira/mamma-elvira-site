@@ -12,19 +12,25 @@ useHead({
 const query = useQueryRecipes()
 
 const { data: recipes } = await useSanityQuery(query)
+
+// console.log('Titolo prima ricetta:', recipes._rawValue[0].description.forEach(element => {
+//   element.children.forEach(child => {
+//     console.log(child.text)
+//   })
+// }));
+// TODO: TESTI RICETTE DA TRADURRE PRESI DA SANITY
+
 </script>
 
 <template>
   <article class="mt-6">
     <section class="mt-4 mb-12 flex flex-col">
       <header class="flex flex-col items-center">
-        <h1
-          class="inline font-serif text-4xl md:text-5xl text-center border-b-2 border-me-mint pb-2"
-        >
-          Le ricette
+        <h1 class="inline font-serif text-4xl md:text-5xl text-center border-b-2 border-me-mint pb-2">
+          {{ $t('recipes.title') }}
         </h1>
         <h2 class="text-center text-lg md:text-2xl text-me-lapis">
-          I segreti della Mamma in cucina
+          {{ $t('recipes.subtitle') }}
         </h2>
       </header>
     </section>

@@ -17,10 +17,10 @@ useHead({
         <h1
           class="inline font-serif text-4xl md:text-5xl text-center border-b-2 border-me-mint pb-2"
         >
-          Contattaci
+          {{ $t('contacts.title') }}
         </h1>
         <h2 class="text-center text-lg md:text-2xl text-me-lapis">
-          Scopri tutte le attività di Mamma Elvira
+          {{ $t('contacts.subtitle') }}
         </h2>
       </header>
     </section>
