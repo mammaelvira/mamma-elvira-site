@@ -4,7 +4,6 @@
     <div class="bg-me-lapis"></div>
     <div class="bg-me-yellow"></div>
     <div class="bg-me-red"></div>
-    <div class="bg-me-rust"></div>
   </div>
 </template>
 

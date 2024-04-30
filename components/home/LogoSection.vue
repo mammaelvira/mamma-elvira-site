@@ -21,15 +21,15 @@
         />
         <h3 class="pt-6">{{ $t('logoSince') }} 2011</h3>
       </div>
-      <h4 class="flex gap-2 mt-6 font-bold uppercase s-text-m flex-wrap">
+      <h4 class="flex gap-2 mt-6 font-bold uppercase text-sm flex-wrap">
         <NuxtLink to="/la-cucina"
-        ><span class="text-me-olive">la cucina</span></NuxtLink
+        ><span class="text-me-olive">cucina</span></NuxtLink
         >
         <span class="opacity-50">◆</span>
         <NuxtLink to="/casa"><span class="text-me-lapis">casa</span></NuxtLink>
         <span class="opacity-40">◆</span>
         <NuxtLink to="/corte-dei-pandolfi">
-          <span class="text-me-yellow">corte dei pandolfi</span></NuxtLink
+          <span class="text-me-yellow">corte</span></NuxtLink
           >
           <span class="opacity-40">◆</span>
           <NuxtLink to="/enoteca">
@@ -37,7 +37,7 @@
           >
           <span class="opacity-40">◆</span>
           <NuxtLink to="/scante">
-            <span class="text-me-rust">'scante</span></NuxtLink
+            <span class="text-me-grey">'scante</span></NuxtLink
           >
         <!-- <span class="opacity-40">+</span>
         <NuxtLink to="/picnic-experience"
