@@ -56,9 +56,9 @@
       <div class="flex justify-between items-end">
         <div class="flex gap-2 items-center">
           <img
-            src="~/assets/graphics/logo/mammaelvira-logo_head-glyph.svg"
+            src="~/assets/graphics/logo/home_cameo_mammaelvira.svg"
             alt="Glifo Mamma Elvira"
-            class="h-7"
+            class="h-15"
           />
           <div class="text-xs">
             <p>MammaElvira.com</p>
