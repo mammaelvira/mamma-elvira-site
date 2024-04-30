@@ -4,15 +4,14 @@ const body = ref()
 // const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
 
 function controlWindowWidth() {
-  const windowWidth = ref(window.innerWidth)
-  window.addEventListener('resize', () => {
-    windowWidth.value = window.innerWidth
-  })
-  console.log(windowWidth)
-  return windowWidth
+    if (typeof window != 'undefined') {
+      const windowWidth = ref(window.innerWidth)
+      window.addEventListener('resize', () => {
+        windowWidth.value = window.innerWidth
+      })
+      return windowWidth.value
+    }
 }
-
-
 
 </script>
 
@@ -23,15 +22,15 @@ function controlWindowWidth() {
     <ul class="flex justify-between items-start gap-8">
 
       <li>
-        <NuxtLink v-if="controlWindowWidth().value >= 768" to="/" id="home-link" class="font-logo" >
+        <NuxtLink v-if="controlWindowWidth() >= 768" to="/" id="home-link" class="font-logo" >
           <img
-            src="~/assets/graphics/logo/mammaelvira-logo_text_rect_alt_01.svg"
+            src="~/assets/graphics/logo/mammaelvira_logo_2024.svg"
             alt="Logo Mamma Elvira"
             class="h-12"
           />
         </NuxtLink>
 
-        <BodyLanguageSwitcher v-if="controlWindowWidth().value <= 768" />
+        <BodyLanguageSwitcher v-if="controlWindowWidth() < 768" />
       </li>
 
       <li class="flex gap-6">
@@ -77,7 +76,7 @@ function controlWindowWidth() {
 
       
       <li class="flex gap-6 items-start">
-        <BodyLanguageSwitcher v-if="controlWindowWidth().value >= 768" />
+        <BodyLanguageSwitcher v-if="controlWindowWidth() > 768" />
         <!-- <button
           type="button"
           :aria-label="

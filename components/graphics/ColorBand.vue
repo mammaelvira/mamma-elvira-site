@@ -1,9 +1,9 @@
 <template>
   <div class="color-band">
-    <div class="bg-me-red"></div>
-    <div class="bg-me-basil"></div>
+    <div class="bg-me-olive"></div>
     <div class="bg-me-lapis"></div>
-    <div class="bg-me-pink"></div>
+    <div class="bg-me-yellow"></div>
+    <div class="bg-me-red"></div>
   </div>
 </template>
 
