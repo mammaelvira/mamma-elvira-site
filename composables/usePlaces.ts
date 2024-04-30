@@ -129,7 +129,7 @@ export default (): PageDetails[] => [
   {
     name: 'Casa Mamma Elvira',
     path: '/casa',
-    payoff: 'casa.payoff',
+    payoff: 'casaMammaElvira.payoff',
     place: 'Il Castello',
     iconClass: 'i-game-icons-bed',
     color: 'me-lapis',
