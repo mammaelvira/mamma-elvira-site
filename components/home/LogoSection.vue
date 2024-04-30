@@ -21,7 +21,7 @@
         />
         <h3 class="pt-6">{{ $t('logoSince') }} 2011</h3>
       </div>
-      <h4 class="flex gap-2 mt-6 font-bold uppercase text-sm flex-wrap">
+      <h4 class="flex gap-2 mt-6 font-bold uppercase text-sm flex-wrap justify-center">
         <NuxtLink to="/la-cucina"
         ><span class="text-me-olive">cucina</span></NuxtLink
         >

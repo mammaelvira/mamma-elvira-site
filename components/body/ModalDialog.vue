@@ -20,9 +20,9 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
         </figure>
         <figure>
           <img
-            src="~/assets/graphics/logo/mammaelvira-logo_head-glyph_stone.svg"
+            src="~/assets/graphics/logo/home_cameo_mammaelvira.svg"
             alt="Mamma Elvira glifo"
-            class="h-8"
+            class="h-10"
           /></figure
       ></NuxtLink>
       <button
