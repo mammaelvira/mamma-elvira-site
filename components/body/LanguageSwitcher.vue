@@ -6,6 +6,7 @@ const availableLocales = computed(
   () => locales.value?.filter((lang) => lang.code !== locale.value),
 );
 
+//aggiorno
 
 </script>
 
