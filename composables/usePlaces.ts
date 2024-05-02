@@ -134,7 +134,7 @@ export default (): PageDetails[] => [
     iconClass: 'i-game-icons-bed',
     color: 'me-lapis',
     videoUrl:
-      'https://dbxquyucxdrdmodeinnw.supabase.co/storage/v1/object/sign/mammaelvira-cdn/videos/me_la-casa_balcony-coffee.mp4?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJtYW1tYWVsdmlyYS1jZG4vdmlkZW9zL21lX2xhLWNhc2FfYmFsY29ueS1jb2ZmZWUubXA0IiwiaWF0IjoxNjgxMjI2NjMyLCJleHAiOjE3MTI3NjI2MzJ9.0_rULr4yY05xH9YfkL-WPxsgXrhpVP5SWUFYXEjVWJ8&t=2023-04-11T15%3A23%3A52.497Z',
+      'https://zvvmjgoompnusglgfkyy.supabase.co/storage/v1/object/public/Videos/me_la-casa_balcony-coffee.mp4',
     telephone: '+393491225063',
     email: 'casa@mammaelvira.com',
     address: {
