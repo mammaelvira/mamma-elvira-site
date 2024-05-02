@@ -18,8 +18,7 @@
           <span
             class="absolute -right-5 -top-2 bg-me-laterizio text-me-stone text-xs px-1 rotate-12"
             >new</span
-          ></NuxtLink
-        >
+          ></NuxtLink>
       </div>
       <div>
         <div class="i-custom:corte-dei-pandolfi text-me-yellow"></div>
@@ -57,9 +56,9 @@
       <div class="flex justify-between items-end">
         <div class="flex gap-2 items-center">
           <img
-            src="~/assets/graphics/logo/mammaelvira-logo_head-glyph.svg"
+            src="~/assets/graphics/logo/home_cameo_mammaelvira.svg"
             alt="Glifo Mamma Elvira"
-            class="h-7"
+            class="h-15"
           />
           <div class="text-xs">
             <p>MammaElvira.com</p>
@@ -74,15 +73,13 @@
     </section>
     <section class="mt-8 text-xs">
       <p>
-        Obblighi informativi per le erogazioni pubbliche: gli aiuti di Stato e
-        gli aiuti de minimis ricevuti dalla nostra impresa sono contenuti nel
-        Registro Nazionale degli aiuti di Stato di cui all'art.52 della
-        L.234/2012 a cui si rinvia e consultabili al seguente link:
+        {{ $t('privacy.description') }}
         <a
           href="https://www.rna.gov.it/RegistroNazionaleTrasparenza/faces/pages/TrasparenzaAiuto.jspx"
           target="_blank"
-          class="underline text-me-mint"
-          >Registro Nazionale Trasparenza</a
+          class="underline text-me-mint">
+          {{ $t('privacy.link') }}
+          </a
         >
       </p>
     </section>

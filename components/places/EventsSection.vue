@@ -5,8 +5,10 @@ const route = useRoute()
 const places = usePlaces()
 
 const place = computed(() =>
-  places.find((place) => place.path === route.fullPath),
+  places.find((place) => place.path.split('/').at(-1) === route.fullPath.split('/').at(-1)
+),
 )
+
 
 const query = useQueryEvents()
 
@@ -14,14 +16,18 @@ const { data: events } =
   await useSanityQuery<Array<MammaElviraSanityEvent>>(query)
 
 const activityEvents = computed(() =>
-  events?.value?.filter((event) => event?.activity?.path === route.fullPath),
+  events?.value?.filter((event) => event?.activity?.path.split('/').at(-1) === route.fullPath.split('/').at(-1)),
 )
+
+
 
 const futureActivityEvents = computed(() =>
   activityEvents?.value?.filter(
     (event) => new Date(event.datetimeEnd).getTime() > new Date().getTime(),
   ),
 )
+
+
 const pastActivityEvents = computed(() =>
   activityEvents?.value
     ?.filter(
@@ -29,6 +35,8 @@ const pastActivityEvents = computed(() =>
     )
     .reverse(),
 )
+
+
 
 const otherActivitiesEvents = computed(() =>
   events?.value?.filter((event) => event?.activity?.path !== route.fullPath),
@@ -43,7 +51,10 @@ const otherActivitiesEvents = computed(() =>
     >
       <header>
         <h3 class="font-serif text-2xl">
-          Prossimi eventi di <br />
+          {{
+             $t('upcoming')
+          }}
+          <br />
           <span class="flex items-center gap-2">
             <span
               :class="`${place?.iconClass}`"
@@ -79,7 +90,10 @@ const otherActivitiesEvents = computed(() =>
     >
       <header>
         <h3 class="font-serif text-2xl">
-          Archivio eventi passati di <br />
+          {{
+             $t('archive')
+          }}
+          <br />
           <span class="flex items-center gap-2">
             <span
               :class="`${place?.iconClass}`"

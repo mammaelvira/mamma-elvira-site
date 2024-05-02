@@ -16,41 +16,30 @@ useHead({
       <h2
         class="inline font-serif text-4xl md:text-5xl text-center border-b-2 border-me-mint pb-2"
       >
-        Casa
+        {{ $t('casaMammaElvira.title') }}
       </h2>
       <h3 class="text-center text-lg md:text-2xl text-me-lapis">
-        Questa Casa non è un albergo
+        {{ $t('casaMammaElvira.subtitle') }}
       </h3>
     </header>
 
     <p>
-      <span>Casa Mamma Elvira</span> è il comfort nel cuore di Lecce, nelle
-      immediate vicinanze del
-      <a
-        class="underline"
-        href="https://it.wikipedia.org/wiki/Castello_di_Lecce"
-        >Castello Carlo V</a
-      >.
+      {{ $t('casaMammaElvira.description.d1') }}
     </p>
 
     <p>
-      È una struttura con Camere, Suite e Appartamenti in grado di accogliere
-      sia gli ospiti che vogliono scoprire le meraviglie della Città del
-      Barocco, sia di chi si trova in Città per lavoro.
+      {{ $t('casaMammaElvira.description.d2') }}
     </p>
 
     <p>
-      Gli <span>Appartamenti</span> sono dotati di cucina attrezzata e ampi
-      spazi.
+      {{ $t('casaMammaElvira.description.d3') }}
     </p>
     <p>
-      Le <span>Camere</span> hanno un design pulito ed elegante con grandi
-      finestre luminose.
+      {{ $t('casaMammaElvira.description.d4') }}
     </p>
 
     <p>
-      Le <span>Suite</span> si sviluppano con spazi esclusivi che rappresentano
-      la soluzione ideale per un soggiorno rilassante.
+      {{ $t('casaMammaElvira.description.d5') }}
     </p>
 
     <p>

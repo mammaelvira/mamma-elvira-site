@@ -1,3 +1,4 @@
+
 export interface PageDetails {
   name: string
   nameShort?: string
@@ -35,7 +36,7 @@ export default (): PageDetails[] => [
     name: 'Mamma Elvira Enoteca',
     nameShort: 'Enoteca',
     path: '/enoteca',
-    payoff: 'Assaggi di Puglia',
+    payoff: 'enoteca.payoff',
     color: 'me-red',
     place: 'Santa Croce',
     iconClass: 'i-game-icons-wine-bottle',
@@ -58,7 +59,7 @@ export default (): PageDetails[] => [
   {
     name: 'La Cucina di Mamma Elvira',
     path: '/la-cucina',
-    payoff: 'Osteria Contemporanea',
+    payoff: 'laCucina.payoff',
     place: 'Il Castello',
     iconClass: 'i-game-icons-fork-knife-spoon',
     color: 'me-olive',
@@ -83,7 +84,7 @@ export default (): PageDetails[] => [
   {
     name: "'Scante",
     path: '/scante',
-    payoff: 'Trattoria con Aperitivo',
+    payoff: 'scante.payoff',
     place: 'Il Castello',
     iconClass: 'i-game-icons-fork-knife-spoon',
     color: 'me-laterizio',
@@ -106,7 +107,7 @@ export default (): PageDetails[] => [
   {
     name: 'Corte dei Pandolfi',
     path: '/corte-dei-pandolfi',
-    payoff: 'Oyster House',
+    payoff: 'corteDeiPandolfi.payoff',
     place: 'Il Duomo',
     iconClass: 'i-custom:corte-dei-pandolfi',
     color: 'me-yellow',
@@ -128,7 +129,7 @@ export default (): PageDetails[] => [
   {
     name: 'Casa Mamma Elvira',
     path: '/casa',
-    payoff: 'A Casa, lontano da Casa',
+    payoff: 'casaMammaElvira.payoff',
     place: 'Il Castello',
     iconClass: 'i-game-icons-bed',
     color: 'me-lapis',
@@ -151,7 +152,7 @@ export default (): PageDetails[] => [
   {
     name: 'Picnic Experience Lecce',
     path: '/picnic-experience',
-    payoff: 'Parco Archeologico di Rudiae',
+    payoff: 'picnic.payoff',
     place: '',
     iconClass: 'i-game-icons-basket',
     color: 'me-lavender',

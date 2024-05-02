@@ -430,7 +430,9 @@ const showBookingOptions = ref(false)
             :class="`bg-${place?.color}`"
           >
             <span class="i-ph-info-fill"></span>
-            <span> Informazioni</span>
+            <span> 
+              {{ $t('info') }}
+            </span>
           </button>
 
           <button
@@ -441,7 +443,9 @@ const showBookingOptions = ref(false)
             :class="`border-${place?.color}`"
           >
             <span class="i-radix-icons-share-2"></span>
-            <span>Condividi</span>
+            <span>
+              {{ $t('share') }}
+            </span>
           </button>
         </div>
 

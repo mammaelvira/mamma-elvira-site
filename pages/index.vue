@@ -25,16 +25,51 @@ useSeoMeta({
 
     <section>
       <div class="my-8 flex flex-col gap-6 items-center">
-        <p>
+          <p>{{ $t('home.welcome.p0') }}
+          </p>
+        <!-- 
+          
+          <p>
+            NOTE: This is the original text from the template. FOR SEO
           Siamo felici di condividere con voi la passione per l'<span
             class="font-bold"
             >enogastronomia</span
           >, per le bellezze della città di
           <span class="font-bold">Lecce</span> e le
           <span class="font-bold">esperienze uniche</span> che offre.
-        </p>
+        </p> -->
 
         <p>
+          {{ $t('home.welcome.p1') }}
+         <NuxtLink
+            to="/enoteca"
+            class="underline text-me-red"
+            >Enoteca</NuxtLink
+          >
+          {{ $t('home.welcome.p2') }}
+          <NuxtLink to="/la-cucina" class="underline text-me-olive">
+            Cucina</NuxtLink
+          >
+          {{ $t('home.welcome.p2') }}
+          <NuxtLink to="/corte-dei-pandolfi" class="underline text-me-peach">
+            Corte
+          </NuxtLink>
+          {{ $t('home.welcome.p3') }}
+          <NuxtLink to="/casa" class="underline text-me-lapis">
+             Casa
+          </NuxtLink>
+          {{ $t('home.welcome.p4') }}
+          <NuxtLink to="/picnic-experience" class="underline text-me-lavender">
+            Picnic
+          </NuxtLink>
+          {{ $t('home.welcome.p5') }}
+        </p>
+
+        <p class="text-right">
+          {{ $t('home.welcome.catchphrase') }}
+        </p>
+       
+        <!-- <p>
           <span class="font-serif">Mamma Elvira</span> nelle sue varie
           espressioni, dall'<NuxtLink
             to="/enoteca"
@@ -65,7 +100,8 @@ useSeoMeta({
           <span class="font-bold">tempo</span> insieme, si condividono
           <span class="font-bold">momenti</span> importanti e si creano
           <span class="font-bold">ricordi</span>.
-        </p>
+        </p> -->
+
       </div>
     </section>
 
@@ -81,6 +117,19 @@ useSeoMeta({
 
     <section class="pb-8">
       <div class="mt-8 flex flex-col gap-6 items-center">
+        <p class="text-right">
+          {{ $t('home.welcome.p6') }}
+        </p>
+        <p>
+          {{ $t('home.welcome.p7') }}
+        </p>
+
+        <p>
+          {{ $t('home.welcome.p8') }}
+        </p>
+      </div>
+
+      <!-- <div class="mt-8 flex flex-col gap-6 items-center">
         <p class="text-right">
           <span class="font-serif">Lecce</span> è una città unica nel suo
           genere.
@@ -100,7 +149,7 @@ useSeoMeta({
           del Centro Storico, come i <span class="font-bold">profumi</span> di
           crema pasticcera o di sugo al pomodoro cotto per ore.
         </p>
-      </div>
+      </div> -->
     </section>
 
     <BodyActivitySection />

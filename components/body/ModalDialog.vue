@@ -20,9 +20,9 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
         </figure>
         <figure>
           <img
-            src="~/assets/graphics/logo/mammaelvira-logo_head-glyph_stone.svg"
+            src="~/assets/graphics/logo/home_cameo_mammaelvira.svg"
             alt="Mamma Elvira glifo"
-            class="h-8"
+            class="h-10"
           /></figure
       ></NuxtLink>
       <button
@@ -37,10 +37,10 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
     <nav
       class="mt-6 h-11/12 flex flex-col justify-between text-me-stone font-title text-3xl text-shadow"
     >
-      <NuxtLink to="/about-us" @click="modalToggle">Chi siamo</NuxtLink>
+      <NuxtLink to="/about-us" @click="modalToggle">{{ $t('aboutUs.nav') }}</NuxtLink>
 
       <div class="flex flex-col">
-        <button class="inline-flex">Mangiare e bere</button>
+        <button class="inline-flex">{{ $t('eatAndDrink')}}</button>
         <ul class="mt-4 text-xl flex flex-col gap-6">
           <li>
             <div class="bg-me-red"></div>
@@ -84,11 +84,11 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
 
       <NuxtLink to="/casa" @click="modalToggle">La Casa</NuxtLink>
 
-      <NuxtLink to="/events" @click="modalToggle">Eventi</NuxtLink>
+      <NuxtLink to="/events" @click="modalToggle">{{ $t('events.nav')}}</NuxtLink>
 
-      <NuxtLink to="/recipes" @click="modalToggle">Le ricette</NuxtLink>
+      <NuxtLink to="/recipes" @click="modalToggle">{{ $t('recipes.title')}}</NuxtLink>
 
-      <NuxtLink to="/contacts" @click="modalToggle">Contatti</NuxtLink>
+      <NuxtLink to="/contacts" @click="modalToggle">{{ $t('contacts.nav')}}</NuxtLink>
     </nav>
   </aside>
 </template>

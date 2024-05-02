@@ -39,21 +39,22 @@ export default defineConfig({
     colors: {
       // mamma-elvira colors
       me: {
-        stone: '#eae3d8',
-        'stone-dark': '#D1CBC0',
+        stone: '#dddddd',
+        scante: '#949597', // "'Scante1"
+        rust: '#b5391a', // "'Scante2"
         grey: '#ABA69D',
         peach: '#ec7850',
         orange: '#ea5436',
-        red: '#C02D18',
+        red: '#9f191b', // "Enoteca"
         pink: '#ee8da8',
         ink: '#372c43',
-        lapis: '#3f689d',
+        lapis: '#22334f',
         cyan: '#668e98',
         basil: '#107652',
         mint: '#4FB692',
-        olive: '#6B7238', // "La Cucina" original color
+        olive: '#454f1f', // "La Cucina" original color
         lavender: '#B08CB9',
-        yellow: '#d1a72a', // "Corte dei Pandolfi"
+        yellow: '#d6ad27', // "Corte dei Pandolfi"
         laterizio: '#A84227', // "'Scante"
         deepblue: '#212f38', // Delicatessen
       },

@@ -20,13 +20,13 @@
   "editor.glyphMargin": false, // removes the space used mainly for debugging indicators
   "editor.folding": true, // if false removes the folding feature
   "editor.lineNumbers": "off",
-  "workbench.sideBar.location": "right",
+  "workbench.sideBar.location": "left",
   "workbench.editor.showTabs": "single",
   "workbench.editor.pinnedTabSizing": "compact",
   "workbench.editor.tabSizing": "shrink",
   "breadcrumbs.enabled": false,
   "workbench.startupEditor": "newUntitledFile",
-  "editor.lightbulb.enabled": false,
+  "editor.lightbulb.enabled": "off",
   "editor.renderLineHighlight": "line",
   "editor.renderControlCharacters": false,
   "editor.gotoLocation.multipleReferences": "goto",
@@ -44,7 +44,7 @@
   "editor.detectIndentation": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "files.insertFinalNewline": true,
-  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreview": true,
   "workbench.editor.highlightModifiedTabs": true,
   "editor.renderWhitespace": "none", // removes indent guides
   "editor.occurrencesHighlight": "off", // removes highlights occurrences (still works when you select a word)
@@ -137,7 +137,8 @@
   "editor.guides.indentation": false,
   "editor.unicodeHighlight.ambiguousCharacters": false,
   "editor.unicodeHighlight.invisibleCharacters": false,
-  "workbench.activityBar.location": "hidden",
+  "workbench.activityBar.location": "default",
   "workbench.editor.tabActionCloseVisibility": false,
-  "zenMode.showTabs": "single"
+  "zenMode.showTabs": "single",
+  "vue.server.hybridMode": false
 }

@@ -16,18 +16,15 @@ useHead({
       <h2
         class="inline font-serif text-4xl md:text-5xl text-center border-b-2 border-me-mint pb-2"
       >
-       'Scante
+       {{ $t('scante.title') }}
       </h2>
       <h3 class="text-center text-lg md:text-2xl text-me-lapis">
-        A pochi passi dal gusto
+        {{ $t('scante.subtitle') }}
       </h3>
     </header>
 
     <p>
-      <span>'Scante</span> è la nuova esperienza de
-      <NuxtLink to="/la-cucina"><span>La Cucina di Mamma Elvira</span></NuxtLink
-      >, che amplia a pochi passi di distanza le possibilità di sperimentare i
-      sapori autentici della nostra cucina.
+      {{ $t('scante.description.d1') }}
     </p>
 
     <template v-slot:place-image>

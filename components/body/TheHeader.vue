@@ -1,6 +1,18 @@
 <script setup lang="ts">
 const body = ref()
-const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
+
+// const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
+
+function controlWindowWidth() {
+    if (typeof window != 'undefined') {
+      const windowWidth = ref(window.innerWidth)
+      window.addEventListener('resize', () => {
+        windowWidth.value = window.innerWidth
+      })
+      return windowWidth.value
+    }
+}
+
 </script>
 
 <template>
@@ -8,14 +20,17 @@ const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
     class="fixed w-full p-8 z-100 bg-gradient-to-b from-me-stone via-me-stone"
   >
     <ul class="flex justify-between items-start gap-8">
+
       <li>
-        <NuxtLink to="/" id="home-link" class="font-logo">
+        <NuxtLink v-if="controlWindowWidth() >= 768" to="/" id="home-link" class="font-logo" >
           <img
-            src="~/assets/graphics/logo/mammaelvira-logo_text_rect_alt_01.svg"
+            src="~/assets/graphics/logo/mammaelvira_logo_2024.svg"
             alt="Logo Mamma Elvira"
             class="h-12"
           />
         </NuxtLink>
+
+        <BodyLanguageSwitcher v-if="controlWindowWidth() < 768" />
       </li>
 
       <li class="flex gap-6">
@@ -24,7 +39,7 @@ const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
             <!-- ABOUT US -->
             <li>
               <NuxtLink to="/about-us" class="hover:underline">{{
-                $t('aboutUs')
+                $t('aboutUs.nav')
               }}</NuxtLink>
             </li>
 
@@ -36,32 +51,33 @@ const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
 
             <li>
               <NuxtLink to="/casa" class="hover:underline">{{
-                $t('home')
+                $t('home.nav')
               }}</NuxtLink>
             </li>
             <li>
               <NuxtLink to="/events" class="hover:underline">{{
-                $t('events')
+                $t('events.nav')
               }}</NuxtLink>
             </li>
             <li>
               <NuxtLink to="/recipes" class="hover:underline">{{
-                $t('recipes')
+                $t('recipes.title')
               }}</NuxtLink>
             </li>
 
             <li>
               <NuxtLink to="/contacts" class="hove(r:underline">{{
-                $t('contacts')
+                $t('contacts.nav')
               }}</NuxtLink>
             </li>
           </ul>
         </nav>
       </li>
 
+      
       <li class="flex gap-6 items-start">
-        <!-- <BodyLanguageSwitcher /> -->
-        <button
+        <BodyLanguageSwitcher v-if="controlWindowWidth() > 768" />
+        <!-- <button
           type="button"
           :aria-label="
             isFullscreen ? 'exit fullscreen mode' : 'enter fullscreen mode'
@@ -78,7 +94,7 @@ const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
           class="hidden lg:flex"
         >
           {{ isFullscreen ? 'exit fullscreen' : 'enter fullscreen' }}
-        </button>
+        </button> -->
         <BodyMenuModal class="lg:hidden -mt-3" />
       </li>
     </ul>
