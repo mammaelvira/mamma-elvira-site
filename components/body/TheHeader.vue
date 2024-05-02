@@ -50,9 +50,9 @@ function controlWindowWidth() {
             />
 
             <li>
-              <NuxtLink to="/casa" class="hover:underline">{{
+              <a href="https://www.casamammaelvira.com/" class="hover:underline">{{
                 $t('home.nav')
-              }}</NuxtLink>
+              }}</a>
             </li>
             <li>
               <NuxtLink to="/events" class="hover:underline">{{
