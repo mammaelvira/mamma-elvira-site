@@ -68,7 +68,7 @@ export default defineNuxtConfig({
     customRoutes: 'config',
     pages: {
       'about-us': {
-        en: '/about-us,',
+        en: '/about-us',
       }
     }
   },
