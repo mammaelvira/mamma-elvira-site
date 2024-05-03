@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@nuxtjs/sanity": "^1.8.3",
-    "@sanity/client": "^6.11.1"
+    "@sanity/client": "^6.11.1",
+    "pnpm": "^9.0.6"
   }
 }
