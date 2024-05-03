@@ -7,7 +7,7 @@
   "editor.fontLigatures": true,
   "window.autoDetectColorScheme": true,
   "workbench.layoutControl.type": "menu",
-  "workbench.colorTheme": "Atom One Dark",
+  "workbench.colorTheme": "Default High Contrast",
 
   // Scrollbars
   "editor.hideCursorInOverviewRuler": true, // hides cursor mark in the overview ruler
