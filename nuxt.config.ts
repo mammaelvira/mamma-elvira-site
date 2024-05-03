@@ -65,6 +65,12 @@ export default defineNuxtConfig({
       cookieKey: 'i18n_redirected',
       redirectOn: 'root', // recommended
     },
+    customRoutes: 'config',
+    pages: {
+      'about-us': {
+        en: '/about-us,',
+      }
+    }
   },
 
   app: {
