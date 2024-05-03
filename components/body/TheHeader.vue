@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const body = ref()
-
+const localePath = useLocalePath()
 // const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
 
 function controlWindowWidth() {
@@ -13,6 +13,18 @@ function controlWindowWidth() {
     }
 }
 
+function controlPath() {
+  if (typeof window != 'undefined') {
+    const path = ref(window.location.pathname)
+    window.addEventListener('popstate', () => {
+      path.value = window.location.pathname
+    })
+    console.log('PATH')
+    console.log(path.value)
+    return path.value
+  }
+}
+
 </script>
 
 <template>
@@ -22,7 +34,7 @@ function controlWindowWidth() {
     <ul class="flex justify-between items-start gap-8">
 
       <li>
-        <NuxtLink v-if="controlWindowWidth() >= 768" to="/" id="home-link" class="font-logo" >
+        <NuxtLink v-if="controlWindowWidth() >= 768" :to="localePath('/')" id="home-link" class="font-logo" >
           <img
             src="~/assets/graphics/logo/mammaelvira_logo_2024.svg"
             alt="Logo Mamma Elvira"
@@ -30,7 +42,7 @@ function controlWindowWidth() {
           />
         </NuxtLink>
 
-        <BodyLanguageSwitcher v-if="controlWindowWidth() < 768" />
+        <BodyLanguageSwitcher :onclick="controlPath()" v-if="controlWindowWidth() < 768" />
       </li>
 
       <li class="flex gap-6">
@@ -38,7 +50,7 @@ function controlWindowWidth() {
           <ul class="hidden lg:flex items-start gap-12 -mt-2 font-title">
             <!-- ABOUT US -->
             <li>
-              <NuxtLink to="/about-us" class="hover:underline">{{
+              <NuxtLink :to="localePath('/about-us')" class="hover:underline">{{
                 $t('aboutUs.nav')
               }}</NuxtLink>
             </li>
@@ -50,23 +62,28 @@ function controlWindowWidth() {
             />
 
             <li>
-              <NuxtLink to="/casa" class="hover:underline">{{
-                $t('home.nav')
-              }}</NuxtLink>
+              <NuxtLink 
+              class="hover:underline"
+              to="https://casamammaelvira.com" 
+              target='_blank'
+              :external="true"
+              >
+                {{$t('home.nav')}}
+                </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/events" class="hover:underline">{{
+              <NuxtLink :to="localePath('/events')" class="hover:underline">{{
                 $t('events.nav')
               }}</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/recipes" class="hover:underline">{{
+              <NuxtLink :to="localePath('/recipes')" class="hover:underline">{{
                 $t('recipes.title')
               }}</NuxtLink>
             </li>
 
             <li>
-              <NuxtLink to="/contacts" class="hove(r:underline">{{
+              <NuxtLink :to="localePath('/contacts')" class="hove(r:underline">{{
                 $t('contacts.nav')
               }}</NuxtLink>
             </li>
@@ -76,7 +93,7 @@ function controlWindowWidth() {
 
       
       <li class="flex gap-6 items-start">
-        <BodyLanguageSwitcher v-if="controlWindowWidth() > 768" />
+        <BodyLanguageSwitcher :onclick="controlPath()" v-if="controlWindowWidth() > 768" />
         <!-- <button
           type="button"
           :aria-label="

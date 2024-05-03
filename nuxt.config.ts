@@ -69,7 +69,13 @@ export default defineNuxtConfig({
     pages: {
       'about-us': {
         en: '/about-us',
-      }
+      },
+      casa: {
+        en: '/casa',
+      },
+      contacts: {
+        en: '/contacts',
+      },
     }
   },
 

@@ -8,6 +8,7 @@ useHead({
   link: [...(i18nHead.value.link || [])],
   meta: [...(i18nHead.value.meta || [])],
 })
+
 </script>
 
 <template>

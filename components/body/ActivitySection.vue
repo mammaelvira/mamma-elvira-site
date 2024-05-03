@@ -47,7 +47,6 @@ const { data: activitiesExternal } =
       <a
         v-for="activity in activitiesExternal"
         :href="activity?.link"
-        target="_blank"
         class="activity-card"
       >
         <div

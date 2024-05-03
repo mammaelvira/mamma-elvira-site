@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const i18nHead = useLocaleHead({ addSeoAttributes: true })
+const localePath = useLocalePath()
 
 // #TODO: add a validator to redirect to /events if there is no match
 
@@ -96,7 +97,7 @@ useSchemaOrg([
       class="mt-4"
     />
 
-    <NuxtLink to="/events" class="call-to-action" :class="`bg-${place?.color}`"
+    <NuxtLink :to="localePath('/events')" class="call-to-action" :class="`bg-${place?.color}`"
       >Scopri gli altri eventi di Mamma Elvira</NuxtLink
     >
   </section>
