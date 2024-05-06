@@ -16,16 +16,10 @@ function controlWindowWidth() {
 function controlPath() {
   if (typeof window != 'undefined') {
     const path = ref(window.location.pathname)
-
-    const updatePath = () => {
+    window.addEventListener('popstate', () => {
       path.value = window.location.pathname
-    }
-
-    window.addEventListener('popstate', updatePath)
-    
-    return () => {
-      window.removeEventListener('popstate', updatePath)
-    }
+    })
+    return path.value
   }
 }
 
