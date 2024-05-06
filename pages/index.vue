@@ -2,8 +2,6 @@
 const i18nHead = useLocaleHead({ addSeoAttributes: true })
 const localePath = useLocalePath()
 
-
-
 useHead({
   title: 'Homepage',
   htmlAttrs: {

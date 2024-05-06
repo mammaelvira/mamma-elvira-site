@@ -19,8 +19,6 @@ function controlPath() {
     window.addEventListener('popstate', () => {
       path.value = window.location.pathname
     })
-    console.log('PATH')
-    console.log(path.value)
     return path.value
   }
 }

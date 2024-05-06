@@ -64,18 +64,6 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: 'i18n_redirected',
       redirectOn: 'root', // recommended
-    },
-    customRoutes: 'config',
-    pages: {
-      'about-us': {
-        en: '/about-us',
-      },
-      casa: {
-        en: '/casa',
-      },
-      contacts: {
-        en: '/contacts',
-      },
     }
   },
 

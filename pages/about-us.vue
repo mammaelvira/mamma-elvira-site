@@ -38,7 +38,6 @@ useHead({
 
 const { y } = useWindowScroll()
 const { height } = useWindowSize()
-const isMediumScreen = useMediaQuery('(min-width: 768px)')
 
 const percentageOfScreenHeigthScrolled = computed(
   () => (y.value / height.value) * 100,
