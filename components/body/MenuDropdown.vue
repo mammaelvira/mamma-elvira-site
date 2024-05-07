@@ -1,5 +1,14 @@
 <script setup lang="ts">
 const places = usePlaces()
+const localePath = useLocalePath()
+
+function localizePath(path) {
+      if (path) {
+        return localePath(path);
+      } else {
+        return null;
+      }
+}
 
 const showActivityLinks = ref(false)
 
@@ -32,7 +41,7 @@ watch(isScrolling, () => {
       <NuxtLink
         @click="showActivityLinks = false"
         v-for="place in places"
-        :to="place.path"
+        :to="localizePath(place.path)"
         :key="`modal-link-${place.path.replace('/', '')}`"
         :class="`text-${place.color}`"
       >

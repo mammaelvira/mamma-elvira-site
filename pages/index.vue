@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const i18nHead = useLocaleHead({ addSeoAttributes: true })
+const localePath = useLocalePath()
 
 useHead({
   title: 'Homepage',
@@ -42,24 +43,24 @@ useSeoMeta({
         <p>
           {{ $t('home.welcome.p1') }}
          <NuxtLink
-            to="/enoteca"
+            :to="localePath('/enoteca')"
             class="underline text-me-red"
             >Enoteca</NuxtLink
           >
           {{ $t('home.welcome.p2') }}
-          <NuxtLink to="/la-cucina" class="underline text-me-olive">
+          <NuxtLink :to="localePath('la-cucina')" class="underline text-me-olive">
             Cucina</NuxtLink
           >
           {{ $t('home.welcome.p2') }}
-          <NuxtLink to="/corte-dei-pandolfi" class="underline text-me-peach">
+          <NuxtLink :to="localePath('/corte-dei-pandolfi')" class="underline text-me-peach">
             Corte
           </NuxtLink>
           {{ $t('home.welcome.p3') }}
-          <NuxtLink to="/casa" class="underline text-me-lapis">
+          <NuxtLink :to="localePath('/casa')" class="underline text-me-lapis">
              Casa
           </NuxtLink>
           {{ $t('home.welcome.p4') }}
-          <NuxtLink to="/picnic-experience" class="underline text-me-lavender">
+          <NuxtLink :to="localePath('/picnic-experience')" class="underline text-me-lavender">
             Picnic
           </NuxtLink>
           {{ $t('home.welcome.p5') }}

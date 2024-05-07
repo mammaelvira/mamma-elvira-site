@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const i18nHead = useLocaleHead({ addSeoAttributes: true })
+const localePath = useLocalePath()
 
 useHead({
   htmlAttrs: {
@@ -37,7 +38,6 @@ useHead({
 
 const { y } = useWindowScroll()
 const { height } = useWindowSize()
-const isMediumScreen = useMediaQuery('(min-width: 768px)')
 
 const percentageOfScreenHeigthScrolled = computed(
   () => (y.value / height.value) * 100,
@@ -71,7 +71,7 @@ const percentageOfScreenHeigthScrolled = computed(
           />
           <figcaption class="text-sm text-right pt-2">
             {{ $t('aboutUs.figcaption.fig1') }}
-            <NuxtLink to="/casa" class="underline text-me-lapis">
+            <NuxtLink :to="localePath('/about-us')" class="underline text-me-lapis">
               {{ $t('aboutUs.figcaption.fig2') }}
             </NuxtLink>
           </figcaption>

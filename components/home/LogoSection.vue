@@ -1,3 +1,8 @@
+<script setup lang="ts">
+const localePath = useLocalePath()
+</script>
+
+
 <template>
   <section
     class="relative flex justify-center items-center h-screen -mt-32 md:-mt-24"
@@ -22,21 +27,21 @@
         <h3 class="pt-6">{{ $t('logoSince') }} 2011</h3>
       </div>
       <h4 class="flex gap-2 mt-6 font-bold uppercase text-sm flex-wrap justify-center">
-        <NuxtLink to="/la-cucina"
+        <NuxtLink :to="localePath('/la-cucina')"
         ><span class="text-me-olive">cucina</span></NuxtLink
         >
-        <span class="opacity-50">◆</span>
-        <NuxtLink to="/casa"><span class="text-me-lapis">casa</span></NuxtLink>
-        <span class="opacity-40">◆</span>
-        <NuxtLink to="/corte-dei-pandolfi">
+    
+        <NuxtLink :to="localePath('/casa')"><span class="text-me-lapis">casa</span></NuxtLink>
+    
+        <NuxtLink :to="localePath('/corte-dei-pandolfi')">
           <span class="text-me-yellow">corte</span></NuxtLink
           >
-          <span class="opacity-40">◆</span>
-          <NuxtLink to="/enoteca">
+
+          <NuxtLink :to="localePath('/enoteca')">
             <span class="text-me-red">enoteca</span></NuxtLink
           >
-          <span class="opacity-40">◆</span>
-          <NuxtLink to="/scante">
+ 
+          <NuxtLink :to="localePath('/scante')">
             <span class="text-me-grey">'scante</span></NuxtLink
           >
         <!-- <span class="opacity-40">+</span>

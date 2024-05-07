@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const places = usePlaces()
+const localePath = useLocalePath()
+
 
 interface ActivityExternal {
   _id: string
@@ -8,6 +10,7 @@ interface ActivityExternal {
   colorValue: { hex: string }
   logo: { _type: string; asset: { _ref: string; _type: string } }
   link: string
+  path: string
 }
 
 const query = groq`*[_type == 'activitiesExternal'] | order(sortingOrder asc)
@@ -15,6 +18,8 @@ const query = groq`*[_type == 'activitiesExternal'] | order(sortingOrder asc)
 
 const { data: activitiesExternal } =
   await useSanityQuery<Array<ActivityExternal>>(query)
+
+  console.log(activitiesExternal)
 </script>
 
 <template>
@@ -44,10 +49,9 @@ const { data: activitiesExternal } =
       </NuxtLink> -->
       <!-- Developed by BeeBest replaced with card injection by Sanity -->
 
-      <a
+      <NuxtLink
         v-for="activity in activitiesExternal"
-        :href="activity?.link"
-        target="_blank"
+        :to="localePath(activity?.path || activity?.link)"
         class="activity-card"
       >
         <div
@@ -63,9 +67,10 @@ const { data: activitiesExternal } =
             :alt="`${activity?.name} logo`"
           />
         </div>
-      </a>
+      </NuxtLink>
 
-      <!-- <a
+      <!-- 
+        <a
         href="https://delicatessenlecce.com/"
         target="_blank"
         class="activity-card"
@@ -73,7 +78,8 @@ const { data: activitiesExternal } =
         <div class="activity-card-shape bg-me-deepblue">
           <img src="/graphics/delicatessen.svg" alt="Delicatessen Logo" />
         </div>
-      </a> -->
+      </a> 
+    -->
 
       <!-- <div
           :class="`bg-${place?.color}`"

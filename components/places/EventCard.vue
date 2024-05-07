@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { PageDetails as PlaceDetails } from '~/composables/usePlaces'
+const localePath = useLocalePath()
+
 
 interface Props {
   event: any
@@ -54,6 +56,15 @@ const startShare = () => {
 }
 
 const showBookingOptions = ref(false)
+
+function localizePath(path) {
+      if (path) {
+        return localePath(path);
+      } else {
+        return null;
+      }
+}
+
 </script>
 
 <template>
@@ -64,7 +75,7 @@ const showBookingOptions = ref(false)
       class="relative mb-2 rounded-tr-[3rem] pl-2"
       :class="`bg-${place?.color}`"
     >
-      <NuxtLink :to="event?.activity?.path" class="text-shadow">
+      <NuxtLink :to="localizePath(event?.activity?.path)" class="text-shadow">
         <div class="flex gap-3 -ml-5.5">
           <div
             class="mt-2 rounded-full bg-me-stone h-8 w-8 shadow-md border-4 flex items-center justify-center"
@@ -94,7 +105,7 @@ const showBookingOptions = ref(false)
     </div>
 
     <!-- HEADER (LINK TO EVENT-PAGE) -->
-    <NuxtLink :to="event?.path ? `/events${event?.path}` : ('' as string)">
+    <NuxtLink :to="localizePath(event?.path ? `/events${event?.path}` : ('' as string))">
       <header>
         <div
           class="bg-gradient-to-r from-transparent flex justify-between items-center"
@@ -194,7 +205,7 @@ const showBookingOptions = ref(false)
       </header>
     </NuxtLink>
     <!-- MOBILE TITLE -->
-    <NuxtLink :to="event?.path ? `/events${event?.path}` : ('' as string)">
+    <NuxtLink :to="localizePath(event?.path ? `/events${event?.path}` : ('' as string))">
       <div
         class="mt-2 md:hidden rounded-r-lg shadow"
         :class="`bg-${place?.color}`"

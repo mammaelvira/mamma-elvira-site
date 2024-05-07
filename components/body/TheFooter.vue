@@ -1,3 +1,9 @@
+<script setup lang="ts">
+
+const localePath = useLocalePath()
+
+</script>
+
 <template>
   <footer class="p-8">
     <BodyStripesHorizonal />
@@ -5,15 +11,15 @@
     <nav class="link-container font-title">
       <div>
         <div class="i-game-icons-wine-bottle text-me-red"></div>
-        <NuxtLink to="/enoteca">Mamma Elvira Enoteca</NuxtLink>
+        <NuxtLink :to="localePath('/enoteca')">Mamma Elvira Enoteca</NuxtLink>
       </div>
       <div>
         <div class="i-game-icons-fork-knife-spoon text-me-olive"></div>
-        <NuxtLink to="/la-cucina">La Cucina di Mamma Elvira</NuxtLink>
+        <NuxtLink :to="localePath('/la-cucina')">La Cucina di Mamma Elvira</NuxtLink>
       </div>
       <div>
         <div class="i-game-icons-fork-knife-spoon text-me-laterizio"></div>
-        <NuxtLink to="/scante" class="relative"
+        <NuxtLink :to="localePath('/scante')" class="relative"
           >'Scante
           <span
             class="absolute -right-5 -top-2 bg-me-laterizio text-me-stone text-xs px-1 rotate-12"
@@ -22,16 +28,16 @@
       </div>
       <div>
         <div class="i-custom:corte-dei-pandolfi text-me-yellow"></div>
-        <NuxtLink to="/corte-dei-pandolfi">Corte dei Pandolfi</NuxtLink>
+        <NuxtLink :to="localePath('/corte-dei-pandolfi')">Corte dei Pandolfi</NuxtLink>
       </div>
       <div>
         <div class="i-game-icons-bed text-me-lapis"></div>
-        <NuxtLink to="/casa">Casa Mamma Elvira</NuxtLink>
+        <NuxtLink :to="localePath('/casa')">Casa Mamma Elvira</NuxtLink>
       </div>
 
       <div>
         <div class="i-game-icons-basket text-me-lavender"></div>
-        <NuxtLink to="/picnic-experience" class="relative"
+        <NuxtLink :to="localePath('/picnic-experience')" class="relative"
           >Picnic Experience Lecce
           <span
             class="absolute -right-8 -top-2 bg-me-lavender text-me-stone text-xs px-1 rotate-12"
