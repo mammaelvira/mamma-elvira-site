@@ -60,12 +60,11 @@ const place = places.find((place) =>
             <!-- BOOKING ACTIONS -->
             <li>
               <h3 v-if="place?.menuUrl" class="font-title">
-                {{ $t('prenotation.title') }}
-                :
+                {{ $t('prenotation.title') }}:
               </h3>
               <!-- Online booking ACTIVE -->
               <div v-if="place?.bookingUrl" class="flex gap-6">
-                <a
+                <a 
                   :href="place?.bookingUrl"
                   class="call-to-action"
                   :class="`bg-${place?.color}`">
