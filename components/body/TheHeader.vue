@@ -58,6 +58,17 @@ function controlPath() {
               class="cursor-pointer hover:underline"
               :title="$t('ourPlaces')"
             />
+
+            <li>
+              <NuxtLink 
+              class="hover:underline"
+              to="https://casamammaelvira.com" 
+              target='_blank'
+              :external="true"
+              >
+                {{$t('home.nav')}}
+                </NuxtLink>
+            </li>
             <li>
               <NuxtLink :to="localePath('/events')" class="hover:underline">{{
                 $t('events.nav')

@@ -84,6 +84,7 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
         </ul>
       </div>
 
+      <NuxtLink :to="localePath('/casa')" @click="modalToggle">La Casa</NuxtLink>
 
       <NuxtLink :to="localePath('/events')" @click="modalToggle">{{ $t('events.nav')}}</NuxtLink>
 
