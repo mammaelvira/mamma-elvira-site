@@ -2,7 +2,6 @@
 const i18nHead = useLocaleHead({ addSeoAttributes: true })
 const localePath = useLocalePath()
 
-// #TODO: add a validator to redirect to /events if there is no match
 
 useHead({
   htmlAttrs: {
@@ -13,12 +12,19 @@ useHead({
 })
 
 const route = useRoute()
+const router = useRouter()
 
 const query = useQueryEvents({ singleEvent: true })
 
 const { data: event } = await useSanityQuery(query, {
   eventpath: `/${route.params?.eventpath}`,
 })
+
+watch(event, (newEvent) => {
+  if (!newEvent?.length) {
+    router.push(localePath('/events'));
+  }
+});
 
 const places = usePlaces()
 const place = computed(() =>
