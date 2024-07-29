@@ -24,6 +24,19 @@ if (error) {
   console.error('Errore nella query Sanity:', error);
 } else {
   console.log('Evento recuperato:', event.value);
+
+  if (event.value && Array.isArray(event.value)) {
+    event.value.forEach((item, index) => {
+      console.log(`Elemento ${index}:`, item);
+      if (item && item.path) {
+        console.log(`Elemento ${index} - Path: ${item.path}`);
+      } else {
+        console.warn(`Elemento ${index} non ha la proprietà 'path'`);
+      }
+    });
+  } else {
+    console.warn('event.value è vuoto o non è un array');
+  }
 }
 
 watch(event, (newEvent) => {
