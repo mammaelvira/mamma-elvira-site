@@ -20,6 +20,12 @@ const { data: event } = await useSanityQuery(query, {
   eventpath: `/${route.params?.eventpath}`,
 })
 
+if (error) {
+  console.error('Errore nella query Sanity:', error);
+} else {
+  console.log('Evento recuperato:', event.value);
+}
+
 watch(event, (newEvent) => {
   if (!newEvent?.length) {
     router.push(localePath('/events'));
