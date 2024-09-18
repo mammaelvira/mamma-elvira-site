@@ -98,7 +98,8 @@ export default (): PageDetails[] => [
     },
     googleMapsUrl: '',
 
-    menuUrl: 'https://disv.it/scante',
+    menuUrl: "https://menu-mammaelvira-fe-80d79ebfc254.herokuapp.com/'Scante",
+  
 
     instagramUrl: 'https://www.instagram.com/scante_lecce',
     facebookUrl: 'https://www.facebook.com/scantelecce',
