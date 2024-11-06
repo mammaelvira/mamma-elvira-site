@@ -51,7 +51,7 @@ export default (): PageDetails[] => [
     googleMapsUrl: '',
     imageUrl: '~/assets/images/me-enoteca_ext-01.jpg',
 
-    menuUrl: 'https://disv.it/MammaElviraEnoteca',
+    menuUrl: 'https://menu-mammaelvira-fe-80d79ebfc254.herokuapp.com/Enoteca',
     instagramUrl: 'https://www.instagram.com/mamma_elvira_enoteca',
     facebookUrl: 'https://www.facebook.com/MammaElvira',
   },
@@ -75,7 +75,7 @@ export default (): PageDetails[] => [
     googleMapsUrl: '',
 
     bookingUrl: 'https://mammaelvira.myrestoo.net/it/reservar',
-    menuUrl: 'https://disv.it/Cucina',
+    menuUrl: 'https://menu-mammaelvira-fe-80d79ebfc254.herokuapp.com/Cucina',
 
     instagramUrl: 'https://www.instagram.com/la_cucina_di_mamma_elvira',
     facebookUrl: 'https://www.facebook.com/LaCucinaDiMammaElvira',
