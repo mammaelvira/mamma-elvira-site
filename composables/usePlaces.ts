@@ -75,7 +75,7 @@ export default (): PageDetails[] => [
     googleMapsUrl: '',
 
     bookingUrl: 'https://mammaelvira.myrestoo.net/it/reservar',
-    menuUrl: 'https://menu-mammaelvira-fe-80d79ebfc254.herokuapp.com/Cucina',
+    menuUrl: 'https://menu-mammaelvira-fe-80d79ebfc254.herokuapp.com/La%20Cucina',
 
     instagramUrl: 'https://www.instagram.com/la_cucina_di_mamma_elvira',
     facebookUrl: 'https://www.facebook.com/LaCucinaDiMammaElvira',
