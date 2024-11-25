@@ -70,13 +70,11 @@ function controlPath() {
                 </NuxtLink>
             </li>
             <li>
-              <NuxtLink :to="localePath('/events')" class="hover:underline">{{
-                $t('events.nav')
-              }}</NuxtLink>
+              <NuxtLink to="https://drinkpuglia.com" class="hover:underline">Drink Puglia</NuxtLink>
             </li>
             <li>
-              <NuxtLink :to="localePath('/recipes')" class="hover:underline">{{
-                $t('recipes.title')
+              <NuxtLink :to="localePath('/events')" :external="true" target="_blank" class="hover:underline">{{
+                $t('events.nav')
               }}</NuxtLink>
             </li>
 
