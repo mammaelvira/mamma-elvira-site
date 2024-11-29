@@ -24,7 +24,7 @@ useHead({
       </h2>
       <h3 class="relative text-center text-lg md:text-2xl text-me-lapis">
         {{ $t('corteDeiPandolfi.subtitle') }}
-        <div class="absolute -right-50 -top-5 bg-me-yellow uppercase text-4 font-bold py-1 px-4 rotate-350 border-rounded border-2 border-black shadow-xl">
+        <div class="absolute w-65 md:-right-60 -top-5 bg-me-yellow uppercase text-4 font-bold py-1 px-4 rotate-350 border-rounded border-2 border-black shadow-xl">
           {{ $t('corteDeiPandolfi.close') }}
         </div>
       </h3>
