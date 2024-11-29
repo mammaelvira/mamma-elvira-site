@@ -21,10 +21,10 @@ const localePath = useLocalePath()
         <div class="i-game-icons-fork-knife-spoon text-me-laterizio"></div>
         <NuxtLink :to="localePath('/scante')" class="relative"
           >'Scante
-          <span
+          <!-- <span
             class="absolute -right-5 -top-2 bg-me-laterizio text-me-stone text-xs px-1 rotate-12"
-            >new</span
-          ></NuxtLink>
+            >new</span> -->
+          </NuxtLink>
       </div>
       <div>
         <div class="i-custom:corte-dei-pandolfi text-me-yellow"></div>
@@ -50,11 +50,11 @@ const localePath = useLocalePath()
         <div class="i-custom-delicatessen text-me-deepblue"></div>
         <a href="https://delicatessenlecce.com/" class="relative" target="_blank"
           >Delicatessen
-          <span
+          <!-- <span
             class="absolute -right-5 -top-2 bg-me-deepblue text-me-stone text-xs px-1 rotate-12"
             >new</span
-          ></a
-        >
+          > -->
+          </a>
       </div>
     </nav>
 

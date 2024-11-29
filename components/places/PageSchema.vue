@@ -116,9 +116,14 @@ const place = places.find((place) =>
 
             <!-- LINK DRINK PUGLIA -->
             <li>
-              <p>
+              <p class="relative">
                 {{ $t('drink')}}
-                <a href="http://drinkpuglia.com" target="_blank" class="call-to-action-text">DrinkPuglia</a>
+                <a href="http://drinkpuglia.com" target="_blank" class="call-to-action-text">
+                  DrinkPuglia
+                  <span class="absolute -right-0 -top-0 bg-me-laterizio text-me-stone text-s px-1 mx-2 rotate-12">
+                    new
+                  </span>
+                </a>
               </p>
              </li>
 

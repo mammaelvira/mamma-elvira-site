@@ -88,7 +88,12 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
 
       <NuxtLink :to="localePath('/events')" @click="modalToggle">{{ $t('events.nav')}}</NuxtLink>
 
-      <NuxtLink to="http://drinkpuglia.com" target="_blank" @click="modalToggle">Drink Puglia</NuxtLink>
+      <NuxtLink to="http://drinkpuglia.com" target="_blank" @click="modalToggle" class="relative w-40">
+        Drink Puglia
+        <span class="absolute -right-5 -top-2 bg-me-laterizio text-me-stone text-xs px-1 rotate-12">
+            new
+        </span>
+      </NuxtLink>
 
       <NuxtLink :to="localePath('/contacts')" @click="modalToggle">{{ $t('contacts.nav')}}</NuxtLink>
     </nav>
