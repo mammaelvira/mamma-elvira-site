@@ -96,14 +96,14 @@
 
   "corteDeiPandolfi": {
     "title": "Corte",
-    "subtitle": "Profumo di mare crudo",
+    "subtitle": "Piatti tipici dal nord al sud Italia",
     "description": {
-      "d1": "La Oyster House di Mamma Elvira, nei pressi del Duomo, dedicata al Pesce e ai Frutti di Mare.",
-      "d2": "Un'esperienza completa tra i sapori delle famose Marine Salentine.",
-      "d3": "200 km di costa da gustare comodamente seduti in una delle piazze più esclusive della Città.",
-      "d4": "Alla Corte dei Pandolfi è possibile assaporare ostriche freschissime accompagnate dai gustosi Cocktail proposti dal nostro Barman."
+      "d1": "Corte dei Pandolfi, nei pressi del Duomo di Lecce, è una trattoria che propone piatti italiani tipici.",
+      "d2": "In un ambiente rustico e curato potrai gustare le ricette intramontabili dal nord al sud Italia e scoprire piatti realizzati con materie prime insolite.",
+      "d3": "Il nostro menu, in continua evoluzione, riunisce Vitello Tonnato, Risotto allo Zafferano e Ragù di Pecora ma anche Orecchiette e Bombette della tradizione e tante altro.",
+      "d4": "La carta dei vini è ampia e come da tradizione Mamma Elvira tutti i vini sono serviti al calice."
     },
-    "payoff": "Oyster House",
+    "payoff": "Trattoria Italiana",
     "close": "loading... december 2024"
   },
 

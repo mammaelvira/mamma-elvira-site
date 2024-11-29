@@ -97,14 +97,14 @@
 
     "corteDeiPandolfi": {
       "title": "Corte",
-      "subtitle": "Raw sea scent",
+      "subtitle": "Typical dishes from north to south Italy",
       "description": {
-        "d1": "Mamma Elvira's Oyster House, near the Duomo, dedicated to fish and seafood.",
-        "d2": "A complete experience amidst the flavours of Salento's famous seafood.",
-        "d3": "200 km of coastline to be enjoyed comfortably seated in one of the city's most exclusive squares.",
-        "d4": "At the Corte dei Pandolfi you can enjoy fresh oysters accompanied by the tasty Cocktails proposed by our Barman."
+        "d1": "Corte dei Pandolfi, near Lecce Cathedral, is a trattoria offering typical Italian dishes.",
+        "d2": "In a rustic and well-kept environment, you can enjoy timeless recipes from northern to southern Italy and discover dishes made with unusual ingredients.",
+        "d3": "Our ever-changing menu includes Vitello Tonnato, Saffron Risotto and Sheep Ragù, as well as traditional Orecchiette and Bombette and much more.",
+        "d4": "The wine list is large and, as is Mamma Elvira's tradition, all wines are served by the glass."
       },
-      "payoff": "Oyster House",
+      "payoff": "Italian Trattoria",
       "close": "loading... december 2024"
     },
 
