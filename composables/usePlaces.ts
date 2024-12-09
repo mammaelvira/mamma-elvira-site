@@ -122,7 +122,7 @@ export default (): PageDetails[] => [
     },
     googleMapsUrl: '',
 
-    menuUrl: 'https://disv.it/CortePandolfi',
+    menuUrl: '',
     instagramUrl: 'https://www.instagram.com/corte_dei_pandolfi',
     facebookUrl: 'https://www.facebook.com/cortedeipandolfilecce',
   },
