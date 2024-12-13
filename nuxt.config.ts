@@ -149,7 +149,6 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
-
   // experimental: {
   //   headNext: true, // capo.js <head> tag sorted for better performance
   // },

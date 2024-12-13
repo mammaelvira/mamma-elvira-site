@@ -17,6 +17,7 @@ export interface PageDetails {
 
   bookingUrl?: string
   menuUrl?: string
+  menuPdf?: string
   googleMapsUrl?: string
 
   instagramUrl?: string
@@ -123,6 +124,7 @@ export default (): PageDetails[] => [
     googleMapsUrl: '',
 
     menuUrl: '',
+    menuPdf: '/menu_corte.pdf',
     instagramUrl: 'https://www.instagram.com/corte_dei_pandolfi',
     facebookUrl: 'https://www.facebook.com/cortedeipandolfilecce',
   },

@@ -114,6 +114,23 @@ const place = places.find((place) =>
               >
             </li>
 
+            <!-- MENU PDF -->
+
+            <li v-if="place?.menuPdf" class="mt-4">
+              <h3 class="font-title">
+                {{ $t('menu.title') }}:
+              </h3>
+              <a
+                :href="place?.menuPdf"
+                class="call-to-action"
+                :class="`bg-${place.color}`"
+                target="_blank"
+                >
+                {{ $t('menu.button') }}
+                </a
+              >
+            </li>
+
             <!-- LINK DRINK PUGLIA -->
             <li>
               <p class="relative">

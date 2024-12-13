@@ -44,11 +44,14 @@ useHead({
       {{ $t('corteDeiPandolfi.description.d4') }}
     </p>
 
+
     <template v-slot:place-image>
       <img
         src="~/assets/images/me_corte_ext-01.jpg"
         alt="Corte dei Pandolfi - foto esterno"
       />
     </template>
+
+    
   </PlacesPageSchema>
 </template>
