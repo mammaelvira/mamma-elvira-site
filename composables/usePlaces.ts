@@ -124,7 +124,7 @@ export default (): PageDetails[] => [
     googleMapsUrl: '',
 
     menuUrl: '',
-    menuPdf: '/menu_corte.pdf',
+    menuPdf: '/menu_corte_bianco.pdf',
     instagramUrl: 'https://www.instagram.com/corte_dei_pandolfi',
     facebookUrl: 'https://www.facebook.com/cortedeipandolfilecce',
   },
