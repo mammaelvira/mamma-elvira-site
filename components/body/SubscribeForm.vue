@@ -1,15 +1,19 @@
 <template>
   <section class="md:absolute top-25 right-20 mt-10 md:mt-0">
     <form @submit.prevent="submitForm" aria-labelledby="newsletter-form" class="contact-form md:w-120 w-75 md:text-xl border border-black md:p-5 rounded">
-      <h2 id="newsletter-form" class="text-me-red font-bold text-xl head-form">Resta aggiornato su Degustazioni, Eventi e offerte</h2>
+      <h2 id="newsletter-form" class="text-me-red font-bold text-xl head-form">
+        {{ $t('home.subscribe.title') }}
+      </h2>
       
       <div>
-        <label for="user">Nome e Cognome:</label><br />
+        <label for="user">
+          {{ $t('home.subscribe.name') }}:
+        </label><br />
         <input type="text" id="user" placeholder="mario rossi" v-model="form.user" @blur="v$.form.email.$touch()" aria-required="true" class="md:w-100 h-8 rounded ps-2 w-65" />
         <p v-if="v$.form.user.$error" class="text-red-500 text-sm">
-          <span v-if="v$.form.user.required.$invalid">Campo obbligatorio. </span>
-          <span v-if="v$.form.user.minLength.$invalid">Minimo 2 caratteri. </span>
-          <span v-if="v$.form.user.maxLength.$invalid">Massimo 100 caratteri. </span>
+          <span v-if="v$.form.user.required.$invalid"> {{ $t('home.subscribe.invalid.required') }} </span>
+          <span v-if="v$.form.user.minLength.$invalid">{{ $t('home.subscribe.invalid.minLength') }} </span>
+          <span v-if="v$.form.user.maxLength.$invalid">{{ $t('home.subscribe.invalid.maxLength') }} </span>
           <span v-if="v$.form.user.validFormat.$invalid">{{ v$.form.user.validFormat.$message }}</span>
         </p>
       </div>
@@ -26,13 +30,15 @@
           class="md:w-100 h-8 rounded ps-2 w-65"
         />
         <p v-if="v$.form.email.$error" class="text-red-500 text-sm">
-          <span v-if="v$.form.email.required.$invalid">Campo obbligatorio. </span>
-          <span v-if="v$.form.email.email.$invalid">Formato email non valido. </span>
+          <span v-if="v$.form.email.required.$invalid"> {{ $t('home.subscribe.invalid.required')}} </span>
+          <span v-if="v$.form.email.email.$invalid"> {{ $t('home.subscribe.invalid.formatEmail')}}  </span>
         </p>
       </div>
       
       <div>
-        <label for="phone">Telefono:</label><br />
+        <label for="phone">
+          {{ $t('home.subscribe.phone') }}:
+        </label><br />
         <div class="flex md:w-100">
           <input 
             id="phone-prefix"
@@ -72,8 +78,7 @@
           id="consent"
         />
         <label for="consent" class="md:w-80 leading-tight pt-2">
-          Acconsento al trattamento dei miei dati personali per le finalità di marketing e invio newsletter, come descritto nella 
-          <a class="text-me-mint">Privacy Policy</a>, e prendo atto dell'informativa sulla privacy, ai sensi del Regolamento (UE) 2016/679 (GDPR).
+          {{ $t('home.subscribe.privacy') }}
         </label>
       </div>
       <p v-if="v$.form.consent.$error" class="text-red-500 text-sm ps-2">
@@ -84,7 +89,7 @@
       <div>
         <input 
           type="submit" 
-          value="Invia" 
+          :value="$t('home.subscribe.send')"
           class="bg-me-red rounded w-65 md:w-100 h-8 text-me-stone font-bold text-xl cursor-pointer 
                 transition-transform duration-200 transform active:scale-95"
         />
@@ -104,6 +109,10 @@
 import { ref } from 'vue'
 import useVuelidate from '@vuelidate/core'
 import { required, minLength, maxLength, helpers, email } from '@vuelidate/validators'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 
 const form = ref({
   user: '',
@@ -120,7 +129,7 @@ const rules = {
       minLength: minLength(2),
       maxLength: maxLength(100),
       validFormat: helpers.withMessage(
-        'Sono permesse solo lettere e spazi',
+        t('home.subscribe.invalid.onlyLetter'),
         value => /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/.test(value || '')
       )
     },
@@ -151,16 +160,16 @@ const submitForm = async () => {
   v$.value.$touch()
 
   invalidFields = [
-    { field: 'user', label: 'Nome e Cognome' },
+    { field: 'user', label: t('home.subscribe.name') },
     { field: 'email', label: 'Email' },
-    { field: 'phone', label: 'Telefono' },
-    { field: 'consent', label: 'Consenso alla privacy' }
+    { field: 'phone', label: t('home.subscribe.phone') },
+    { field: 'consent', label: t('home.subscribe.invalid.privacy') }
   ]
   .filter(field => v$.value.form[field.field].$invalid || (field.field === 'consent' && !form.value.consent))
   .map(field => field.label)
 
   if (invalidFields.length > 0) {
-    responseMessage.value = `Compila correttamente i seguenti campi: ${invalidFields.join(', ')}`
+    responseMessage.value = `${t('home.subscribe.invalid.errorText')}: ${invalidFields.join(', ')}`
     responseIsError.value = true
     return
   }

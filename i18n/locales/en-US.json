@@ -20,6 +20,22 @@
       "p7": "Lecce is a city known throughout the world for the architectural richness of its Baroque and for a refined cuisine that makes the most of its territory, with a wide variety of legumes, vegetables, and grains.",
       "p8": "The warmth of its stone envelops you, its light and colors accompany you along the alleys of the Old Town, like the scents of custard or tomato sauce cooked for hours."
 
+    },
+    "subscribe": {
+      "title": "Stay updated on Tastings, Events, and Offers",
+      "name": "Name and Surname",
+      "phone": "phone",
+      "privacy": "I consent to the processing of my personal data for marketing purposes and newsletter distribution, as described in the Privacy Policy, and I acknowledge the privacy notice pursuant to Regulation (EU) 2016/679 (GDPR).",
+      "send": "send",
+      "invalid": {
+        "privacy": "consent to the privacy policy",
+        "required": "This field is required.",
+        "minLength": "Minimum 2 characters.",
+        "maxLength": "Maximum 100 characters.",
+        "onlyLetter": "Only letters and spaces are allowed",
+        "errorText": "Please complete the following fields correctly",
+        "formatEmail": "Invalid email format"
+      }
     }
     },
 

@@ -19,6 +19,22 @@
       "p6": "Lecce è una città unica nel suo genere.",
       "p7": "Lecce è una città conosciuta nel mondo per la ricchezza architettonica del Barocco e per una cucina raffinata che valorizza al meglio il territorio, con un'ampia varietà di legumi, ortaggi, cereali.",
       "p8": "Il calore della sua pietra ti avvolge, la sua luce e i suoi colori ti accompagnano lungo i vicoli del Centro Storico, come i profumi di crema pasticcera o di sugo al pomodoro cotto per ore."
+    },
+    "subscribe": {
+      "title": "Resta aggiornato su Degustazioni, Eventi e Offerte",
+      "name": "Nome e Cognome",
+      "phone": "Telefono",
+      "privacy": "Acconsento al trattamento dei miei dati personali per finalità di marketing e invio di newsletter, come descritto nella Privacy Policy, e prendo atto dell'informativa sulla privacy ai sensi del Regolamento (UE) 2016/679 (GDPR).",
+      "send": "Invia",
+      "invalid": {
+        "privacy": "Consenso alla privacy",
+        "required": "Campo obbligatorio.",
+        "minLength": "Minimo 2 caratteri.",
+        "maxLength": "Massimo 100 caratteri.",
+        "onlyLetter":"Sono permesse solo lettere e spazi",
+        "errorText": "Compila correttamente i seguenti campi",
+        "formatEmail": "Formato Email non valido"
+      }
     }
   },
 
