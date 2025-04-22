@@ -19,7 +19,7 @@ const query = groq`*[_type == 'activitiesExternal'] | order(sortingOrder asc)
 const { data: activitiesExternal } =
   await useSanityQuery<Array<ActivityExternal>>(query)
 
-  console.log(activitiesExternal)
+  // console.log(activitiesExternal)
 </script>
 
 <template>

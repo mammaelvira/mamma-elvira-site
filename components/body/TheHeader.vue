@@ -1,27 +1,6 @@
 <script setup lang="ts">
-const body = ref()
 const localePath = useLocalePath()
-// const { isFullscreen, toggle: toggleFullScreen } = useFullscreen(body)
 
-function controlWindowWidth() {
-    if (typeof window != 'undefined') {
-      const windowWidth = ref(window.innerWidth)
-      window.addEventListener('resize', () => {
-        windowWidth.value = window.innerWidth
-      })
-      return windowWidth.value
-    }
-}
-
-function controlPath() {
-  if (typeof window != 'undefined') {
-    const path = ref(window.location.pathname)
-    window.addEventListener('popstate', () => {
-      path.value = window.location.pathname
-    })
-    return path.value
-  }
-}
 
 </script>
 
@@ -32,15 +11,15 @@ function controlPath() {
     <ul class="flex justify-between items-start gap-8">
 
       <li>
-        <NuxtLink v-if="controlWindowWidth() >= 768" :to="localePath('/')" id="home-link" class="font-logo" >
+        <NuxtLink :to="localePath('/')" id="home-link" class="font-logo hidden md:block" >
           <img
             src="~/assets/graphics/logo/mammaelvira_logo_2024.svg"
             alt="Logo Mamma Elvira"
             class="h-12"
-          />
+          /> 
         </NuxtLink>
 
-        <BodyLanguageSwitcher :onclick="controlPath()" v-if="controlWindowWidth() < 768" />
+        <BodyLanguageSwitcher class="block md:hidden" />
       </li>
 
       <li class="flex gap-6">
@@ -70,7 +49,7 @@ function controlPath() {
                 </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="https://drinkpuglia.com" class="hover:underline relative">
+              <NuxtLink to="https://drinkpuglia.com" target="_blank" :external="true" class="hover:underline relative">
                 Drink Puglia
                 <span class="absolute -right-5 -top-2 bg-me-laterizio text-me-stone text-xs px-1 rotate-12">
                   new
@@ -88,31 +67,17 @@ function controlPath() {
                 $t('contacts.nav')
               }}</NuxtLink>
             </li>
+
           </ul>
         </nav>
       </li>
 
       
       <li class="flex gap-6 items-start">
-        <BodyLanguageSwitcher :onclick="controlPath()" v-if="controlWindowWidth() > 768" />
-        <!-- <button
-          type="button"
-          :aria-label="
-            isFullscreen ? 'exit fullscreen mode' : 'enter fullscreen mode'
-          "
-          :title="
-            isFullscreen ? 'exit fullscreen mode' : 'enter fullscreen mode'
-          "
-          @click="toggleFullScreen"
-          :class="
-            isFullscreen
-              ? 'i-radix-icons-exit-full-screen'
-              : 'i-radix-icons-enter-full-screen'
-          "
-          class="hidden lg:flex"
-        >
-          {{ isFullscreen ? 'exit fullscreen' : 'enter fullscreen' }}
-        </button> -->
+        <div  class="hidden md:block">
+          <BodyLanguageSwitcher />
+        </div>
+       
         <BodyMenuModal class="lg:hidden -mt-3" />
       </li>
     </ul>

@@ -20,6 +20,9 @@ export default defineNuxtConfig({
 
     // https://nuxtseo.com/nuxt-seo/
     '@nuxtjs/seo',
+
+    // create robots.txt
+    '@nuxtjs/robots',
   ],
 
   css: [
@@ -52,18 +55,21 @@ export default defineNuxtConfig({
     locales: [
       {
         code: 'it',
-        iso: 'it-IT',
+        language: 'it-IT',
         name: 'italiano',
         file: 'it-IT.json',
         isCatchallLocale: true, // This one will be used as catchall locale
       },
-      { code: 'en', iso: 'en-US', name: 'english', file: 'en-US.json' },
+      { code: 'en', language: 'en-US', name: 'english', file: 'en-US.json' },
     ],
     // https://v8.i18n.nuxtjs.org/guide/browser-language-detection
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
       redirectOn: 'root', // recommended
+    },
+    bundle: {
+      optimizeTranslationDirective: false
     }
   },
 
@@ -132,6 +138,7 @@ export default defineNuxtConfig({
     name: 'Mamma Elvira',
     description: 'Esperienze del Territorio, a Lecce dal 2011',
   },
+
   schemaOrg: { enabled: true },
 
   htmlValidator: {
@@ -146,10 +153,14 @@ export default defineNuxtConfig({
     },
   },
 
-  devtools: {
-    enabled: true,
-  },
   // experimental: {
   //   headNext: true, // capo.js <head> tag sorted for better performance
   // },
+  // devServer: {
+  //   https: true, // Questo abilita HTTPS per il server di sviluppo
+  //   port: 3000,  // Porta su cui Nuxt dovrà avviarsi
+  //   host: 'localhost', // Indirizzo di sviluppo
+  // },
+
+  compatibilityDate: '2025-04-18',
 })

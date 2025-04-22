@@ -1,14 +1,14 @@
 <script setup lang="ts">
-
+import IubendaComponent from '~/components/body/IubendaComponent.vue';
 const localePath = useLocalePath()
 
 </script>
 
 <template>
-  <footer class="p-8">
+  <footer class="p-8 relative h-170 ">
     <BodyStripesHorizonal />
 
-    <nav class="link-container font-title">
+    <nav class="link-container font-title pt-5">
       <div>
         <div class="i-game-icons-wine-bottle text-me-red"></div>
         <NuxtLink :to="localePath('/enoteca')">Mamma Elvira Enoteca</NuxtLink>
@@ -81,14 +81,19 @@ const localePath = useLocalePath()
       <p>
         {{ $t('privacy.description') }}
         <a
-          href="https://www.rna.gov.it/RegistroNazionaleTrasparenza/faces/pages/TrasparenzaAiuto.jspx"
-          target="_blank"
-          class="underline text-me-mint">
-          {{ $t('privacy.link') }}
-          </a
+        href="https://www.rna.gov.it/RegistroNazionaleTrasparenza/faces/pages/TrasparenzaAiuto.jspx"
+        target="_blank"
+        class="underline text-me-mint">
+        {{ $t('privacy.link') }}
+        </a
         >
       </p>
     </section>
+    <section class="mt-5">
+        <IubendaComponent></IubendaComponent>
+    </section>
+    <BodySubscribeForm />
+    
   </footer>
 </template>
 

@@ -85,7 +85,7 @@ const percentageOfScreenHeigthScrolled = computed(
             <br />
             {{ $t('aboutUs.hero.h2') }}
           </p>
-          <p class="md:pr-4 lg-:pr-8 lg:pt-16">
+          <p class="md:pr-4 lg:pr-8 lg:pt-16">
             {{ $t('aboutUs.hero.h3') }}
           </p>
         </div>

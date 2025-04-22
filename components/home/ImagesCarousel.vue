@@ -5,7 +5,8 @@ const { data: images } = useSanityQuery(query)
 
 <template>
   <div class="slides-track" ref="slidesTrack">
-    <ul class="slides" v-for="slideIndex in 2" :class="`section-${slideIndex}`">
+    <ul class="slides" v-for="slideIndex in 2">
+      <!-- :class="`section-${slideIndex}`" -->
       <li
         class="slide"
         :key="`${image?._key}-${slideIndex}`"
@@ -55,8 +56,6 @@ const { data: images } = useSanityQuery(query)
     will-change: transform;
   }
 
-  .slides-container:has(.slides:hover) {
-  }
 }
 
 @keyframes slideLeft {

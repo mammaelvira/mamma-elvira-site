@@ -9,25 +9,34 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@iconify-json/emojione-v1": "^1.1.10",
-    "@iconify-json/game-icons": "^1.1.7",
-    "@iconify-json/ph": "^1.1.10",
-    "@iconify-json/radix-icons": "^1.1.14",
-    "@nuxtjs/html-validator": "^1.6.0",
-    "@nuxtjs/i18n": "^8.3.1",
-    "@nuxtjs/seo": "2.0.0-rc.5",
-    "@types/node": "^20.11.5",
+    "@iconify-json/emojione-v1": "^1.2.1",
+    "@iconify-json/game-icons": "^1.2.1",
+    "@iconify-json/ph": "^1.2.2",
+    "@iconify-json/radix-icons": "^1.2.2",
+    "@nuxtjs/html-validator": "^1.8.2",
+    "@nuxtjs/i18n": "^9.3.0",
+    "@nuxtjs/seo": "^3.0.3",
+    "@types/node": "^20.17.30",
     "@unocss/nuxt": "0.58.3",
-    "@vueuse/core": "^10.7.2",
-    "@vueuse/nuxt": "^10.7.2",
-    "nuxt": "^3.9.3",
-    "nuxt-typed-router": "^3.5.1",
-    "vue": "^3.4.15",
-    "vue-router": "^4.2.5"
+    "@vueuse/core": "^10.11.1",
+    "@vueuse/nuxt": "^10.11.1",
+    "nuxt": "^3.16.2",
+    "nuxt-typed-router": "^3.8.0",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "dependencies": {
-    "@nuxtjs/sanity": "^1.8.3",
-    "@sanity/client": "^6.11.1",
-    "pnpm": "^9.0.6"
+    "@nuxtjs/robots": "^5.2.10",
+    "@nuxtjs/sanity": "^1.13.3",
+    "@sanity/client": "^6.29.0",
+    "@unhead/ssr": "^2.0.8",
+    "@unhead/vue": "^2.0.8",
+    "@vuelidate/core": "^2.0.3",
+    "@vuelidate/validators": "^2.0.4",
+    "intl-tel-input": "^25.3.1",
+    "pnpm": "^9.15.9",
+    "unenv": "^1.10.0",
+    "unhead": "^2.0.8",
+    "unstorage": "^1.15.0"
   }
 }
