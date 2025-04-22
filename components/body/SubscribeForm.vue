@@ -1,7 +1,7 @@
 <template>
   <section class="md:absolute top-25 right-20 mt-10 md:mt-0">
     <form @submit.prevent="submitForm" aria-labelledby="newsletter-form" class="contact-form md:w-120 w-75 md:text-xl border border-black md:p-5 rounded">
-      <h2 id="newsletter-form" class="text-me-red font-bold text-xl head-form">Restiamo in contatto</h2>
+      <h2 id="newsletter-form" class="text-me-red font-bold text-xl head-form">Resta aggiornato su Degustazioni, Eventi e offerte</h2>
       
       <div>
         <label for="user">Nome e Cognome:</label><br />
@@ -33,7 +33,7 @@
       
       <div>
         <label for="phone">Telefono:</label><br />
-        <div class="flex w-100">
+        <div class="flex md:w-100">
           <input 
             id="phone-prefix"
             v-model="form.phonePrefix"
@@ -53,7 +53,7 @@
             v-model="form.phone"
             @blur="v$.form.phone.$touch()"
             autocomplete="tel-national"
-            class="md:w-100 h-8 rounded-right ps-2 w-65 border border-right"
+            class="h-8 rounded-right ps-2 border border-right md:w-100"
           />
         </div>
         <p v-if="v$.form.phone.$error && form.phone" class="text-red-500 text-sm">
@@ -71,7 +71,7 @@
           class="h-8"
           id="consent"
         />
-        <label for="consent" class="md:w-80">
+        <label for="consent" class="md:w-80 leading-tight pt-2">
           Acconsento al trattamento dei miei dati personali per le finalità di marketing e invio newsletter, come descritto nella 
           <a class="text-me-mint">Privacy Policy</a>, e prendo atto dell'informativa sulla privacy, ai sensi del Regolamento (UE) 2016/679 (GDPR).
         </label>
@@ -82,9 +82,18 @@
 
       
       <div>
-        <input type="submit" value="Invia" class="bg-me-red rounded w-65 md:w-100 h-8 text-me-stone font-bold text-xl" />
+        <input 
+          type="submit" 
+          value="Invia" 
+          class="bg-me-red rounded w-65 md:w-100 h-8 text-me-stone font-bold text-xl cursor-pointer 
+                transition-transform duration-200 transform active:scale-95"
+        />
       </div>
-      <p v-if="responseMessage" role="alert" class="text-me-red font-bold">{{ responseMessage }}</p>
+      <div v-if="responseMessage" class="mt-4 text-start w-100">
+        <strong :class="responseIsError ? 'text-red-500' : 'text-green-600'">
+          {{ responseMessage }}
+        </strong>
+      </div>
     </form>
 
   </section>
@@ -104,7 +113,6 @@ const form = ref({
   consent: false
 })
 
-
 const rules = {
   form: {
     user: {
@@ -121,7 +129,6 @@ const rules = {
       email
     },
     phone: {
-      // opzionale, ma se compilato, deve avere solo cifre/spazi/simboli validi
       validPhone: helpers.withMessage(
         'Numero non valido',
         value => !value || /^[\d\s()+-]+$/.test(value)
@@ -136,12 +143,25 @@ const rules = {
 const v$ = useVuelidate(rules, { form })
 
 const responseMessage = ref('')
+const responseIsError = ref(false)
+
+let invalidFields = []
 
 const submitForm = async () => {
-
   v$.value.$touch()
-  if (v$.value.$invalid) {
-    responseMessage.value = 'Compila correttamente tutti i campi obbligatori.'
+
+  invalidFields = [
+    { field: 'user', label: 'Nome e Cognome' },
+    { field: 'email', label: 'Email' },
+    { field: 'phone', label: 'Telefono' },
+    { field: 'consent', label: 'Consenso alla privacy' }
+  ]
+  .filter(field => v$.value.form[field.field].$invalid || (field.field === 'consent' && !form.value.consent))
+  .map(field => field.label)
+
+  if (invalidFields.length > 0) {
+    responseMessage.value = `Compila correttamente i seguenti campi: ${invalidFields.join(', ')}`
+    responseIsError.value = true
     return
   }
 
@@ -160,14 +180,18 @@ const submitForm = async () => {
     })
     const data = await response.text()
     responseMessage.value = data
-    form.value = { user: '', email: '', phone: '', consent: false }
+    responseIsError.value = false
+
+    form.value = { user: '', email: '', phone: '', phonePrefix: '', consent: false }
     v$.value.$reset()
   } catch (error) {
     console.error('Error:', error)
     responseMessage.value = 'Si è verificato un errore durante l’invio.'
+    responseIsError.value = true
   }
 }
 </script>
+
 
 <style scoped>
 /* Vuota per ora */
@@ -193,5 +217,9 @@ const submitForm = async () => {
   font-size: 15px;
   padding: 5px 20px;
   align-self: flex-start;
+}
+
+.text-error{
+  width: 90%;
 }
 </style>

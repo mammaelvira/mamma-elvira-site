@@ -5,7 +5,7 @@ const localePath = useLocalePath()
 </script>
 
 <template>
-  <footer class="p-8 relative h-170 ">
+  <footer class="p-8 relative min-h-[175px] ">
     <BodyStripesHorizonal />
 
     <nav class="link-container font-title pt-5">
@@ -92,7 +92,9 @@ const localePath = useLocalePath()
     <section class="mt-5">
         <IubendaComponent></IubendaComponent>
     </section>
-    <BodySubscribeForm />
+    <section class="mb-50">
+      <BodySubscribeForm/>
+    </section>
     
   </footer>
 </template>
