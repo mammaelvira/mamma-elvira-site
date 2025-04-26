@@ -27,10 +27,6 @@ const localePath = useLocalePath()
           </NuxtLink>
       </div>
       <div>
-        <div class="i-custom:corte-dei-pandolfi text-me-yellow"></div>
-        <NuxtLink :to="localePath('/corte-dei-pandolfi')">Corte dei Pandolfi</NuxtLink>
-      </div>
-      <div>
         <div class="i-game-icons-bed text-me-lapis"></div>
         <NuxtLink :to="localePath('/casa')">Casa Mamma Elvira</NuxtLink>
       </div>

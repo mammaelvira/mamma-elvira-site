@@ -339,7 +339,7 @@
       </g>
     </a>
 
-    <a href="#corte-dei-pandolfi" class="activity-pin">
+    <!-- <a href="#corte-dei-pandolfi" class="activity-pin">
       <g id="corte-dei-pandolfi-pin">
         <circle
           id="corte-dei-pandolfi-pin-2"
@@ -356,7 +356,7 @@
           <tspan x="-20.94" y="18">dei Pandolfi</tspan>
         </text>
       </g>
-    </a>
+    </a> -->
 
     <a href="#enoteca" class="activity-pin">
       <g id="mamma-elvira-enoteca-pin">

@@ -61,12 +61,6 @@ const modalToggle = () => (menuModalOpen.value = !menuModalOpen.value)
             <NuxtLink :to="localePath('/scante')" @click="modalToggle">'Scante</NuxtLink>
           </li>
           <li>
-            <div class="bg-me-yellow"></div>
-            <NuxtLink :to="localePath('/corte-dei-pandolfi')" @click="modalToggle"
-              >Corte dei Pandolfi</NuxtLink
-            >
-          </li>
-          <li>
             <div class="bg-me-lavender"></div>
             <NuxtLink :to="localePath('/picnic-experience')" @click="modalToggle"
               >Picnic Experience Lecce</NuxtLink

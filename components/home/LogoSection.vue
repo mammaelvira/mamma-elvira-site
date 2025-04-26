@@ -32,10 +32,6 @@ const localePath = useLocalePath()
         >
     
         <NuxtLink :to="localePath('/casa')"><span class="text-me-lapis">casa</span></NuxtLink>
-    
-        <NuxtLink :to="localePath('/corte-dei-pandolfi')">
-          <span class="text-me-yellow">corte</span></NuxtLink
-          >
 
           <NuxtLink :to="localePath('/enoteca')">
             <span class="text-me-red">enoteca</span></NuxtLink

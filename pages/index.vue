@@ -51,10 +51,6 @@ useSeoMeta({
           <NuxtLink :to="localePath('la-cucina')" class="underline text-me-olive">
             Cucina</NuxtLink
           >
-          {{ $t('home.welcome.p2') }}
-          <NuxtLink :to="localePath('/corte-dei-pandolfi')" class="underline text-me-peach">
-            Corte
-          </NuxtLink>
           {{ $t('home.welcome.p3') }}
           <NuxtLink :to="localePath('/casa')" class="underline text-me-lapis">
              Casa
@@ -80,9 +76,6 @@ useSeoMeta({
           <NuxtLink to="/la-cucina" class="underline text-me-olive">
             Cucina</NuxtLink
           >, alla
-          <NuxtLink to="/corte-dei-pandolfi" class="underline text-me-peach">
-            Corte</NuxtLink
-          >
           passando dalla
           <NuxtLink to="/casa" class="underline text-me-lapis"> Casa</NuxtLink>
           fino ai nostri speciali eventi
