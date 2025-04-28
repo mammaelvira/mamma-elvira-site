@@ -57,8 +57,7 @@ const { data: activitiesExternal } =
       >
         <div
           class="activity-card-shape"
-          :style="`background-color: ${activity.colorValue.hex};`"
-        >
+          :style="`background-color: ${activity.colorValue.hex};`">
         
         <SanityImage
           :key="activity.logo.asset._id"
@@ -67,8 +66,6 @@ const { data: activitiesExternal } =
           width="640px"
           :alt="`${activity?.name} logo`"
         />
-        
-        
 
         </div>
       </NuxtLink>

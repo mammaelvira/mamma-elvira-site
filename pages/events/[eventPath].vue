@@ -21,7 +21,6 @@ const { data: event } = await useSanityQuery(query, {
   
 })
 
-console.log(data)
 
 // Redirect to events page if event is not found
 watch(event, (newEvent) => {
@@ -103,15 +102,14 @@ useSchemaOrg([
       <h1>Evento:</h1>
       <h2>{{ event?.[0]?.activity?.name }}</h2>
     </div>
-
     <PlacesEventCard
-      :event="event?.[0]"
-      :place="place"
-      :show-activity-label="true"
-      :is-collapsable="false"
-      class="mt-4"
+    :event="event?.[0]"
+    :place="place"
+    :show-activity-label="true"
+    :is-collapsable="false"
+    class="mt-4"
     />
-
+    
     <NuxtLink :to="localePath('/events')" class="call-to-action" :class="`bg-${place?.color}`"
       >Scopri gli altri eventi di Mamma Elvira</NuxtLink
     >
