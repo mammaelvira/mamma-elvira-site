@@ -34,8 +34,8 @@ const place = computed(() =>
   places.find((place) => place.path === event.value?.[0]?.activity?.path),
 )
 
-console.log('PLACE:');
-console.log(place.value);
+// console.log('PLACE:');
+// console.log(place.value);
 
 useSeoMeta({
   // function that returns for reactivity
@@ -77,8 +77,8 @@ useSchemaOrg([
         url?: string
       }[] = []
 
-      console.log('PERFORMERS :');
-      console.log(event?.value?.[0]);
+      // console.log('PERFORMERS :');
+      // console.log(event?.value?.[0]);
       event?.value?.[0]?.performers?.forEach(
         (performer: { name: string; link: string }, index: number) =>
           performersLineUp.push({
