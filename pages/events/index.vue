@@ -74,16 +74,18 @@ const pastEvents = computed(() =>
           }}
         </h3>
         <div class="flex flex-col gap-20 items-center mt-12">
-          <PlacesEventCard
-            v-for="event in futureEvents"
-            :key="event?._id"
-            :event="event"
-            :place="
-              places?.find((place) => place?.path === event?.activity?.path)
-            "
-            :show-activity-label="true"
-            :is-collapsable="true"
-          />
+          <template v-for="event in futureEvents">
+            <PlacesEventCard
+              v-if="event?.activity?.path"
+              :key="event?._id"
+              :event="event"
+              :place="
+                places?.find((place) => place?.path === event?.activity?.path)
+              "
+              :show-activity-label="true"
+              :is-collapsable="true"
+            />
+          </template>
         </div>
       </section>
 
@@ -99,16 +101,18 @@ const pastEvents = computed(() =>
           v-if="events && events?.length > 0"
           class="flex flex-col gap-20 items-center mt-12"
         >
+        <template v-for="event in pastEvents">
           <LazyPlacesEventCard
-            v-for="event in pastEvents"
+            v-if="event?.activity?.path"
             :key="event?._id"
             :event="event"
             :place="
-              places?.find((place) => place?.path === event?.activity?.path)
-            "
+                places?.find((place) => place?.path === event?.activity?.path)
+                "
             :show-activity-label="true"
             :is-collapsable="true"
-          />
+            />
+          </template>
         </div>
       </section>
     </div>

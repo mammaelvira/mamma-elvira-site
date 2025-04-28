@@ -2,7 +2,6 @@
 import type { PageDetails as PlaceDetails } from '~/composables/usePlaces'
 const localePath = useLocalePath()
 
-
 interface Props {
   event: any
   place: PlaceDetails

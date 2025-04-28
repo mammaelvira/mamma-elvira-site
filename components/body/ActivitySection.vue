@@ -39,7 +39,6 @@ const query = groq`
 const { data: activitiesExternal } =
   await useSanityQuery<Array<ActivityExternal>>(query)
 
-  console.log(activitiesExternal)
 </script>
 
 <template>

@@ -17,8 +17,11 @@ const router = useRouter()
 const query = useQueryEvents({ singleEvent: true })
 
 const { data: event } = await useSanityQuery(query, {
-  eventpath: `/${route.params?.eventpath}`,
+  eventpath: `/${route.params?.eventPath}`,
+  
 })
+
+console.log(data)
 
 // Redirect to events page if event is not found
 watch(event, (newEvent) => {
