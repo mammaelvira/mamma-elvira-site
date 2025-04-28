@@ -1,25 +1,45 @@
 <script setup lang="ts">
-const places = usePlaces()
 const localePath = useLocalePath()
-
 
 interface ActivityExternal {
   _id: string
   name: string
   payoff?: string
   colorValue: { hex: string }
-  logo: { _type: string; asset: { _ref: string; _type: string } }
+  logo: {
+    _type: string; 
+    asset: { 
+      _ref: string; 
+      _type: string;
+      _id: string;
+      url: string; 
+    } 
+  }
   link: string
   path: string
 }
 
-const query = groq`*[_type == 'activitiesExternal'] | order(sortingOrder asc)
+const query = groq`
+  *[_type == "activitiesExternal"]{
+    _id,
+    name,
+    payoff,
+    colorValue,
+    link,
+    path,
+    logo {
+      asset-> {
+        _id,
+        url
+      }
+    }
+  }
 `
 
 const { data: activitiesExternal } =
   await useSanityQuery<Array<ActivityExternal>>(query)
 
-  // console.log(activitiesExternal)
+  console.log(activitiesExternal)
 </script>
 
 <template>
@@ -29,14 +49,68 @@ const { data: activitiesExternal } =
     <nav
       class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 auto-rows-fr"
     >
-      <!-- <NuxtLink
+      
+
+      <NuxtLink
+        v-for="activity in activitiesExternal"
+        :to="localePath(activity.path)"
+        class="activity-card"
+      >
+        <div
+          class="activity-card-shape"
+          :style="`background-color: ${activity.colorValue.hex};`"
+        >
+        
+        <SanityImage
+          :key="activity.logo.asset._id"
+          :asset-id="activity.logo.asset._id"
+          auto="format"
+          width="640px"
+          :alt="`${activity?.name} logo`"
+        />
+        
+        
+
+        </div>
+      </NuxtLink>
+
+    </nav>
+  </section>
+</template>
+
+<style scoped>
+.activity-card:hover :deep(div) {
+  @apply shadow-inner;
+}
+.activity-card :deep(div) {
+  @apply shadow-md;
+}
+.activity-card:hover :deep(div) img {
+  @apply scale-[1.06]
+    ease-in-out duration-400
+    filter-drop-shadow;
+}
+
+.activity-card-shape {
+  @apply h-full 
+    flex items-center justify-center
+    p-5 sm:p-10 md:p-15 lg:p-10 xl:p-12;
+}
+</style>
+
+
+<!-- <NuxtLink
         :to="place.path"
         v-for="place in places"
         :key="place?.path?.replace('/', '')"
         :aria-label="place?.name"
         class="activity-card"
       >
-        <div class="activity-card-shape" :class="`bg-${place?.color}`">
+      {{ 
+      console.log(('place')),
+      console.log(place) 
+      }}
+        <div v-if="place" class="activity-card-shape" :class="`bg-${place?.color}`">
           <img
             :src="`graphics/${place?.path
               ?.toLowerCase()
@@ -49,25 +123,26 @@ const { data: activitiesExternal } =
       </NuxtLink> -->
       <!-- Developed by BeeBest replaced with card injection by Sanity -->
 
-      <NuxtLink
+
+       <!-- <NuxtLink
         v-for="activity in activitiesExternal"
-        :to="localePath(activity?.path || activity?.link)"
+        :to="localePath(activity.path)"
         class="activity-card"
       >
         <div
-          class="activity-card-shape"
-          :style="`background-color: ${activity.colorValue.hex};`"
-        >
-          <SanityImage
-            :asset-id="activity?.logo?.asset?._ref"
-            auto="format"
-            maxW="640px"
-            fit="clip"
-            class=""
-            :alt="`${activity?.name} logo`"
-          />
+        class="activity-card-shape"
+        :style="`background-color: ${activity.colorValue.hex};`">
+          
+        <SanityImage 
+        :asset-id="activity.logo.asset._ref" 
+        auto="format" 
+        maxW="640px" 
+        fit="clip" 
+        :alt="`${activity?.name} logo`" />
+
+
         </div>
-      </NuxtLink>
+      </NuxtLink> -->
 
       <!-- 
         <a
@@ -94,26 +169,3 @@ const { data: activitiesExternal } =
           </div>
           <div :id="place.path?.substring(1)" class="absolute -top-32"></div>
         </div> -->
-    </nav>
-  </section>
-</template>
-
-<style scoped>
-.activity-card:hover :deep(div) {
-  @apply shadow-inner;
-}
-.activity-card :deep(div) {
-  @apply shadow-md;
-}
-.activity-card:hover :deep(div) img {
-  @apply scale-[1.06]
-    ease-in-out duration-400
-    filter-drop-shadow;
-}
-
-.activity-card-shape {
-  @apply h-full 
-    flex items-center justify-center
-    p-5 sm:p-10 md:p-15 lg:p-10 xl:p-12;
-}
-</style>
