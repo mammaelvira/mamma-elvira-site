@@ -53,7 +53,7 @@
 
           <input
             type="tel"
-            placeholder="3407469288"
+            placeholder="3401234567"
             title="Inserisci un numero con prefisso, es: +39 327 1234567"
             id="phone"
             v-model="form.phone"
